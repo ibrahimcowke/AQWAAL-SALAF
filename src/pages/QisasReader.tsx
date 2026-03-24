@@ -5,7 +5,9 @@ import { useContentStore } from '../stores/contentStore';
 import { useAuthStore } from '../stores/authStore';
 import { useAudioStore } from '../stores/audioStore';
 import { useThemeStore } from '../stores/themeStore';
+import { useProgressStore } from '../stores/progressStore';
 import { useEffect } from 'react';
+import { CheckCircle2, Circle } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function QisasReader() {
@@ -15,6 +17,7 @@ export default function QisasReader() {
   const { isFavoriteQissa, addFavoriteQissa, removeFavoriteQissa, saveReadingProgress } = useAuthStore();
   const { speak } = useAudioStore();
   const { fontSize, setFontSize, readingMode, toggleReadingMode } = useThemeStore();
+  const { isRead, markAsRead, unmarkAsRead } = useProgressStore();
   
   const qissa = qisas.find((q) => q.id === id);
   const scholar = qissa?.scholar_id ? getScholarById(qissa.scholar_id) : null;
@@ -190,6 +193,20 @@ export default function QisasReader() {
           style={{ color: 'var(--color-primary)', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' }}
         >
           <Share2 size={24} />
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => isRead(qissa.id) ? unmarkAsRead(qissa.id) : markAsRead(qissa.id)}
+          className="w-12 h-12 rounded-full glass-modal flex items-center justify-center"
+          style={{ 
+            color: isRead(qissa.id) ? '#10b981' : 'var(--color-primary)', 
+            boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+            border: isRead(qissa.id) ? '2px solid #10b981' : 'none'
+          }}
+          title={isRead(qissa.id) ? 'إلغاء القراءة' : 'تمت القراءة'}
+        >
+          {isRead(qissa.id) ? <CheckCircle2 size={24} /> : <Circle size={24} />}
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.1 }}

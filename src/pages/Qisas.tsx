@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Clock, BookOpen, ChevronLeft, Sparkles } from 'lucide-react';
+import { Clock, BookOpen, ChevronLeft, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
+import { useProgressStore } from '../stores/progressStore';
 import { TagBadge } from '../components/ui/Badge';
 
 export default function Qisas() {
   const { qisas, activeTag, setActiveTag } = useContentStore();
+  const { isRead } = useProgressStore();
 
   const filtered = activeTag ? qisas.filter((q) => q.tags.includes(activeTag)) : qisas;
 
@@ -53,9 +55,17 @@ export default function Qisas() {
                   >
                     {qissa.scholar_id ? <BookOpen size={20} /> : <Sparkles size={20} />}
                   </div>
-                  <div className="flex items-center gap-2 text-[10px] arabic-text" style={{ color: 'var(--color-text-muted)' }}>
-                    <Clock size={12} />
-                    {qissa.reading_time} دقائق قراءة
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 text-[10px] arabic-text" style={{ color: 'var(--color-text-muted)' }}>
+                      <Clock size={12} />
+                      {qissa.reading_time} دقائق قراءة
+                    </div>
+                    {isRead(qissa.id) && (
+                      <div className="flex items-center gap-1 text-[10px] arabic-text text-emerald-600 font-bold">
+                        <CheckCircle2 size={12} />
+                        تمت القراءة
+                      </div>
+                    )}
                   </div>
                 </div>
 

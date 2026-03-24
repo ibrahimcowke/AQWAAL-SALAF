@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search as SearchIcon, X, BookOpen, MessageSquareQuote, Users, ChevronLeft } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
+import { useProgressStore } from '../stores/progressStore';
 import { Link } from 'react-router-dom';
 import QawlCard from '../components/ui/QawlCard';
+import { History as HistoryIcon, Search as SearchIcon, X, BookOpen, MessageSquareQuote, Users, ChevronLeft } from 'lucide-react';
 
 type TabType = 'aqwaal' | 'qisas' | 'scholars';
 
@@ -15,6 +16,8 @@ export default function Search() {
     getFilteredQisas,
     scholars 
   } = useContentStore();
+  
+  const { searchHistory, addSearchQuery, clearSearchHistory } = useProgressStore();
   
   const [activeTab, setActiveTab] = useState<TabType>('aqwaal');
 
@@ -62,6 +65,9 @@ export default function Search() {
               color: 'var(--color-text)', 
               border: '1px solid var(--color-card-border)',
               fontSize: '1rem'
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') addSearchQuery(searchQuery);
             }}
             autoFocus
           />
@@ -173,21 +179,46 @@ export default function Search() {
         )}
       </div>
 
-      {/* Recommended Keywords */}
+      {/* Recent & Recommended */}
       {!searchQuery && (
-        <div className="mt-4">
-            <h3 className="arabic-text text-xs mb-3 font-bold opacity-50">مواضيع مقترحة:</h3>
-            <div className="flex flex-wrap gap-2">
-                {['صبر', 'تقوى', 'زهد', 'علم', 'إخلاص', 'توبة', 'عمل صالح'].map(key => (
+        <div className="space-y-6">
+            {searchHistory.length > 0 && (
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="arabic-text text-xs font-bold opacity-50 flex items-center gap-2">
+                    <HistoryIcon size={14} />
+                    عمليات البحث الأخيرة:
+                  </h3>
+                  <button onClick={clearSearchHistory} className="arabic-text text-[10px] text-red-500 opacity-50 hover:opacity-100">مسح الكل</button>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {searchHistory.map(q => (
                     <button 
-                      key={key} 
-                      onClick={() => setSearchQuery(key)}
-                      className="px-3 py-1.5 rounded-xl text-xs arabic-text"
-                      style={{ background: 'var(--color-bg-alt)', color: 'var(--color-text-muted)' }}
+                      key={q} 
+                      onClick={() => setSearchQuery(q)}
+                      className="px-4 py-2 rounded-xl text-xs arabic-text border border-[var(--color-card-border)] bg-[var(--color-bg-alt)]/30 hover:bg-[var(--color-bg-alt)] transition-colors"
                     >
-                      #{key}
+                      {q}
                     </button>
-                ))}
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+                <h3 className="arabic-text text-xs mb-3 font-bold opacity-50">مواضيع مقترحة:</h3>
+                <div className="flex flex-wrap gap-2">
+                    {['صبر', 'تقوى', 'زهد', 'علم', 'إخلاص', 'توبة', 'عمل صالح'].map(key => (
+                        <button 
+                          key={key} 
+                          onClick={() => { setSearchQuery(key); addSearchQuery(key); }}
+                          className="px-3 py-1.5 rounded-xl text-xs arabic-text"
+                          style={{ background: 'var(--color-bg-alt)', color: 'var(--color-text-muted)' }}
+                        >
+                          #{key}
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
       )}

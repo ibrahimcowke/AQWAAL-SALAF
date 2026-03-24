@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Scheherazade+New:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Scheherazade+New:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@200;300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -52,6 +52,70 @@
   --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
 }
 
+.midnight {
+  --color-primary: #3B82F6;
+  --color-primary-light: #60A5FA;
+  --color-gold: #FACC15;
+  --color-gold-light: #FDE047;
+  --color-bg: #030712;
+  --color-bg-alt: #111827;
+  --color-card: #111827;
+  --color-card-border: rgba(59, 130, 246, 0.2);
+  --color-text: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+  --color-shadow-light: #1f2937;
+  --color-shadow-dark: #000000;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+}
+
+.emerald {
+  --color-primary: #065F46;
+  --color-primary-light: #059669;
+  --color-gold: #D97706;
+  --color-gold-light: #F59E0B;
+  --color-bg: #064E3B;
+  --color-bg-alt: #065F46;
+  --color-card: #064E3B;
+  --color-card-border: rgba(217, 119, 6, 0.2);
+  --color-text: #ECFDF5;
+  --color-text-muted: #6EE7B7;
+  --color-shadow-light: #065F46;
+  --color-shadow-dark: #022C22;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+}
+
+.sand {
+  --color-primary: #92400E;
+  --color-primary-light: #B45309;
+  --color-gold: #D97706;
+  --color-gold-light: #F59E0B;
+  --color-bg: #FEF3C7;
+  --color-bg-alt: #FDE68A;
+  --color-card: #FFFBEB;
+  --color-card-border: rgba(146, 64, 14, 0.1);
+  --color-text: #451A03;
+  --color-text-muted: #92400E;
+  --color-shadow-light: #fffcf0;
+  --color-shadow-dark: #f0e2b9;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+}
+
+.royal {
+  --color-primary: #581C87;
+  --color-primary-light: #7E22CE;
+  --color-gold: #EAB308;
+  --color-gold-light: #FACC15;
+  --color-bg: #2E1065;
+  --color-bg-alt: #4C1D95;
+  --color-card: #2E1065;
+  --color-card-border: rgba(234, 179, 8, 0.2);
+  --color-text: #F5F3FF;
+  --color-text-muted: #DDD6FE;
+  --color-shadow-light: #4C1D95;
+  --color-shadow-dark: #1E1B4B;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+}
+
 /* ═══════════════════════════════════════════
    BASE STYLES — RTL FIRST
 ═══════════════════════════════════════════ */
@@ -69,11 +133,17 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: '"Amiri"', '"Scheherazade New"', serif;
+  font-family: var(--font-primary, '"Amiri"', '"Scheherazade New"', serif);
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+.font-amiri { font-family: 'Amiri', serif !important; }
+.font-scheherazade { font-family: 'Scheherazade New', serif !important; }
+.font-tajawal { font-family: 'Tajawal', sans-serif !important; }
+.font-cairo { font-family: 'Cairo', sans-serif !important; }
+.font-noto { font-family: 'Noto Naskh Arabic', serif !important; }
 
 /* ═══════════════════════════════════════════
    NEUMORPHISM COMPONENTS
