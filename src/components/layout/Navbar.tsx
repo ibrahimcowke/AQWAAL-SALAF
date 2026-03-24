@@ -34,16 +34,18 @@ export default function Navbar() {
       <div className="flex items-center gap-2">
         <button
           onClick={toggleLanguage}
-          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:bg-white/40 active:scale-90 relative"
+          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:bg-white/20 active:scale-90 relative"
+          style={{ background: 'var(--color-card-border)' }}
           title="Change Language"
         >
-          <Globe size={20} className="text-[var(--color-gold)]" />
-          <span className="text-[8px] absolute -bottom-1 font-bold uppercase">{i18n.language === 'ar' ? 'عربي' : 'EN'}</span>
+          <Globe size={20} style={{ color: 'var(--color-text)' }} />
+          <span className="text-[8px] absolute -bottom-1 font-bold uppercase" style={{ color: 'var(--color-text)' }}>{i18n.language === 'ar' ? 'عربي' : 'EN'}</span>
         </button>
 
         <button
           onClick={() => setMode(mode === 'light' ? 'dark' : mode === 'dark' ? 'paper' : 'light')}
-          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:bg-white/40 active:scale-90"
+          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:bg-white/20 active:scale-90"
+          style={{ background: 'var(--color-card-border)' }}
         >
           <AnimatePresence mode="wait">
             <motion.div

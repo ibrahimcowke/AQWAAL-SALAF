@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import toast from 'react-hot-toast';
 
 interface AudioState {
   isPlaying: boolean;
@@ -21,23 +22,51 @@ export const useAudioStore = create<AudioState>()((set, get) => ({
   playbackRate: 0.85,
   utterance: null,
   speak: (text, title = '') => {
-    window.speechSynthesis.cancel();
-    const { playbackRate } = get();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'ar-SA';
-    utter.rate = playbackRate;
-    utter.pitch = 1;
-    
-    // Advanced Voice Selection
-    const voices = window.speechSynthesis.getVoices();
-    const arVoices = voices.filter((v) => v.lang.startsWith('ar'));
-    // Prioritize natural sounding voices if available
-    const bestVoice = arVoices.find(v => v.name.includes('Natural')) || arVoices[0];
-    if (bestVoice) utter.voice = bestVoice;
+    if (!window.speechSynthesis) {
+      toast.error('المتصفح لا يدعم خاصية القراءة الصوتية');
+      return;
+    }
 
-    utter.onend = () => set({ isPlaying: false, isPaused: false, utterance: null });
-    window.speechSynthesis.speak(utter);
-    set({ isPlaying: true, isPaused: false, currentText: text, currentTitle: title, utterance: utter });
+    window.speechSynthesis.cancel();
+    
+    const startSpeaking = () => {
+      const { playbackRate } = get();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'ar-SA';
+      utter.rate = playbackRate;
+      utter.pitch = 1;
+      
+      const voices = window.speechSynthesis.getVoices();
+      const arVoices = voices.filter((v) => v.lang.startsWith('ar'));
+      
+      if (arVoices.length === 0 && voices.length > 0) {
+        // Fallback if no specific Arabic voice but system has voices
+        console.warn('No Arabic voice found, using default');
+      } else {
+        const bestVoice = arVoices.find(v => v.name.includes('Natural')) || arVoices[0];
+        if (bestVoice) utter.voice = bestVoice;
+      }
+
+      utter.onstart = () => set({ isPlaying: true, isPaused: false });
+      utter.onend = () => set({ isPlaying: false, isPaused: false, utterance: null });
+      utter.onerror = (err) => {
+        console.error('TTS Error:', err);
+        set({ isPlaying: false, isPaused: false, utterance: null });
+      };
+
+      window.speechSynthesis.speak(utter);
+      set({ currentText: text, currentTitle: title, utterance: utter });
+    };
+
+    // Handle async voice loading
+    if (window.speechSynthesis.getVoices().length === 0) {
+      window.speechSynthesis.onvoiceschanged = () => {
+        startSpeaking();
+        window.speechSynthesis.onvoiceschanged = null; // Clean up
+      };
+    } else {
+      startSpeaking();
+    }
   },
   stop: () => {
     window.speechSynthesis.cancel();

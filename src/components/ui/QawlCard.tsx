@@ -138,9 +138,9 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                   }`}
                   style={{ 
                     color: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
-                      ? 'var(--color-primary)' : 'var(--color-text-muted)', 
+                      ? 'var(--color-primary)' : 'var(--color-text)', 
                     background: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
-                      ? 'var(--color-gold)' : 'var(--color-bg-alt)' 
+                      ? 'var(--color-gold)' : 'var(--color-card-border)' 
                   }}
                   title="استمع"
                 >
@@ -149,7 +149,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                 <button
                   onClick={togglePlaybackRate}
                   className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110 arabic-text text-[10px] font-bold"
-                  style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)' }}
+                  style={{ color: 'var(--color-text)', background: 'var(--color-card-border)' }}
                   title="سرعة القراءة"
                 >
                   {playbackRate}x
@@ -157,7 +157,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                 <button
                   onClick={handleShare}
                   className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                  style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)' }}
+                  style={{ color: 'var(--color-text)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
                   title="مشاركة"
                 >
                   <Share2 size={14} />

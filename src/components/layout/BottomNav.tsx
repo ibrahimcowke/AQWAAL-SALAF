@@ -29,7 +29,7 @@ export default function BottomNav() {
             key={item.path}
             to={item.path}
             className={`flex flex-col items-center justify-center gap-1 transition-all ${
-              isActive ? 'text-[var(--color-primary)] scale-110' : 'text-[var(--color-text-muted)] opacity-60'
+              isActive ? 'text-[var(--color-primary)] scale-110' : 'text-[var(--color-text-muted)] opacity-90'
             }`}
           >
             <div
@@ -39,7 +39,7 @@ export default function BottomNav() {
             >
               <item.icon size={isActive ? 20 : 18} />
             </div>
-            <span className={`arabic-text text-[9px] font-bold ${isActive ? 'opacity-100' : 'opacity-70'}`}>
+            <span className={`arabic-text text-[9px] font-bold ${isActive ? 'opacity-100' : 'opacity-90'}`}>
               {item.label}
             </span>
           </Link>
