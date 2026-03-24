@@ -67,9 +67,9 @@ export default function Aqwaal() {
       )}
 
       {/* Cards */}
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         {filtered.length === 0 ? (
-          <div className="text-center py-16 arabic-text" style={{ color: 'var(--color-text-muted)' }}>
+          <div className="col-span-full text-center py-16 arabic-text" style={{ color: 'var(--color-text-muted)' }}>
             لم يُعثر على نتائج
           </div>
         ) : (

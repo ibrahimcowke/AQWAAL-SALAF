@@ -240,11 +240,24 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(200, 169, 106, 0.2);
   box-shadow: 0 -4px 20px rgba(30, 58, 52, 0.08);
+  width: 100%;
 }
 
 .dark .glass-bottom-nav {
   background: rgba(14, 31, 27, 0.92);
   border-top: 1px solid rgba(200, 169, 106, 0.15);
+}
+
+@media (min-width: 768px) {
+  .glass-bottom-nav {
+    max-width: 500px;
+    left: 50% !important;
+    transform: translateX(-50%);
+    border: 1px solid rgba(200, 169, 106, 0.2);
+    border-radius: 999px;
+    bottom: 1.5rem;
+    height: 4.5rem;
+  }
 }
 
 /* ═══════════════════════════════════════════
@@ -420,9 +433,17 @@ body {
    UTILITY OVERRIDES
 ═══════════════════════════════════════════ */
 .page-container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 1rem 1.5rem 6.5rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 8rem;
+  }
 }
 
 .section-title {

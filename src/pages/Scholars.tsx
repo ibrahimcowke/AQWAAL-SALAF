@@ -56,7 +56,7 @@ export default function Scholars() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((scholar, i) => (
           <motion.div
             key={scholar.id}

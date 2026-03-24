@@ -85,7 +85,7 @@ export default function Home() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {categories.map((cat) => (
             <motion.div key={cat.id} variants={item}>
@@ -120,12 +120,12 @@ export default function Home() {
       {/* Quick Links / Tags */}
       <section>
         <h2 className="section-title text-xl mb-6">{t('quick_links')}</h2>
-        <div className="flex flex-wrap gap-2 justify-center">
+        <div className="flex flex-wrap gap-2 md:gap-4 justify-center max-w-4xl mx-auto">
           {['زهد', 'صبر', 'تقوى', 'علم', 'محبة', 'توبة', 'آخرة', 'إخلاص'].map((tag) => (
             <Link
               key={tag}
               to={`/aqwaal?tag=${tag}`}
-              className="neu-btn px-4 py-2 rounded-2xl arabic-text font-bold text-xs hover:scale-105 transition-transform"
+              className="neu-btn px-6 py-3 rounded-2xl arabic-text font-bold text-sm hover:scale-105 transition-transform"
               style={{ color: 'var(--color-text-muted)' }}
             >
               #{tag}

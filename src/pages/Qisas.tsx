@@ -32,7 +32,7 @@ export default function Qisas() {
         </div>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
         {filtered.map((qissa, i) => (
           <motion.div
             key={qissa.id}
