@@ -446,13 +446,13 @@ body {
   }
 }
 
+
 .section-title {
-  font-family: 'Amiri', serif;
+  font-family: var(--font-primary);
+  font-weight: 800;
   color: var(--color-primary);
-  font-weight: 700;
-  font-size: 1.4rem;
-  direction: rtl;
-  text-align: right;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
 .dark .section-title {
