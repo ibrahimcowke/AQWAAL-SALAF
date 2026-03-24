@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Sun, Moon, BookOpen, Scaling, Globe, Shield, Github, Mail, Bell, ChevronLeft, Scroll, Cloud, Leaf, Sunrise, Crown } from 'lucide-react';
+import { Sun, Moon, BookOpen, Scaling, Globe, Shield, Github, Mail, Bell, ChevronLeft, Scroll, Cloud, Leaf, Sunrise, Crown, Volume2 } from 'lucide-react';
+import { useAudioStore } from '../stores/audioStore';
 import { useThemeStore } from '../stores/themeStore';
 import { useProgressStore } from '../stores/progressStore';
 import { useTranslation } from 'react-i18next';
@@ -134,6 +135,29 @@ export default function Settings() {
                   </div>
               </div>
               <input type="time" defaultValue="08:00" className="bg-[var(--color-bg-alt)] border-none rounded-lg p-2 text-xs arabic-text" />
+          </div>
+
+          <div className="neu-card p-5">
+              <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                      <Volume2 size={20} className="text-[var(--color-gold)]" />
+                      <div>
+                          <h3 className="arabic-text font-bold text-sm">اختبار جودة الصوت</h3>
+                          <p className="arabic-text text-[10px] opacity-60">تأكد من عمل ميزة القراءة الصوتية</p>
+                      </div>
+                  </div>
+                  <button 
+                    onClick={() => useAudioStore.getState().testVoice()}
+                    className="px-4 py-2 rounded-xl bg-[var(--color-primary)] text-white arabic-text font-bold text-xs shadow-md active:scale-95 transition-all"
+                  >
+                    بدء الاختبار
+                  </button>
+              </div>
+              <div className="p-3 rounded-lg bg-[var(--color-bg-alt)] border border-dashed border-[var(--color-gold)]/20">
+                  <p className="arabic-text text-[9px] opacity-70 leading-relaxed">
+                      💡 ملاحظة: إذا لم يعمل الصوت، يرجى التأكد من تثبيت حزمة اللغة العربية في إعدادات هاتفك (Settings {'->'} Accessibility {'->'} Text-to-Speech).
+                  </p>
+              </div>
           </div>
         </div>
       </section>

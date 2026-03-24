@@ -12,6 +12,7 @@ interface AudioState {
   stop: () => void;
   togglePause: () => void;
   setPlaybackRate: (rate: number) => void;
+  testVoice: () => void;
 }
 
 export const useAudioStore = create<AudioState>()((set, get) => ({
@@ -103,4 +104,22 @@ export const useAudioStore = create<AudioState>()((set, get) => ({
       set({ utterance: newUtter });
     }
   },
+  testVoice: () => {
+    if (!window.speechSynthesis) {
+      toast.error('Speech Synthesis not supported');
+      return;
+    }
+    const voices = window.speechSynthesis.getVoices();
+    const arVoices = voices.filter(v => v.lang.startsWith('ar'));
+    
+    if (voices.length === 0) {
+      toast.error('No voices found. Try reloading or wait a moment.');
+    } else if (arVoices.length === 0) {
+      toast.error(`Found ${voices.length} voices, but NO Arabic voice found.`);
+      console.log('Voices available:', voices.map(v => `${v.name} (${v.lang})`));
+    } else {
+      toast.success(`Success! Found ${arVoices.length} Arabic voices.`);
+      get().speak('اختبار القراءة الصوتية. هل تسمعني؟', 'اختبار');
+    }
+  }
 }));
