@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { Volume2, Play, Pause, Square, Music, Headphones, BookOpen, Quote } from 'lucide-react';
+import { Play, Pause, Square, Music, Headphones, BookOpen, Quote } from 'lucide-react';
 import { useAudioStore } from '../stores/audioStore';
 import { useContentStore } from '../stores/contentStore';
-import { Link } from 'react-router-dom';
+
 
 export default function AudioLibrary() {
   const { aqwaal, qisas } = useContentStore();

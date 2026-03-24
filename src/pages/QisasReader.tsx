@@ -1,11 +1,11 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { ChevronRight, Share2, Heart, Volume2, BookOpen, Settings, Maximize2, Minimize2 } from 'lucide-react';
+import { ChevronRight, Share2, Heart, Volume2, BookOpen, Maximize2, Minimize2 } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { useAuthStore } from '../stores/authStore';
 import { useAudioStore } from '../stores/audioStore';
 import { useThemeStore } from '../stores/themeStore';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 export default function QisasReader() {

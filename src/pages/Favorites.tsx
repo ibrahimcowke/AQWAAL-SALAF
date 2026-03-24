@@ -8,7 +8,7 @@ import QawlCard from '../components/ui/QawlCard';
 import toast from 'react-hot-toast';
 
 export default function Favorites() {
-  const { user, removeFavoriteQawl, removeFavoriteQissa, addCollection, removeCollection } = useAuthStore();
+  const { user, addCollection, removeCollection } = useAuthStore();
   const { aqwaal, qisas } = useContentStore();
   const [activeTab, setActiveTab] = useState<'aqwaal' | 'qisas' | 'collections'>('aqwaal');
   const [newCollName, setNewCollName] = useState('');

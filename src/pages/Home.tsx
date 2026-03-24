@@ -2,15 +2,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
-import { useAuthStore } from '../stores/authStore';
 import { useTranslation } from 'react-i18next';
 
 export default function Home() {
-  const { dailyQawl, getScholarById } = useContentStore();
-  const { user } = useAuthStore();
+  const { dailyQawl } = useContentStore();
+  
   const { t } = useTranslation();
 
-  const scholar = dailyQawl ? getScholarById(dailyQawl.scholar_id) : null;
+  
 
   const categories = [
     { id: 'aqwaal', title: t('aqwaal'), sub: 'حكم واقتباسات موثقة', icon: MessageSquareQuote, color: 'var(--color-primary)', count: 22 },
