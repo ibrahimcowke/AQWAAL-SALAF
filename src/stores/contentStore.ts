@@ -1,0 +1,115 @@
+import { create } from 'zustand';
+import { supabase } from '../lib/supabase';
+import type { Qawl, Qissa, Scholar } from '../types';
+
+interface ContentState {
+  aqwaal: Qawl[];
+  qisas: Qissa[];
+  scholars: Scholar[];
+  searchQuery: string;
+  activeTag: string;
+  dailyQawl: Qawl | null;
+  isLoading: boolean;
+  error: string | null;
+  setSearchQuery: (q: string) => void;
+  setActiveTag: (tag: string) => void;
+  fetchContent: () => Promise<void>;
+  getScholarById: (id: string) => Scholar | undefined;
+  getAqwaalByScholar: (scholarId: string) => Qawl[];
+  getQisasByScholar: (scholarId: string) => Qissa[];
+  getFilteredAqwaal: () => Qawl[];
+  getFilteredQisas: () => Qissa[];
+  initDailyQawl: () => void;
+}
+
+export const useContentStore = create<ContentState>()((set, get) => ({
+  aqwaal: [],
+  qisas: [],
+  scholars: [],
+  searchQuery: '',
+  activeTag: '',
+  dailyQawl: null,
+  isLoading: false,
+  error: null,
+
+  setSearchQuery: (q) => set({ searchQuery: q }),
+  setActiveTag: (tag) => set({ activeTag: tag }),
+
+  fetchContent: async () => {
+    set({ isLoading: true, error: null });
+    try {
+      const [
+        { data: aqwaal, error: aErr },
+        { data: qisas, error: qErr },
+        { data: scholars, error: sErr }
+      ] = await Promise.all([
+        supabase.from('aqwaal').select('*').order('created_at', { ascending: false }),
+        supabase.from('qisas').select('*').order('created_at', { ascending: false }),
+        supabase.from('scholars').select('*').order('name_ar', { ascending: true })
+      ]);
+
+      if (aErr || qErr || sErr) throw new Error('Failed to fetch content');
+
+      set({ 
+        aqwaal: aqwaal as Qawl[], 
+        qisas: qisas as Qissa[], 
+        scholars: scholars as Scholar[],
+        isLoading: false 
+      });
+      
+      get().initDailyQawl();
+    } catch (err: any) {
+      set({ error: err.message, isLoading: false });
+    }
+  },
+
+  getScholarById: (id) => get().scholars.find((s) => s.id === id),
+  getAqwaalByScholar: (scholarId) => get().aqwaal.filter((a) => a.scholar_id === scholarId),
+  getQisasByScholar: (scholarId) => get().qisas.filter((q) => q.scholar_id === scholarId),
+  
+  getFilteredAqwaal: () => {
+    const { aqwaal, searchQuery, activeTag } = get();
+    return aqwaal.filter((a) => {
+      const matchesSearch =
+        !searchQuery ||
+        a.text_ar.includes(searchQuery) ||
+        (a.scholar_name_ar && a.scholar_name_ar.includes(searchQuery)) ||
+        a.tags.some((t) => t.includes(searchQuery));
+      const matchesTag = !activeTag || a.tags.includes(activeTag);
+      return matchesSearch && matchesTag;
+    });
+  },
+
+  getFilteredQisas: () => {
+    const { qisas, searchQuery, activeTag } = get();
+    return qisas.filter((q) => {
+      const matchesSearch =
+        !searchQuery ||
+        q.title_ar.includes(searchQuery) ||
+        q.content_ar.includes(searchQuery) ||
+        q.tags.some((t) => t.includes(searchQuery));
+      const matchesTag = !activeTag || q.tags.includes(activeTag);
+      return matchesSearch && matchesTag;
+    });
+  },
+
+  initDailyQawl: () => {
+    const { aqwaal } = get();
+    if (aqwaal.length === 0) return;
+
+    const today = new Date().toDateString();
+    const stored = localStorage.getItem('noor-daily-qawl');
+    
+    if (stored) {
+      const { date, id } = JSON.parse(stored);
+      if (date === today) {
+        const found = aqwaal.find((a) => a.id === id);
+        if (found) { set({ dailyQawl: found }); return; }
+      }
+    }
+
+    const random = aqwaal[Math.floor(Math.random() * aqwaal.length)];
+    localStorage.setItem('noor-daily-qawl', JSON.stringify({ date: today, id: random.id }));
+    set({ dailyQawl: random });
+  },
+}));

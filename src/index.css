@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Scheherazade+New:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════
+   CSS VARIABLES — THEME SYSTEM
+═══════════════════════════════════════════ */
+:root {
+  --color-primary: #1E3A34;
+  --color-primary-light: #2D5248;
+  --color-gold: #C8A96A;
+  --color-gold-light: #D9BC8A;
+  --color-bg: #F5F3EF;
+  --color-bg-alt: #EAE7DF;
+  --color-card: #FAFAFA;
+  --color-card-border: rgba(200, 169, 106, 0.2);
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-shadow-light: #ffffff;
+  --color-shadow-dark: #d0cdc6;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+  --neu-shadow-sm: 4px 4px 8px var(--color-shadow-dark), -4px -4px 8px var(--color-shadow-light);
+  --neu-shadow-inset: inset 4px 4px 8px var(--color-shadow-dark), inset -4px -4px 8px var(--color-shadow-light);
+}
+
+.dark {
+  --color-primary: #2D5248;
+  --color-primary-light: #3D6B5E;
+  --color-gold: #D9BC8A;
+  --color-gold-light: #E8D0A0;
+  --color-bg: #0E1F1B;
+  --color-bg-alt: #122420;
+  --color-card: #162620;
+  --color-card-border: rgba(200, 169, 106, 0.15);
+  --color-text: #F0EDE8;
+  --color-text-muted: #9CA3AF;
+  --color-shadow-light: #1e3830;
+  --color-shadow-dark: #0a1714;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+  --neu-shadow-sm: 4px 4px 8px var(--color-shadow-dark), -4px -4px 8px var(--color-shadow-light);
+  --neu-shadow-inset: inset 4px 4px 8px var(--color-shadow-dark), inset -4px -4px 8px var(--color-shadow-light);
+}
+
+.paper {
+  --color-bg: #F2ECD8;
+  --color-bg-alt: #E8DFCA;
+  --color-card: #F7F2E4;
+  --color-shadow-light: #fffbf0;
+  --color-shadow-dark: #d4cbb5;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+}
+
+/* ═══════════════════════════════════════════
+   BASE STYLES — RTL FIRST
+═══════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: '"Amiri"', '"Scheherazade New"', serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   NEUMORPHISM COMPONENTS
+═══════════════════════════════════════════ */
+.neu-card {
+  background: var(--color-card);
+  box-shadow: var(--neu-shadow);
+  border-radius: 1rem;
+  border: 1px solid var(--color-card-border);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.neu-card:hover {
+  box-shadow: var(--neu-shadow-sm);
+  transform: translateY(-2px);
+}
+
+.neu-btn {
+  background: var(--color-card);
+  box-shadow: var(--neu-shadow-sm);
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text);
+}
+
+.neu-btn:hover {
+  box-shadow: var(--neu-shadow);
+}
+
+.neu-btn:active {
+  box-shadow: var(--neu-shadow-inset);
+  transform: scale(0.98);
+}
+
+.neu-btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+  color: #fff;
+  box-shadow: 4px 4px 10px rgba(30, 58, 52, 0.4), -2px -2px 6px rgba(255,255,255,0.1);
+}
+
+.neu-btn-gold {
+  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+  color: #1A1A1A;
+  box-shadow: 4px 4px 10px rgba(200, 169, 106, 0.4), -2px -2px 6px rgba(255,255,255,0.2);
+}
+
+/* ═══════════════════════════════════════════
+   GLASSMORPHISM COMPONENTS
+═══════════════════════════════════════════ */
+.glass-nav {
+  background: rgba(245, 243, 239, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200, 169, 106, 0.2);
+  box-shadow: 0 4px 20px rgba(30, 58, 52, 0.08);
+}
+
+.dark .glass-nav {
+  background: rgba(14, 31, 27, 0.88);
+  border-bottom: 1px solid rgba(200, 169, 106, 0.15);
+}
+
+.glass-modal {
+  background: rgba(250, 250, 250, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 169, 106, 0.25);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.dark .glass-modal {
+  background: rgba(22, 38, 32, 0.95);
+  border: 1px solid rgba(200, 169, 106, 0.2);
+}
+
+.glass-card {
+  background: rgba(250, 250, 250, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 169, 106, 0.2);
+  border-radius: 1rem;
+}
+
+.dark .glass-card {
+  background: rgba(22, 38, 32, 0.7);
+}
+
+.glass-bottom-nav {
+  background: rgba(245, 243, 239, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(200, 169, 106, 0.2);
+  box-shadow: 0 -4px 20px rgba(30, 58, 52, 0.08);
+}
+
+.dark .glass-bottom-nav {
+  background: rgba(14, 31, 27, 0.92);
+  border-top: 1px solid rgba(200, 169, 106, 0.15);
+}
+
+/* ═══════════════════════════════════════════
+   ARABIC / KITAB TYPOGRAPHY
+═══════════════════════════════════════════ */
+.arabic-text {
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.0;
+  letter-spacing: 0.01em;
+}
+
+.kitab-text {
+  font-family: 'Scheherazade New', 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.4;
+  letter-spacing: 0.02em;
+  font-size: 1.5rem;
+}
+
+.qawl-text {
+  font-family: 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+}
+
+/* ═══════════════════════════════════════════
+   ISLAMIC GEOMETRIC PATTERN SVG BG
+═══════════════════════════════════════════ */
+.islamic-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231E3A34' fill-opacity='0.05'%3E%3Cpath d='M30 0l5.196 9H24.804L30 0zm0 60l-5.196-9h10.392L30 60zM0 30l9-5.196V35.196L0 30zm60 0l-9 5.196V24.804L60 30zM15 15l4.243 7.35L11.657 19.7 15 15zm30 0l3.343 4.7-7.586 2.65L45 15zm0 30l-4.243-7.35 7.586-2.65L45 45zm-30 0l-3.343-4.7 7.586-2.65L15 45z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.islamic-pattern-gold {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8A96A' fill-opacity='0.08'%3E%3Cpath d='M30 0l5.196 9H24.804L30 0zm0 60l-5.196-9h10.392L30 60zM0 30l9-5.196V35.196L0 30zm60 0l-9 5.196V24.804L60 30zM15 15l4.243 7.35L11.657 19.7 15 15zm30 0l3.343 4.7-7.586 2.65L45 15zm0 30l-4.243-7.35 7.586-2.65L45 45zm-30 0l-3.343-4.7 7.586-2.65L15 45z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════
+   GOLD DIVIDER / ORNAMENT
+═══════════════════════════════════════════ */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ═══════════════════════════════════════════
+   AUTHENTICITY BADGES
+═══════════════════════════════════════════ */
+.badge-authentic {
+  background: linear-gradient(135deg, #065f46, #047857);
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-family: 'Amiri', serif;
+}
+
+.badge-hasan {
+  background: linear-gradient(135deg, #92400e, #b45309);
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-family: 'Amiri', serif;
+}
+
+.badge-weak {
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-family: 'Amiri', serif;
+}
+
+.badge-scholar {
+  background: linear-gradient(135deg, #1e3a34, #2d5248);
+  color: var(--color-gold);
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: 'Amiri', serif;
+}
+
+/* ═══════════════════════════════════════════
+   READING PROGRESS BAR
+═══════════════════════════════════════════ */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+  transform-origin: right;
+  z-index: 9999;
+  transition: transform 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR STYLING
+═══════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 169, 106, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(200, 169, 106, 0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--color-bg) 25%, var(--color-bg-alt) 50%, var(--color-bg) 75%);
+  background-size: 200% auto;
+  animation: shimmer 1.5s linear infinite;
+}
+
+.pulse-gold {
+  animation: pulse-gold 2s ease infinite;
+}
+
+/* ═══════════════════════════════════════════
+   UTILITY OVERRIDES
+═══════════════════════════════════════════ */
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1rem 5rem 1rem;
+}
+
+.section-title {
+  font-family: 'Amiri', serif;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.4rem;
+  direction: rtl;
+  text-align: right;
+}
+
+.dark .section-title {
+  color: var(--color-gold);
+}
+
+/* Force RTL for all content */
+.rtl-content {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Gradient borders for premium look */
+.gold-border {
+  border: 1px solid;
+  border-image: linear-gradient(135deg, var(--color-gold), transparent, var(--color-gold)) 1;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(200, 169, 106, 0.3);
+  color: var(--color-primary);
+}

@@ -1,0 +1,162 @@
+import { useState } from 'react';
+import { Heart, Share2, Volume2, BookOpen, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import type { Qawl } from '../../types';
+import { GradeBadge } from './Badge';
+import { useAuthStore } from '../../stores/authStore';
+import { useAudioStore } from '../../stores/audioStore';
+import QuoteDesigner from '../features/QuoteDesigner';
+import toast from 'react-hot-toast';
+
+interface QawlCardProps {
+  qawl: Qawl;
+  index?: number;
+  compact?: boolean;
+}
+
+export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardProps) {
+  const { addFavoriteQawl, removeFavoriteQawl, isFavoriteQawl } = useAuthStore();
+  const { speak } = useAudioStore();
+  const [showDesigner, setShowDesigner] = useState(false);
+  const isFav = isFavoriteQawl(qawl.id);
+
+  const toggleFav = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isFav) {
+      removeFavoriteQawl(qawl.id);
+      toast.success('تم الإزالة من المفضلة', { icon: '💔', style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+    } else {
+      addFavoriteQawl(qawl.id);
+      toast.success('تم الحفظ في المفضلة', { icon: '❤️', style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+    }
+  };
+
+  const handleShare = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const text = `"${qawl.text_ar}"\n— ${qawl.scholar_name_ar}\n\nنور السلف`;
+    if (navigator.share) {
+      navigator.share({ text });
+    } else {
+      navigator.clipboard.writeText(text);
+      toast.success('تم نسخ القول', { style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+    }
+  };
+
+  const handleAudio = (e: React.MouseEvent) => {
+    e.preventDefault();
+    speak(qawl.text_ar, `قول: ${qawl.scholar_name_ar}`);
+  };
+
+  const handleDesign = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDesigner(true);
+  };
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.05, duration: 0.4 }}
+      >
+        <Link to={`/aqwaal/${qawl.id}`} className="block">
+          <div
+            className="neu-card p-5 cursor-pointer group relative overflow-hidden"
+            style={{ background: 'var(--color-card)' }}
+          >
+            {/* Decorative corner */}
+            <div
+              className="absolute top-0 left-0 w-12 h-12 opacity-10"
+              style={{
+                background: 'linear-gradient(135deg, var(--color-gold), transparent)',
+                borderRadius: '0 0 100% 0',
+              }}
+            />
+
+            {/* Quote mark */}
+            <div className="arabic-text text-5xl leading-none mb-2 opacity-15" style={{ color: 'var(--color-gold)' }}>"</div>
+
+            {/* Main text */}
+            <p
+              className={`qawl-text leading-loose text-right ${compact ? 'line-clamp-3' : ''}`}
+              style={{
+                color: 'var(--color-text)',
+                fontSize: compact ? '1.15rem' : '1.3rem',
+              }}
+            >
+              {qawl.text_ar}
+            </p>
+
+            {/* Footer */}
+            <div className="mt-4 flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
+                {qawl.scholar_name_ar && (
+                  <span className="badge-scholar flex items-center gap-1">
+                    <BookOpen size={10} />
+                    {qawl.scholar_name_ar}
+                  </span>
+                )}
+                <GradeBadge grade={qawl.grade} />
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleDesign}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                  style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
+                  title="تصميم بطاقة"
+                >
+                  <Sparkles size={14} />
+                </button>
+                <button
+                  onClick={handleAudio}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                  style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)' }}
+                  title="استمع"
+                >
+                  <Volume2 size={14} />
+                </button>
+                <button
+                  onClick={handleShare}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                  style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)' }}
+                  title="مشاركة"
+                >
+                  <Share2 size={14} />
+                </button>
+                <button
+                  onClick={toggleFav}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                  style={{
+                    background: isFav ? 'rgba(220, 38, 38, 0.1)' : 'var(--color-bg-alt)',
+                  }}
+                  title={isFav ? 'إزالة من المفضلة' : 'حفظ في المفضلة'}
+                >
+                  <Heart size={14} fill={isFav ? '#dc2626' : 'none'} stroke={isFav ? '#dc2626' : 'var(--color-text-muted)'} />
+                </button>
+              </div>
+            </div>
+
+            {/* Source */}
+            {!compact && qawl.source && (
+              <p className="mt-2 text-xs arabic-text" style={{ color: 'var(--color-text-muted)' }}>
+                📚 {qawl.source}
+              </p>
+            )}
+          </div>
+        </Link>
+      </motion.div>
+
+      <AnimatePresence>
+        {showDesigner && (
+          <QuoteDesigner 
+            text={qawl.text_ar} 
+            author={qawl.scholar_name_ar || 'عالم من السلف'} 
+            onClose={() => setShowDesigner(false)} 
+          />
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
