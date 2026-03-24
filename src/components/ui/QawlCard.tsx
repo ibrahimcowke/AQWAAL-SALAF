@@ -17,9 +17,21 @@ interface QawlCardProps {
 
 export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardProps) {
   const { addFavoriteQawl, removeFavoriteQawl, isFavoriteQawl } = useAuthStore();
-  const { speak } = useAudioStore();
+  const { speak, playbackRate, setPlaybackRate } = useAudioStore();
   const [showDesigner, setShowDesigner] = useState(false);
   const isFav = isFavoriteQawl(qawl.id);
+
+  const togglePlaybackRate = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const rates = [0.8, 1, 1.2];
+    const currentIndex = rates.indexOf(playbackRate);
+    const nextRate = rates[(currentIndex + 1) % rates.length];
+    setPlaybackRate(nextRate);
+    toast.success(`سرعة القراءة: ${nextRate}x`, { 
+      duration: 1000,
+      style: { fontFamily: 'Tajawal, sans-serif', direction: 'rtl', fontSize: '12px' } 
+    });
+  };
 
   const toggleFav = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -56,9 +68,18 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.05, duration: 0.4 }}
+        layout
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        transition={{ 
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+          delay: index * 0.03 
+        }}
+        whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        className="h-full"
       >
         <Link to={`/aqwaal/${qawl.id}`} className="block">
           <div
@@ -111,11 +132,27 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                 </button>
                 <button
                   onClick={handleAudio}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                  style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)' }}
+                  className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all ${
+                    useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
+                    ? 'animate-pulse scale-110 shadow-lg' : 'hover:scale-110'
+                  }`}
+                  style={{ 
+                    color: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
+                      ? 'var(--color-primary)' : 'var(--color-text-muted)', 
+                    background: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
+                      ? 'var(--color-gold)' : 'var(--color-bg-alt)' 
+                  }}
                   title="استمع"
                 >
                   <Volume2 size={14} />
+                </button>
+                <button
+                  onClick={togglePlaybackRate}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110 arabic-text text-[10px] font-bold"
+                  style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)' }}
+                  title="سرعة القراءة"
+                >
+                  {playbackRate}x
                 </button>
                 <button
                   onClick={handleShare}

@@ -121,15 +121,22 @@ export default function Home() {
       <section>
         <h2 className="section-title text-xl mb-6">{t('quick_links')}</h2>
         <div className="flex flex-wrap gap-2 md:gap-4 justify-center max-w-4xl mx-auto">
-          {['زهد', 'صبر', 'تقوى', 'علم', 'محبة', 'توبة', 'آخرة', 'إخلاص'].map((tag) => (
-            <Link
+          {['زهد', 'صبر', 'تقوى', 'علم', 'محبة', 'توبة', 'آخرة', 'إخلاص'].map((tag, i) => (
+            <motion.div
               key={tag}
-              to={`/aqwaal?tag=${tag}`}
-              className="neu-btn px-6 py-3 rounded-2xl arabic-text font-bold text-sm hover:scale-105 transition-transform"
-              style={{ color: 'var(--color-text-muted)' }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + i * 0.05 }}
             >
-              #{tag}
-            </Link>
+              <Link
+                to={`/aqwaal?tag=${tag}`}
+                className="neu-btn px-6 py-3 rounded-2xl arabic-text font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
+                <Sparkles size={12} className="opacity-40" />
+                #{tag}
+              </Link>
+            </motion.div>
           ))}
         </div>
       </section>

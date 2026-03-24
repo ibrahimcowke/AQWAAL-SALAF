@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sun, BookOpen, Scaling, Globe, Shield, Github, Mail, Bell, ChevronLeft } from 'lucide-react';
+import { Sun, Moon, BookOpen, Scaling, Globe, Shield, Github, Mail, Bell, ChevronLeft, Scroll, Cloud, Leaf, Sunrise, Crown } from 'lucide-react';
 import { useThemeStore } from '../stores/themeStore';
 import { useProgressStore } from '../stores/progressStore';
 import { useTranslation } from 'react-i18next';
@@ -40,13 +40,13 @@ export default function Settings() {
             
             <div className="grid grid-cols-4 gap-3">
                 {[
-                  { id: 'light', label: t('theme_light'), color: '#F5F3EF' },
-                  { id: 'dark', label: t('theme_dark'), color: '#0E1F1B' },
-                  { id: 'paper', label: t('theme_paper'), color: '#F2ECD8' },
-                  { id: 'midnight', label: t('theme_midnight'), color: '#030712' },
-                  { id: 'emerald', label: t('theme_emerald'), color: '#064E3B' },
-                  { id: 'sand', label: t('theme_sand'), color: '#FEF3C7' },
-                  { id: 'royal', label: t('theme_royal'), color: '#2E1065' },
+                  { id: 'light', label: t('theme_light'), color: '#F5F3EF', icon: Sun },
+                  { id: 'dark', label: t('theme_dark'), color: '#0E1F1B', icon: Moon },
+                  { id: 'paper', label: t('theme_paper'), color: '#F2ECD8', icon: Scroll },
+                  { id: 'midnight', label: t('theme_midnight'), color: '#030712', icon: Cloud },
+                  { id: 'emerald', label: t('theme_emerald'), color: '#064E3B', icon: Leaf },
+                  { id: 'sand', label: t('theme_sand'), color: '#FEF3C7', icon: Sunrise },
+                  { id: 'royal', label: t('theme_royal'), color: '#2E1065', icon: Crown },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -58,9 +58,11 @@ export default function Settings() {
                     }`}
                   >
                     <div 
-                      className="w-10 h-10 rounded-full border border-[var(--color-card-border)]"
+                      className="w-10 h-10 rounded-full border border-[var(--color-card-border)] flex items-center justify-center transition-transform hover:rotate-12"
                       style={{ backgroundColor: item.color }}
-                    />
+                    >
+                      <item.icon size={16} className={`${mode === item.id ? 'opacity-100' : 'opacity-40'}`} style={{ color: mode === item.id ? 'var(--color-gold)' : 'var(--color-text-muted)' }} />
+                    </div>
                     <span className="arabic-text text-[9px] font-bold truncate w-full text-center">{item.label}</span>
                   </button>
                 ))}
