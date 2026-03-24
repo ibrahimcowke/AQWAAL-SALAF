@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { supabase } from '../lib/supabase';
+import { scholarsData, aqwaalData, qisasData } from '../data/seed';
 import type { Qawl, Qissa, Scholar } from '../types';
 
 interface ContentState {
@@ -23,9 +23,9 @@ interface ContentState {
 }
 
 export const useContentStore = create<ContentState>()((set, get) => ({
-  aqwaal: [],
-  qisas: [],
-  scholars: [],
+  aqwaal: aqwaalData,
+  qisas: qisasData,
+  scholars: scholarsData,
   searchQuery: '',
   activeTag: '',
   dailyQawl: null,
@@ -36,31 +36,9 @@ export const useContentStore = create<ContentState>()((set, get) => ({
   setActiveTag: (tag) => set({ activeTag: tag }),
 
   fetchContent: async () => {
-    set({ isLoading: true, error: null });
-    try {
-      const [
-        { data: aqwaal, error: aErr },
-        { data: qisas, error: qErr },
-        { data: scholars, error: sErr }
-      ] = await Promise.all([
-        supabase.from('aqwaal').select('*').order('created_at', { ascending: false }),
-        supabase.from('qisas').select('*').order('created_at', { ascending: false }),
-        supabase.from('scholars').select('*').order('name_ar', { ascending: true })
-      ]);
-
-      if (aErr || qErr || sErr) throw new Error('Failed to fetch content');
-
-      set({ 
-        aqwaal: aqwaal as Qawl[], 
-        qisas: qisas as Qissa[], 
-        scholars: scholars as Scholar[],
-        isLoading: false 
-      });
-      
-      get().initDailyQawl();
-    } catch (err: any) {
-      set({ error: err.message, isLoading: false });
-    }
+    // In static mode, content is already loaded from seed.ts
+    // We just trigger initDailyQawl to ensure it's ready
+    get().initDailyQawl();
   },
 
   getScholarById: (id) => get().scholars.find((s) => s.id === id),
@@ -87,6 +65,7 @@ export const useContentStore = create<ContentState>()((set, get) => ({
         !searchQuery ||
         q.title_ar.includes(searchQuery) ||
         q.content_ar.includes(searchQuery) ||
+        q.summary_ar?.includes(searchQuery) ||
         q.tags.some((t) => t.includes(searchQuery));
       const matchesTag = !activeTag || q.tags.includes(activeTag);
       return matchesSearch && matchesTag;
@@ -101,10 +80,14 @@ export const useContentStore = create<ContentState>()((set, get) => ({
     const stored = localStorage.getItem('noor-daily-qawl');
     
     if (stored) {
-      const { date, id } = JSON.parse(stored);
-      if (date === today) {
-        const found = aqwaal.find((a) => a.id === id);
-        if (found) { set({ dailyQawl: found }); return; }
+      try {
+        const { date, id } = JSON.parse(stored);
+        if (date === today) {
+          const found = aqwaal.find((a) => a.id === id);
+          if (found) { set({ dailyQawl: found }); return; }
+        }
+      } catch (e) {
+        // Fallback to random if parse fails
       }
     }
 

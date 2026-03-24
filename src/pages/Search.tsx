@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search as SearchIcon, X, SlidersHorizontal, BookOpen, MessageSquareQuote, Users, ChevronLeft, Loader2 } from 'lucide-react';
+import { Search as SearchIcon, X, BookOpen, MessageSquareQuote, Users, ChevronLeft } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { Link } from 'react-router-dom';
 import QawlCard from '../components/ui/QawlCard';
-import toast from 'react-hot-toast';
 
 type TabType = 'aqwaal' | 'qisas' | 'scholars';
 
@@ -18,33 +17,17 @@ export default function Search() {
   } = useContentStore();
   
   const [activeTab, setActiveTab] = useState<TabType>('aqwaal');
-  const [isSemantic, setIsSemantic] = useState(false);
-  const [semanticResults, setSemanticResults] = useState<any[]>([]);
-  const [isSearching, setIsSearching] = useState(false);
 
-  const filteredAqwaal = isSemantic && semanticResults.length > 0 ? semanticResults : getFilteredAqwaal();
-  
-  const handleSemanticSearch = async () => {
-    if (!searchQuery) return;
-    setIsSearching(true);
-    // Note: In a real app, you'd call an Edge Function here to get the embedding
-    // For this demo, we're informing the user that embeddings are required.
-    toast.error('مطلوب تفعيل الـ Embeddings في Supabase لتشغيل البحث بالمعنى', {
-        style: { fontFamily: 'Amiri, serif', direction: 'rtl' }
-    });
-    setIsSearching(false);
-  };
-
+  const filteredAqwaal = getFilteredAqwaal();
   const filteredQisas = getFilteredQisas();
   const filteredScholars = scholars.filter(s => 
     s.name_ar.includes(searchQuery) || 
-    s.name_en.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    s.bio_ar.includes(searchQuery)
+    (s.name_en && s.name_en.toLowerCase().includes(searchQuery.toLowerCase())) ||
+    (s.bio_ar && s.bio_ar.includes(searchQuery))
   );
 
   const clearSearch = () => {
     setSearchQuery('');
-    setSemanticResults([]);
   };
 
   const counts = {
@@ -55,47 +38,25 @@ export default function Search() {
 
   return (
     <div className="page-container">
-      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 flex justify-between items-end">
-        <div>
-            <h1 className="section-title text-2xl mb-1">المحرك البحثي</h1>
-            <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)' }}>
-            ابحث في مكنونات علم السلف الصالح
-            </p>
-        </div>
-        
-        <button 
-            onClick={() => setIsSemantic(!isSemantic)}
-            className={`px-4 py-2 rounded-2xl flex items-center gap-2 border-2 transition-all ${
-                isSemantic 
-                ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/5 text-[var(--color-primary)]' 
-                : 'border-transparent bg-[var(--color-bg-alt)] opacity-40'
-            }`}
-        >
-            <SlidersHorizontal size={14} className={isSemantic ? 'animate-pulse' : ''} />
-            <span className="arabic-text text-[10px] font-bold">بحث بالمعنى (AI)</span>
-        </button>
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
+        <h1 className="section-title text-2xl mb-1">المحرك البحثي</h1>
+        <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)' }}>
+          ابحث في مكنونات علم السلف الصالح
+        </p>
       </motion.div>
 
       {/* Search Input Area */}
       <div className="mb-8 sticky top-16 z-30 pt-2 pb-4 bg-[var(--color-bg)]/80 backdrop-blur-md">
-        <form 
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (isSemantic) handleSemanticSearch();
-          }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-[var(--color-gold)]">
-            {isSearching ? <Loader2 className="animate-spin" size={20} /> : <SearchIcon size={20} />}
+             <SearchIcon size={20} />
           </div>
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={isSemantic ? "اضغط Enter للبحث بالمعنى..." : "كلمة دلالية، اسم عالم، موضوع..."}
-            className={`w-full h-14 pr-12 pl-12 rounded-2xl arabic-text outline-none transition-all ${
-                isSemantic ? 'ring-2 ring-[var(--color-primary)]/20 shadow-lg' : 'shadow-neu focus:shadow-neu-inset'
-            }`}
+            placeholder="كلمة دلالية، اسم عالم، موضوع..."
+            className="w-full h-14 pr-12 pl-12 rounded-2xl arabic-text outline-none shadow-neu focus:shadow-neu-inset transition-all"
             style={{ 
               background: 'var(--color-card)', 
               color: 'var(--color-text)', 
@@ -113,17 +74,7 @@ export default function Search() {
               <X size={20} />
             </button>
           )}
-        </form>
-        
-        {isSemantic && (
-            <motion.p 
-                initial={{ opacity: 0, y: -5 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                className="arabic-text text-[10px] mt-2 mr-2 text-[var(--color-primary)] font-bold italic"
-            >
-                ✨ وضع الذكاء الاصطناعي: يبحث عن المفاهيم المشابهة وليس فقط الكلمات.
-            </motion.p>
-        )}
+        </div>
       </div>
 
       {/* Tabs */}
@@ -137,7 +88,6 @@ export default function Search() {
                 ? 'bg-[var(--color-primary)] text-white shadow-lg'
                 : 'text-[var(--color-text-muted)] hover:bg-white/10'
             }`}
-            disabled={isSemantic && tab !== 'aqwaal'}
           >
             {tab === 'aqwaal' && <MessageSquareQuote size={16} />}
             {tab === 'qisas' && <BookOpen size={16} />}
@@ -230,12 +180,12 @@ export default function Search() {
             <div className="flex flex-wrap gap-2">
                 {['صبر', 'تقوى', 'زهد', 'علم', 'إخلاص', 'توبة', 'عمل صالح'].map(key => (
                     <button 
-                        key={key} 
-                        onClick={() => setSearchQuery(key)}
-                        className="px-3 py-1.5 rounded-xl text-xs arabic-text"
-                        style={{ background: 'var(--color-bg-alt)', color: 'var(--color-text-muted)' }}
+                      key={key} 
+                      onClick={() => setSearchQuery(key)}
+                      className="px-3 py-1.5 rounded-xl text-xs arabic-text"
+                      style={{ background: 'var(--color-bg-alt)', color: 'var(--color-text-muted)' }}
                     >
-                        #{key}
+                      #{key}
                     </button>
                 ))}
             </div>

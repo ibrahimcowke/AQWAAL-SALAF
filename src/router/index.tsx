@@ -14,7 +14,6 @@ const Search = lazy(() => import('../pages/Search'));
 const Favorites = lazy(() => import('../pages/Favorites'));
 const AudioLibrary = lazy(() => import('../pages/AudioLibrary'));
 const Settings = lazy(() => import('../pages/Settings'));
-const Admin = lazy(() => import('../pages/Admin'));
 const Timeline = lazy(() => import('../pages/Timeline'));
 
 export default function AppRouter() {
@@ -28,14 +27,13 @@ export default function AppRouter() {
             <Route path="aqwaal/:id" element={<AqwalDetail />} />
             <Route path="qisas" element={<Qisas />} />
             <Route path="qisas/:id" element={<QisasReader />} />
-             <Route path="scholars" element={<Scholars />} />
-             <Route path="scholars/:id" element={<ScholarProfile />} />
-             <Route path="timeline" element={<Timeline />} />
-             <Route path="search" element={<Search />} />
+            <Route path="scholars" element={<Scholars />} />
+            <Route path="scholars/:id" element={<ScholarProfile />} />
+            <Route path="timeline" element={<Timeline />} />
+            <Route path="search" element={<Search />} />
             <Route path="favorites" element={<Favorites />} />
             <Route path="audio" element={<AudioLibrary />} />
             <Route path="settings" element={<Settings />} />
-            <Route path="admin" element={<Admin />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
