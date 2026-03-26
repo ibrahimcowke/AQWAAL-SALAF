@@ -26,9 +26,9 @@ interface ContentState {
 }
 
 export const useContentStore = create<ContentState>()((set, get) => ({
-  aqwaal: [],
-  qisas: [],
-  scholars: [],
+  aqwaal: aqwaalData,
+  qisas: qisasData,
+  scholars: scholarsData,
   searchQuery: '',
   activeTag: '',
   dailyQawl: null,
@@ -46,7 +46,7 @@ export const useContentStore = create<ContentState>()((set, get) => ({
       const qisasCol = collection(db, 'qisas');
 
       const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Firestore operation timed out after 10 seconds')), 10000)
+        setTimeout(() => reject(new Error('Firestore operation timed out after 3 seconds')), 3000)
       );
 
       const [scholarsSnap, aqwaalSnap, qisasSnap] = await Promise.race([

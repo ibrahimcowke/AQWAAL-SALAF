@@ -7,7 +7,7 @@ import { Loader2 } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
-  const { fetchContent, isLoading, error } = useContentStore();
+  const { fetchContent, isLoading, aqwaal } = useContentStore();
   const { initializeAuth } = useAuthStore();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function App() {
     fetchContent();
   }, [fetchContent, initializeAuth]);
 
-  if (isLoading && !error) {
+  if (isLoading && aqwaal.length === 0) {
     return (
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-[var(--color-bg)] z-50">
         <Loader2 className="w-10 h-10 text-[var(--color-primary)] animate-spin mb-4" />
