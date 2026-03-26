@@ -1,16 +1,18 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { ChevronRight, Share2, Heart, Volume2, BookOpen, Maximize2, Minimize2 } from 'lucide-react';
+import { ChevronRight, Share2, Heart, Volume2, BookOpen, Maximize2, Minimize2, CheckCircle2, Circle } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { useAuthStore } from '../stores/authStore';
 import { useAudioStore } from '../stores/audioStore';
 import { useThemeStore } from '../stores/themeStore';
 import { useProgressStore } from '../stores/progressStore';
 import { useEffect } from 'react';
-import { CheckCircle2, Circle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
+
 export default function QisasReader() {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { qisas, getScholarById } = useContentStore();
@@ -133,11 +135,16 @@ export default function QisasReader() {
         <h1 className="arabic-text font-bold text-3xl md:text-4xl leading-tight mb-4" style={{ color: 'var(--color-primary)' }}>
           {qissa.title_ar}
         </h1>
+        {qissa.title_so && (
+          <h2 className="text-xl md:text-2xl font-sans mb-4 opacity-60">
+            {qissa.title_so}
+          </h2>
+        )}
         <div className="flex items-center justify-center gap-3 text-xs arabic-text" style={{ color: 'var(--color-text-muted)' }}>
           {scholar && (
             <Link to={`/scholars/${scholar.id}`} className="flex items-center gap-1 hover:text-[var(--color-gold)]">
               <BookOpen size={14} />
-              {scholar.name_ar}
+              {scholar.name_ar} {scholar.name_so ? `(${scholar.name_so})` : ''}
             </Link>
           )}
           <span>•</span>
@@ -151,10 +158,20 @@ export default function QisasReader() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="kitab-text mb-20 whitespace-pre-wrap selection:bg-gold-light/30"
-        style={{ fontSize: `${fontSize}rem` }}
+        className="mb-20 space-y-12"
       >
-        {qissa.content_ar}
+        <div className="kitab-text whitespace-pre-wrap" style={{ fontSize: `${fontSize}rem` }}>
+          {qissa.content_ar}
+        </div>
+
+        {qissa.content_so && (
+          <div className="p-8 md:p-12 rounded-3xl bg-[var(--color-bg-alt)]/30 border-l-4 border-[var(--color-gold)] space-y-6">
+            <p className="text-sm font-bold uppercase tracking-widest opacity-40">{t('somali_translation') || 'Tirjumaadda Soomaaliga'}</p>
+            <div className="text-lg md:text-xl leading-relaxed font-sans text-left whitespace-pre-wrap" style={{ color: 'var(--color-text)' }}>
+              {qissa.content_so}
+            </div>
+          </div>
+        )}
       </motion.article>
 
       {/* Source & Authenticity Info */}

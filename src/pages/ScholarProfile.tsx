@@ -83,12 +83,21 @@ export default function ScholarProfile() {
 
             <div className="gold-divider w-full max-w-md opacity-30 mb-6" />
 
-            <div className="flex items-start gap-2 text-right">
+            <div className="flex items-start gap-2 text-right mb-6">
                 <Info size={18} className="mt-1 flex-shrink-0 text-[var(--color-gold)]" />
-                <p className="arabic-text text-sm leading-loose max-w-2xl" style={{ color: 'var(--color-text)' }}>
+                <p className="arabic-text text-xl leading-loose max-w-2xl" style={{ color: 'var(--color-text)' }}>
                     {scholar.bio_ar}
                 </p>
             </div>
+
+            {scholar.bio_so && (
+                <div className="flex flex-col items-center w-full max-w-2xl text-left bg-[var(--color-bg-alt)]/30 p-6 rounded-2xl border-l-4 border-[var(--color-gold)]">
+                    <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-3">{t('somali_translation') || 'Tirjumaadda Soomaaliga'}</p>
+                    <p className="text-lg leading-relaxed font-sans" style={{ color: 'var(--color-text)' }}>
+                        {scholar.bio_so}
+                    </p>
+                </div>
+            )}
         </div>
       </motion.div>
 

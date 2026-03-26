@@ -74,7 +74,8 @@ const resources = {
       "not_found": "غير موجود",
       "back": "رجوع",
       "back_to_quotes": "العودة للأقوال",
-      "back_to_scholars": "العودة للعلماء"
+      "back_to_scholars": "العودة للعلماء",
+      "somali_translation": "الترجمة الصومالية"
     }
   },
   en: {
@@ -149,7 +150,8 @@ const resources = {
       "not_found": "Not found",
       "back": "Back",
       "back_to_quotes": "Back to Sayings / العودة للأقوال",
-      "back_to_scholars": "Back to Scholars / العودة للعلماء"
+      "back_to_scholars": "Back to Scholars / العودة للعلماء",
+      "somali_translation": "Somali Translation"
     }
   },
   so: {
@@ -225,7 +227,8 @@ const resources = {
       "not_found": "Lama helin",
       "back": "Dib",
       "back_to_quotes": "Ku noqo Oraahyada",
-      "back_to_scholars": "Ku noqo Culimada"
+      "back_to_scholars": "Ku noqo Culimada",
+      "somali_translation": "Tirjumaadda Soomaaliga"
     }
   }
 }

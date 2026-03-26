@@ -120,13 +120,23 @@ export default function AqwalDetail() {
           </div>
 
           <h2 
-            className="qawl-text text-2xl md:text-3xl leading-relaxed mb-8" 
+            className="qawl-text text-2xl md:text-3xl leading-relaxed mb-4" 
             style={{ 
-              color: 'var(--color-text)',
-              direction: isArabic ? 'rtl' : 'ltr'
+              color: 'var(--color-primary)',
+              direction: 'rtl',
+              textAlign: 'center'
             }}>
-            {displayText}
+            {qawl.text_ar}
           </h2>
+
+          {qawl.text_so && (
+            <div className="mt-6 mb-8 p-4 rounded-2xl bg-[var(--color-bg-alt)]/30 border-l-4 border-[var(--color-gold)]">
+              <p className="text-sm font-bold uppercase tracking-widest opacity-40 mb-2">{t('somali_translation') || 'Tirjumaadda Soomaaliga'}</p>
+              <p className="text-lg md:text-xl leading-relaxed font-sans text-left" style={{ color: 'var(--color-text)' }}>
+                {qawl.text_so}
+              </p>
+            </div>
+          )}
 
           <div className="gold-divider mb-8 opacity-50" />
 
@@ -138,7 +148,7 @@ export default function AqwalDetail() {
             </Link>
             {qawl.source && (
               <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)', direction: isArabic ? 'rtl' : 'ltr' }}>
-                📚 {isSomali && qawl.source_so ? qawl.source_so : qawl.source}
+                📚 {qawl.source} {qawl.source_so ? `• ${qawl.source_so}` : ''}
               </p>
             )}
           </div>
@@ -308,13 +318,22 @@ export default function AqwalDetail() {
                 </button>
               </div>
               
-              <div className="p-8 max-h-[60vh] overflow-y-auto">
-                <p 
-                  className={`text-lg leading-relaxed text-[var(--color-text)] opacity-80 ${isArabic ? 'font-amiri text-right' : 'font-sans text-left'}`}
-                  style={{ direction: isArabic ? 'rtl' : 'ltr' }}
-                >
-                  {explanation}
-                </p>
+              <div className="p-8 max-h-[60vh] overflow-y-auto space-y-8">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-3" style={{ color: 'var(--color-primary)' }}>Arabic / العربية</p>
+                  <p className="qawl-text text-xl leading-loose text-[var(--color-text)] text-right" style={{ direction: 'rtl' }}>
+                    {qawl.explanation_ar}
+                  </p>
+                </div>
+
+                {qawl.explanation_so && (
+                  <div className="pt-6 border-t border-[var(--color-card-border)]/50">
+                    <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-3" style={{ color: 'var(--color-gold)' }}>Somali / Soomaali</p>
+                    <p className="text-lg leading-relaxed text-[var(--color-text)] font-sans text-left">
+                      {qawl.explanation_so}
+                    </p>
+                  </div>
+                )}
               </div>
 
               <div className="p-6 bg-[var(--color-bg-alt)]/30 border-t border-[var(--color-card-border)] text-center">
