@@ -75,7 +75,8 @@ const resources = {
       "back": "رجوع",
       "back_to_quotes": "العودة للأقوال",
       "back_to_scholars": "العودة للعلماء",
-      "somali_translation": "الترجمة الصومالية"
+      "somali_translation": "الترجمة الصومالية",
+      "random_quote": "قول عشوائي"
     }
   },
   en: {
@@ -151,7 +152,8 @@ const resources = {
       "back": "Back",
       "back_to_quotes": "Back to Sayings / العودة للأقوال",
       "back_to_scholars": "Back to Scholars / العودة للعلماء",
-      "somali_translation": "Somali Translation"
+      "somali_translation": "Somali Translation",
+      "random_quote": "Random Quote"
     }
   },
   so: {
