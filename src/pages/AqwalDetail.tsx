@@ -49,10 +49,10 @@ export default function AqwalDetail() {
   const toggleFav = () => {
     if (isFav) {
       removeFavoriteQawl(qawl.id);
-      toast.success(isArabic ? 'تمت الإزالة من المفضلة' : 'Laga saaray kuwa la jecel yahay', { icon: '💔' });
+      toast.success(t('removed_from_favorites'), { icon: '💔' });
     } else {
       addFavoriteQawl(qawl.id);
-      toast.success(isArabic ? 'تمت الإضافة إلى المفضلة' : 'Waa la xafiday', { icon: '❤️' });
+      toast.success(t('added_to_favorites'), { icon: '❤️' });
     }
   };
 
@@ -160,7 +160,7 @@ export default function AqwalDetail() {
               background: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
                 ? 'var(--color-gold)' : 'var(--color-card-border)' 
             }}
-            title="استمع"
+            title={t('audio')}
           >
             <Volume2 size={20} className="md:w-6 md:h-6" />
           </button>
@@ -197,7 +197,7 @@ export default function AqwalDetail() {
             onClick={() => setShowDesigner(true)}
             className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-all hover:scale-110"
             style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-            title="تصميم بطاقة"
+            title={t('design_card')}
           >
             <Sparkles size={20} className="md:w-6 md:h-6" />
           </button>
@@ -242,10 +242,10 @@ export default function AqwalDetail() {
             </div>
             <div>
               <h3 className="arabic-text font-bold" style={{ color: 'var(--color-primary)' }}>
-                {isArabic ? `عن ${scholar.name_ar}` : `Ku saabsan ${scholar.name_so}`}
+                {t('about_scholar', { name: displayScholarName })}
               </h3>
               <p className="text-xs arabic-text" style={{ color: 'var(--color-text-muted)' }}>
-                {scholar.era} • {isArabic ? `توفي ${scholar.death_year}` : `Dhintay ${scholar.death_year}`}
+                {scholar.era} • {t('died_year', { year: scholar.death_year })}
               </p>
             </div>
           </div>
@@ -257,7 +257,7 @@ export default function AqwalDetail() {
             className="text-xs arabic-text font-bold flex items-center gap-1"
             style={{ color: 'var(--color-gold)' }}
           >
-            {isArabic ? 'عرض السيرة كاملة' : 'Eeg taariikhda oo dhan'} <ChevronRight size={14} />
+            {t('view_full_bio')} <ChevronRight size={14} />
           </Link>
         </motion.div>
       )}
@@ -298,7 +298,7 @@ export default function AqwalDetail() {
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-gold)]/10 flex items-center justify-center text-[var(--color-gold)]">
                     <Info size={20} />
                   </div>
-                  <h3 className="arabic-text font-bold text-lg">{isArabic ? 'شرح الأثر' : 'Sharaxa Xikmadda'}</h3>
+                  <h3 className="arabic-text font-bold text-lg">{t('explanation_title')}</h3>
                 </div>
                 <button 
                   onClick={() => setShowExplanation(false)}

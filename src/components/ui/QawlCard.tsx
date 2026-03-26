@@ -39,10 +39,10 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
     e.preventDefault();
     if (isFav) {
       removeFavoriteQawl(qawl.id);
-      toast.success(isArabic ? 'تمت الإزالة من المفضلة' : 'Laga saaray kuwa la jecel yahay', { icon: '💔' });
+      toast.success(t('removed_from_favorites'), { icon: '💔' });
     } else {
       addFavoriteQawl(qawl.id);
-      toast.success(isArabic ? 'تمت الإضافة إلى المفضلة' : 'Waa la xafiday', { icon: '❤️' });
+      toast.success(t('added_to_favorites'), { icon: '❤️' });
     }
   };
 
@@ -165,7 +165,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                     onClick={handleDesign}
                     className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
                     style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-                    title="تصميم بطاقة"
+                    title={t('design_card')}
                   >
                     <Sparkles size={14} />
                   </button>
@@ -187,7 +187,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                         background: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
                           ? 'var(--color-gold)' : 'var(--color-card-border)' 
                       }}
-                      title="استمع"
+                      title={t('audio')}
                     >
                       <Volume2 size={16} />
                     </button>
@@ -262,7 +262,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-gold)]/10 flex items-center justify-center text-[var(--color-gold)]">
                     <Info size={20} />
                   </div>
-                  <h3 className="arabic-text font-bold text-lg">{isArabic ? 'شرح الأثر' : 'Sharaxa Xikmadda'}</h3>
+                  <h3 className="arabic-text font-bold text-lg">{t('explanation_title')}</h3>
                 </div>
                 <button 
                   onClick={() => setShowExplanation(false)}

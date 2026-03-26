@@ -64,7 +64,16 @@ const resources = {
       "copy": "نسخ",
       "copied_success": "تم النسخ بنجاح",
       "copy_with_source": "نسخ مع المصدر",
-      "copy_with_source_success": "تم النسخ مع المصدر بنجاح"
+      "copy_with_source_success": "تم النسخ مع المصدر بنجاح",
+      "removed_from_favorites": "تمت الإزالة من المفضلة",
+      "added_to_favorites": "تمت الإضافة إلى المفضلة",
+      "design_card": "تصميم بطاقة",
+      "about_scholar": "عن {{name}}",
+      "died_year": "توفي {{year}}",
+      "view_full_bio": "عرض السيرة كاملة",
+      "not_found": "غير موجود",
+      "back": "رجوع",
+      "back_to_quotes": "العودة للأقوال"
     }
   },
   en: {
@@ -129,7 +138,16 @@ const resources = {
       "copy": "Copy",
       "copied_success": "Copied successfully",
       "copy_with_source": "Copy with Source",
-      "copy_with_source_success": "Copied with source successfully"
+      "copy_with_source_success": "Copied with source successfully",
+      "removed_from_favorites": "Removed from favorites",
+      "added_to_favorites": "Added to favorites",
+      "design_card": "Design Card",
+      "about_scholar": "About {{name}}",
+      "died_year": "Died {{year}}",
+      "view_full_bio": "View full biography",
+      "not_found": "Not found",
+      "back": "Back",
+      "back_to_quotes": "Back to Sayings"
     }
   },
   so: {
@@ -195,7 +213,16 @@ const resources = {
       "explanation_title": "Sharaxa Xikmadda",
       "copy": "Koobi",
       "copied_success": "Waa la koobiyeeyay",
-      "copy_with_source_success": "Lala koobiyeeyay xigashada"
+      "copy_with_source_success": "Lala koobiyeeyay xigashada",
+      "removed_from_favorites": "Waa laga saaray kuwa la xushay",
+      "added_to_favorites": "Waa lagu daray kuwa la xushay",
+      "design_card": "Naqshadey Kaadh",
+      "about_scholar": "Ku saabsan {{name}}",
+      "died_year": "Wuxuu dhintay {{year}}",
+      "view_full_bio": "Eeg taariikhda oo dhan",
+      "not_found": "Lama helin",
+      "back": "Dib",
+      "back_to_quotes": "Ku noqo Oraahyada"
     }
   }
 }
