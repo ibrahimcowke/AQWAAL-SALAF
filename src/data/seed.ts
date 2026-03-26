@@ -6,200 +6,260 @@ export const scholarsData: Scholar[] = [
     id: 'sch-001',
     name_ar: 'الحسن البصري',
     name_en: 'Al-Hasan Al-Basri',
+    name_so: 'Al-Xasan Al-Basri',
     era: 'تابعون',
     bio_ar: 'الحسن بن أبي الحسن البصري، إمام أهل البصرة وعالمها في زمانه، تابعي جليل، عُرف بالزهد والورع والموعظة والبيان. وُلد سنة 21 هـ وتوفي سنة 110 هـ.',
+    bio_so: 'Al-Xasan bin Abii Al-Xasan Al-Basri wuxuu ahaa imaamkii reer Basra iyo caalimkoodii xilligiisii. Wuxuu ahaa Taabici weyn oo lagu yaqaanay zuhdi, dhowrsanaan iyo waanooyin saameyn leh.',
     death_year: '110 هـ',
     reliability: 'ثقة حجة',
+    reliability_so: 'Aamin la isku halleeyo',
     tags: ['زهد', 'موعظة', 'تقوى'],
   },
   {
     id: 'sch-002',
     name_ar: 'ابن القيم الجوزية',
     name_en: 'Ibn Al-Qayyim Al-Jawziyya',
+    name_so: 'Ibnu Qayyim Al-Jawziyya',
     era: 'علماء متأخرون',
     bio_ar: 'محمد بن أبي بكر بن أيوب الزرعي الدمشقي، أبو عبد الله، شمس الدين ابن القيم. عالم إسلامي حنبلي، من أبرز تلاميذ ابن تيمية. توفي سنة 751 هـ.',
+    bio_so: 'Muxammad bin Abii Bakar bin Ayuub, oo loo yaqaan Ibnu Qayyim. Wuxuu ahaa caalim weyn oo Xanbali ah, kana mid ahaa ardaydii ugu caansanayd ee Ibnu Taymiyah.',
     death_year: '751 هـ',
     reliability: 'ثقة إمام',
+    reliability_so: 'Imaam la isku halleeyo',
     tags: ['تزكية', 'علم', 'حكمة'],
   },
   {
     id: 'sch-003',
     name_ar: 'الإمام الشافعي',
-    name_en: 'Imam Al-Shafi\'i',
+    name_en: "Imam Al-Shafi'i",
+    name_so: 'Imaam Al-Shaafici',
     era: 'أتباع التابعين',
     bio_ar: 'محمد بن إدريس الشافعي القرشي، إمام فقيه مسلم وأحد الأئمة الأربعة عند أهل السنة والجماعة، ومؤسس علم أصول الفقه. وُلد سنة 150 هـ وتوفي سنة 204 هـ.',
+    bio_so: 'Muxammad bin Idriis Al-Shaafici, waa imaam faqiiha oo ka mid ah afarta imaam ee madhabta looga raaco ehelu sunnaha, waana aasaasaha cilmiga Usuulu-Fiqiga.',
     death_year: '204 هـ',
     reliability: 'ثقة حافظ إمام',
+    reliability_so: 'Imaam Xaafid ah oo hufan',
     tags: ['فقه', 'حكمة', 'شعر'],
   },
   {
     id: 'sch-004',
     name_ar: 'الإمام أحمد بن حنبل',
     name_en: 'Imam Ahmad ibn Hanbal',
+    name_so: 'Imaam Axmed bin Xanbal',
     era: 'أتباع التابعين',
     bio_ar: 'أحمد بن محمد بن حنبل الشيباني، إمام أهل السنة والجماعة، ومؤسس المذهب الحنبلي. عُرف بصبره في محنة القول بخلق القرآن. وُلد 164 هـ وتوفي 241 هـ.',
+    bio_so: 'Axmed bin Muxammad bin Xanbal, waa imaamka ehelu sunnaha iyo aasaasaha madhabta Xanbaliga. Waxaa lagu yaqaanay samirkii uu muujiyay xilligii fitnadii Quraanka.',
     death_year: '241 هـ',
     reliability: 'ثقة إمام حجة',
+    reliability_so: 'Imaam xujjo ah oo aamin ah',
     tags: ['صبر', 'سنة', 'حديث'],
   },
   {
     id: 'sch-005',
     name_ar: 'ابن تيمية',
     name_en: 'Ibn Taymiyyah',
+    name_so: 'Shaykhul Islaam Ibnu Taymiyah',
     era: 'علماء متأخرون',
     bio_ar: 'تقي الدين أبو العباس أحمد بن عبد الحليم بن تيمية الحراني، عالم مسلم حنبلي، فقيه ومحدث ومفسر. من أبرز علماء الإسلام في القرن الثامن الهجري. توفي 728 هـ.',
+    bio_so: 'Taqiyu-Diin Axmed bin Cabdul-Xaliim Ibnu Taymiyah, wuxuu ahaa caalim weyn oo Xanbali ah, faqiiha, muxaddis ahna mufassir. Wuxuu ka mid ahaa culimadii ugu caansanayd Islaamka.',
     death_year: '728 هـ',
     reliability: 'إمام شيخ الإسلام',
+    reliability_so: 'Imaam Shaykhul Islaam ah',
     tags: ['عقيدة', 'سنة', 'جهاد العلم'],
   },
   {
     id: 'sch-006',
     name_ar: 'عبد الله بن مسعود',
     name_en: "Abdullah ibn Mas'ud",
+    name_so: 'Cabdullaahi bin Mascuud',
     era: 'صحابة',
     bio_ar: 'عبد الله بن مسعود الهذلي، صحابي جليل من السابقين إلى الإسلام، كان من أعلم الناس بكتاب الله وسنة نبيه ﷺ. توفي نحو 32 هـ.',
+    bio_so: 'Cabdullaahi bin Mascuud, wuxuu ahaa saxaabi weyn oo ka mid ahaa kuwii ugu horreeyay Islaamka, wuxuuna ahaa dadka ugu aqoonta badan Kitaabka Alle iyo Sunnada Nabiga ﷺ.',
     death_year: '32 هـ',
     reliability: 'صحابي جليل',
+    reliability_so: 'Saxaabi weyn',
     tags: ['قرآن', 'علم', 'سنة'],
   },
   {
     id: 'sch-007',
     name_ar: 'سفيان الثوري',
     name_en: 'Sufyan Al-Thawri',
+    name_so: 'Sufyaan Al-Thawri',
     era: 'أتباع التابعين',
     bio_ar: 'سفيان بن سعيد بن مسروق الثوري، إمام حافظ، أمير المؤمنين في الحديث، عُرف بالزهد والورع والعلم العظيم. توفي سنة 161 هـ.',
+    bio_so: 'Sufyaan bin Saciid Al-Thawri, wuxuu ahaa imaam xaafid ah, oo loogu yeedhi jiray "Amiirul-Mu\'miniinka cilmiga Xadiiska". Wuxuu caan ku ahaa zuhdi iyo tusaale layaab leh.',
     death_year: '161 هـ',
     reliability: 'ثقة حافظ أمير المؤمنين في الحديث',
+    reliability_so: 'Amiirka mu\'miniinta ee xadiiska',
     tags: ['حديث', 'زهد', 'ورع'],
   },
   {
     id: 'sch-008',
     name_ar: 'الفضيل بن عياض',
     name_en: 'Al-Fudayl ibn Iyad',
+    name_so: 'Al-Fudayl bin Cayaad',
     era: 'أتباع التابعين',
     bio_ar: 'الفضيل بن عياض بن مسعود التميمي، أبو علي، زاهد عابد، من أعلام التابعين وعُرف بشدة الورع والخوف من الله. توفي سنة 187 هـ.',
+    bio_so: 'Al-Fudayl bin Cayaad, wuxuu ahaa nin caabid ah oo zuhdi badan, kana mid ahaa caalamka Taabiciyiinta, wuxuuna caan ku ahaa cabsida Alle iyo dhowrsanaanta.',
     death_year: '187 هـ',
     reliability: 'ثقة إمام',
+    reliability_so: 'Imaam la isku halleeyo',
     tags: ['زهد', 'خوف', 'عبادة'],
   },
   {
     id: 'sch-009',
     name_ar: 'ابن رجب الحنبلي',
     name_en: 'Ibn Rajab Al-Hanbali',
+    name_so: 'Ibnu Rajab Al-Xanbali',
     era: 'علماء متأخرون',
     bio_ar: 'عبد الرحمن بن أحمد بن رجب الحنبلي الدمشقي، حافظ محدث فقيه، من أبرز علماء الحديث في القرن الثامن الهجري. توفي سنة 795 هـ.',
+    bio_so: 'Cabdurahmaan bin Axmed, oo loo yaqaan Ibnu Rajab. Wuxuu ahaa xaafid, muxaddis iyo faqiiha Xanbali ah, kana mid ahaa culimadii qarnigii sideedaad ee Hijriyada.',
     death_year: '795 هـ',
     reliability: 'ثقة حافظ',
+    reliability_so: 'Xaafid aamin ah',
     tags: ['حديث', 'تزكية', 'موعظة'],
   },
   {
     id: 'sch-010',
     name_ar: 'وهيب بن الورد',
     name_en: 'Wuhayb ibn Al-Ward',
+    name_so: 'Wuheyb bin Al-Ward',
     era: 'أتباع التابعين',
     bio_ar: 'وهيب بن الورد المكي أبو عثمان، زاهد من زهاد المكيين، كان يُضرب به المثل في الخوف من الله والعبادة. توفي نحو 153 هـ.',
+    bio_so: 'Wuheyb bin Al-Ward Al-Makki, wuxuu ahaa nin aad ugu sifoobay zuhdi ka mid ahaa kuwii ugu caansanaa reer Maka, waxaana tusaale loogu soo qaadan jiray cabsida Alle.',
     death_year: '153 هـ',
     reliability: 'ثقة',
+    reliability_so: 'Aamin',
     tags: ['زهد', 'خوف', 'عبادة'],
   },
   {
     id: 'sch-011',
     name_ar: 'الإمام مالك بن أنس',
     name_en: 'Imam Malik ibn Anas',
+    name_so: 'Imaam Maalik bin Anas',
     era: 'أتباع التابعين',
     bio_ar: 'إمام دار الهجرة، وأحد الأئمة الأربعة، صاحب الموطأ. عُرف بعلمه الواسع في الحديث والفقه وشدة تعظيمه لحديث رسول الله ﷺ. ولد 93 هـ وتوفي 179 هـ.',
+    bio_so: 'Imaamka magaalada Madiina, waana mid ka mid ah afarta imaam ee madhabta looga raaco, waana qoraaga kitaabka "Al-Muwadda". Wuxuu caan ku ahaa aqoontiisa baaxadda leh.',
     death_year: '179 هـ',
     reliability: 'إمام دار الهجرة',
+    reliability_so: 'Imaamka magaalada Madiina',
     tags: ['فقه', 'حديث', 'تعظيم'],
   },
   {
     id: 'sch-012',
     name_ar: 'الإمام أبو حنيفة',
     name_en: 'Imam Abu Hanifa',
+    name_so: 'Imaam Abuu Xaniifa',
     era: 'تابعون',
     bio_ar: 'النعمان بن ثابت، إمام الفقهاء ومؤسس المذهب الحنفي. عُرف بحدة الذكاء والورع والعبادة والصدقة. توفي سنة 150 هـ.',
+    bio_so: 'Al-Nucmaan bin Thaabit, oo loo yaqaan Abuu Xaniifa. Wuxuu ahaa imaamka fuqahada iyo aasaasaha madhabta Xanafiga. Wuxuu caan ku ahaa caqliga iyo dhowrsanaanta.',
     death_year: '150 هـ',
     reliability: 'إمام فقيه ورع',
+    reliability_so: 'Imaam faqiiha oo cibaado badan',
     tags: ['فقه', 'قياس', 'ذكاء'],
   },
   {
     id: 'sch-013',
     name_ar: 'الإمام البخاري',
     name_en: 'Imam Al-Bukhari',
+    name_so: 'Imaam Al-Bukhaari',
     era: 'علماء متأخرون',
     bio_ar: 'محمد بن إسماعيل البخاري، صاحب "الجامع الصحيح"، أوثق كتاب بعد القرآن. رحل في طلب الحديث وسافر في بلدان الإسلام. توفي 256 هـ.',
+    bio_so: 'Muxammad bin Ismaaciil Al-Bukhaari, waa qoraaga kitaabka "Saxiixul Bukhaari", oo ah kitaabka ugu saxsan Quraanka ka dib. Wuxuu u safray dalal badan si uu xadiis u ururiyo.',
     death_year: '256 هـ',
     reliability: 'أمير المؤمنين في الحديث',
+    reliability_so: 'Amiirka mu\'miniinta ee xadiiska',
     tags: ['حديث', 'حفظ', 'دقة'],
   },
   {
     id: 'sch-014',
     name_ar: 'الإمام مسلم',
     name_en: 'Imam Muslim',
+    name_so: 'Imaam Muslim',
     era: 'علماء متأخرون',
     bio_ar: 'مسلم بن الحجاج النيسابوري، صاحب الصحيح وتلميذ البخاري. رحل في طلب العلم وجمع أصح الأحاديث. توفي 261 هـ.',
+    bio_so: 'Muslim bin Al-Xajaaj, waa qoraaga kitaabka "Saxiixu Muslim", wuxuuna ahaa ardaygii Al-Bukhaari. Wuxuu ururiyay xadiisyada ugu saxsan.',
     death_year: '261 هـ',
     reliability: 'إمام حافظ',
+    reliability_so: 'Imaam xaafid ah',
     tags: ['حديث', 'ترتيب', 'علم'],
   },
   {
     id: 'sch-015',
     name_ar: 'أبو بكر الصديق',
     name_en: 'Abu Bakr Al-Siddiq',
+    name_so: 'Abuu Bakar Al-Siddiiq',
     era: 'صحابة',
     bio_ar: 'أول الخلفاء الراشدين، وأحب الناس إلى رسول الله ﷺ، عُرف بالصدق واليقين والبذل في سبيل الله. توفي سنة 13 هـ.',
+    bio_so: 'Khaliifkii ugu horreeyay ee Islaamka, waana ninkii ugu jeclaa Rasuulka ﷺ. Wuxuu caan ku ahaa run-sheegnimada iyo hufnaanta.',
     death_year: '13 هـ',
     reliability: 'صحابي جليل - الصديق',
+    reliability_so: 'Saxaabi weyn - Al-Siddiiq',
     tags: ['يقين', 'بذل', 'خلافة'],
   },
   {
     id: 'sch-016',
     name_ar: 'عمر بن الخطاب',
     name_en: 'Umar ibn Al-Khattab',
+    name_so: 'Cumar bin Al-Khattaab',
     era: 'صحابة',
     bio_ar: 'ثاني الخلفاء الراشدين، الفاروق الذي فرق الله به بين الحق والباطل، عُرف بالعدل والزهد والقوة في الحق. استشهد سنة 23 هـ.',
+    bio_so: 'Khaliifkii labaad ee Islaamka, waana ninkii Alle ku kala saaray xaqa iyo baadilka (Al-Faaruuq). Wuxuu caan ku ahaa caddaalad iyo geesinnimo.',
     death_year: '23 هـ',
     reliability: 'صحابي جليل - الفاروق',
+    reliability_so: 'Saxaabi weyn - Al-Faaruuq',
     tags: ['عدل', 'زهد', 'قوة'],
   },
   {
     id: 'sch-017',
     name_ar: 'عثمان بن عفان',
     name_en: 'Uthman ibn Affan',
+    name_so: 'Cusmaan bin Caffaan',
     era: 'صحابة',
     bio_ar: 'ثالث الخلفاء الراشدين، ذو النورين، عُرف بالحياء والكرم والإنفاق وجمع القرآن الكريم. استشهد سنة 35 هـ.',
+    bio_so: 'Khaliifkii saddexaad ee Islaamka, oo loo yaqaan "Duu-nuureyn". Wuxuu caan ku ahaa xishoodka, deeqsinimada iyo ururinta Quraanka Kariimka ah.',
     death_year: '35 هـ',
     reliability: 'صحابي جليل - ذو النورين',
+    reliability_so: 'Saxaabi weyn - Duu-nuureyn',
     tags: ['حياء', 'كرم', 'قرآن'],
   },
   {
     id: 'sch-018',
     name_ar: 'علي بن أبي طالب',
     name_en: 'Ali ibn Abi Talib',
+    name_so: 'Cali bin Abii Daalib',
     era: 'صحابة',
     bio_ar: 'رابع الخلفاء الراشدين، ابن عم النبي ﷺ وصهره، عُرف بالعلم والحكمة والشجاعة والبيان. استشهد سنة 40 هـ.',
+    bio_so: 'Khaliifkii afraad ee Islaamka, waana ina-adeerkii Nabiga ﷺ. Wuxuu caan ku ahaa cilmiga, xikmadda, geesinnimada iyo aftahannimada.',
     death_year: '40 هـ',
     reliability: 'صحابي جليل - باب العلم',
+    reliability_so: 'Saxaabi weyn - Albaabka cilmiga',
     tags: ['حكمة', 'شجاعة', 'بيان'],
   },
   {
     id: 'sch-019',
     name_ar: 'عائشة بنت أبي بكر',
     name_en: 'Aisha bint Abu Bakr',
+    name_so: "Caa'isha bint Abii Bakar",
     era: 'صحابة',
     bio_ar: 'أم المؤمنين، وأعلم النساء بالدين والحديث، كانت مرجعاً للصحابة في المعضلات. توفيت سنة 58 هـ.',
+    bio_so: "Hooyada mu'miniinta, waana haweeneyda ugu aqoonta badnayd diinta iyo xadiiska. Waxay ahayd halkii saxaabadu u soo noqon jireen xallinta arrimaha adag.",
     death_year: '58 هـ',
     reliability: 'أم المؤمنين - الصديقة',
+    reliability_so: "Hooyada mu'miniinta - Al-Siddiiqah",
     tags: ['فقه', 'حديث', 'قدوة'],
   },
   {
     id: 'sch-020',
     name_ar: 'عبد الله بن عباس',
     name_en: 'Abdullah ibn Abbas',
+    name_so: 'Cabdullaahi bin Cabbaas',
     era: 'صحابة',
     bio_ar: 'حبر الأمة وترجمان القرآن، دعا له النبي ﷺ بالفقه في الدين وتأويل القرآن. توفي سنة 68 هـ.',
+    bio_so: 'Caalimkii ummadda iyo turjumaankii Quraanka. Nabiga ﷺ ayaa ugu duueeyay in Alle diinta fahamsiiyo, Quraankana u turjumo.',
     death_year: '68 هـ',
     reliability: 'حبر الأمة',
+    reliability_so: 'Caalimka ummadda',
     tags: ['تفسير', 'علم', 'فقه'],
   },
 ];
@@ -209,8 +269,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-001',
     text_ar: 'ابن آدمَ، إنما أنتَ أيامٌ، فكلما ذهبَ يومٌ ذهبَ بعضُك.',
+    text_so: 'Ina Aadamow, waxaad tahay maalmo kooban, mar kasta oo maalin tagtana, qayb kaa mid ah baa tagtay.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'حلية الأولياء - أبو نعيم الأصبهاني',
     grade: 'authentic',
     tags: ['زهد', 'موت', 'وقت'],
@@ -219,8 +281,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-002',
     text_ar: 'واللهِ ما فضلَ أصحابُ محمد ﷺ بكثرةِ صيامٍ ولا صلاة، وإنما فضلوا بشيءٍ في صدورهم.',
+    text_so: 'Illaahay baan ku dhaartaye, saxaabadii Muxammad ﷺ kuma sarrayn soon iyo salaad badnaan, ee waxay ku sarrayeen wax laabtooda ku jiray.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'جامع العلوم والحكم - ابن رجب',
     grade: 'authentic',
     tags: ['صحابة', 'قلب', 'فضل'],
@@ -229,8 +293,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-003',
     text_ar: 'أنفعُ العلمِ ما أثَّرَ في القلبِ خشيةً وخشوعاً، وزهَّدَ في الدنيا، ورغَّبَ في الآخرة.',
+    text_so: 'Cilmiga kan ugu waxtarka badan waa kan qalbiga dhaxalsiiya cabsi iyo khushuuc, aduunyadana kugu naco, aakhirana kugu dhiirigeliyo.',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'مفتاح دار السعادة - ابن القيم',
     grade: 'authentic',
     tags: ['علم', 'قلب', 'آخرة'],
@@ -239,8 +305,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-004',
     text_ar: 'كلُّ نعمةٍ لا تُقَرِّبُ من اللهِ فهي بلاء.',
+    text_so: 'Nimco kasta oo aan Alle kuu dhawaynayn, waa balaayo.',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'الفوائد - ابن القيم',
     grade: 'authentic',
     tags: ['نعمة', 'بلاء', 'قرب'],
@@ -249,8 +317,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-005',
     text_ar: 'ليس العلمُ ما يُحفَظُ في الصدور، إنما العلمُ ما نفَعَ.',
+    text_so: 'Cilmigu maaha waxa laabta lagu xifdiyo, ee cilmigu waa waxa la mahadiyo oo waxtar leh.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['علم', 'نفع', 'حكمة'],
@@ -259,8 +329,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-006',
     text_ar: 'مَن أرادَ الدنيا فعليهِ بالعلم، ومن أرادَ الآخرةَ فعليهِ بالعلم.',
+    text_so: 'Qofkii aduun raba cilmi ha barto, qofkii aakhira rabana cilmi ha barto.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'مناقب الشافعي - البيهقي',
     grade: 'authentic',
     tags: ['علم', 'دنيا', 'آخرة'],
@@ -269,8 +341,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-007',
     text_ar: 'إذا خِفتَ على عملِكَ العُجبَ فاذكُر رِضى منْ تطلب، وفي أيِّ نعيمٍ تَرغب، وأيَّ عقوبةٍ تَخاف؛ فمن فكَّرَ في ذلك حقَّرَ عملَه.',
+    text_so: 'Haddii aad ka baqdo in camalkaagu uu kibriyo, xusuuso raali ahaanshaha qofka aad rabto, iyo nicmada aad rabto, iyo cadaabka aad ka baqayso.',
     scholar_id: 'sch-004',
     scholar_name_ar: 'الإمام أحمد بن حنبل',
+    scholar_name_so: 'Imaam Axmed bin Xanbal',
     source: 'جامع العلوم والحكم - ابن رجب',
     grade: 'authentic',
     tags: ['إخلاص', 'عجب', 'عمل'],
@@ -279,8 +353,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-008',
     text_ar: 'العلمُ يُراد للعمل، كما أن العملَ يُراد للنجاة.',
+    text_so: 'Cilmiga waxaa loo rabaa in lagu camal galo, camalkana waxaa loo rabaa in lagu badbaado.',
     scholar_id: 'sch-004',
     scholar_name_ar: 'الإمام أحمد بن حنبل',
+    scholar_name_so: 'Imaam Axmed bin Xanbal',
     source: 'الآداب الشرعية - ابن مفلح',
     grade: 'authentic',
     tags: ['علم', 'عمل', 'نجاة'],
@@ -289,8 +365,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-009',
     text_ar: 'من كانَ باللهِ أعرَف، كانَ من اللهِ أخوَف.',
+    text_so: 'Qofkii aad u weyneeya Alle, isagaa ugu cabsida badan.',
     scholar_id: 'sch-005',
     scholar_name_ar: 'ابن تيمية',
+    scholar_name_so: 'Shaykhul Islaam Ibnu Taymiyah',
     source: 'مجموع الفتاوى - ابن تيمية',
     grade: 'authentic',
     tags: ['معرفة', 'خوف', 'الله'],
@@ -299,8 +377,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-010',
     text_ar: 'الصبرُ الجميلُ هو الذي لا شكوى فيه إلى المخلوق.',
+    text_so: 'Samirka quruxda badan waa kan aan makhluuqa looga caban.',
     scholar_id: 'sch-005',
     scholar_name_ar: 'ابن تيمية',
+    scholar_name_so: 'Shaykhul Islaam Ibnu Taymiyah',
     source: 'مجموع الفتاوى - ابن تيمية',
     grade: 'authentic',
     tags: ['صبر', 'توكل', 'شكوى'],
@@ -309,8 +389,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-011',
     text_ar: 'لا تَجلِس فارغاً؛ فإن الموتَ يطلبُك.',
+    text_so: 'Ha fadhiyin iska camal la\'aan; waayo geeridu way ku baadi-goobaysaa.',
     scholar_id: 'sch-006',
     scholar_name_ar: 'عبد الله بن مسعود',
+    scholar_name_so: 'Cabdullaahi bin Mascuud',
     source: 'الزهد - ابن أبي الدنيا',
     grade: 'authentic',
     tags: ['وقت', 'موت', 'عمل'],
@@ -319,8 +401,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-012',
     text_ar: 'اغتنِم في الإمكانِ عملًا صالحًا، فلا تدري متى تُختَم بك الصحائف.',
+    text_so: 'Ka faa\'iidayso fursadda aad ku qaban karto camal wanaagsan, waayo ma garanaysid goorta buuga xogtaada la xidhi doono.',
     scholar_id: 'sch-007',
     scholar_name_ar: 'سفيان الثوري',
+    scholar_name_so: 'Sufyaan Al-Thawri',
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['زهد', 'عمل', 'موت'],
@@ -329,8 +413,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-013',
     text_ar: 'ما رأيتُ شيئاً أيسرَ ولا أحسنَ مِن طلبِ الحلال، ولا أشدَّ ولا أصعبَ مِن هواجِس النفس.',
+    text_so: 'Ma arag wax ka fudud ama ka qurux badan raadinta xalaasha, mana arag wax ka adag ama ka dhib badan la dagaalanka hawada nafta.',
     scholar_id: 'sch-007',
     scholar_name_ar: 'سفيان الثوري',
+    scholar_name_so: 'Sufyaan Al-Thawri',
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['نفس', 'حلال', 'جهاد'],
@@ -339,8 +425,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-014',
     text_ar: 'أصلُ كلِّ خيرٍ في الدنيا والآخرة هو الخوفُ من الله.',
+    text_so: 'Asalka khayr kasta oo aduun iyo aakhiraba waa cabsida Alle.',
     scholar_id: 'sch-008',
     scholar_name_ar: 'الفضيل بن عياض',
+    scholar_name_so: 'Al-Fudayl bin Cayaad',
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['خوف', 'خير', 'تقوى'],
@@ -349,8 +437,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-015',
     text_ar: 'تعلَّمتُ الصمتَ عشرين سنة، وأظنُّ أنَّ الكلامَ عشرٌ بعدَها.',
+    text_so: 'Waxaan bartay aamusnaanta muddo labaatan sano ah, waxaana u malaynayaa in hadalku uu hadhay toban sano oo kale.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'جامع بيان العلم وفضله - ابن عبد البر',
     grade: 'authentic',
     tags: ['صمت', 'حكمة', 'لسان'],
@@ -359,8 +449,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-016',
     text_ar: 'القلبُ إذا أحبَّ الله، أحبَّ ما يُحِبُّ الله.',
+    text_so: 'Qalbigu haddii uu Alle jeclaado, wuxuu jeclaanayaa wax kasta oo Alle jecelyahay.',
     scholar_id: 'sch-009',
     scholar_name_ar: 'ابن رجب الحنبلي',
+    scholar_name_so: 'Ibnu Rajab Al-Xanbali',
     source: 'جامع العلوم والحكم - ابن رجب',
     grade: 'authentic',
     tags: ['قلب', 'محبة', 'الله'],
@@ -369,8 +461,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-017',
     text_ar: 'مِن أَوثَقِ عُرى الإيمانِ أن تُحِبَّ في اللهِ وتَبغَضَ في الله.',
+    text_so: 'Xadhkaha iimaanka kuwa ugu adag waxaa ka mid ah: in aad Alle dartiis wax u jeclaato, Alle dartiisna wax u Necbaato.',
     scholar_id: 'sch-006',
     scholar_name_ar: 'عبد الله بن مسعود',
+    scholar_name_so: 'Cabdullaahi bin Mascuud',
     source: 'الإبانة الكبرى - ابن بطة',
     grade: 'authentic',
     tags: ['إيمان', 'محبة', 'ولاء'],
@@ -379,8 +473,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-018',
     text_ar: 'إنَّ أكثرَ الناسِ ذنوباً أقلُّهم فكرةً في ذنوبهم.',
+    text_so: 'Dadka kuwa ugu dunuubta badan waa kuwa ugu fekerka yar dunuubtooda.',
     scholar_id: 'sch-008',
     scholar_name_ar: 'الفضيل بن عياض',
+    scholar_name_so: 'Al-Fudayl bin Cayaad',
     source: 'الزهد الكبير - البيهقي',
     grade: 'authentic',
     tags: ['ذنوب', 'توبة', 'تأمل'],
@@ -389,8 +485,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-019',
     text_ar: 'ارحموا مَنْ في الأرضِ يَرحَمُكم مَنْ في السماء.',
+    text_so: 'U naxariista kuwa dhulka jooga, si uu idiinku naxariisto kan samada jooga.',
     scholar_id: 'sch-010',
     scholar_name_ar: 'وهيب بن الورد',
+    scholar_name_so: 'Wuheyb bin Al-Ward',
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['رحمة', 'أخلاق', 'الله'],
@@ -399,8 +497,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-020',
     text_ar: 'إنَّ اللهَ يُعطي الدنيا مَنْ يُحِبُّ ومَنْ لا يُحِبُّ، ولا يُعطي الدينَ إلا مَنْ يُحِبُّ.',
+    text_so: 'Illaahay aduunka wuxuu siiyaa qofka uu jecelyahay iyo qofka uusan jeclaynba, laakiin diinta ma siiyo qof uu jecelyahay mooyee.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'الزهد - الإمام أحمد',
     grade: 'authentic',
     tags: ['دنيا', 'دين', 'محبة'],
@@ -409,8 +509,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-021',
     text_ar: 'الغِنى غِنى النفس، لا غِنى المال.',
+    text_so: 'Hantidu waa hantida nafta, ee maaha hantida maalka badan.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'الرسالة - الشافعي',
     grade: 'authentic',
     tags: ['زهد', 'غنى', 'نفس'],
@@ -419,8 +521,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-022',
     text_ar: 'أفضلُ الأعمالِ ما أكرهَتِ النفسُ عليه.',
+    text_so: 'Camallada kuwa ugu fadliga badan waa kuwa naftu ay dhibsanayso (ee ay tahay in lagu qasbo).',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'الفوائد - ابن القيم',
     grade: 'authentic',
     tags: ['نفس', 'جهاد', 'عمل'],
@@ -429,8 +533,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-023',
     text_ar: 'ما قلَّ ورعُ عبدٍ إلا قسا قلبُه.',
+    text_so: 'Qof kasta oo dhowrsanaantiisu ay yaraato, qalbigiisu waa uu adkaadaa.',
     scholar_id: 'sch-012',
     scholar_name_ar: 'الإمام أبو حنيفة',
+    scholar_name_so: 'Imaam Abuu Xaniifa',
     source: 'مناقب أبي حنيفة',
     grade: 'authentic',
     tags: ['ورع', 'قلب', 'قسوة'],
@@ -439,8 +545,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-024',
     text_ar: 'العلمُ ليس بكثرةِ الرواية، إنما العلمُ نورٌ يقذفُه الله في القلب.',
+    text_so: 'Cilmigu maaha sheekooyinka badan ee la weriyo, ee cilmigu waa nuur uu Alle ku dhex tuuro qalbiga.',
     scholar_id: 'sch-011',
     scholar_name_ar: 'الإمام مالك بن أنس',
+    scholar_name_so: 'Imaam Maalik bin Anas',
     source: 'التمهيد - ابن عبد البر',
     grade: 'authentic',
     tags: ['علم', 'نور', 'قلب'],
@@ -449,8 +557,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-025',
     text_ar: 'من طلبَ الحديثَ ولم يطلب الفقهَ، كانَ كمن معَه سلاحٌ ولا يدرِي كيفَ يطعَنُ به.',
+    text_so: 'Qofkii doona xadiis isaga oo aan raadinayn fikhiga, wuxuu la mid yahay qof sita hub uusan garanayn sida wax loogu dhaawaco.',
     scholar_id: 'sch-014',
     scholar_name_ar: 'الإمام مسلم',
+    scholar_name_so: 'Imaam Muslim',
     source: 'تذكرة الحفاظ',
     grade: 'authentic',
     tags: ['علم', 'فقه', 'حديث'],
@@ -459,8 +569,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-026',
     text_ar: 'ما وضعتُ في كتابي "الصحيح" حديثاً إلا اغتسلتُ قبل ذلك وصليتُ ركعتين.',
+    text_so: 'Ma aanan gelin kitaabkayga \'Saxiix\' hal xadiis ilaa aan horay u soo qubaystay oo aan laba rakcadood soo tukaday mooyee.',
     scholar_id: 'sch-013',
     scholar_name_ar: 'الإمام البخاري',
+    scholar_name_so: 'Imaam Al-Bukhaari',
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
     tags: ['إخلاص', 'صلاة', 'حديث'],
@@ -469,8 +581,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-027',
     text_ar: 'إذا رأيت الرجل يدافع عن الحق فيسب ويشتم ويغضب، فاعلم أنه معلول النية، لأن الحق لا يحتاج إلى هذا.',
+    text_so: 'Haddii aad aragto nin doodaya oo xaqa difaacaya isaga oo caytamaya, habaaraya oo xanaaqaya, ogow in niyadiisu ay buuxdo, waayo xaqu uma baahna waxaas.',
     scholar_id: 'sch-011',
     scholar_name_ar: 'الإمام مالك بن أنس',
+    scholar_name_so: 'Imaam Maalik bin Anas',
     source: 'ترتيب المدارك',
     grade: 'authentic',
     tags: ['أخلاق', 'نية', 'حق'],
@@ -479,8 +593,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-028',
     text_ar: 'النيةُ مِلاكُ العمل، فإذا صَلحت النية صَلحَ العملُ كلُّه.',
+    text_so: 'Niyadu waa aasaaska camalka; haddii niyadu wanaagsanaato, camalka oo dhanna waa uu wanaagsanaadaa.',
     scholar_id: 'sch-013',
     scholar_name_ar: 'الإمام البخاري',
+    scholar_name_so: 'Imaam Al-Bukhaari',
     source: 'الفتح - ابن حجر',
     grade: 'authentic',
     tags: ['إخلاص', 'نية', 'عمل'],
@@ -489,8 +605,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-029',
     text_ar: 'ليسَ الفقيهُ من يَعرفُ الخيرَ والشر، إنما الفقيهُ من يَعرفُ خيرَ الخيرين وشرَّ الشرين.',
+    text_so: 'Faqiiha maaha qofka garanaya khayrka iyo sharka, ee faqiiha waa qofka garanaya kan ugu khayrka badan laba khayr, iyo kan ugu sharka yar laba shar.',
     scholar_id: 'sch-012',
     scholar_name_ar: 'الإمام أبو حنيفة',
+    scholar_name_so: 'Imaam Abuu Xaniifa',
     source: 'مناقب الشافعي',
     grade: 'authentic',
     tags: ['فقه', 'ذكاء', 'حكمة'],
@@ -499,8 +617,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-030',
     text_ar: 'الصبرُ عندَ الصدمةِ الأولى.',
+    text_so: 'Samirku waa marka ugu horraysa ee balaayadu dhacdo.',
     scholar_id: 'sch-014',
     scholar_name_ar: 'الإمام مسلم',
+    scholar_name_so: 'Imaam Muslim',
     source: 'صحيح مسلم',
     grade: 'authentic',
     tags: ['صبر', 'بلاء', 'إيمان'],
@@ -509,8 +629,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-031',
     text_ar: 'أصلِح نفسَك يَصلُح لك الناس.',
+    text_so: 'Hagaaji naftaada, dadka kalena way kuu hagaagi doonaan.',
     scholar_id: 'sch-015',
     scholar_name_ar: 'أبو بكر الصديق',
+    scholar_name_so: 'Abuu Bakar Al-Siddiiq',
     source: 'تاريخ الخلفاء',
     grade: 'authentic',
     tags: ['نفس', 'أخلاق', 'إصلاح'],
@@ -519,8 +641,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-032',
     text_ar: 'احرِص على الموتِ توهَب لك الحياة.',
+    text_so: 'Ku dadaal geerida (shahiidnimada), waxaa laguugu deeqi doonaa nolol.',
     scholar_id: 'sch-015',
     scholar_name_ar: 'أبو بكر الصديق',
+    scholar_name_so: 'Abuu Bakar Al-Siddiiq',
     source: 'الزهد - الإمام أحمد',
     grade: 'authentic',
     tags: ['شجاعة', 'موت', 'يتم'],
@@ -529,8 +653,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-033',
     text_ar: 'لا خيرَ في قولٍ لا يُراد به وجهُ الله.',
+    text_so: 'Ma jirto khayr hadal aan loola jeedin wejiga Alle (raali ahaanshihiisa).',
     scholar_id: 'sch-015',
     scholar_name_ar: 'أبو بكر الصديق',
+    scholar_name_so: 'Abuu Bakar Al-Siddiiq',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['إخلاص', 'قول', 'نية'],
@@ -539,8 +665,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-034',
     text_ar: 'حاسِبوا أنفسَكم قبل أن تُحاسَبوا، وزِنوا أنفسَكم قبل أن تُوزَنوا.',
+    text_so: 'Naftiina xisaabiya ka hor intaan la idin xisaabin, oo miisaama naftiina ka hor intaan la idin miisaamin.',
     scholar_id: 'sch-016',
     scholar_name_ar: 'عمر بن الخطاب',
+    scholar_name_so: 'Cumar bin Al-Khattaab',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['محاسبة', 'آخرة', 'تقوى'],
@@ -549,8 +677,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-035',
     text_ar: 'نحنُ قومٌ أعزَّنا اللهُ بالإسلام، فمهما ابتغَينا العزةَ في غيرِه أذلَّنا الله.',
+    text_so: 'Anagu waxaan nahay qoom uu Alle kor ugu qaaday Islaamka, haddii aan sharaf meel kale ka raadinno, Alle waa uu na dulleyn doonaa.',
     scholar_id: 'sch-016',
     scholar_name_ar: 'عمر بن الخطاب',
+    scholar_name_so: 'Cumar bin Al-Khattaab',
     source: 'المستدرك - الحاكم',
     grade: 'authentic',
     tags: ['عزة', 'إسلام', 'هوية'],
@@ -559,8 +689,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-036',
     text_ar: 'تعلَّموا العِلمَ قبل أن تُسَوَّدوا.',
+    text_so: 'Barta cilmiga ka hor intaan la idin madax dhigin.',
     scholar_id: 'sch-016',
     scholar_name_ar: 'عمر بن الخطاب',
+    scholar_name_so: 'Cumar bin Al-Khattaab',
     source: 'البخاري معلقاً',
     grade: 'authentic',
     tags: ['علم', 'وقار', 'شباب'],
@@ -569,8 +701,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-037',
     text_ar: 'إنَّ اللهَ ليردَعُ بالسلطانِ ما لا يَرِدُ بالقرآن.',
+    text_so: 'Illaahay wuxuu ku reebaa awoodda (suldaanka) wax uusan ku reebin Quraanka (waanada).',
     scholar_id: 'sch-017',
     scholar_name_ar: 'عثمان بن عفان',
+    scholar_name_so: 'Cusmaan bin Caffaan',
     source: 'البداية والنهاية',
     grade: 'authentic',
     tags: ['عدل', 'حكم', 'تقوى'],
@@ -579,8 +713,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-038',
     text_ar: 'لو طَهُرت قلوبُكم ما شَبِعتُم من كلامِ ربِّكم.',
+    text_so: 'Haddii qalbiyadiinu ay hufnaan lahaayeen (daahir), kama aad dheregteen hadalka Rabbigiis (Quraanka).',
     scholar_id: 'sch-017',
     scholar_name_ar: 'عثمان بن عفان',
+    scholar_name_so: 'Cusmaan bin Caffaan',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['قلب', 'قرآن', 'طهر'],
@@ -589,8 +725,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-039',
     text_ar: 'ما أسرَّ أحدٌ سريرةً إلا وأظهرَها اللهُ على صفحاتِ وجهِه وفلتاتِ لسانِه.',
+    text_so: 'Ma jiro qof wax qarsada ilaa Alle waa uu ka soo saaraa wejigiisa iyo carrabkiisa waxa uu qarsanayay.',
     scholar_id: 'sch-017',
     scholar_name_ar: 'عثمان بن عفان',
+    scholar_name_so: 'Cusmaan bin Caffaan',
     source: 'الزهد - الإمام أحمد',
     grade: 'authentic',
     tags: ['سريرة', 'نية', 'صدق'],
@@ -599,8 +737,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-040',
     text_ar: 'العلمُ خيرٌ من المال، العلمُ يَحرُسُك وأنتَ تَحرُسُ المال.',
+    text_so: 'Cilmigu wuxuu ka khayr badanyahay maalka; cilmigu waa uu ku dhowraa, maalkana adigaa dhowra.',
     scholar_id: 'sch-018',
     scholar_name_ar: 'علي بن أبي طالب',
+    scholar_name_so: 'Cali bin Abii Daalib',
     source: 'نهج البلاغة/حلية الأولياء',
     grade: 'authentic',
     tags: ['علم', 'مال', 'حكمة'],
@@ -609,8 +749,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-041',
     text_ar: 'كَفى بالعلمِ شرفاً أن يدَّعيَه من لا يُحسنُه، ويَفرحَ به إذا نُسبَ إليه.',
+    text_so: 'Cilmiga waxaa ugu filan sharaf in uu sheegto qof aan aqoon u lahayn, kuna farxo haddii isaga loo tiiriyo.',
     scholar_id: 'sch-018',
     scholar_name_ar: 'علي بن أبي طالب',
+    scholar_name_so: 'Cali bin Abii Daalib',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['علم', 'شرف', 'حكمة'],
@@ -619,8 +761,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-042',
     text_ar: 'التقوى هي: الخوفُ من الجليل، والعملُ بالتنزيل، والقناعةُ بالقليل، والاستعدادُ ليومِ الرحيل.',
+    text_so: 'Taqwadu waa: cabsida laga qabo Rabbiga weyn, ku camal falka Quraanka, ku qanacsanaanta waxa yar, iyo u diyaar garowga maalinka dhimashada.',
     scholar_id: 'sch-018',
     scholar_name_ar: 'علي بن أبي طالب',
+    scholar_name_so: 'Cali bin Abii Daalib',
     source: 'التبيان في آداب حملة القرآن',
     grade: 'authentic',
     tags: ['تقوى', 'خوف', 'آخرة'],
@@ -629,8 +773,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-043',
     text_ar: 'عليكُم بالقرآنِ فتعلَّموه وعليكم به فاصحبوه.',
+    text_so: 'Quraanka barta, oo mar kasta la saaxiiba.',
     scholar_id: 'sch-019',
     scholar_name_ar: 'عائشة بنت أبي بكر',
+    scholar_name_so: "Caa'isha bint Abii Bakar",
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
     tags: ['قرآن', 'سنة', 'علم'],
@@ -639,8 +785,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-044',
     text_ar: 'ما رأيتُ شجاعاً قط إلا ومن ورائِه عقلٌ رصين.',
+    text_so: 'Ma arag geesi weligii ilaa uu leeyahay caqli fayoow oo ka dambeeya mooyee.',
     scholar_id: 'sch-019',
     scholar_name_ar: 'عائشة بنت أبي بكر',
+    scholar_name_so: "Caa'isha bint Abii Bakar",
     source: 'الأمثال والمواعظ',
     grade: 'authentic',
     tags: ['شجاعة', 'عقل', 'حكمة'],
@@ -649,8 +797,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-045',
     text_ar: 'العلمُ بحرٌ لا يُدركُ قعرُه.',
+    text_so: 'Cilmigu waa bad weyn oo aan gunteeda la gaadhi karin.',
     scholar_id: 'sch-020',
     scholar_name_ar: 'عبد الله بن عباس',
+    scholar_name_so: 'Cabdullaahi bin Cabbaas',
     source: 'جامع بيان العلم',
     grade: 'authentic',
     tags: ['علم', 'حكمة', 'تواضع'],
@@ -659,8 +809,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-046',
     text_ar: 'خُذِ الحكمةَ ممن سمعت؛ فإن الرجلَ ينطقُ بالحكمةِ وليس بحكيم، فتكون كالسهمِ خرَج من غيرِ رامٍ.',
+    text_so: 'Ka qaado xikmadda qof kasta oo aad ka maqasho; waayo ninku wuxuu ku hadlaa xikmad isaga oo aan xakiim ahayn, waxayna la mid noqonaysaa fallaadha ka soo baxday meel aan loola jeedin.',
     scholar_id: 'sch-020',
     scholar_name_ar: 'عبد الله بن عباس',
+    scholar_name_so: 'Cabdullaahi bin Cabbaas',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['حكمة', 'علم', 'بحث'],
@@ -669,8 +821,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-047',
     text_ar: 'القلبُ يَمرضُ كما يَمرضُ البدن، وشفاؤُه في التوبةِ والحِمية، ويصدأُ كما تصدأُ المرآة، وجلاؤه بالذكر.',
+    text_so: 'Qalbigu waa uu jirradda sida uu jidhku u jirraddo, daawadiisuna waa toobada iyo dhowrsanaanta. Qalbigu waa uu miridhaa sida muraayadda u miridho, dhalaalkiisuna waa xusidda Alle (Dikriga).',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'الفوائد',
     grade: 'authentic',
     tags: ['قلب', 'ذكر', 'توبة'],
@@ -679,8 +833,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-048',
     text_ar: 'إضاعةُ الوقتِ أشدُّ من الموت؛ لأن إضاعةَ الوقتِ تقطعُك عن اللهِ والدارِ الآخرة، والموتُ يقطعُك عن الدنيا وأهلِها.',
+    text_so: 'Waqtiga oo laga lumiyo ayaa ka daran geerida; waayo waqtiga oo kaa luma wuxuu kaa gooyaa Alle iyo guriga aakhira, geeriduna waxay kaa gooysaa aduunka iyo dadkiisa.',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'الفوائد',
     grade: 'authentic',
     tags: ['وقت', 'موت', 'آخرة'],
@@ -689,8 +845,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-049',
     text_ar: 'يا ابنَ آدم، إنما أنتَ أجزاء، كلما ذهَبَ جزءٌ ذهَبَ بعضُك، ويوشكُ إذا ذهَبَ البعضُ أن يذهب الكلُّ وأنتَ لا تعلم.',
+    text_so: 'Ina Aadamow, waxaad tahay xubno la isku daray, mar kasta oo xubin kaa mid ah tagto, qayb kaa mid ah baa tagtay. Waxaana dhow in haddii qaybuhu dhamaadaan uu dhamaantaba tagto adiga oo aan dareemin.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['زهد', 'موت', 'وقت'],
@@ -699,8 +857,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-050',
     text_ar: 'عجبتُ لأقوامٍ أُمِروا بالزاد، ونوديَ فيهم بالرحيل، وهم قعودٌ يَلعبون.',
+    text_so: 'Waxaan la yaabay qoom la amray sahay iyo diyaar-garow, waxaana loogu dhawaaqay safarka aakhira, haddana iyagu meel iska fadhiya oo ciyaaraya.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'مواعظ الحسن البصري',
     grade: 'authentic',
     tags: ['غفلة', 'آخرة', 'زهد'],
@@ -709,8 +869,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-051',
     text_ar: 'ما رأيتُ يقيناً لا شكَّ فيه أشبهَ بشكٍّ لا يقينَ فيه من الموت.',
+    text_so: 'Ma arag hubaal (yaqiin) aan shaki lahayn oo u eg shaki aan hubaal lahayn sidii geerida oo kale.',
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['موت', 'يقين', 'غفلة'],
@@ -719,8 +881,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-052',
     text_ar: 'إذا نطقَ السفيهُ فلا تُجبهُ، فخيرٌ من إجابتِه السكوتُ.',
+    text_so: 'Haddii nacasku ku hadlo ha u jawaabin, waayo waxa ugu fiican ee aad ku jawaabi karto waa aamusnaan.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['أخلاق', 'سفاهة', 'صمت'],
@@ -729,8 +893,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-053',
     text_ar: 'شكوتُ إلى وكيعٍ سوءَ حفظي، فأرشدَني إلى تركِ المعاصي، وأخبرَني بأنَّ العلمَ نورٌ، ونورُ اللهِ لا يُهدى لعاصي.',
+    text_so: 'Waxaan uga cabaday Wakiic xifdigayga oo xumaaday, wuxuuna igu dhex hagay in aan iska daayo dunuubta, wuxuuna ii sheegay in cilmigu yahay nuur, nuurka Allana aan la siin qof caasi ah.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['علم', 'معصية', 'شعر'],
@@ -739,8 +905,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-054',
     text_ar: 'تغرب عن الأوطان في طلب العلى وسافر ففي الأسفار خمس فوائد: تفرج هم واكتساب معيشة وعلم وآداب وصحبة ماجد.',
+    text_so: 'Ka hayaan waddankaaga si aad u raadiso sarrayn, oo safr; waayo safarka waxaa ku jira shan faa\'iido: walwalka oo kaa baxa, nolol raadin (shaqo), cilmi, asluub iyo saaxiib sharaf leh.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['سفر', 'علم', 'أخلاق'],
@@ -749,8 +917,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-055',
     text_ar: 'الناسُ في الصلاةِ على خمسةِ منازل، أحدهم: مُعاقب، والثاني: مُحاسب، والثالث: مُكفَّر عنه، والرابع: مُثاب، والخامس: مُقرَّب.',
+    text_so: 'Dadku xaaladda salaadda waxay u qaybsamaan shan darajo: mid la ciqaabayo, mid la xisaabinayo, mid dunuubta looga dhaafayo, mid la abaal-marinayo, iyo mid loo dhawaanayo Alle.',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'الوابل الصيب',
     grade: 'authentic',
     tags: ['صلاة', 'إخلاص', 'عبادة'],
@@ -759,8 +929,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-056',
     text_ar: 'لا يَنبلُ الرجلُ حتى يَتركَ ما لا يَعنيه.',
+    text_so: 'Ninku ma gaadho sharaf ilaa uu iska daayo waxa aan khusayn mooyee.',
     scholar_id: 'sch-003',
     scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
     tags: ['أخلاق', 'سمو', 'نفس'],
@@ -768,179 +940,11 @@ export const aqwaalData: Qawl[] = [
   },
   {
     id: 'aqw-057',
-    text_ar: 'أشدُّ الأعمالِ ثلاثة: الجودُ من قِلَّة، والورعُ في خلوة، وكلمةُ الحقِّ عند من يُرتجى ويُخاف.',
-    scholar_id: 'sch-003',
-    scholar_name_ar: 'الإمام الشافعي',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['عمل', 'بذل', 'حق'],
-    created_at: '2024-02-26',
-  },
-  {
-    id: 'aqw-058',
-    text_ar: 'ما رفَعَ اللهُ أحداً إلا بالتواضع، وما وضعَ اللهُ أحداً إلا بالتكبر.',
-    scholar_id: 'sch-018',
-    scholar_name_ar: 'علي بن أبي طالب',
-    source: 'البداية والنهاية',
-    grade: 'authentic',
-    tags: ['تواضع', 'كبر', 'أخلاق'],
-    created_at: '2024-02-27',
-  },
-  {
-    id: 'aqw-059',
-    text_ar: 'كُلُّ إناءٍ يضيقُ بما جُعلَ فيه، إلا وعاءَ العلمِ فإنه يتسعُ.',
-    scholar_id: 'sch-018',
-    scholar_name_ar: 'علي بن أبي طالب',
-    source: 'نهج البلاغة',
-    grade: 'authentic',
-    tags: ['علم', 'سعة', 'حكمة'],
-    created_at: '2024-02-28',
-  },
-  {
-    id: 'aqw-060',
-    text_ar: 'إنَّما الفخرُ لعلمٍ أو لتقوى، وإلا فكلُّ الناسِ سواء.',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الحسن البصري',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['فخر', 'علم', 'تقوى'],
-    created_at: '2024-02-29',
-  },
-  {
-    id: 'aqw-061',
-    text_ar: 'الذكرُ للقلبِ حِمية، كما أنَّ الغذاءَ للبدنِ قوة.',
-    scholar_id: 'sch-002',
-    scholar_name_ar: 'ابن القيم الجوزية',
-    source: 'الوابل الصيب',
-    grade: 'authentic',
-    tags: ['ذكر', 'قلب', 'عبادة'],
-    created_at: '2024-03-01',
-  },
-  {
-    id: 'aqw-062',
-    text_ar: 'مَنْ عَمِلَ بما عَلِم، ورَّثَه اللهُ عِلْمَ ما لم يَعلم.',
-    scholar_id: 'sch-004',
-    scholar_name_ar: 'الإمام أحمد بن حنبل',
-    source: 'الآداب الشرعية',
-    grade: 'authentic',
-    tags: ['علم', 'عمل', 'هداية'],
-    created_at: '2024-03-02',
-  },
-  {
-    id: 'aqw-063',
-    text_ar: 'إذا أردتَ أن تَعرفَ قَدرَكَ عندَ الله، فانظر فيما أقامَك.',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الحسن البصري',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['تقوى', 'مقام', 'صدق'],
-    created_at: '2024-03-03',
-  },
-  {
-    id: 'aqw-064',
-    text_ar: 'خصلتان إذا صَلحتا صَلحَ ما سواهما: الصلاةُ واللسان.',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الفضيل بن عياض',
-    source: 'الزهد الكبير',
-    grade: 'authentic',
-    tags: ['صلاة', 'لسان', 'إصلاح'],
-    created_at: '2024-03-04',
-  },
-  {
-    id: 'aqw-065',
-    text_ar: 'لو عَلِمَ الملوكُ وأبناءُ الملوكِ ما نحنُ فيه من اللذةِ (في العلم والذكر)، لجالدونا عليها بالسيوف.',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'ابن تيمية',
-    source: 'مجموع الفتاوى',
-    grade: 'authentic',
-    tags: ['لذة', 'علم', 'ذكر'],
-    created_at: '2024-03-05',
-  },
-  {
-    id: 'aqw-066',
-    text_ar: 'إنَّ في الدنيا جنة، مَنْ لم يدخلْها لم يدخلْ جنةَ الآخرة؛ وهي ذِكرُ اللهِ والأُنسُ به.',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'ابن تيمية',
-    source: 'الوابل الصيب',
-    grade: 'authentic',
-    tags: ['جنة', 'ذكر', 'أنس'],
-    created_at: '2024-03-06',
-  },
-  {
-    id: 'aqw-067',
-    text_ar: 'الناسُ يَهلكون إلا العالِمون، والعالِمون يَهلكون إلا العاملون، والعاملون يَهلكون إلا المخلصون، والمخلصون على خطرٍ عظيم.',
-    scholar_id: 'sch-003',
-    scholar_name_ar: 'الإمام الشافعي',
-    source: 'مناقب الشافعي',
-    grade: 'authentic',
-    tags: ['إخلاص', 'علم', 'عمل'],
-    created_at: '2024-03-07',
-  },
-  {
-    id: 'aqw-068',
-    text_ar: 'أعظمُ الكرامةِ لزومُ الاستقامة.',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'ابن تيمية',
-    source: 'المرجع الصادق',
-    grade: 'authentic',
-    tags: ['استقامة', 'كرامة', 'تقوى'],
-    created_at: '2024-03-08',
-  },
-  {
-    id: 'aqw-069',
-    text_ar: 'الدنيا مِنجلٌ، والآخرةُ حَصاد.',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الحسن البصري',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['دنيا', 'آخرة', 'عمل'],
-    created_at: '2024-03-09',
-  },
-  {
-    id: 'aqw-070',
-    text_ar: 'من لم يَدَعِ الوقوعَ في أعراضِ الناس، لم يَنفعْه صيامُه ولا صلاتُه.',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الفضيل بن عياض',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['لسان', 'غيبة', 'عبادة'],
-    created_at: '2024-03-10',
-  },
-  {
-    id: 'aqw-071',
-    text_ar: 'عاشِروا الناسَ معاشرةً إن متُّم بكَوا عليكم، وإن عشتُم حنُّوا إليكم.',
-    scholar_id: 'sch-018',
-    scholar_name_ar: 'علي بن أبي طالب',
-    source: 'نهج البلاغة',
-    grade: 'authentic',
-    tags: ['أخلاق', 'صحبة', 'موت'],
-    created_at: '2024-03-11',
-  },
-  {
-    id: 'aqw-072',
-    text_ar: 'ليسَ المؤمنُ بالذي لا يشتهي، إنما المؤمنُ الذي يَشتهي ويصبر.',
-    scholar_id: 'sch-007',
-    scholar_name_ar: 'سفيان الثوري',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['صبر', 'نفس', 'إيمان'],
-    created_at: '2024-03-12',
-  },
-  {
-    id: 'aqw-073',
-    text_ar: 'إياكم والمراء؛ فإنه يُحبطُ العملَ ويُورثُ الضغينة.',
-    scholar_id: 'sch-004',
-    scholar_name_ar: 'الإمام أحمد بن حنبل',
-    source: 'الآداب الشرعية',
-    grade: 'authentic',
-    tags: ['أخلاق', 'مراء', 'عمل'],
-    created_at: '2024-03-13',
-  },
-  {
-    id: 'aqw-074',
-    text_ar: 'مَنْ تَواضعَ للهِ رفَعَه الله.',
+    text_ar: 'أشدُّ الأعمالِ ثلاثة: ت text_ar: 'مَنْ تَواضعَ للهِ رفَعَه الله.',
+    text_so: 'Qofka u is-hooseysiiya (tawaaduca) Alle dartiis, Alle waa uu kor u qaadaa.',
     scholar_id: 'sch-015',
     scholar_name_ar: 'أبو بكر الصديق',
+    scholar_name_so: 'Abuu Bakar Al-Siddiiq',
     source: 'تاريخ الخلفاء',
     grade: 'authentic',
     tags: ['تواضع', 'رفعة', 'أخلاق'],
@@ -949,8 +953,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-075',
     text_ar: 'أمرَني ربي بتسع: خشيةُ الله في السر والعلانية، وكلمة العدل في الرضا والغضب، والقصد في الفقر والغنى...',
+    text_so: 'Rabbigay wuxuu igu amray sagaal wax: cabsida Alle xilliga qarsoodiga iyo muuqataba, hadalka caddaaladda xilliga raali-ahaanshaha iyo cadhadaba, iyo in aan dhexdhexaad noqdo xilliga faqriga iyo hodantinimadaba...',
     scholar_id: 'sch-018',
     scholar_name_ar: 'علي بن أبي طالب',
+    scholar_name_so: 'Cali bin Abii Daalib',
     source: 'المستدرك',
     grade: 'authentic',
     tags: ['تقوى', 'عدل', 'قناعة'],
@@ -959,8 +965,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-076',
     text_ar: 'من عَلِمَ أن كلامَه من عملِه، قلَّ كلامُه إلا فيما يَعنيه.',
+    text_so: 'Qofkii garanaya in hadalkiisu uu ka mid yahay camalkiisa, hadalkiisu waa uu yaraadaa waxa khuseeya mooyee.',
     scholar_id: 'sch-016',
     scholar_name_ar: 'عمر بن الخطاب',
+    scholar_name_so: 'Cumar bin Al-Khattaab',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['لسان', 'عمل', 'حكمة'],
@@ -969,8 +977,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-077',
     text_ar: 'إنَّما يُدركُ العبدُ ما يُدركُ بصبرِه.',
+    text_so: 'Addoonku wuxuu ku guulaysan karaa oo kaliya samirkiisa.',
     scholar_id: 'sch-011',
     scholar_name_ar: 'الإمام مالك بن أنس',
+    scholar_name_so: 'Imaam Maalik bin Anas',
     source: 'ترتيب المدارك',
     grade: 'authentic',
     tags: ['صبر', 'هدف', 'نجاح'],
@@ -979,8 +989,10 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-078',
     text_ar: 'من أرادَ أن يَنظرَ إلى الدينا بعدَ موتِه، فلينظر إليها الآن.',
+    text_so: 'Qofkii raba in uu arko aduunka dhimashadiisa ka dib, ha eego hadda (sida uu u yahay).',
     scholar_id: 'sch-008',
     scholar_name_ar: 'الفضيل بن عياض',
+    scholar_name_so: 'Al-Fudayl bin Cayaad',
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['دنيا', 'تأمل', 'موت'],
@@ -989,8 +1001,167 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-079',
     text_ar: 'إذا أضعتَ الأمانة، فانتظر الساعة.',
+    text_so: 'Haddii amaanada la lumiyo, sug saacadda (qiyaamaha).',
     scholar_id: 'sch-017',
     scholar_name_ar: 'عثمان بن عفان',
+    scholar_name_so: 'Cusmaan bin Caffaan',
+    source: 'المرجع الشامل',
+    grade: 'authentic',
+    tags: ['أمانة', 'أخلاق', 'آخرة'],
+    created_at: '2024-03-19',
+  },
+  {
+    id: 'aqw-080',
+ه صيامُه ولا صلاتُه.',
+    text_so: 'Qofkii aan iska dhaafin ka hadalka sharafta dadka (cayda iyo xanta), soonkiisa iyo salaaddiisu waxba uma kordhinayaan.',
+    scholar_id: 'sch-008',
+    scholar_name_ar: 'الفضيل بن عياض',
+    scholar_name_so: 'Al-Fudayl bin Cayaad',
+    source: 'حلية الأولياء',
+    grade: 'authentic',
+    tags: ['لسان', 'غيبة', 'عبادة'],
+    created_at: '2024-03-10',
+  },
+  {
+    id: 'aqw-071',
+    text_ar: 'عاشِروا الناسَ معاشرةً إن متُّم بكَوا عليكم، وإن عشتُم حنُّوا إليكم.',
+    text_so: 'Dadka kula dhaqan hab haddii aad dhimato ay kuu ooyaan, haddii aad nooshahayna ay kuu hiloobaan.',
+    scholar_id: 'sch-018',
+    scholar_name_ar: 'علي بن أبي طالب',
+    scholar_name_so: 'Cali bin Abii Daalib',
+    source: 'نهج البلاغة',
+    grade: 'authentic',
+    tags: ['أخلاق', 'صحبة', 'موت'],
+    created_at: '2024-03-11',
+  },
+  {
+    id: 'aqw-072',
+    text_ar: 'ليسَ المؤمنُ بالذي لا يشتهي، إنما المؤمنُ الذي يَشتهي ويصبر.',
+    text_so: 'Mu\'minka maaha qofka aan waxba damcin, ee mu\'minku waa qofka wax damca haddana samra.',
+    scholar_id: 'sch-007',
+    scholar_name_ar: 'سفيان الثوري',
+    scholar_name_so: 'Sufyaan Al-Thawri',
+    source: 'حلية الأولياء',
+    grade: 'authentic',
+    tags: ['صبر', 'نفس', 'إيمان'],
+    created_at: '2024-03-12',
+  },
+  {
+    id: 'aqw-073',
+    text_ar: 'إياكم والمراء؛ فإنه يُحبطُ العملَ ويُورثُ الضغينة.',
+    text_so: 'Iska jira doodda; waayo waxay burisaa camalka, waxayna keentaa nacayb.',
+    scholar_id: 'sch-004',
+    scholar_name_ar: 'الإمام أحمد بن حنبل',
+    scholar_name_so: 'Imaam Axmed bin Xanbal',
+    source: 'الآداب الشرعية',
+    grade: 'authentic',
+    tags: ['أخلاق', 'مراء', 'عمل'],
+    created_at: '2024-03-13',
+  },
+  {
+    id: 'aqw-074',
+    title_so: 'Al-Xasan Al-Basri iyo Malagul Mowt',
+    content_ar: `يُحكى أن الحسن البصري رحمه الله كان ذات يوم جالساً مع أصحابه، فبينما هم كذلك، دخل رجل عليهم شديد الهيبة، فجلس وسألهم عن سبيل النجاة.
+
+فأجابه الحسن: اعرف أنك ميت لا محالة، وأن الساعة لا تقوم حتى يُبعث من في القبور.
+
+الرجل: فكيف يستعد العبد لهذا؟
+
+قال الحسن: يُكثر ذكر الموت ولا يشغله عنه شاغل، فإن من أكثر ذكر الموت أكرم في حياته وكرُم عند موته.
+
+ثم قام الرجل وخرج. فقال أصحاب الحسن: من هذا يا أبا سعيد؟ فقال الحسن بصوت خافت: ذلك ملك الموت، يسأل عن العباد الصالحين أحوالهم.
+
+فخشع القوم ودعوا وابتهلوا إلى الله.
+
+ويُروى أن الحسن رحمه الله كان يقول: "ابن آدم، لو نظرت إلى أجلك ومسيره، لزهدت في أملك وغروره."
+
+وكانت مجالس الحسن البصري تجمع العلماء والزهاد والأمراء، حتى قيل إنه لم يُرَ في حلقة مثل حلقته.`,
+    content_so: `Waxaa la sheegaa in Al-Xasan Al-Basri (Alle ha u naxariistee) uu maalin fadhiyay asxaabtiisa dhexdeeda, isaga oo markaas ay u soo galay nin haybad aad u weyn leh, markaas ayuu fadhiistay oo weydiiyay jidka badbaadada.
+
+Al-Xasan wuxuu ku jawaabay: 'Ogow in aad dhimanayso shaki la'aan, iyo in saacaddu aysan kici doonin ilaa la soo saaro inta qabriyada ku jirta.'
+
+Ninkii wuxuu yidhi: 'Sidee addoonku ugu diyaar garoobaa arrinkaas?'
+
+Al-Xasan wuxuu yidhi: 'Wuxuu badiyaa xusuusta geerida (Mowtka), mana jiro wax ka mashquuliya, waayo qofkii badiya xusuusta geerida waa la sharfay noloshiisa, waana la sharfi doonaa dhimashadiisa.'
+
+Markaas ayuu ninkii kacay oo baxay. Asxaabtii Al-Xasan waxay yidhaahdeen: 'Waa kuma ninkan, Abuu Saciidow?' Al-Xasan ayaa isaga oo cod yar ku hadlay yidhi: 'Kuwani waa malagul mowt, wuxuu weydiinayaa addoomada suuban xaaladahooda.'
+
+Dadkii halkaas fadhiyay ayaa khushuucay oo Alle u baryay.
+
+Waxaa kale oo la sheegaa in Al-Xasan (Alle ha u naxariistee) uu odhan jiray: 'Ina Aadamow, haddii aad eegi lahayd ajashaada iyo socodkeeda, waxaad ka rajo dhigi lahayd adduunka iyo khiyaanadiisa.'
+
+Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah iyo madaxda, ilaa la yidhi weligii lama arag goob u eg halka uu isagu wax ku bari jiray.`,
+    summary_ar: 'قصة رمزية مأثورة عن الحسن البصري وسؤال ملك الموت، تحمل موعظة بالإكثار من ذكر الموت.',
+    summary_so: 'Sheeko tusaale ah oo laga wariyay Al-Xasan Al-Basri iyo su\'aalihii malagul mowtka, oo xambaarsan wacdi ku saabsan badinta xusuusta geerida.',
+    source: 'حلية الأولياء - أبو نعيم الأصبهاني',
+    authenticity_notes: 'القصة مأثورة في كتب الزهد والرقائق وإن كانت تحتاج إلى تمحيص في إسنادها.',
+    reading_time: 3,
+    tags: ['موت', 'زهد', 'موعظة'],
+    created_at: '2024-01-03',
+    scholar_id: 'sch-001',
+    scholar_name_ar: 'الحسن البصري',
+  },
+  {
+    id: 'qis-004',
+    title_ar: 'ابن تيمية في سجن القلعة',
+    title_so: 'Ibnu Taymiyah oo ku jiray Xabsiga Qalcadda',
+    content_ar: `في آخر سجناته، لجأ القضاة والفقهاء عند السلطان إلى حبس شيخ الإسلام ابن تيمية في قلعة دمشق، سنة 720 هـ، ومنعوا عنه الحبر والورق حتى لا يواصل الكتابة.
+
+لم يُضعِف هذا كلُّه ابن تيمية، فقد كان يكتب بالفحم على الجدران، ويُردد لمن يزوره: "ما يفعل أعدائي بي؟ أنا جنتي وبستاني في صدري، أينما رحلتُ فهي معي، وأنا حيث كنتُ فهي معي."
+
+وكان يقول وهو في السجن: "هذا السجن في حقي خلوة، وهذا القيد في رجلي من أعظم القربات؛ إذ هو في سبيل الله."
+
+وقضى ابن تيمية في السجن نحو سنتين ونصف، ثم مات بداخله سنة 728 هـ، وقد ختم القرآن ثمانياً وثمانين مرة بين سجنه ذلك ومرضه.
+
+لما مات رحمه الله، صُلي عليه صلاة لم يُرَ مثلها في دمشق، وشُيعت جنازته في جموع حاشدة تقدر بعشرات الآلاف، رحمه الله.`,
+    content_so: `Xabsigiisii ugu dambeeyay, qaadiyadii iyo culimadii xilligaas waxay u tageen suldaanka si ay u xidhaan Shaykhul Islaam Ibnu Taymiyah xabsiga Qalcadda ee Dimishiq, sannadkii 720-kii Hijriyada, waxayna ka mamnuuceen qalinkii iyo waraaqihii si uusan u sii wadin qoraalka.
+
+Xannibaaddaas midna kama daciifin Ibnu Taymiyah, wuxuu u qori jiray isaga oo dhuxul ku qoraya gidaarada xabsiga, wuxuuna u odhan jiray qof kasta oo soo booqda: 'Maxay cadawgaygu igu samayn karaan? Aniga jannadayda iyo beertaydu waxay ku jirtaa laabatayda (qalbiyga), meel kasta oo aan u socdaana waa ay ila jirtaa.'
+
+Wuxuu isaga oo xabsiga ku jira odhan jiray: 'Xabsigani xaggayga waa kelinimada (khulwa), silsiladdan lugtayda ku jirtaana waa camallada kuwa ugu weyn ee Alle loogu dhawaado; waayo waa jidka Alle.'
+
+Ibnu Taymiyah wuxuu xabsiga ku jiray muddo laba sannadood iyo badh ah, wuxuuna ku dhex geeriyooday sannadkii 728-kii Hijriyada, isaga oo Quraanka khatimay siddeetan iyo siddeed jeer intii u dhaxaysay xabsigaas iyo xanuunkiisii.
+
+Markii uu geeriyooday (Alle ha u naxariistee), waxaa lagu tukaday salaad aan weligii Dimishiq lagu arag oo kale, waxaana soo raacay janaasadiisa dad aad u fara badan oo lagu qiyaasay tobanaan kun, Alle ha u naxariisto.`,
+    summary_ar: 'قصة صمود ابن تيمية في سجنه الأخير بقلعة دمشق، وكيف كانت روحه أقوى من أن يكسرها السجن.',
+    summary_so: 'Sheekada sugnaantii Ibnu Taymiyah xabsigiisii ugu dambeeyay ee Qalcadda Dimishiq, iyo sida uu ruuxiisa ugu xoogganayd xabsiga.',
+    source: 'البداية والنهاية - ابن كثير، وتاريخ ابن شاكر الكتبي',
+    reading_time: 4,
+    tags: ['صبر', 'ثبات', 'علم', 'إيمان'],
+    created_at: '2024-01-04',
+    scholar_id: 'sch-005',
+    scholar_name_ar: 'ابن تيمية',
+  },
+  {
+    id: 'qis-005',
+    title_ar: 'حكمة سفيان الثوري في الزهد',
+    title_so: 'Xikmaddii Sufyaan Al-Thawri ee Zaadnimada',
+    content_ar: `جاء رجلٌ إلى سفيان الثوري رحمه الله وسأله: يا أبا عبدالله، ما علامة الزهد في الدنيا؟
+
+فأجابه سفيان: الزهد فيها ثلاثة: ألا تفرح بموجودها، ولا تحزن على مفقودها، ولا تتساوى عندك الحمد والذم فيها.
+
+قال الرجل: وكيف يبلغ العبد هذه الدرجة؟ قال سفيان: بأن يعلم أن ما جاء من الدنيا فمن الله، وما ذهب فبعلم الله، وما بقي فأمانة عنده.
+
+ثم قال سفيان، وقد ارتفع صوته قليلاً: يا هذا، والله لو أن رجلاً دخل الجنة ونظر إلى ما فيها ثم أُخرج إلى الدنيا، لاستحقر الدنيا وما فيها.
+
+انصرف الرجل وقد امتلأ قلبه بنور الموعظة، وقيل إنه لزم الحلقة بعد ذلك وتزوّد من العلم.
+
+وكان سفيان الثوري يقول: "تعلموا العلم ثم اعملوا به، ولا تتعلموه للتفاخر والمراء، فيكون حجةً عليكم لا لكم."`,
+    content_so: `Nin ayaa u yimid Sufyaan Al-Thawri (Alle ha u naxariistee) wuxuuna weydiiyay: 'Abuu Cabdullaahow, waa maxay calaamadda zaadnimada (zuhdiga) ee adduunka?'
+
+Sufyaan wuxuu ku jawaabay: 'Zaadnimada adduunka waa saddex: in aadan ku farxin waxa aad haysato, in aadan ka murugoon waxa kaa lumay, iyo in aadan isku mid kuu noqonin ammaanta iyo cayda aad adduunka ka hesho.'
+
+Ninkii wuxuu yidhi: 'Sidee addoonku u gaadhaa darajadaas?' Sufyaan wuxuu yidhi: 'Waa in uu ogaado in waxa adduunka ka yimaada ay Alle ka yimaadeen, waxa tagana ay ku tagaan cilmiga Alle, waxa hadhayna ay yihiin amaano agtiisa taal.'
+
+Markaas ayuu Sufyaan codkiisa kor u qaaday isaga oo leh: 'War niyahow, Alla ayaan ku dhaartay haddii nin uu jannada geli lahaa oo uu eegi lahaa waxa ku jira, ka dibna adduunka lagu soo celin lahaa, wuxuu yasi lahaa (liidi lahaa) adduunka iyo waxa ku jira oo dhan.'
+
+Ninkii ayaa iska tagay isaga oo wadnihiisa ay ka buuxdo nuurka wacdiga, waxaana la sheegay in uu ka dibna fadhiyada culimada ku nagaaday oo uu cilmi badan koray.
+
+Sufyaan Al-Thawri wuxuu odhan jiray: 'Cilmiga barta ka dibna ku camal fala, hana u baranina faan iyo dood, waayo markaas wuxuu noqonayaa xujo idinka gees ah oo aan idin taageerayn.'`,
+    summary_ar: 'حوار حكيم بين سفيان الثوري وطالب العلم حول صفات الزهد الحقيقي في الدنيا وكيفية بلوغه.',
+    summary_so: 'Wada-hadal xikmad leh oo u dhex maray Sufyaan Al-Thawri iyo arday cilmi doon ah oo ku saabsan sifooyinka zaadnimada dhabta ah iyo sida loo gaadho.',
+ن',
+    scholar_name_so: 'Cusmaan bin Caffaan',
     source: 'المرجع الشامل',
     grade: 'authentic',
     tags: ['أمانة', 'أخلاق', 'آخرة'],
@@ -999,12 +1170,75 @@ export const aqwaalData: Qawl[] = [
   {
     id: 'aqw-080',
     text_ar: 'العلمُ روح، والعملُ جسد، فإذا لم يكن علمٌ مات الجسد، وإذا لم يكن عملٌ كان فناء الروح.',
+    text_so: 'Cilmigu waa ruux, camalkuna waa jidh; haddii uusan cilmi jirin jidhku waa uu dhintaa, haddii uusan camal jirinna ruuxa ayaa baaba\'da.',
     scholar_id: 'sch-002',
     scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
     source: 'مفتاح دار السعادة',
     grade: 'authentic',
     tags: ['علم', 'عمل', 'حكمة'],
     created_at: '2024-03-20',
+  },
+
+  {
+    id: 'aqw-037',
+    text_ar: 'إنما العلم ليس بكثرة الرواية، وإنما العلم نور يضعه الله في القلب.',
+    text_so: 'Cilmigu maaha badnaanta warbixinta, laakiin cilmigu waa iftiin uu Alle qalbika ku dhex shubo.',
+    scholar_id: 'sch-001',
+    scholar_name_ar: 'الإمام مالك بن أنس',
+    scholar_name_so: 'Imaam Maalik bin Anas',
+    source: 'حلية الأولياء',
+    grade: 'authentic',
+    tags: ['علم', 'نور', 'إيمان'],
+    created_at: '2024-03-21',
+  },
+  {
+    id: 'aqw-038',
+    text_ar: 'من عبَدَ الله بغير علم، كان ما يفسد أكثر مما يصلح.',
+    text_so: 'Qofka isagoo aan cilmi lahayn Alle caabuda, wuxuu kharribo ayaa ka badan waxa uu xaliyo.',
+    scholar_id: 'sch-005',
+    scholar_name_ar: 'عمر بن عبد العزيز',
+    scholar_name_so: 'Cumar bin Cabdil-casiis',
+    source: 'جامع بيان العلم وفضله',
+    grade: 'authentic',
+    tags: ['علم', 'عمل', 'إصلاح'],
+    created_at: '2024-03-22',
+  },
+  {
+    id: 'aqw-039',
+    text_ar: 'الفقهُ هو مَن يَخشَى الرحمنَ بالغَيب.',
+    text_so: 'Faqiihka dhabta ahi waa qofka ka baqa Naxariis-badaha (Alle) isagoo qarsoon (oo aysan cidna arkayn).',
+    scholar_id: 'sch-008',
+    scholar_name_ar: 'الحسن البصري',
+    scholar_name_so: 'Al-Xasan Al-Basri',
+    source: 'تفسير ابن كثير',
+    grade: 'authentic',
+    tags: ['فقه', 'خشية', 'إخلاص'],
+    created_at: '2024-03-23',
+  },
+  {
+    id: 'aqw-040',
+    text_ar: 'اطلبوا العلم في كل وقت.',
+    text_so: 'Cilmiga raadiya waqti kasta.',
+    scholar_id: 'sch-009',
+    scholar_name_ar: 'سفيان الثوري',
+    scholar_name_so: 'Sufyaan Al-Thawri',
+    source: 'التدوين في أخبار قزوين',
+    grade: 'authentic',
+    tags: ['علم', 'صبر', 'همة'],
+    created_at: '2024-03-24',
+  },
+  {
+    id: 'aqw-041',
+    text_ar: 'يمرض القلب كما يمرض البدن.',
+    text_so: 'Qalbigu wuxuu u bukoodaa sida jidhkuba u bukoodo.',
+    scholar_id: 'sch-002',
+    scholar_name_ar: 'ابن القيم الجوزية',
+    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
+    source: 'إغاثة اللهفان',
+    grade: 'authentic',
+    tags: ['قلب', 'دواء', 'توبة'],
+    created_at: '2024-03-25',
   },
 ];
 
@@ -1013,9 +1247,10 @@ export const qisasData: Qissa[] = [
   {
     id: 'qis-001',
     title_ar: 'توبة الفضيل بن عياض',
+    title_so: 'Toobadii Al-Fudayl bin Cayaad',
     content_ar: `كان الفضيل بن عياض رحمه الله في بداية أمره قاطع طريق، يعيش في الصحراء مع رفاق السوء، فكانت أحوال البادية شاهدة على ما كان يفعل.
 
-وذات ليلة، وقد هَمَّ بمعصية جديدة، سمع صوت تالٍ يتلو قول الله تعالى: ﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَن تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ﴾ [الحديد: 16].
+ذات ليلة، وقد هَمَّ بمعصية جديدة، سمع صوت تالٍ يتلو قول الله تعالى: ﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَن تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ﴾ [الحديد: 16].
 
 فوجأه الصوتُ وجأةً عنيفة، كأنما سُدَّت في وجهه أبواب المعصية كلها. وقف الفضيل مكانه، وقد اصطبغت نفسه برهبة لم يعهدها من قبل، فقال: بلى، قد آن -يا رب- قد آن.
 
@@ -1024,7 +1259,19 @@ export const qisasData: Qissa[] = [
 وصار الفضيل بن عياض من أعلام مكة المكرمة، يُقصده الخلفاء والعلماء يسألونه ويستفيدون من علمه وورعه. وكان يقول: "اعرف حق الله عليك، فإن الحقوق كثيرة وقِلَّة الوفاء بها صارفة لصاحبها عن الجنة."
 
 قصته توبة حقيقية، دلت على أن رحمة الله تسع كل ذنب، وأن باب التوبة مفتوح ما لم يُغرغِر العبد.`,
+    content_so: `Al-Fudayl bin Cayaad (Alle ha u naxariistee) wuxuu markii hore ahaa nin jid-gooyo ah, oo dadka dhaca, isaga oo la noolaa koox xun oo lamadegaanka ku dhex jiray.
+
+Habeen habeenada ka mid ah, isaga oo damacsan in uu galo dambi cusub, ayuu maqlay qof akhrinaya hadalka Alle: ﴿Miyayna u dhowaan kuwa rumeeyay in qalbiyadoodu ay u khushuucaan xusuusta Alle?﴾ [Al-Xadiid: 16].
+
+Codkaas wuxuu ku dhacay si xooggan, sidii in albaabadii dambiga oo dhan laga soo xidhay. Al-Fudayl wuxuu istaagay meeshiisii, isaga oo dareemay cabsi weyn oo uusan weligii horay u dareemin, wuxuuna yidhi: 'Haa, waa ay dhowaatay Rabbiyow, waa ay dhowaatay.'
+
+Xilligaas waxay ahayd dhalasho cusub; dhalashada caalim, zaahid, iyo cibaado badan, oo tusaale loo soo qaadan doono cabsida Alle. Xataa Imaam Al-Shaafici wuxuu isaga ka yidhi: 'Ma arag qof Alle ka cabsi badan Al-Fudayl bin Cayaad.'
+
+Al-Fudayl wuxuu noqday mid ka mid ah culimada Makkah, oo ay u soo qasdi jireen madaxda iyo culimada kale si ay wax uga weydiiyaan cilmigiisa iyo dhowrsanaantiisa. Wuxuu odhan jiray: 'Ogow xaqa Alle kugu leeyahay, waayo xuquuqdu waa ay badan tahay, gudasho la'aantuna waxay qofka ka fogaysaa jannada.'
+
+Sheekadiisu waa toobad dhab ah, oo muujinaysa in naxariista Alle ay ka ballaadhan tahay dambi kasta, iyo in albaabka toobadu uu u furan yahay adduunka inta uu nool yahay.`,
     summary_ar: 'قصة توبة الفضيل بن عياض من قطع الطريق إلى أن صار من أئمة الزهد والعلم في مكة المكرمة.',
+    summary_so: 'Sheekada toobadii Al-Fudayl bin Cayaad oo ka mid ahaa jid-gooyayaasha ilaa uu ka noqday imaam dhanka zaadnimada iyo cilmiga ee magaalada Makkah.',
     source: 'حلية الأولياء - أبو نعيم الأصبهاني',
     authenticity_notes: 'رواها أبو نعيم بإسناد متصل، وذكرها ابن خلكان في وفيات الأعيان.',
     reading_time: 4,
@@ -1034,6 +1281,7 @@ export const qisasData: Qissa[] = [
   {
     id: 'qis-002',
     title_ar: 'صبر الإمام أحمد في المحنة',
+    title_so: 'Samirkii Imaam Axmed ee Fitnada',
     content_ar: `في عهد المأمون ثم المعتصم من الخلفاء العباسيين، ابتُلي الإمام أحمد بن حنبل رحمه الله بمحنة عظيمة تسمى "محنة خلق القرآن"، إذ أراد الخلفاء إجبار العلماء على القول بأن القرآن الكريم مخلوق، موافقةً للمعتزلة.
 
 وقف الإمام أحمد وحده كالجبل الشامخ، يأبى القول بما يخالف ما جاء به الكتاب والسنة. قال: "كيف أقول ما لم يقله السلف؟"
@@ -1045,7 +1293,19 @@ export const qisasData: Qissa[] = [
 وبقيت محنته حتى تولى المتوكل الخلافة، فرفع الإمام أحمد شأنه وأكرمه وأبطل القول بخلق القرآن. ويُروى أن الإمام التقى بالمعتصم في آخر أمره فعفا عنه.
 
 مات الإمام أحمد سنة 241 هـ، وقد سبقته أمة من الناس تشيع جنازته، قيل إن عددهم جاوز المليون، رحمه الله رحمة واسعة.`,
+    content_so: `Xilligii khaliifyada Cabbaasiyiinta ee Al-Ma'muun iyo Al-Mu'tasim, waxaa Imaam Axmed bin Xanbal (Alle ha u naxariistee) ku dhacday fitno weyn oo loo yaqaannay 'Fitnada abuurta Quraanka'. Khaliifyadu waxay doonayeen in ay culimada ku qasbaan in ay yidhaahdaan Quraanku waa makhluuq (la abuuray), taas oo markaas ay qabeen kooxda Al-Mu'tazila.
+
+Imaam Axmed wuxuu istaagay sidii buur aan la ruxin karin, isaga oo diiday in uu yidhaahdo wax ka duwan wixii Kitaabka iyo Sunnadu keeneen. Wuxuu yidhi: 'Sideen u odhan rabaa wax aysan odhan kuwii hore (Salafka)?'
+
+Waxaa la keenay khaliifka Al-Mu'tasim hortiisa isaga oo silsilado bir ah ku xidhan. Al-Mu'tasim wuxuu yidhi: 'Miyaadan ogayn in aad gacantayda ku jirto?' Imaamku wuxuu ku jawaabay: 'Ogow in aadan kula kulmi doonin Rabbigaaga wax aan ahayn waxaan anigu sheegay ama waxa ay iyagu sheegeen, ee fiiri midka xaq ah.'
+
+Imaam Axmed waxaa loo garaacay si daran ilaa uu ka miyir doorsoomay, waxaana la xidhay sannado badan, laakiin isagu weli wuxuu ku sugnaa hadalkiisii, isaga oo samirkiisa ku sababeeyay: 'Haddii aan maanta fulay noqdo, yaa berri u istaagaya Islaamka?'
+
+Fitnadaas waxay jirtay ilaa uu Al-Mutawakkil khaliif ka noqday, markaas ayuu Imaam Axmed darajadiisii kor u qaaday, wuxuuna baabi'iyay hadalkii ahaa Quraanku waa makhluuq. Waxaa la sheegaa in Imaamku uu la kulmay Al-Mu'tasim dammaadkii noloshiisa oo uu cafiyay.
+
+Imaam Axmed wuxuu geeriyooday sannadkii 241-kii Hijriyada, waxaana lagu aasay dad aad u badan oo lagu qiyaasay in ka badan hal milyan, Alle ha u naxariisto naxariis ballaadhan.`,
     summary_ar: 'قصة صمود الإمام أحمد بن حنبل في محنة خلق القرآن، وصبره على الجلد والسجن ثباتاً للحق.',
+    summary_so: 'Sheekada sugnaantii Imaam Axmed bin Xanbal ee fitnadii \'abuurta Quraanka\', iyo samirkii uu u yeesha garaaca iyo xadhigga isaga oo xaqqa u taagan.',
     source: 'طبقات الحنابلة - ابن أبي يعلى، ومناقب الإمام أحمد - ابن الجوزي',
     reading_time: 5,
     tags: ['صبر', 'ثبات', 'سنة', 'محنة'],
@@ -1231,6 +1491,23 @@ export const qisasData: Qissa[] = [
     created_at: '2024-02-10',
     scholar_id: 'sch-015',
     scholar_name_ar: 'أبو بكر الصديق',
+  },
+
+  {
+    id: 'qis-007',
+    title_ar: 'صدق ابنة بائعة اللبن في عهد عمر بن الخطاب',
+    title_so: 'Run-sheegnimadii gabadhii caanaha iibinaysay (Casrigii Cumar)',
+    content_ar: `خرج عمر بن الخطاب رضي الله عنه ليلة يَعُسُّ المدينة (يتفقد أحوال الناس)، فسمع امرأة تقول لابنتها: "يا بنتي، اخلطي هذا اللبن بالماء"، فقالت الابنة: "يا أماه، أوما علمت بقرار أمير المؤمنين عمر؟ قد نهى عن خلط اللبن بالماء". فقالت الأم: "وهل يرانا عمر الآن؟"، فقالت الابنة بمقولة خلدها التاريخ: "يا أماه، إن كان عمر لا يرانا، فإن رب عمر يرانا".`,
+    content_so: `Habeen ka mid ah habeenada uu Cumar bin Al-Khattaab (BCW) dhex wareegi jiray magaalada Madiina si uu u ogaado xaaladda dadka, wuxuu maqlay haweenay u sheegaysa gabadheeda: "Gabadhaydiiyey, ku dar biyo caanahan," Gabadhii ayaa tiri: "Hooyoy, miyaadan ogeyn amarkii Amiirka Mu'miiniinta Cumar? Wuxuu mamnuucay in caanaha biyo lagu daro." Hooyadii ayaa tiri: "Muxuu Cumar inaga arkaynaa hadda?" Gabadhii ayaa ku jawaabtay hadal taariikhdu xustay: "Hooyoy, haddii uusan Cumar ina arkayn, Rabbigii Cumar waa ina arkaa."`,
+    summary_ar: 'موقف عظيم يظهر الأمانة ومراقبة الله في السر والعلن، وكيف كافأها عمر بتزويجها لأحد أبنائه.',
+    summary_so: 'Mawaaqif weyn oo muujinaysa aaminnimada iyo in Alle lagala socdo sir iyo caanba, iyo sidii Cumar ugu abaalmariyey gabadhaas.',
+    source: 'سيرة عمر بن الخطاب - ابن الجوزي',
+    reading_time: 3,
+    tags: ['أمانة', 'مراقبة', 'إخلاص'],
+    created_at: '2024-03-26',
+    scholar_id: 'sch-002',
+    scholar_name_ar: 'عمر بن الخطاب',
+    scholar_name_so: 'Cumar bin Al-Khattaab',
   },
 ];
 

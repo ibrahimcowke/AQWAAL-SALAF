@@ -1,21 +1,63 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { useTranslation } from 'react-i18next';
+import { RefreshCw } from 'lucide-react';
 
 export default function Home() {
-  const { dailyQawl } = useContentStore();
+  const { dailyQawl, refreshDailyQawl, aqwaal } = useContentStore();
   
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const [randomQawl, setRandomQawl] = useState<any>(null);
+
+  useEffect(() => {
+    if (aqwaal.length > 0) {
+      // Pick a random qawl that is not the daily one if possible
+      const available = aqwaal.filter(a => a.id !== dailyQawl?.id);
+      const pool = available.length > 0 ? available : aqwaal;
+      const random = pool[Math.floor(Math.random() * pool.length)];
+      setRandomQawl(random);
+    }
+  }, [aqwaal, dailyQawl]);
 
   
 
   const categories = [
-    { id: 'aqwaal', title: t('aqwaal'), sub: 'حكم واقتباسات موثقة', icon: MessageSquareQuote, color: 'var(--color-primary)', count: 22 },
-    { id: 'qisas', title: t('qisas'), sub: 'روايات مؤصلة ومفيدة', icon: BookOpen, color: 'var(--color-gold)', count: 6 },
-    { id: 'scholars', title: t('scholars'), sub: 'تراجم ومواقف', icon: Users, color: '#10b981', count: 10 },
-    { id: 'search', title: t('search'), sub: 'ابحث بالكلمة أو العالم', icon: Search, color: '#6366f1', count: null },
+    { 
+      id: 'aqwaal', 
+      title: t('aqwaal'), 
+      sub: t('aqwaal') === 'الأقوال' ? 'حكم واقتباسات موثقة' : (t('aqwaal') === 'Sayings' ? 'Documented wisdom & quotes' : 'Xikmado iyo xigashooyin suuban'), 
+      icon: MessageSquareQuote, 
+      color: 'var(--color-primary)', 
+      count: 22 
+    },
+    { 
+      id: 'qisas', 
+      title: t('qisas'), 
+      sub: t('qisas') === 'القصص' ? 'روايات مؤصلة ومفيدة' : (t('aqwaal') === 'Sayings' ? 'Authentic & useful narrations' : 'Sheekooyin dhab ah oo waxtar leh'), 
+      icon: BookOpen, 
+      color: 'var(--color-gold)', 
+      count: 6 
+    },
+    { 
+      id: 'scholars', 
+      title: t('scholars'), 
+      sub: t('scholars') === 'العلماء' ? 'تراجم ومواقف' : (t('aqwaal') === 'Sayings' ? 'Biographies & stances' : 'Taariikhda culimada iyo mawaaqiftooda'), 
+      icon: Users, 
+      color: '#10b981', 
+      count: 10 
+    },
+    { 
+      id: 'search', 
+      title: t('search'), 
+      sub: t('search') === 'البحث' ? 'ابحث بالكلمة أو العالم' : (t('aqwaal') === 'Sayings' ? 'Search by word or scholar' : 'Ku baadi-goob erey ama caalim'), 
+      icon: Search, 
+      color: '#6366f1', 
+      count: null 
+    },
   ];
 
   const container = {
@@ -49,24 +91,39 @@ export default function Home() {
             <Quote size={80} style={{ color: 'var(--color-gold)' }} />
           </div>
 
-          <div className="flex items-center gap-2 mb-6 text-[var(--color-gold)]">
-            <Sparkles size={18} />
-            <span className="arabic-text font-bold text-sm tracking-wide">{t('daily_qawl')}</span>
-            <div className="h-px flex-1 bg-[var(--color-gold)]/20 mr-2" />
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2 text-[var(--color-gold)]">
+              <Sparkles size={18} />
+              <span className="arabic-text font-bold text-sm tracking-wide">{t('daily_qawl')}</span>
+            </div>
+            <button 
+              onClick={() => refreshDailyQawl()}
+              className="p-2 rounded-full hover:bg-[var(--color-gold)]/10 transition-colors text-[var(--color-gold)]/60 hover:text-[var(--color-gold)]"
+              title={t('settings') === 'Settings' ? 'Refresh' : 'Cusboonaysii'}
+            >
+              <RefreshCw size={16} />
+            </button>
           </div>
 
           {dailyQawl ? (
             <div className="text-center">
-              <h2 className="qawl-text text-xl md:text-2xl leading-relaxed mb-6" style={{ color: 'var(--color-text)' }}>
-                {dailyQawl.text_ar}
+              <h2 
+                className={`qawl-text text-xl md:text-2xl leading-relaxed mb-6 ${i18n.language === 'ar' ? 'text-right' : 'text-center'}`} 
+                style={{ color: 'var(--color-text)' }}
+              >
+                {i18n.language === 'so' && dailyQawl.text_so ? dailyQawl.text_so : dailyQawl.text_ar}
               </h2>
               <Link to={`/scholars/${dailyQawl.scholar_id}`} className="inline-block">
-                <span className="badge-scholar">{dailyQawl.scholar_name_ar}</span>
+                <span className="badge-scholar">
+                  {i18n.language === 'so' && dailyQawl.scholar_name_so ? dailyQawl.scholar_name_so : dailyQawl.scholar_name_ar}
+                </span>
               </Link>
             </div>
           ) : (
             <div className="h-40 flex items-center justify-center animate-pulse">
-              <div className="text-[var(--color-text-muted)] arabic-text">جاري استحضار الحكمة...</div>
+              <div className="text-[var(--color-text-muted)] arabic-text">
+                {i18n.language === 'ar' ? 'جاري استحضار الحكمة...' : (i18n.language === 'so' ? 'Waa la soo kaxaynayaa...' : 'Fetching wisdom...')}
+              </div>
             </div>
           )}
         </div>
@@ -115,6 +172,37 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
+      </section>
+
+      {/* Random Quote Widget */}
+      <section className="mb-12">
+        <div className="neu-card p-6 bg-gradient-to-br from-[var(--color-gold)]/5 to-transparent border-none">
+          <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)]">
+            <Quote size={20} />
+            <h2 className="arabic-text font-bold text-lg m-0">{t('random_quote')}</h2>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1">
+                {randomQawl ? (
+                  <>
+                    <p className="qawl-text text-lg italic opacity-80 mb-2">
+                        “{i18n.language === 'so' && randomQawl.text_so ? randomQawl.text_so : randomQawl.text_ar}”
+                    </p>
+                    <span className="text-xs opacity-50">— {i18n.language === 'so' && randomQawl.scholar_name_so ? randomQawl.scholar_name_so : randomQawl.scholar_name_ar}</span>
+                  </>
+                ) : (
+                  <div className="h-12 animate-pulse bg-[var(--color-bg-alt)] rounded-lg w-full" />
+                )}
+            </div>
+            <Link 
+                to={randomQawl ? `/aqwaal/${randomQawl.id}` : "/aqwaal"} 
+                className="neu-btn px-6 py-2 rounded-xl text-sm arabic-text whitespace-nowrap"
+                style={{ color: 'var(--color-primary)' }}
+            >
+                {t('read_more')}
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Quick Links / Tags */}

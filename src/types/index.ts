@@ -9,10 +9,13 @@ export interface Scholar {
   id: string;
   name_ar: string;
   name_en: string;
+  name_so?: string; // Somali name
   era: ScholarEra;
   bio_ar: string;
+  bio_so?: string; // Somali bio
   death_year?: string;
   reliability: string;
+  reliability_so?: string; // Somali reliability description
   image?: string;
   tags?: string[];
 }
@@ -20,9 +23,12 @@ export interface Scholar {
 export interface Qawl {
   id: string;
   text_ar: string;
+  text_so?: string; // Somali translation
   scholar_id: string;
   scholar_name_ar?: string;
+  scholar_name_so?: string; // Somali scholar name
   source: string;
+  source_so?: string; // Somali source description
   grade: ContentGrade;
   tags: string[];
   created_at: string;
@@ -32,12 +38,18 @@ export interface Qawl {
 export interface Qissa {
   id: string;
   title_ar: string;
+  title_so?: string;
   content_ar: string;
+  content_so?: string;
   scholar_id?: string;
   scholar_name_ar?: string;
+  scholar_name_so?: string;
   summary_ar: string;
+  summary_so?: string;
   source: string;
+  source_so?: string;
   authenticity_notes?: string;
+  authenticity_notes_so?: string;
   reading_time: number; // minutes
   tags: string[];
   created_at: string;

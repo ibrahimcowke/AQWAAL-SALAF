@@ -7,6 +7,7 @@ import { GradeBadge } from './Badge';
 import { useAuthStore } from '../../stores/authStore';
 import { useAudioStore } from '../../stores/audioStore';
 import QuoteDesigner from '../features/QuoteDesigner';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
 interface QawlCardProps {
@@ -21,15 +22,32 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
   const [showDesigner, setShowDesigner] = useState(false);
   const isFav = isFavoriteQawl(qawl.id);
 
+  const { i18n, t } = useTranslation();
+  const currentLang = i18n.language;
+
+  const getLocalizedText = () => {
+    if (currentLang === 'so' && qawl.text_so) return qawl.text_so;
+    // Fallback to AR as it's the primary content source
+    return qawl.text_ar;
+  };
+
+  const getLocalizedScholarName = () => {
+    if (currentLang === 'so' && qawl.scholar_name_so) return qawl.scholar_name_so;
+    return qawl.scholar_name_ar;
+  };
+
+  const displayText = getLocalizedText();
+  const displayScholarName = getLocalizedScholarName();
+
   const togglePlaybackRate = (e: React.MouseEvent) => {
     e.preventDefault();
     const rates = [0.8, 1, 1.2];
     const currentIndex = rates.indexOf(playbackRate);
     const nextRate = rates[(currentIndex + 1) % rates.length];
     setPlaybackRate(nextRate);
-    toast.success(`سرعة القراءة: ${nextRate}x`, { 
+    toast.success(`${t('font_size')}: ${nextRate}x`, { 
       duration: 1000,
-      style: { fontFamily: 'Tajawal, sans-serif', direction: 'rtl', fontSize: '12px' } 
+      style: { fontFamily: 'Tajawal, sans-serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr', fontSize: '12px' } 
     });
   };
 
@@ -37,27 +55,27 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
     e.preventDefault();
     if (isFav) {
       removeFavoriteQawl(qawl.id);
-      toast.success('تم الإزالة من المفضلة', { icon: '💔', style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+      toast.success(t('cache_cleared') === 'cache_cleared' ? 'Removed' : 'Laga saaray', { icon: '💔', style: { fontFamily: 'Amiri, serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
     } else {
       addFavoriteQawl(qawl.id);
-      toast.success('تم الحفظ في المفضلة', { icon: '❤️', style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+      toast.success(t('save') === 'save' ? 'Saved' : 'Waa la kaydiyay', { icon: '❤️', style: { fontFamily: 'Amiri, serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
     }
   };
 
   const handleShare = (e: React.MouseEvent) => {
     e.preventDefault();
-    const text = `"${qawl.text_ar}"\n— ${qawl.scholar_name_ar}\n\nنور السلف`;
+    const text = `"${displayText}"\n— ${displayScholarName}\n\n${t('app_name')}`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
       navigator.clipboard.writeText(text);
-      toast.success('تم نسخ القول', { style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+      toast.success(t('share') === 'share' ? 'Copied' : 'Waa la koobiyeeyay', { style: { fontFamily: 'Amiri, serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
     }
   };
 
   const handleAudio = (e: React.MouseEvent) => {
     e.preventDefault();
-    speak(qawl.text_ar, `قول: ${qawl.scholar_name_ar}`);
+    speak(displayText, `${t('aqwaal')}: ${displayScholarName}`);
   };
 
   const handleDesign = (e: React.MouseEvent) => {
@@ -100,22 +118,22 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
 
             {/* Main text */}
             <p
-              className={`qawl-text leading-loose text-right ${compact ? 'line-clamp-3' : ''}`}
+              className={`qawl-text leading-loose ${currentLang === 'ar' ? 'text-right' : 'text-left'} ${compact ? 'line-clamp-3' : ''}`}
               style={{
                 color: 'var(--color-text)',
                 fontSize: compact ? '1.15rem' : '1.3rem',
               }}
             >
-              {qawl.text_ar}
+              {displayText}
             </p>
 
             {/* Footer */}
             <div className="mt-4 flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2 flex-wrap">
-                {qawl.scholar_name_ar && (
+                {displayScholarName && (
                   <span className="badge-scholar flex items-center gap-1">
                     <BookOpen size={10} />
-                    {qawl.scholar_name_ar}
+                    {displayScholarName}
                   </span>
                 )}
                 <GradeBadge grade={qawl.grade} />
@@ -158,9 +176,22 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                   onClick={handleShare}
                   className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
                   style={{ color: 'var(--color-text)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-                  title="مشاركة"
+                  title={t('share')}
                 >
                   <Share2 size={14} />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const text = `"${displayText}"\n— ${displayScholarName}\n📚 ${currentLang === 'so' && qawl.source_so ? qawl.source_so : qawl.source}\n\n${t('app_name')}`;
+                    navigator.clipboard.writeText(text);
+                    toast.success(t('copy_with_source'), { style: { fontFamily: 'Tajawal, sans-serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
+                  }}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                  style={{ color: 'var(--color-primary)', background: 'var(--color-bg-alt)', border: '1px solid var(--color-primary-light)' }}
+                  title={t('copy_with_source')}
+                >
+                  <BookOpen size={14} />
                 </button>
                 <button
                   onClick={toggleFav}
@@ -177,8 +208,8 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
 
             {/* Source */}
             {!compact && qawl.source && (
-              <p className="mt-2 text-xs arabic-text" style={{ color: 'var(--color-text-muted)' }}>
-                📚 {qawl.source}
+              <p className="mt-2 text-xs arabic-text" style={{ color: 'var(--color-text-muted)', textAlign: currentLang === 'ar' ? 'right' : 'left' }}>
+                📚 {currentLang === 'so' && qawl.source_so ? qawl.source_so : qawl.source}
               </p>
             )}
           </div>
@@ -188,8 +219,8 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
       <AnimatePresence>
         {showDesigner && (
           <QuoteDesigner 
-            text={qawl.text_ar} 
-            author={qawl.scholar_name_ar || 'عالم من السلف'} 
+            text={displayText} 
+            author={displayScholarName || 'Salaf Scholar'} 
             onClose={() => setShowDesigner(false)} 
           />
         )}

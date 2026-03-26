@@ -20,6 +20,7 @@ interface ContentState {
   getFilteredAqwaal: () => Qawl[];
   getFilteredQisas: () => Qissa[];
   initDailyQawl: () => void;
+  refreshDailyQawl: () => void;
 }
 
 export const useContentStore = create<ContentState>()((set, get) => ({
@@ -92,6 +93,14 @@ export const useContentStore = create<ContentState>()((set, get) => ({
     }
 
     const random = aqwaal[Math.floor(Math.random() * aqwaal.length)];
+    localStorage.setItem('noor-daily-qawl', JSON.stringify({ date: today, id: random.id }));
+    set({ dailyQawl: random });
+  },
+  refreshDailyQawl: () => {
+    const { aqwaal } = get();
+    if (aqwaal.length === 0) return;
+    const random = aqwaal[Math.floor(Math.random() * aqwaal.length)];
+    const today = new Date().toDateString();
     localStorage.setItem('noor-daily-qawl', JSON.stringify({ date: today, id: random.id }));
     set({ dailyQawl: random });
   },
