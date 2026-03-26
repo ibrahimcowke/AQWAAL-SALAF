@@ -45,15 +45,22 @@ export const useContentStore = create<ContentState>()((set, get) => ({
       const aqwaalCol = collection(db, 'aqwaal');
       const qisasCol = collection(db, 'qisas');
 
-      const [scholarsSnap, aqwaalSnap, qisasSnap] = await Promise.all([
-        getDocs(scholarsCol),
-        getDocs(aqwaalCol),
-        getDocs(qisasCol)
-      ]);
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Firestore operation timed out after 5 seconds')), 5000)
+      );
 
-      const scholars = scholarsSnap.docs.map(doc => ({ ...doc.data(), id: doc.id } as Scholar));
-      const aqwaal = aqwaalSnap.docs.map(doc => ({ ...doc.data(), id: doc.id } as Qawl));
-      const qisas = qisasSnap.docs.map(doc => ({ ...doc.data(), id: doc.id } as Qissa));
+      const [scholarsSnap, aqwaalSnap, qisasSnap] = await Promise.race([
+        Promise.all([
+          getDocs(scholarsCol),
+          getDocs(aqwaalCol),
+          getDocs(qisasCol)
+        ]),
+        timeoutPromise
+      ]) as any;
+
+      const scholars = scholarsSnap.docs.map((doc: any) => ({ ...doc.data(), id: doc.id } as Scholar));
+      const aqwaal = aqwaalSnap.docs.map((doc: any) => ({ ...doc.data(), id: doc.id } as Qawl));
+      const qisas = qisasSnap.docs.map((doc: any) => ({ ...doc.data(), id: doc.id } as Qissa));
 
       // Fallback to seed data if Firestore is empty (mostly for initial setup)
       if (scholars.length === 0 && aqwaal.length === 0 && qisas.length === 0) {
