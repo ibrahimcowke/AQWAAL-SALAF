@@ -291,6 +291,8 @@ export const aqwaalData: Qawl[] = [
     source: 'جامع العلوم والحكم - ابن رجب',
     grade: 'authentic',
     tags: ['صحابة', 'قلب', 'فضل'],
+    explanation_ar: 'تأكيد على أن عظمة جيل الصحابة ترتكز على إخلاصهم ويقينهم التام ومحبتهم لله ورسوله، وليس مجرد كثرة أداء العبادات الظاهرة.',
+    explanation_so: 'Xikmaddan waxay ina baraysaa in fadliga Saxaabada uusan ahayn kaliya cibaado badan, balse uu ahaa Iimaan dhab ah iyo yaqiin qalbiyadooda ku jiray.',
     created_at: '2024-01-02',
   },
 
@@ -304,6 +306,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مفتاح دار السعادة - ابن القيم',
     grade: 'authentic',
     tags: ['علم', 'قلب', 'آخرة'],
+    explanation_ar: 'حقيقة العلم النافع ليست في كثرة الحفظ فقط، بل فيما يورث القلب خشية لله واستعداداً للآخرة وتجرداً عن ملذات الدنيا الزائلة.',
+    explanation_so: 'Cilmiga dhabta ah ee waxtarka leh waa kan qalbiga dhaxalsiiya cabsi Alle, aduunyadana kugu naciya, aakhirana kugu dhiirigeliya.',
     created_at: '2024-01-03',
   },
 
@@ -317,6 +321,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الفوائد - ابن القيم',
     grade: 'authentic',
     tags: ['نعمة', 'بلاء', 'قرب'],
+    explanation_ar: 'أن كل رزق أو هبة لا يستعين بها العبد على طاعة الله والتقرب إليه، فهي في الحقيقة فتنة واختبار ووبال على صاحبها.',
+    explanation_so: 'Nicmo kasta oo Alle ku siiyay oo aan kuu dhawaynayn cibaadada iyo daacadda Alle, dhab ahaantii waa imtixaan iyo balaayo.',
     created_at: '2024-01-04',
   },
 
@@ -330,6 +336,8 @@ export const aqwaalData: Qawl[] = [
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['علم', 'نفع', 'حكمة'],
+    explanation_ar: 'العلم الممدوح شرعاً هو ما ظهر أثره على جوارح الإنسان وعمله، وليس مجرد معلومات تُحفظ في الذاكرة دون تطبيق عملي.',
+    explanation_so: 'Cilmiga la amaanay maaha kaliya xifdiga iyo weelaynta laabta, balse waa kan la mahadiyo ee qofka ficilkiisa iyo dhaqankiisa si togan u beddela.',
     created_at: '2024-01-05',
   },
 
@@ -343,6 +351,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مناقب الشافعي - البيهقي',
     grade: 'authentic',
     tags: ['علم', 'دنيا', 'آخرة'],
+    explanation_ar: 'العلم هو المفتاح الرئيسي للنجاح في كل زمان ومكان؛ فهو يرشدك لنيل معالي الأمور في الحياة الدنيا، ويهديك لسبل الفوز في الآخرة.',
+    explanation_so: 'Cilmigu waa furaha guusha adduun iyo aakhiro labadaba. Ruuxii raba inuu liibaano labada daarood waa inuu wakhtigiisa geliyo barashada diinta.',
     created_at: '2024-01-06',
   },
 
@@ -356,6 +366,8 @@ export const aqwaalData: Qawl[] = [
     source: 'جامع العلوم والحكم - ابن رجب',
     grade: 'authentic',
     tags: ['إخلاص', 'عجب', 'عمل'],
+    explanation_ar: 'وسيلة فاعلة لعلاج داء العجب والغرور بالعمل، وذلك بتذكر عظمة الخالق الذي يُطلب رضاه، وحجم الثواب المرتجى والعقاب المخوف؛ فيصغر العمل في عين العبد.',
+    explanation_so: 'Daawo u ah kibrinta iyo is-la-weynida camalka: Xasuuso weynaanta Alle ee aad raali ahaanshihiisa raadinayso, iyo nicmada jannada oo aan camalkaaga lagu gaadhayn.',
     created_at: '2024-01-07',
   },
 
@@ -369,6 +381,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الآداب الشرعية - ابن مفلح',
     grade: 'authentic',
     tags: ['علم', 'عمل', 'نجاة'],
+    explanation_ar: 'غاية العلم هي التطبيق والعمل، وغاية العمل هي الفوز والنجاة يوم القيامة، فالعلم بلا عمل كشجر بلا ثمر.',
+    explanation_so: 'Hadafka cilmigu waa in lagu dhaqmo, hadafka lagu dhaqmidda cilmiguna waa badbaado aakhiro. Cilmi aan camal wadan waa sida geed aan midho lahayn.',
     created_at: '2024-01-08',
   },
 
@@ -382,6 +396,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مجموع الفتاوى - ابن تيمية',
     grade: 'authentic',
     tags: ['معرفة', 'خوف', 'الله'],
+    explanation_ar: 'كلما زادت معرفة العبد بأسماء الله وصفاته وعظمته، زادت خشيته وتقواه؛ فالعلم بالله يورث القلب هيبةً وإجلالاً.',
+    explanation_so: 'In alla inta uu qofku Alle si dhab ah u barto ayuu ka cabsidiisana soo badataa. Cilmiga caddaynaya weynaanta Alle wuxuu keenaa cabsi iyo khushuuc.',
     created_at: '2024-01-09',
   },
 
@@ -395,6 +411,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مجموع الفتاوى - ابن تيمية',
     grade: 'authentic',
     tags: ['صبر', 'توكل', 'شكوى'],
+    explanation_ar: 'الصبر المحمود في الشرع هو الصبر الذي يخلو من التشكي للناس والتذمر، بل يقتصر على بث الشكوى للخالق وحده سبحانه.',
+    explanation_so: 'Samirka dhabta ah ee diinteenu ina faray waa in qofku uu dhibtiisa ula noqdo Alle oo keliya, asaga oo aan dadka u cabanayn ama ku calaacalayn.',
     created_at: '2024-01-10',
   },
 
@@ -408,6 +426,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الزهد - ابن أبي الدنيا',
     grade: 'authentic',
     tags: ['وقت', 'موت', 'عمل'],
+    explanation_ar: 'دعوة لاغتنام العمر في الطاعات؛ فالزمن يمضي، وأجل الإنسان يسعى إليه دائمًا، والفراغ باب للمفاسد ومضيعة للأعمار.',
+    explanation_so: 'Iska jir fadhiga iyo wakhti lumiska; noloshu way gurmaysaa, dhimashaduna way soo socotaa. Wakhtigaaga ka buuxi cibaado iyo camal suuban.',
     created_at: '2024-01-11',
   },
 
@@ -421,6 +441,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['زهد', 'عمل', 'موت'],
+    explanation_ar: 'حث على المبادرة للأعمال الصالحة قبل فوات الأوان، فالإنسان لا يدري متى ينتهي أجله وتُطوى صحيفة أعماله.',
+    explanation_so: 'Ka faa\'iidayso fursadda aad ku samayn karto camal wanaagsan, maadaama aadan garanayn xilliga cimrigaagu dhamaanayo oo diiwaankaaga la xidhayo.',
     created_at: '2024-01-12',
   },
 
@@ -434,6 +456,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['نفس', 'حلال', 'جهاد'],
+    explanation_ar: 'تحصيل الرزق الحلال يسير إذا صلحت النية، ولكن مجاهدة النفس وشهواتها الخفية هي المعركة الأصعب للمؤمن.',
+    explanation_so: 'Inaad xalaal raadsato waa wax fudud, laakiin dagaalka ugu adag ee qofka muslimka ah waa inuu xakameeyo naftiisa iyo danteeda gurracan.',
     created_at: '2024-01-13',
   },
 
@@ -447,6 +471,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['خوف', 'خير', 'تقوى'],
+    explanation_ar: 'منبت كل فلاح ونجاح في الدنيا والآخرة يبدأ من خوف الله؛ لأنه المانع من الوقوع في المعاصي والحافز للعمل الصالح.',
+    explanation_so: 'Cabsida Alle waa aasaaska wanaag kasta oo adduun iyo aakhiroba ah. Cabsidu waxay qofka ka reebtaa xumaanta, waxayna ku dhiirigelisaa daacadda.',
     created_at: '2024-01-14',
   },
 
@@ -460,6 +486,8 @@ export const aqwaalData: Qawl[] = [
     source: 'جامع بيان العلم وفضله - ابن عبد البر',
     grade: 'authentic',
     tags: ['صمت', 'حكمة', 'لسان'],
+    explanation_ar: 'الصمت حكمة نادرة يتطلب تعلمها وإتقانها زمناً طويلاً، ومجاهدة اللسان لحفظه أشق من نطق الكلام.',
+    explanation_so: 'Aamusnaantu waa xikmad adag oo u baahan tababar dheer. Garaadka iyo aamusku waxay kaa ilaaliyaan qaladaad fara badan oo carrabku keeno.',
     created_at: '2024-01-15',
   },
 
@@ -473,6 +501,8 @@ export const aqwaalData: Qawl[] = [
     source: 'جامع العلوم والحكم - ابن رجب',
     grade: 'authentic',
     tags: ['قلب', 'محبة', 'الله'],
+    explanation_ar: 'علامة صدق المحبة لله أن توافق محبة العبد مراد سيده؛ فيحب ما شرعه الله لعباده ويهوى ما يرضيه.',
+    explanation_so: 'Calaamadda jacaylka Alle ee dhabta ah waa in aad jeclaato wax kasta oo Alle jecel yahay, naftaadana aad u hoggaamiso rabitaanka Eebbe.',
     created_at: '2024-01-16',
   },
 
@@ -486,6 +516,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الإبانة الكبرى - ابن بطة',
     grade: 'authentic',
     tags: ['إيمان', 'محبة', 'ولاء'],
+    explanation_ar: 'من أقوى روابط الإيمان أن يكون ميزان الحب والبغض عند العبد مبنياً على طاعة الله ونصرة دينه، وليس لحظوظ النفس.',
+    explanation_so: 'Xadhigga iimaanka ugu adag waa in aad qofka jacayl iyo cadaawad u qaado dartii Alle oo keliya, ee aanay noqon dantaada shakhsiga ah.',
     created_at: '2024-01-17',
   },
 
@@ -499,6 +531,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الزهد الكبير - البيهقي',
     grade: 'authentic',
     tags: ['ذنوب', 'توبة', 'تأمل'],
+    explanation_ar: 'الغفلة عن محاسبة النفس وتذكر الذنوب هي السبب الرئيسي في التمادي فيها والإكثار منها دون استشعار الخطر.',
+    explanation_so: 'Dadka dembiyada ugu badan falaa waa kuwa aan maba xasuusan kana fakarin dembiyadooda, taasina waa qaldaan weyn oo u baahan toobad.',
     created_at: '2024-01-18',
   },
 
@@ -512,6 +546,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء - أبو نعيم',
     grade: 'authentic',
     tags: ['رحمة', 'أخلاق', 'الله'],
+    explanation_ar: 'رحمة المسلم للمخلوقات سبب عظيم لنيل رحمة الخالق سبحانه في الدنيا ويوم الحساب، والجزاء من جنس العمل.',
+    explanation_so: 'Naxariista aad u muujiso makhluuqaadka Alle waa sababta ugu weyn ee aad ku heli karto naxariista Eebbe. Jazaagu waa mid nooca camalka la falay ah.',
     created_at: '2024-01-19',
   },
 
@@ -525,6 +561,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الزهد - الإمام أحمد',
     grade: 'authentic',
     tags: ['دنيا', 'دين', 'محبة'],
+    explanation_ar: 'الدنيا زائلة يعطيها الله للبر والفاجر، لكن توفيق العبد لسلوك طريق الدين والإيمان هو دليل قاطع على محبة الله له.',
+    explanation_so: 'Aduunyada Alle baa bixiya oo siiya qof uu jecel yahay iyo mid aanu jeclaynba, laakiin iimaanka iyo diinta wuxuu ku galladaystaa cida uu jecel yahay oo qudha.',
     created_at: '2024-01-20',
   },
 
@@ -538,6 +576,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الرسالة - الشافعي',
     grade: 'authentic',
     tags: ['زهد', 'غنى', 'نفس'],
+    explanation_ar: 'الغنى الحقيقي ليس في تكديس الأموال، بل في قناعة النفس ورضاها بما قسمه الله لها واستغنائها عن الخلائق.',
+    explanation_so: 'Taajirnimada dhabta ahi maaha maalkaaga oo bata, balse waa nafta oo qanacda kana maaranta dadka hantidooda, soona dhaweysa qaybta Alle.',
     created_at: '2024-01-21',
   },
 
@@ -551,6 +591,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الفوائد - ابن القيم',
     grade: 'authentic',
     tags: ['نفس', 'جهاد', 'عمل'],
+    explanation_ar: 'أعظم العبادات أجراً هي التي تكرهها النفس لثقلها عليها، كقيام الليل والصيام، فمجاهدة النفس ترفع الدرجات.',
+    explanation_so: 'Camalka ugu abaalmarinta badan waa kan nafta lagu qasbo oo ku adag sidda salaada habeenka; halganka lala galo naftu darajada ayuu kor u qaadaa.',
     created_at: '2024-01-22',
   },
 
@@ -564,6 +606,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مناقب أبي حنيفة',
     grade: 'authentic',
     tags: ['ورع', 'قلب', 'قسوة'],
+    explanation_ar: 'الورع هو اتقاء الشبهات، وهو حياة للقلب، فإذا تساهل العبد في الشبهات والمحرمات قسا قلبه وضعفت بصيرته الإيمانية.',
+    explanation_so: 'Dhowrsanaantu waa in aad ka fogaato waxyaalaha shubuhaatka ah, waana nolosha qalbiga. Marka la lumiyo dhowrsanaanta qalbiga ayaa adkaada.',
     created_at: '2024-01-23',
   },
 
@@ -577,6 +621,8 @@ export const aqwaalData: Qawl[] = [
     source: 'التمهيد - ابن عبد البر',
     grade: 'authentic',
     tags: ['علم', 'نور', 'قلب'],
+    explanation_ar: 'العلم الشرعي لا يقاس بكثرة المعلومات والمحفوظات والأسانيد، بل هو نور وهداية يضعها الله في قلب المخلص.',
+    explanation_so: 'Cilmiga diintu maaha in macluumaad iyo sheekooyin badan la xafido; balse waa iftiin iyo nuur uu Alle ku dhex beero qalbiga qofka daacadda ah.',
     created_at: '2024-01-24',
   },
 
@@ -590,6 +636,8 @@ export const aqwaalData: Qawl[] = [
     source: 'تذكرة الحفاظ',
     grade: 'authentic',
     tags: ['علم', 'فقه', 'حديث'],
+    explanation_ar: 'حفظ الأحاديث دون فقه معانيها ومقاصدها كحمل السلاح دون معرفة كيفية الدفاع به، فالفقه هو ثمرة الحديث.',
+    explanation_so: 'In qofku barto xadiiska asaga oo aan fahmin nuxurkiisa, wuxuu la mid yahay qof sita hub uusan aqoon sidii loo isticmaali lahaa.',
     created_at: '2024-01-25',
   },
 
@@ -603,6 +651,8 @@ export const aqwaalData: Qawl[] = [
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
     tags: ['إخلاص', 'صلاة', 'حديث'],
+    explanation_ar: 'دليل على الورع والاحتياط العظيم من الإمام البخاري في جمع الأحاديث، وتوكله على الله في تصنيف كتابه العظيم.',
+    explanation_so: 'Tani waxay tilmaamaysaa dhowrsanaanta iyo ka fiirsiga weyn ee Imaam Al-Bukhaari, maadaama uu xadiis kasta salaad iyo qubeys ku soo dari jiray.',
     created_at: '2024-01-26',
   },
 
@@ -616,6 +666,8 @@ export const aqwaalData: Qawl[] = [
     source: 'ترتيب المدارك',
     grade: 'authentic',
     tags: ['أخلاق', 'نية', 'حق'],
+    explanation_ar: 'الحق قوي بذاته، والدفاع عنه بالغضب والسب يدل على أن نية المدافع قد دخلها حظ النفس والانتصار للذات.',
+    explanation_so: 'Xaqa isaga ayaa xoog badan; haddii qofku inta uu xaqa u doodayo inuu caayo dadka, taasi waxay tusaysaa in niyadiisa xumi ku jirto oo asagu isa-saran yahay.',
     created_at: '2024-01-27',
   },
 
@@ -629,6 +681,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الفتح - ابن حجر',
     grade: 'authentic',
     tags: ['إخلاص', 'نية', 'عمل'],
+    explanation_ar: 'النية الصالحة هي روح العمل وميزان قبوله، فإن أُخلصت لله قُبل العمل، وإن فسدت بطل العمل ولم يُقبل.',
+    explanation_so: 'Niyadda ayaa ah aasaaska camalka; haddii niyaddu wanaagsanaato camalkuna wuxuu noqdaa mid la aqbalo, haddii kalena waa la diidayaa.',
     created_at: '2024-01-28',
   },
 
@@ -642,6 +696,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مناقب الشافعي',
     grade: 'authentic',
     tags: ['فقه', 'ذكاء', 'حكمة'],
+    explanation_ar: 'الفقه العميق يكمن في الموازنة بين المصالح والمفاسد، واختيار أعظم الخيرين، وتجنب أقبح الشرين عند تزاحمهما.',
+    explanation_so: 'Faqiihga dhabta ahi maaha kan kala yaqaana khayrka iyo sharka uun; waa kan garan kara khayrka ugu wacan iyo kan sharka ugu xun kala doorashadooda.',
     created_at: '2024-01-29',
   },
 
@@ -655,6 +711,8 @@ export const aqwaalData: Qawl[] = [
     source: 'صحيح مسلم',
     grade: 'authentic',
     tags: ['صبر', 'بلاء', 'إيمان'],
+    explanation_ar: 'الصبر الذي يؤجر عليه العبد هو الذي يكون لحظة وقوع المصيبة مباشرة قبل أن تبرد المشاعر وتستكين النفس طبعاً.',
+    explanation_so: 'Samirka dhabta ah ee ajar laha waa kan qofku muujiyo isla marka ay dhibtu dhacdo ama uu warka naxdinta leh maqlo ee ugu horaysa.',
     created_at: '2024-01-30',
   },
 
@@ -668,6 +726,8 @@ export const aqwaalData: Qawl[] = [
     source: 'تاريخ الخلفاء',
     grade: 'authentic',
     tags: ['نفس', 'أخلاق', 'إصلاح'],
+    explanation_ar: 'من أصلح سريرته فيما بينه وبين الله، أصلح الله علاقته مع الناس وجعل له القبول في الأرض وتأليف القلوب حوله.',
+    explanation_so: 'Qofkii naftiisa iyo xidhiidhka uu Alle la leeyahay hagaajiya, Alle ayaa si toos ah u hagaajiya xidhiidhka uu bulshada la leeyahay.',
     created_at: '2024-01-31',
   },
 
@@ -681,6 +741,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الزهد - الإمام أحمد',
     grade: 'authentic',
     tags: ['شجاعة', 'موت', 'يتم'],
+    explanation_ar: 'رسالة في فضل الشجاعة والإقدام في سبيل الله، فالقائد المخلص الذي لا يهاب الموت يُمنح الهيبة وحياة العز والكرامة.',
+    explanation_so: 'Fariin ku saabsan geesinimada: Hadaad dhimashada u bareedho dar Alle, waxaad helaysaa nolol sharaf iyo cisi leh.',
     created_at: '2024-02-01',
   },
 
@@ -694,6 +756,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['إخلاص', 'قول', 'نية'],
+    explanation_ar: 'الكلمة إذا خلت من نية الإخلاص لله وابتغاء مرضاته، أصبحت مجرد لغو ليس له بركة ولا ينتفع به قائله ولا سامعه.',
+    explanation_so: 'Hadalka aan Alle dartiis loo odhan waxtar ma laha; badanaa waa mid madhan oo aan cisi lahayn, abaalmarin aakhrina aanu ku jirin.',
     created_at: '2024-02-02',
   },
 
@@ -707,6 +771,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['محاسبة', 'آخرة', 'تقوى'],
+    explanation_ar: 'المحاسبة الدنيوية للنفس أهون بكثير من حساب الآخرة، ومن وزن أفعاله اليوم استراح وسعد غداً حين تنصب الموازين.',
+    explanation_so: 'La xisaabtan naftaada adduunka inta aan aakhiro laydinku xisaabinin. Qofka inta uu nool yahay is dhaliila aakhiro la xisaabtankiisu wuu fududaadaa.',
     created_at: '2024-02-03',
   },
 
@@ -720,6 +786,8 @@ export const aqwaalData: Qawl[] = [
     source: 'المستدرك - الحاكم',
     grade: 'authentic',
     tags: ['عزة', 'إسلام', 'هوية'],
+    explanation_ar: 'العزة الحقيقية لهذه الأمة مرتبطة بتمسكها بتشريعات الإسلام وقيمه؛ وكلما التمست العزة في الغرب أو أمور أخرى أُصيبت بالذل.',
+    explanation_so: 'Sharafteenna dhabta ahi waxay ku xidhan tahay ku dhaqanka Islaamka. Goor kasta oo aynu sharaf ka raadino meel kale, Alle dulli ayuu ina baddaa.',
     created_at: '2024-02-04',
   },
 
@@ -733,6 +801,8 @@ export const aqwaalData: Qawl[] = [
     source: 'البخاري معلقاً',
     grade: 'authentic',
     tags: ['علم', 'وقار', 'شباب'],
+    explanation_ar: 'توجيه ناصح إلى ضرورة تحصيل العلم قبل التفرغ لمسؤوليات الإدارة والمناصب التي قد تشغل العبد وتمنعه من الطلب.',
+    explanation_so: 'Cilmi baro inta aan xaqilkeeda (masuuliyada) qoorta laguu gelin; maxaa yeelay marka aad oday noqoto wakhti aad wax ku barato ma helaysid.',
     created_at: '2024-02-05',
   },
 
@@ -746,6 +816,8 @@ export const aqwaalData: Qawl[] = [
     source: 'البداية والنهاية',
     grade: 'authentic',
     tags: ['عدل', 'حكم', 'تقوى'],
+    explanation_ar: 'بعض النوازل والمفاسد في المجتمعات لا تكفيها الموعظة والتذكير بالقرآن، بل تحتاج إلى سلطة وحزم لإيقافها.',
+    explanation_so: 'Dadka qaar la-talin iyo akhriska Quraanka kuma waantoobaan; laakiin waxay u baahan yihiin awood dowladeed si loogaga joojiyo xumaanta.',
     created_at: '2024-02-06',
   },
 
@@ -759,6 +831,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['قلب', 'قرآن', 'طهر'],
+    explanation_ar: 'القلب النقي المتصل بالله يجد متعة ونعيماً في تلاوة القرآن وتدبره، بحيث لا يمل أو يكتفي منه مهما تلا.',
+    explanation_so: 'Qalbiga daahirka ahi kamuu dhargo akhriska iyo fahanka Quraanka. Haddii Qalbigu xanuunsanayn baahi ayuu u qabaa dhageysiga ereyada Eebbe.',
     created_at: '2024-02-07',
   },
 
@@ -772,6 +846,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الزهد - الإمام أحمد',
     grade: 'authentic',
     tags: ['سريرة', 'نية', 'صدق'],
+    explanation_ar: 'أسرار القلوب وخفايا النوايا سواء كانت خيراً أو شراً، لابد أن تتجلى في تعابير الوجه أو فلتات اللسان رغماً عن صاحبها.',
+    explanation_so: 'Qof kasta waxa ku qarsoon laabtiisa hubaal inay ka dhex iftiimi doonto wejigiisa ama carrabkuu ku siiban doonaa asagoon is ogayn.',
     created_at: '2024-02-08',
   },
 
@@ -785,6 +861,8 @@ export const aqwaalData: Qawl[] = [
     source: 'نهج البلاغة/حلية الأولياء',
     grade: 'authentic',
     tags: ['علم', 'مال', 'حكمة'],
+    explanation_ar: 'مقارنة تظهر تفضيل العلم على المال؛ فالعلم يزيد بالإنفاق منه وهو حرز وملاذ لصحابه، بينما المال يرهق صاحبه في حمايته.',
+    explanation_so: 'Cilmigu wuxuu ka khayr badan yahay maalka; maxaa yeelay cilmigaagu asaga ayaa ku xafidaya, laakiin maalka adiga ayaa u baahan inaad ilaaliliso.',
     created_at: '2024-02-09',
   },
 
@@ -798,6 +876,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['علم', 'شرف', 'حكمة'],
+    explanation_ar: 'مكانة العلم عالية جداً لدرجة أن الجاهل يسعد إذا نُسبت إليه المعرفة، مما يعد دليلاً وشاهداً على فضل العلم وأهميته.',
+    explanation_so: 'Cilmiga sharafkiisa waxa ku filan: in qofka jaahilka ahi jecel yahay in lagu caayaha inuu wax yaqaan, wuxuuna ku farxaa in cilmi loogu yeedho.',
     created_at: '2024-02-10',
   },
 
@@ -811,6 +891,8 @@ export const aqwaalData: Qawl[] = [
     source: 'التبيان في آداب حملة القرآن',
     grade: 'authentic',
     tags: ['تقوى', 'خوف', 'آخرة'],
+    explanation_ar: 'التقوى مفهوم شامل يعتمد على الخوف من الله، والالتزام بالقرآن، والرضا بالقليل من الرزق، والعمل لمابعد الموت.',
+    explanation_so: 'Taqwadu afar ayay ka kooban tahay: inaad ka baqdo Eebbe, raacdo Quraanka, ku qanacdo risiqa yar, uguna diyaar garowdo maalinta aakhiro.',
     created_at: '2024-02-11',
   },
 
@@ -824,6 +906,8 @@ export const aqwaalData: Qawl[] = [
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
     tags: ['قرآن', 'سنة', 'علم'],
+    explanation_ar: 'نصيحة ثمينة لتعلم معاني القرآن ومصاحبته تلاوة وتدبراً ليكون هادياً وشفيعاً للعبد في الدنيا والآخرة.',
+    explanation_so: 'Waa wejiin aad u qaali ah; Quraanka barto, noloshana saaxiib kaga dhigta si uu idiin anfeeco adduun iyo aakhiro.',
     created_at: '2024-02-12',
   },
 
@@ -837,6 +921,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الأمثال والمواعظ',
     grade: 'authentic',
     tags: ['شجاعة', 'عقل', 'حكمة'],
+    explanation_ar: 'الشجاعة الحقيقية ليست التهور والطيش، بل هي مهارة منضبطة يقودها عقل وازن وإدراك راجح للعواقب.',
+    explanation_so: 'Geesinimada dhabta ahi maahan ficillo xoog ah, ee waa xikmad iyo caqli degan oo hogaamiya xeelad kasta oo geesinimo xanbaarsan.',
     created_at: '2024-02-13',
   },
 
@@ -850,6 +936,8 @@ export const aqwaalData: Qawl[] = [
     source: 'جامع بيان العلم',
     grade: 'authentic',
     tags: ['علم', 'حكمة', 'تواضع'],
+    explanation_ar: 'علوم الشريعة والمعارف بشتى أنواعها ليس لها نهاية، وكلما اغترف الإنسان من العلم كلما أيقن بقلة علمه.',
+    explanation_so: 'Cilmigu waa badweyn aan salkiisa la gaadhi karin. Inta aqoontaadu kor u kacdo ayaad wixii aad jaahil ka tahay sii ogaanaysaa.',
     created_at: '2024-02-14',
   },
 
@@ -863,6 +951,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['حكمة', 'علم', 'بحث'],
+    explanation_ar: 'أن النصح والفوائد تُقبل حتى لو جاءت من شخص غير حكيم أو عاصٍ، فالحكمة ضالة المؤمن يأخذها من أي مكان وجدها.',
+    explanation_so: 'Xigmad kasta qabso cidii daad ka maqashaba; marmarka qaarkood ninka xikmadda sheegayaa ma aha nin caqli badan, laakiin ereygiisa uun ayaa waxtar leh.',
     created_at: '2024-02-15',
   },
 
@@ -876,6 +966,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الفوائد',
     grade: 'authentic',
     tags: ['قلب', 'ذكر', 'توبة'],
+    explanation_ar: 'أمراض القلوب حقيقة وعلاجها بالتوبة وتجنب مقدمات المعصية، كما أن الصدأ على المرآة يزول بذكر الله المستمر.',
+    explanation_so: 'Qalbiga wuu xanuunsadaa siduu jidhkuba u xanuunsado. Dawadiisuna waa toobad iyo Alle-xus (Dikri), si looga wiiqo mirida saaran.',
     created_at: '2024-02-16',
   },
 
@@ -889,6 +981,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الفوائد',
     grade: 'authentic',
     tags: ['وقت', 'موت', 'آخرة'],
+    explanation_ar: 'تفويت الأوقات يُضيع سعادة الآخرة التي لا تنقضي، بينا الموت يُنهي فقط وجود الإنسان القصير في عالم الدنيا.',
+    explanation_so: 'Waqti-lumisku wuxuu ka ashiin xun yahay geerida; geeridu adduunka uun bay kaa soocaysaa, laakiin waqtiga oo dhumo aakhiro ayuu ka fasaadiyaa.',
     created_at: '2024-02-17',
   },
 
@@ -902,6 +996,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['زهد', 'موت', 'وقت'],
+    explanation_ar: 'أيام العمر معدودة، ومع انقضاء كل يوم ينقص رصيد الإنسان من الحياة ويدنو نحو قبره وحسابه.',
+    explanation_so: 'Cimriga bini aadamku waa daqiiqado tirsan; maalin kasta oo ay dhamaato waxaa hubaal ah inuu dhimashadiisa usoo dhowaanayo.',
     created_at: '2024-02-18',
   },
 
@@ -915,6 +1011,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مواعظ الحسن البصري',
     grade: 'authentic',
     tags: ['غفلة', 'آخرة', 'زهد'],
+    explanation_ar: 'إنكار وتعجب من حال الناس الذين نودوا بوجوب التزود للآخرة بالتقوى وسماعهم أذان الرحيل والموت في من حولهم فتراهم يلهون.',
+    explanation_so: 'Waa layaab dadka loo sheegay inay sahay aakhiro urursadaan, dhimashadiina is-hortaagto, iyaguna meelaha qosol iyo madadaalo kula maqan.',
     created_at: '2024-02-19',
   },
 
@@ -928,6 +1026,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['موت', 'يقين', 'غفلة'],
+    explanation_ar: 'اليقين بالموت ثابت ومشهود، ورغم ذلك يتعامل الإنسان معه للأسف كأنه سراب بعيد وحدث لن يطاله أبداً لغفلته.',
+    explanation_so: 'Dhimashadu waxay la mid tahay wax la yaqiinsan yahay, haddana hab-dhaqanka dadka aad moodo inaanay marnaba dhimanayn oo cid uun loogu talagalay.',
     created_at: '2024-02-20',
   },
 
@@ -941,6 +1041,8 @@ export const aqwaalData: Qawl[] = [
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['أخلاق', 'سفاهة', 'صمت'],
+    explanation_ar: 'عدم الرد على الجهال أو أصحاب العقول السطحية أبلغ من مجادلتهم؛ إذ أن الإجابة تضعك في مستواهم.',
+    explanation_so: 'Dadka dhaqan-xumada iyo aflagaadada badan marna ha u jawaabin; aamusnaanta ayaaba ugu roon sidii aad muran afka ugala geli lahayd.',
     created_at: '2024-02-21',
   },
 
@@ -954,6 +1056,8 @@ export const aqwaalData: Qawl[] = [
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['علم', 'معصية', 'شعر'],
+    explanation_ar: 'المعاصي حُجب تمنع نور العلم من دخول القلب وحفظ المعلومات، فالعلم نور رباني يمنحه الله للمتقين وليس للعصاة.',
+    explanation_so: 'Dembiyadu waxay daboolaan fahamka iyo xifdiga aqoonta; cilmiga Alle wuxuu nuurkiisa ku beeraa laabta qofka dhowrsan.',
     created_at: '2024-02-22',
   },
 
@@ -967,6 +1071,8 @@ export const aqwaalData: Qawl[] = [
     source: 'ديوان الشافعي',
     grade: 'authentic',
     tags: ['سفر', 'علم', 'أخلاق'],
+    explanation_ar: 'السفر عن الأوطان يُكسِب الإنسان خبرة وفوائد عظيمة: تفريج الهم، وطلب الرزق، ونيل العلوم والخبرات، وتحصيل مهارات الحياة وأصحاب المروءة.',
+    explanation_so: 'Safarku shano faa’iido ayuu leeyahay: werwerka ka fogaanaya, shaqo ka raadasho, is-barasho cilmi, darsi xikmadeed iyo in lala saaxiibo dad sharaf leh.',
     created_at: '2024-02-23',
   },
 
@@ -980,6 +1086,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الوابل الصيب',
     grade: 'authentic',
     tags: ['صلاة', 'إخلاص', 'عبادة'],
+    explanation_ar: 'أقسام الناس في الصلاة: المفرط يعاقب، والغافل يحاسب، والذي يجاهد وساوسه يثاب، أما الخاشع فهو المقرّب.',
+    explanation_so: 'Dadka salaada tukadaa shan bay kala yihiin: kan laga ciqaabayo, iyo kan xisaabta loogu fariisinayo, midka abaalka gaarka ah leh iyo kan lala ciyaarayo veswaaska naftiisa ka difaacaya.',
     created_at: '2024-02-24',
   },
 
@@ -993,6 +1101,8 @@ export const aqwaalData: Qawl[] = [
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
     tags: ['لسان', 'غيبة', 'عبادة'],
+    explanation_ar: 'النبل وكمال المروءة يكون بالترك التام للفضول من الكلام واجتناب مالا يفيد المرء في أمر دينه أو دنياه.',
+    explanation_so: 'Sharafta iyo milgaha ninka laguma tilmaamo ilaa uu ka tego waxyaalaha aan faa\'iida lahayn ee aan isaga khusayn.',
     created_at: '2024-03-10',
   },
 
@@ -1006,6 +1116,8 @@ export const aqwaalData: Qawl[] = [
     source: 'نهج البلاغة',
     grade: 'authentic',
     tags: ['أخلاق', 'صحبة', 'موت'],
+    explanation_ar: 'حسن الأخلاق هو الإرث الأبقى بعد الموت، فالرجل الصالح تبكي الناس لفقده، وتسعد وتشتاق لوجوده إذا حضر.',
+    explanation_so: 'Dhaqankaaga iyo asluubtaada wanaaji; si hadaad dhimato loogaa booyo, oo hadaad nooshahayba inta kuu hesho ay ku faraxdo.',
     created_at: '2024-03-11',
   },
 
@@ -1019,6 +1131,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['صبر', 'نفس', 'إيمان'],
+    explanation_ar: 'الإيمان الحقيقي ليس بانعدام الشهوات والرغبات البشرية الكامنة؛ بل الإيمان أن تتواجد تلك الرغبات لكنه يكبحها طاعة لله.',
+    explanation_so: 'Mu\'minka dhabta ahi ma aha kan aan lahayn nafsad wax raba; balse waa kan hamiya laakiin dembiga isku qabta samirna muujiya.',
     created_at: '2024-03-12',
   },
 
@@ -1032,6 +1146,8 @@ export const aqwaalData: Qawl[] = [
     source: 'الآداب الشرعية',
     grade: 'authentic',
     tags: ['أخلاق', 'مراء', 'عمل'],
+    explanation_ar: 'المراء والجدال بالباطل أو بقصد الغلبة، يُهدر الأجر ويورث الضغينة وتصدع المحبة بين الإخوة.',
+    explanation_so: 'Iska jira muranka joogtada ah; ficilkani wuxuu lumiyaa ajarka camalka wanaagsan oo wuxuu beeraa cuqdad iyo is-naceyb walaalaha dhexdiisa.',
     created_at: '2024-03-13',
   },
 
@@ -1048,6 +1164,8 @@ export const aqwaalData: Qawl[] = [
     source: 'مفتاح دار السعادة',
     grade: 'authentic',
     tags: ['علم', 'عمل', 'حكمة'],
+    explanation_ar: 'تفعيل التعاليم يعطيها معنى: العلم دليل يمنح الحياة، والعمل تفعيل له؛ فأحدهما يكمل الآخر، ونقصهما يعني الخلل.',
+    explanation_so: 'Cilmigu waa nafta (ruuxa) camalkuna waa jidhka, haddii aan cilmi jirin gabi ahaanba jidhku wuu dhimanayaa, labadaba wada soco uun baa suura-gal ah.',
     created_at: '2024-03-20',
   },
 ];
