@@ -165,7 +165,7 @@ const resources = {
       "scholars": "Culimada",
       "search": "Baadi-goob",
       "favorites": "Kuwa la xushay",
-      "settings": "Settings",
+      "settings": "Habaynta",
       "daily_qawl": "Xikmadda Maanta",
       "continue_reading": "Sii wad akhriska",
       "categories": "Baadh Mawduucyada",

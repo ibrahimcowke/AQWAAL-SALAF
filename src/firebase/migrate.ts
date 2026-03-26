@@ -1,48 +1,39 @@
-import { collection, addDoc, getDocs, writeBatch, doc } from 'firebase/firestore';
+import { collection, setDoc, doc, writeBatch } from 'firebase/firestore';
 import { db } from './config';
 import { scholarsData, aqwaalData, qisasData } from '../data/seed';
 
 export const migrateDataToFirestore = async () => {
-  console.log('Starting migration...');
+  console.log('Starting migration/sync...');
   
   try {
-    // 1. Migrate Scholars
+    // 1. Sync Scholars
+    console.log('Syncing scholars...');
     const scholarsCol = collection(db, 'scholars');
-    const existingScholars = await getDocs(scholarsCol);
-    if (existingScholars.empty) {
-      console.log('Migrating scholars...');
-      for (const scholar of scholarsData) {
-        await addDoc(scholarsCol, scholar);
-      }
+    for (const scholar of scholarsData) {
+      await setDoc(doc(scholarsCol, scholar.id), scholar);
     }
 
-    // 2. Migrate Aqwaal
+    // 2. Sync Aqwaal
+    console.log('Syncing aqwaal...');
     const aqwaalCol = collection(db, 'aqwaal');
-    const existingAqwaal = await getDocs(aqwaalCol);
-    if (existingAqwaal.empty) {
-      console.log('Migrating aqwaal...');
-      const batch = writeBatch(db);
-      aqwaalData.forEach((qawl) => {
-        const newDoc = doc(aqwaalCol);
-        batch.set(newDoc, qawl);
-      });
-      await batch.commit();
-    }
+    const aqwaalBatch = writeBatch(db);
+    aqwaalData.forEach((qawl) => {
+      const docRef = doc(aqwaalCol, qawl.id);
+      aqwaalBatch.set(docRef, qawl);
+    });
+    await aqwaalBatch.commit();
 
-    // 3. Migrate Qisas
+    // 3. Sync Qisas
+    console.log('Syncing qisas...');
     const qisasCol = collection(db, 'qisas');
-    const existingQisas = await getDocs(qisasCol);
-    if (existingQisas.empty) {
-      console.log('Migrating qisas...');
-      const batch = writeBatch(db);
-      qisasData.forEach((qissa) => {
-        const newDoc = doc(qisasCol);
-        batch.set(newDoc, qissa);
-      });
-      await batch.commit();
-    }
+    const qisasBatch = writeBatch(db);
+    qisasData.forEach((qissa) => {
+      const docRef = doc(qisasCol, qissa.id);
+      qisasBatch.set(docRef, qissa);
+    });
+    await qisasBatch.commit();
 
-    console.log('Migration completed successfully!');
+    console.log('Migration/Sync completed successfully!');
     return { success: true };
   } catch (error) {
     console.error('Migration failed:', error);

@@ -1288,6 +1288,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-004',
     title_ar: 'ابن تيمية في سجن القلعة',
+    title_so: 'Ibn Taymiyyah iyo xabsigii qalcadda',
     content_ar: `في آخر سجناته، لجأ القضاة والفقهاء عند السلطان إلى حبس شيخ الإسلام ابن تيمية في قلعة دمشق، سنة 720 هـ، ومنعوا عنه الحبر والورق حتى لا يواصل الكتابة.
 
 لم يُضعِف هذا كلُّه ابن تيمية، فقد كان يكتب بالفحم على الجدران، ويُردد لمن يزوره: "ما يفعل أعدائي بي؟ أنا جنتي وبستاني في صدري، أينما رحلتُ فهي معي، وأنا حيث كنتُ فهي معي."
@@ -1297,7 +1298,17 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 وقضى ابن تيمية في السجن نحو سنتين ونصف، ثم مات بداخله سنة 728 هـ، وقد ختم القرآن ثمانياً وثمانين مرة بين سجنه ذلك ومرضه.
 
 لما مات رحمه الله، صُلي عليه صلاة لم يُرَ مثلها في دمشق، وشُيعت جنازته في جموع حاشدة تقدر بعشرات الآلاف، رحمه الله.`,
+    content_so: `Xabsigiisii ugu dambeeyay, culimadii iyo garsoorayaashii waxay ku qanciyeen suldaanka in Sheekhul Islaam Ibn Taymiyyah lagu xidho qalcadda Dimishiq sannadkii 720aad ee Hijriga, waxaana laga mamnuucay khad iyo warqad si uusan u sii wadin wax qorista.
+
+Taasina ma daciifisay Ibn Taymiyyah, wuxuu bilaabay inuu dhuxul ku qoro gidaarada qalcadda, wuxuuna ku lahaa dadka soo booqda: 'Maxay cadaawayaashaydu igu samaynayaan? Jannadaydii iyo beertaydii waxay ku dhex jiraan xabadkayga (laabtayda), meel kasta oo aan tago way ila socdaan, meel kasta oo aan joogana way ila jiraan.'
+
+Wuxuu isagoo xabsiga ku jira odhan jiray: 'Xabsigani xaggayga waa khulwo (meel Alle lagu caabudo), silsiladdan lugtayda ku jirtaana waa camallada ugu wanaagsan ee Alle loogu dhawaado; maadaama ay tahay jidka Alle.'
+
+Ibn Taymiyyah wuxuu xabsiga ku jiray qiyaastii laba sano iyo badh, wuxuna ku dhex dhintay sannadkii 728aad ee Hijriga, isagoo dhameeyay akhriska Quraanka siddeed iyo siddeetan goor intii uu xirnaa iyo muddadii uu xanuunsanayay.
+
+Markuu dhintay (Alle ha u naxariistee), waxaa lagu tukan jiray salaad aan dimishiq horey loo arkin, qabaalkiisana waxaa raacay kumanaan qof oo aan la soo koobi karin.`,
     summary_ar: 'قصة صمود ابن تيمية في سجنه الأخير بقلعة دمشق، وكيف كانت روحه أقوى من أن يكسرها السجن.',
+    summary_so: 'Sheekadii adkaysiga Ibn Taymiyyah ee xabsigiisii ugu dambeeyay ee qalcadda Dimishiq, iyo sidii ruuxiisa ay uga xoog badneyd xabsiga.',
     source: 'البداية والنهاية - ابن كثير، وتاريخ ابن شاكر الكتبي',
     reading_time: 4,
     tags: ['صبر', 'ثبات', 'علم', 'إيمان'],
@@ -1308,6 +1319,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-005',
     title_ar: 'حكمة سفيان الثوري في الزهد',
+    title_so: 'Xikmaddii Sufyaan Al-Thawri ee ku saabsanayd Zuhdiga',
     content_ar: `جاء رجلٌ إلى سفيان الثوري رحمه الله وسأله: يا أبا عبدالله، ما علامة الزهد في الدنيا؟
 
 فأجابه سفيان: الزهد فيها ثلاثة: ألا تفرح بموجودها، ولا تحزن على مفقودها، ولا تتساوى عندك الحمد والذم فيها.
@@ -1319,7 +1331,19 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 انصرف الرجل وقد امتلأ قلبه بنور الموعظة، وقيل إنه لزم الحلقة بعد ذلك وتزوّد من العلم.
 
 وكان سفيان الثوري يقول: "تعلموا العلم ثم اعملوا به، ولا تتعلموه للتفاخر والمراء، فيكون حجةً عليكم لا لكم."`,
+    content_so: `Waxaa u yimid nin Sufyaan Al-Thawri (A.H.N) markaasuu weydiiyay: 'Abuu Cabdallaahow, waa maxay calaamadda zuhdiga adduunka?'
+
+Sufyaan wuxuu ku jawaabay: 'Zuhdigu waa saddex: Inaanad ku farxin waxa aad haysato, inaanad ka murugoon waxa kaa maqan, iyo inay kula mid noqdaan ammaanta iyo dhaleecaynta adduunka dhexdiisa.'
+
+Ninkii wuxuu yidhi: 'Sidee addoonku u gaadhaa darajadaas?' 
+
+Sufyaan wuxuu yidhi: 'Inuu ogaado in waxa adduunka ka yimaadaa ay yihiin xagga Alle, waxa tagayaana ay ku baxaan cilmiga Alle, waxa hadhayna ay yihiin ammaanad uu agtiisa yaalla.'
+
+Markaasuu Sufyaan kor u qaaday codkiisii oo yidhi: 'Ilaahay baan ku dhaartaye, haddii nin jannada geli lahaa oo uu arki lahaa waxa ku jira, ka dibna adduunka xaggiisa loo soo saari lahaa, wuu quudhsan lahaa adduunka iyo waxa ku jira oo dhan.'
+
+Ninkii wuxuu tagay isagoo qalbigiisu ka buuxo nuurka wacdiga, waxaana la sheegay inuu fadhiga cilmiga ka dib laasimay oo uu cilmi badan korodhsaday.`,
     summary_ar: 'حوار حكيم بين سفيان الثوري وطالب العلم حول صفات الزهد الحقيقي في الدنيا وكيفية بلوغه.',
+    summary_so: 'Wada-hadal xikmadaysan oo dhexmaray Sufyaan Al-Thawri iyo arday cilmi doon ah oo ku saabsan sifooyinka zuhdiga dhabta ah ee aduunka iyo sidii loo gaadhi lahaa.',
     source: 'حلية الأولياء - أبو نعيم الأصبهاني',
     reading_time: 3,
     tags: ['زهد', 'دنيا', 'حكمة'],
@@ -1330,6 +1354,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-006',
     title_ar: 'ابن القيم وطلب الجنة',
+    title_so: 'Ibn Al-Qayyim iyo doonista jannada',
     content_ar: `قال ابن القيم الجوزية رحمه الله وهو يذكر سر الطريق إلى الجنة: "الطريق إلى الجنة واحدة، وهي طريق من أحبه الله ورسوله."
 
 وكان ابن القيم يُفرِّق بين العبودية الحقيقية والعبودية الوهمية، فيقول: "العبد الحر هو من عبد الله بالرجبة والرجاء والمحبة والذل والإنابة، لا من عبد الله خوفاً فحسب."
@@ -1341,7 +1366,17 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 قال السائل: وهل هذا في مقدور البشر؟ فأجاب رحمه الله: "هو غاية المقدور وأشرف ما يُصيبه العبد، فمن صرف وقته في غيره خسر خسراناً مبيناً."
 
 رحم الله ابن القيم، إماماً في العلم والتزكية، كتبه كالأنهار تروي القلوب.`,
+    content_so: `Ibn Al-Qayyim Al-Jawziyyah (A.H.N) wuxuu yidhi isagoo sheegaya sirta jidka loo maro jannada: 'Jidka jannada loo maraa waa mid qudha, waana jidka uu jecel yahay Alle iyo Rasuulkiisu.'
+
+Ibn Al-Qayyim wuxuu kala saari jiray addoonnimada dhabta ah iyo tan dhalanteedka ah, wuxuuna odhan jiray: 'Addoonka xorta ahi waa kan Alle u caabuda si kalsooni, rajo, jacayl iyo is-hoosaysiin leh, ee ma aha qofka Alle ka cabsada oo kaliya.'
+
+Qaar ka mid ah ardaydiisa ayaa ka sheekeeyay in maalin uu cashar ka bixinayay masaajidka Dimishiq, mid ka mid ah dadkii fadhiyay ayaa weydiiyay: 'Sidee looga dhawaadaa Alle?'
+
+Ibn Al-Qayyim wuxuu ku jawaabay: 'Saddex arrimood baa lagu gaadhaa: Inaad Alle ku barato magacyadiisa iyo sifooyinkiisa, inaad jacaylkiisa qalbiga ka buuxiso, iyo inaad iska fogeyso wax kasta oo Alle kaa mashquulinaya.'
+
+Ninkii weydiinayay ayaa yidhi: 'Miyay dadku xamili karaan arrintaas?' Wuxuu ku jawaabay (A.H.N): 'Waa halka ugu sarraysa ee dadku gaadhi karaan, waana waxa ugu sharafta badan ee addoon ku dhaca, qofkii wakhtigiisa wax kale ku lumiyaana wuu khasaaray khasaare cad.'`,
     summary_ar: 'تأملات ابن القيم الجوزية حول العبودية الحقيقية لله وطريق قرب العبد من ربه.',
+    summary_so: 'Tixraacyo Ibn Al-Qayyim Al-Jawziyyah oo ku saabsan addoonnimada dhabta ah ee Alle iyo jidka loogu dhowaado Rabbiga.',
     source: 'مدارج السالكين وطريق الهجرتين - ابن القيم',
     reading_time: 3,
     tags: ['تزكية', 'محبة', 'قرب', 'جنة'],
@@ -1352,6 +1387,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-007',
     title_ar: 'مناظرة أبو حنيفة مع الملحدين',
+    title_so: 'Dooddii Abuu Xaniifa iyo kuwii Ilaah-diidka ahaa',
     content_ar: `يُحكى أن بعض الملاحدة الذين ينكرون الخالق اجتمعوا للإيقاع بالإمام أبي حنيفة رحمه الله ومناظرته. فحدد لهم موعداً، ولكنه تأخر عن الموعد عمداً.
     
 فلما جاء، قالوا له: لِـمَ تأخرت؟ قال: لقد عرض لي أمرٌ عجيب؛ رأيتُ سفينة في النهر مشحونة بالأمتعة، وهي تسير من غير ملاح، وتفرغ حمولتها وتعود وحدها من غير قائد!
@@ -1359,7 +1395,15 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 فقال الملاحدة: هذا كلام مجانين! كيف لسفينة أن تسير وتعمل من غير مدبر؟ 
 
 فضحك الإمام وقال: إذا كان هذا لا يعقل في سفينة صغيرة، فكيف يعقل في هذا الكون الفسيح بسمائه وأرضه وكواكبه؟ فبهتوا وأسلم بعضهم على يديه.`,
+    content_so: `Waxaa la sheegaa inay qaar ka mid ah kuwii Ilaah-diidka ahaa ay isugu yimaadeen sidii ay Imaam Abuu Xaniifa (A.H.N) ugu ridi lahaayeen cidhiidhi oo ay ula doodi lahaayeen. Wuxuu u qabtay ballan, laakiin wuu ka soo daahay isagoo ula kac u sameeyay.
+
+Markuu yimid, waxay yidhaahdeen: 'Maxaad u soo daahday?' Wuxuu yidhi: 'Waxaa igu soo baxay arrin la yaab leh; waxaan arkay markab webiga dhex maraya oo xamuul siday, isagoo aan lahayn qof wada (badmaax), haddana ka soo dejinaya raridii oo dib u laabanaya isagoo aan lahayn qof hagaya!'
+
+Ilaah-diidkii ayaa yidhi: 'Kani waa hadal waali ah! Sidee markab u socon karaa isagoo uusan jirin qof maamulaya?'
+
+Imaamkii ayaa qoslay oo yidhi: 'Haddii tan laga yaabo inaan wax ka garan waaya markab yar, sidee looga fikiri karaa koonkan ballaadhan ee leh samadiisii, dhulkiisii iyo xiddigihiisii?' Markaasay yaabeen, qaarkoodna gacantiisa ayay ku islaameen.`,
     summary_ar: 'قصة ذكاء الإمام أبو حنيفة في إثبات وجود الخالق عن طريق ضرب المثل بالسفينة.',
+    summary_so: 'Sheekada xariifnimadii Imaam Abuu Xaniifa ee ku saabsanayd caddeynta jiritaanka Abuura (Alle) isagoo tusaale u soo qaatay markab/dooni.',
     source: 'تاريخ بغداد - الخطيب البغدادي',
     reading_time: 3,
     tags: ['إيمان', 'ذكاء', 'حكمة'],
@@ -1370,12 +1414,19 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-008',
     title_ar: 'تعظيم الإمام مالك لحديث رسول الله',
+    title_so: 'Ixtiraamka Imaam Maalik ee xadiiska Rasuulka (SCW)',
     content_ar: `كان الإمام مالك بن أنس رحمه الله إذا أراد أن يحدِّث بحديث رسول الله ﷺ، اغتسل وتطيب ولبس ثياباً جدداً وتعمم، وقعد على صدر فراشه بوقار وهيبة.
     
 وقيل له في ذلك، فقال: أحب أن أعظم حديث رسول الله ﷺ، ولا أحدث به إلا على طهارة متمكناً.
 
 وذكر ابن القاسم أنه رئي على الإمام مالك وهو يحدث، وقد لدغته عقرب ثماني عشرة مرة، وهو يتغير لونه ويصفر، ولا يقطع حديث رسول الله ﷺ، فلما قرأ قال: إنما صبرت إجلالاً لحديث رسول الله ﷺ.`,
+    content_so: `Imaam Maalik bin Anas (A.H.N) wuxuu ahaa marka uu rabo inuu ka sheekeeyo xadiiska Rasuulka (SCW), wuu qubeysan jiray, carfin jiray, dharka cusubna wuxuu u xidhan jiray sida qof weyn oo haybad leh, markaasuu ku fadhiisan jiray fadhigiisa isagoo xishood iyo haybad ay ka muuqato.
+
+Waxaa lagu yidhi arrintaas, markaasuu yidhi: 'Waxaan jecelahay inaan weyneeyo xadiiska Rasuulka (SCW), oo aanan ka sheekayn isagoon daahir ahayn oo aan si fiican u fadhiyin.'
+
+Waxaa la sheegay in maalin isagoo xadiis akhrinaya ay hangarolle qaniintay siddeed iyo toban goor, isagoo midabkiisu isbeddelayay oo huruud noqonayay, haddana uusan gooyn xadiiskii Rasuulka (SCW). Markuu dhameeyay ayaa la weydiiyay, wuxuuna yidhi: 'Waxaan u samray xurmo aan u hayo xadiiska Rasuulka (SCW).'`,
     summary_ar: 'موقف الإمام مالك في تعظيم سنة النبي ﷺ وصبره على الألم إجلالاً للحديث.',
+    summary_so: 'Mowqifka Imaam Maalik ee ku saabsan weynaynta sunnada Nabiga (SCW) iyo samirka uu u samray xanuunka isagoo xurmaynaya xadiiska.',
     source: 'ترتيب المدارك - القاضي عياض',
     reading_time: 4,
     tags: ['تعظيم', 'سنة', 'صبر'],
@@ -1386,6 +1437,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-009',
     title_ar: 'امتحان ذاكرة الإمام البخاري في بغداد',
+    title_so: 'Xasuustii layaabka lahayd ee Imaam Al-Bukhaari',
     content_ar: `لما سمع أهل بغداد بقدوم الإمام البخاري رحمه الله، أرادوا أن يمتحنوا حفظه. فعمدوا إلى مائة حديث، فقلبوا متونها وأسانيدها؛ جعلوا سند هذا لمتن ذاك، وسند ذاك لمتن هذا.
     
 ودفعوها إلى عشرة رجال، كل واحد معه عشرة أحاديث، وأمروهم أن يلقوها على البخاري في مجلس العلم.
@@ -1393,7 +1445,15 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 فلما حضر المجلس، قام الأول فألقى أحاديثه العشرة المقلوبة، والبخاري يقول: لا أعرفه. حتى انتهى العشرة كلهم (مائة حديث)، والناس ينظرون بذهول والبعض يظن أن البخاري قد غفل.
 
 فلما انتهوا، التفت البخاري إلى الأول وقال: أما حديثك الأول فقلت كذا وصوابه كذا، وأما الثاني فقلت كذا وصوابه كذا.. حتى رد الأحاديث المائة كلها إلى أسانيدها الصحيحة بغير خطأ واحد! فعجب الناس من حفظه، وأقروا له بالإمامة.`,
+    content_so: `Markuu Imaam Al-Bukhaari (A.H.N) yimid magaalada Baqdaad, culimadii xadiiska ayaa isugu yimid si ay u imtixaanan xasuustiisa. Waxay soo qaadeen boqol xadiis, markaasay isku dhex qaseen sanadadooda (taxanaha weriyayaasha) iyo matnigooda (hadalka xadiiska), iyagoo sanadkan u dhiibay matnigaas, kii kalena u dhiibay mid kale.
+
+Kaddib waxay u dhiibeen toban nin, mid kastaana wuxuu hayay toban xadiis, waxayna ku amreen inay u akhriyaan Bukhaari isagoo fadhiya golaha.
+
+Markii goluhu isugu yimid, ninkii koowaad ayaa kacay oo weydiiyay tobankiisii xadiis, Bukhaarina wuxuu odhanayay: 'Ma garanayo.' Ilaa ay tobankii nin ka dhameeyeen boqolkii xadiis. Dadkii ayaa is eegay oo yidhi: 'Ninkani waxba ma yaqaan!'
+
+Markay dhameeyeen, Bukhaari wuxuu u soo jeestay ninkii koowaad wuxuuna yidhi: 'Xadiiskaagii koowaad saxdiisu waa sidan, kii labaadna waa sidan...' ilaa uu boqolkii xadiisba mid kasta ku celiyay taxanihiisii iyo hadalkiisii saxda ahaa. Dadkii ayaa la yaabay xasuustiisa, waxayna ogaadeen inuu yahay imaamka adduunka ee xadiiska.`,
     summary_ar: 'القصة الشهيرة لامتحان علماء بغداد للإمام البخاري في مائة حديث مقلوبة الأسانيد والمتون وكيف ردها جميعاً.',
+    summary_so: 'Sheekadii culimadii Baqdaad ay ku imtixaaneen Imaam Al-Bukhaari boqol xadiis iyo sidii uu ugu celiyay mid kasta meeshiisii saxda ahayd.',
     source: 'تاريخ بغداد - الخطيب البغدادي',
     reading_time: 5,
     tags: ['حديث', 'حفظ', 'ذكاء', 'إتقان'],
@@ -1404,6 +1464,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-010',
     title_ar: 'عمر بن الخطاب والمرأة والقدر',
+    title_so: 'Cumar bin Al-Khaddaab iyo haweenaydii iyo dherigii',
     content_ar: `خرج عمر بن الخطاب رضي الله عنه في ليلة يطوف ببيوت المسلمين ليتفقد أحوالهم، فسمع صوت بكاء صبية، ووجد امرأة جالسة وحولها أطفالها يبكون، وهي تضع قِدراً على النار.
     
 اقترب عمر وسألها: ما بكاء هؤلاء الصبية؟ قالت: الجوع. قال: وما هذا الذي في القدر؟ قالت: ماء، أعللهم به حتى يناموا، والله بيننا وبين عمر.
@@ -1411,7 +1472,15 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 بكى عمر رضي الله عنه، وانطلق سريعاً إلى بيت المال، فحمل كيس دقيق (طحين) وشحماً على ظهره، وحاول خادمه أسلم أن يحمله عنه، فقال عمر: "أأنت تحمل عني وزري يوم القيامة؟"
 
 فجاء للمرأة فطبخ لهم بنفسه، وأطعم الصبية حتى شبعوا وضحكوا، ثم قال للمرأة: ائتِ أمير المؤمنين غداً تجديني هناك. فلما جاءت عرفت أنه هو، فبكت واعتذرت، فجعل لها نفقة من بيت المال.`,
+    content_so: `Cumar bin Al-Khaddaab (A.R.H) ayaa habeen habeenada ka mid ah u soo baxay inuu soo dhex wareego guryaha muslimiinta si uu u ogaado xaaladooda. Markaasuu maqlay cod ay carruur ooyayaan, wuxuuna helay haweenay fadhida oo ay hareeraheeda carruurteedu ooyayaan, iyadoo dheri dabka saaranaysa.
+
+Cumar ayaa u soo dhawaaday oo weydiiyay: 'Maxay carruurtani u ooyayaan?' Waxay tidhi: 'Gaajo.' Wuxuu yidhi: 'Maxaa dheriga ku jira?' Waxay tidhi: 'Waa biyo, aan ugu maaweelinayo ilaa ay ka seexdaan, Ilaahayna isagaa noo gar qaadi doona annaga iyo Cumar.'
+
+Cumar (A.R.H) ayaa ooyay, wuxuuna si degdeg ah ugu cararay guriga maalkii (Baytul-maal), wuxuuna dhabarkiisa ku soo xambaaray kiish daqiiq ah iyo subag. Midiidinkiisii Aslam ayaa isku dayay inuu ka qaado, laakiin Cumar wuxuu yidhi: 'Ma adigaa iga xambaaraya culayska dembigayga maalinta qiyaamaha?'
+
+Wuxuu u yimid haweenaydii, wuxuuna isagu gacantiisa ugu kariyay cunto, wuxuuna quudiyay carruurtii ilaa ay ka dhergeen oo ay qosleen. Ka dib wuxuu haweenaydii ku yidhi: 'Berri u tag amiirka mu’miniinta, halkaas ayaad igu heli doontaa.' Markay timid, waxay garatay inuu isagii ahaa, markaasay ooyday oo raalligelin bixisay, laakiin Cumar wuxuu u qoondeeyay lacag ay Baytul-maalka ka qaadato.`,
     summary_ar: 'من أشهر قصص عدل عمر بن الخطاب وتفقده للرعية بنفسه، وكيف أطعم الصبية الجياع.',
+    summary_so: 'Mid ka mid ah sheekooyinka ugu caansan ee caddaaladda Cumar bin Al-Khaddaab iyo sidii uu u kormeeray dadka, quudiyayna carruurtii gaajaysnayd.',
     source: 'البداية والنهاية - ابن كثير',
     reading_time: 5,
     tags: ['عدل', 'مسؤولية', 'خلافة'],
@@ -1422,6 +1491,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   {
     id: 'qis-011',
     title_ar: 'يقين أبو بكر في الهجرة',
+    title_so: 'Yaqiinkii Abuu Bakar ee Hijrada',
     content_ar: `لما أوى رسول الله ﷺ وأبو بكر الصديق إلى الغار في رحلة الهجرة، وقف كفار قريش على باب الغار، حتى لو نظر أحدهم تحت قدميه لرآهما.
     
 خاف أبو بكر على رسول الله ﷺ وقال: "يا رسول الله، لو أن أحدهم نظر تحت قدميه لأبصرنا!"
@@ -1429,7 +1499,15 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
 فأجابه النبي ﷺ بيقين وثبات: "يا أبا بكر، ما ظنك باثنين الله ثالثهما؟" فعلم الصديق أن الله ناصر نبيه، وسكن قلبه باليقين.
 
 وكان أبو بكر في الرحلة يمشي أمام النبي ﷺ تارة وخلفه تارة، خوفاً عليه من الرصد والهجوم، فكان نعم الصاحب في أصعب الرحلات.`,
+    content_so: `Markuu Rasuulka (SCW) iyo Abuu Bakar Al-Siddiiq ay gashadeen godka intii lagu jiray safarkii hijrada, waxaa albaabka godka istaagay kuffaartii Qureysh, xitaa haddii midkood hoos u eegi lahaa cagahiisa wuu arki lahaa.
+
+Abuu Bakar ayaa u baqay Rasuulka (SCW) wuxuuna yidhi: 'Rasuulkii Allow, haddii midkood hoos u eego cagahiisa wuu na arki lahaa!'
+
+Nabigu (SCW) ayaa ugu jawaabay yaqiin iyo sugnaan: 'Abuu Bakarow, maxaad u malaynaysaa laba uu Alle saddex u yahay?' Markaasuu Siddiiq ogaaday in Alle uu u gargaarayo nebigiisa, qalbigiisuna wuxuu ku degey yaqiin.
+
+Abuu Bakar wuxuu ahaa kii safarka mar hor marayay Nabiga (SCW), marna gadaal ka marayay, isagoo ka baqayay in jidka loo galo ama la soo weeraro, wuxuuna ahaa saaxiibka ugu wanaagsan safaradii ugu adkaa.`,
     summary_ar: 'موقف الصديق العظيم في الهجرة وشدة خوفه على النبي ﷺ ويقينه بنصر الله.',
+    summary_so: 'Mowqifkii weynaa ee Siddiiq ee hijradii iyo sida uu aad ugu baqay Nabiga (SCW) iyo yaqiinkii uu ku qabay guusha Alle.',
     source: 'صحيح البخاري ومسلم',
     reading_time: 4,
     tags: ['يقين', 'صحبة', 'هجرة'],
@@ -1439,7 +1517,7 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
   },
 
   {
-    id: 'qis-007',
+    id: 'qis-012',
     title_ar: 'صدق ابنة بائعة اللبن في عهد عمر بن الخطاب',
     title_so: 'Run-sheegnimadii gabadhii caanaha iibinaysay (Casrigii Cumar)',
     content_ar: `خرج عمر بن الخطاب رضي الله عنه ليلة يَعُسُّ المدينة (يتفقد أحوال الناس)، فسمع امرأة تقول لابنتها: "يا بنتي، اخلطي هذا اللبن بالماء"، فقالت الابنة: "يا أماه، أوما علمت بقرار أمير المؤمنين عمر؟ قد نهى عن خلط اللبن بالماء". فقالت الأم: "وهل يرانا عمر الآن؟"، فقالت الابنة بمقولة خلدها التاريخ: "يا أماه، إن كان عمر لا يرانا، فإن رب عمر يرانا".`,
