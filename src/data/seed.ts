@@ -276,6 +276,8 @@ export const aqwaalData: Qawl[] = [
     source: 'حلية الأولياء - أبو نعيم الأصبهاني',
     grade: 'authentic',
     tags: ['زهد', 'موت', 'وقت'],
+    explanation_ar: 'هذا الأثر تذكير من الحسن البصري بقيمة الوقت، فكل يوم يمر من عمر الإنسان هو في الحقيقة نقص في كيانه وجوده، مما يستوجب الاستثمار في العمل الصالح قبل فوات الأوان.',
+    explanation_so: 'Hadalkan wuxuu nuxurkiisu yahay in qofka bini-aadanka ah uu yahay maalmo is-biirsaday. Maalin kasta oo tagtana waa qayb ka mid ah noloshaada oo tagtay, markaa waa in laga faa\'iidaysto wakhtiga inta ay fursadi jirto.',
     created_at: '2024-01-01',
   },
   {
@@ -935,89 +937,6 @@ export const aqwaalData: Qawl[] = [
     scholar_name_so: 'Imaam Al-Shaafici',
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
-    tags: ['أخلاق', 'سمو', 'نفس'],
-    created_at: '2024-02-25',
-  },
-  {
-    id: 'aqw-057',
-    text_ar: 'أشدُّ الأعمالِ ثلاثة: ت text_ar: 'مَنْ تَواضعَ للهِ رفَعَه الله.',
-    text_so: 'Qofka u is-hooseysiiya (tawaaduca) Alle dartiis, Alle waa uu kor u qaadaa.',
-    scholar_id: 'sch-015',
-    scholar_name_ar: 'أبو بكر الصديق',
-    scholar_name_so: 'Abuu Bakar Al-Siddiiq',
-    source: 'تاريخ الخلفاء',
-    grade: 'authentic',
-    tags: ['تواضع', 'رفعة', 'أخلاق'],
-    created_at: '2024-03-14',
-  },
-  {
-    id: 'aqw-075',
-    text_ar: 'أمرَني ربي بتسع: خشيةُ الله في السر والعلانية، وكلمة العدل في الرضا والغضب، والقصد في الفقر والغنى...',
-    text_so: 'Rabbigay wuxuu igu amray sagaal wax: cabsida Alle xilliga qarsoodiga iyo muuqataba, hadalka caddaaladda xilliga raali-ahaanshaha iyo cadhadaba, iyo in aan dhexdhexaad noqdo xilliga faqriga iyo hodantinimadaba...',
-    scholar_id: 'sch-018',
-    scholar_name_ar: 'علي بن أبي طالب',
-    scholar_name_so: 'Cali bin Abii Daalib',
-    source: 'المستدرك',
-    grade: 'authentic',
-    tags: ['تقوى', 'عدل', 'قناعة'],
-    created_at: '2024-03-15',
-  },
-  {
-    id: 'aqw-076',
-    text_ar: 'من عَلِمَ أن كلامَه من عملِه، قلَّ كلامُه إلا فيما يَعنيه.',
-    text_so: 'Qofkii garanaya in hadalkiisu uu ka mid yahay camalkiisa, hadalkiisu waa uu yaraadaa waxa khuseeya mooyee.',
-    scholar_id: 'sch-016',
-    scholar_name_ar: 'عمر بن الخطاب',
-    scholar_name_so: 'Cumar bin Al-Khattaab',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['لسان', 'عمل', 'حكمة'],
-    created_at: '2024-03-16',
-  },
-  {
-    id: 'aqw-077',
-    text_ar: 'إنَّما يُدركُ العبدُ ما يُدركُ بصبرِه.',
-    text_so: 'Addoonku wuxuu ku guulaysan karaa oo kaliya samirkiisa.',
-    scholar_id: 'sch-011',
-    scholar_name_ar: 'الإمام مالك بن أنس',
-    scholar_name_so: 'Imaam Maalik bin Anas',
-    source: 'ترتيب المدارك',
-    grade: 'authentic',
-    tags: ['صبر', 'هدف', 'نجاح'],
-    created_at: '2024-03-17',
-  },
-  {
-    id: 'aqw-078',
-    text_ar: 'من أرادَ أن يَنظرَ إلى الدينا بعدَ موتِه، فلينظر إليها الآن.',
-    text_so: 'Qofkii raba in uu arko aduunka dhimashadiisa ka dib, ha eego hadda (sida uu u yahay).',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الفضيل بن عياض',
-    scholar_name_so: 'Al-Fudayl bin Cayaad',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['دنيا', 'تأمل', 'موت'],
-    created_at: '2024-03-18',
-  },
-  {
-    id: 'aqw-079',
-    text_ar: 'إذا أضعتَ الأمانة، فانتظر الساعة.',
-    text_so: 'Haddii amaanada la lumiyo, sug saacadda (qiyaamaha).',
-    scholar_id: 'sch-017',
-    scholar_name_ar: 'عثمان بن عفان',
-    scholar_name_so: 'Cusmaan bin Caffaan',
-    source: 'المرجع الشامل',
-    grade: 'authentic',
-    tags: ['أمانة', 'أخلاق', 'آخرة'],
-    created_at: '2024-03-19',
-  },
-  {
-    id: 'aqw-080',
-ه صيامُه ولا صلاتُه.',
-    text_so: 'Qofkii aan iska dhaafin ka hadalka sharafta dadka (cayda iyo xanta), soonkiisa iyo salaaddiisu waxba uma kordhinayaan.',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الفضيل بن عياض',
-    scholar_name_so: 'Al-Fudayl bin Cayaad',
-    source: 'حلية الأولياء',
     grade: 'authentic',
     tags: ['لسان', 'غيبة', 'عبادة'],
     created_at: '2024-03-10',
@@ -1101,72 +1020,8 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
     scholar_id: 'sch-001',
     scholar_name_ar: 'الحسن البصري',
   },
-  {
-    id: 'qis-004',
-    title_ar: 'ابن تيمية في سجن القلعة',
-    title_so: 'Ibnu Taymiyah oo ku jiray Xabsiga Qalcadda',
-    content_ar: `في آخر سجناته، لجأ القضاة والفقهاء عند السلطان إلى حبس شيخ الإسلام ابن تيمية في قلعة دمشق، سنة 720 هـ، ومنعوا عنه الحبر والورق حتى لا يواصل الكتابة.
-
-لم يُضعِف هذا كلُّه ابن تيمية، فقد كان يكتب بالفحم على الجدران، ويُردد لمن يزوره: "ما يفعل أعدائي بي؟ أنا جنتي وبستاني في صدري، أينما رحلتُ فهي معي، وأنا حيث كنتُ فهي معي."
-
-وكان يقول وهو في السجن: "هذا السجن في حقي خلوة، وهذا القيد في رجلي من أعظم القربات؛ إذ هو في سبيل الله."
-
-وقضى ابن تيمية في السجن نحو سنتين ونصف، ثم مات بداخله سنة 728 هـ، وقد ختم القرآن ثمانياً وثمانين مرة بين سجنه ذلك ومرضه.
-
-لما مات رحمه الله، صُلي عليه صلاة لم يُرَ مثلها في دمشق، وشُيعت جنازته في جموع حاشدة تقدر بعشرات الآلاف، رحمه الله.`,
-    content_so: `Xabsigiisii ugu dambeeyay, qaadiyadii iyo culimadii xilligaas waxay u tageen suldaanka si ay u xidhaan Shaykhul Islaam Ibnu Taymiyah xabsiga Qalcadda ee Dimishiq, sannadkii 720-kii Hijriyada, waxayna ka mamnuuceen qalinkii iyo waraaqihii si uusan u sii wadin qoraalka.
-
-Xannibaaddaas midna kama daciifin Ibnu Taymiyah, wuxuu u qori jiray isaga oo dhuxul ku qoraya gidaarada xabsiga, wuxuuna u odhan jiray qof kasta oo soo booqda: 'Maxay cadawgaygu igu samayn karaan? Aniga jannadayda iyo beertaydu waxay ku jirtaa laabatayda (qalbiyga), meel kasta oo aan u socdaana waa ay ila jirtaa.'
-
-Wuxuu isaga oo xabsiga ku jira odhan jiray: 'Xabsigani xaggayga waa kelinimada (khulwa), silsiladdan lugtayda ku jirtaana waa camallada kuwa ugu weyn ee Alle loogu dhawaado; waayo waa jidka Alle.'
-
-Ibnu Taymiyah wuxuu xabsiga ku jiray muddo laba sannadood iyo badh ah, wuxuuna ku dhex geeriyooday sannadkii 728-kii Hijriyada, isaga oo Quraanka khatimay siddeetan iyo siddeed jeer intii u dhaxaysay xabsigaas iyo xanuunkiisii.
-
-Markii uu geeriyooday (Alle ha u naxariistee), waxaa lagu tukaday salaad aan weligii Dimishiq lagu arag oo kale, waxaana soo raacay janaasadiisa dad aad u fara badan oo lagu qiyaasay tobanaan kun, Alle ha u naxariisto.`,
-    summary_ar: 'قصة صمود ابن تيمية في سجنه الأخير بقلعة دمشق، وكيف كانت روحه أقوى من أن يكسرها السجن.',
-    summary_so: 'Sheekada sugnaantii Ibnu Taymiyah xabsigiisii ugu dambeeyay ee Qalcadda Dimishiq, iyo sida uu ruuxiisa ugu xoogganayd xabsiga.',
-    source: 'البداية والنهاية - ابن كثير، وتاريخ ابن شاكر الكتبي',
-    reading_time: 4,
-    tags: ['صبر', 'ثبات', 'علم', 'إيمان'],
-    created_at: '2024-01-04',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'ابن تيمية',
-  },
-  {
-    id: 'qis-005',
-    title_ar: 'حكمة سفيان الثوري في الزهد',
-    title_so: 'Xikmaddii Sufyaan Al-Thawri ee Zaadnimada',
-    content_ar: `جاء رجلٌ إلى سفيان الثوري رحمه الله وسأله: يا أبا عبدالله، ما علامة الزهد في الدنيا؟
-
-فأجابه سفيان: الزهد فيها ثلاثة: ألا تفرح بموجودها، ولا تحزن على مفقودها، ولا تتساوى عندك الحمد والذم فيها.
-
-قال الرجل: وكيف يبلغ العبد هذه الدرجة؟ قال سفيان: بأن يعلم أن ما جاء من الدنيا فمن الله، وما ذهب فبعلم الله، وما بقي فأمانة عنده.
-
-ثم قال سفيان، وقد ارتفع صوته قليلاً: يا هذا، والله لو أن رجلاً دخل الجنة ونظر إلى ما فيها ثم أُخرج إلى الدنيا، لاستحقر الدنيا وما فيها.
-
-انصرف الرجل وقد امتلأ قلبه بنور الموعظة، وقيل إنه لزم الحلقة بعد ذلك وتزوّد من العلم.
-
-وكان سفيان الثوري يقول: "تعلموا العلم ثم اعملوا به، ولا تتعلموه للتفاخر والمراء، فيكون حجةً عليكم لا لكم."`,
-    content_so: `Nin ayaa u yimid Sufyaan Al-Thawri (Alle ha u naxariistee) wuxuuna weydiiyay: 'Abuu Cabdullaahow, waa maxay calaamadda zaadnimada (zuhdiga) ee adduunka?'
-
-Sufyaan wuxuu ku jawaabay: 'Zaadnimada adduunka waa saddex: in aadan ku farxin waxa aad haysato, in aadan ka murugoon waxa kaa lumay, iyo in aadan isku mid kuu noqonin ammaanta iyo cayda aad adduunka ka hesho.'
-
-Ninkii wuxuu yidhi: 'Sidee addoonku u gaadhaa darajadaas?' Sufyaan wuxuu yidhi: 'Waa in uu ogaado in waxa adduunka ka yimaada ay Alle ka yimaadeen, waxa tagana ay ku tagaan cilmiga Alle, waxa hadhayna ay yihiin amaano agtiisa taal.'
-
-Markaas ayuu Sufyaan codkiisa kor u qaaday isaga oo leh: 'War niyahow, Alla ayaan ku dhaartay haddii nin uu jannada geli lahaa oo uu eegi lahaa waxa ku jira, ka dibna adduunka lagu soo celin lahaa, wuxuu yasi lahaa (liidi lahaa) adduunka iyo waxa ku jira oo dhan.'
-
-Ninkii ayaa iska tagay isaga oo wadnihiisa ay ka buuxdo nuurka wacdiga, waxaana la sheegay in uu ka dibna fadhiyada culimada ku nagaaday oo uu cilmi badan koray.
-
-Sufyaan Al-Thawri wuxuu odhan jiray: 'Cilmiga barta ka dibna ku camal fala, hana u baranina faan iyo dood, waayo markaas wuxuu noqonayaa xujo idinka gees ah oo aan idin taageerayn.'`,
-    summary_ar: 'حوار حكيم بين سفيان الثوري وطالب العلم حول صفات الزهد الحقيقي في الدنيا وكيفية بلوغه.',
-    summary_so: 'Wada-hadal xikmad leh oo u dhex maray Sufyaan Al-Thawri iyo arday cilmi doon ah oo ku saabsan sifooyinka zaadnimada dhabta ah iyo sida loo gaadho.',
-ن',
-    scholar_name_so: 'Cusmaan bin Caffaan',
-    source: 'المرجع الشامل',
-    grade: 'authentic',
-    tags: ['أمانة', 'أخلاق', 'آخرة'],
-    created_at: '2024-03-19',
-  },
+  
+  
   {
     id: 'aqw-080',
     text_ar: 'العلمُ روح، والعملُ جسد، فإذا لم يكن علمٌ مات الجسد، وإذا لم يكن عملٌ كان فناء الروح.',

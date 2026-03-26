@@ -31,6 +31,8 @@ export interface Qawl {
   source_so?: string; // Somali source description
   grade: ContentGrade;
   tags: string[];
+  explanation_ar?: string; // Arabic explanation/sharh
+  explanation_so?: string; // Somali explanation
   created_at: string;
   audio_url?: string;
 }

@@ -5,6 +5,7 @@ import { useThemeStore } from '../stores/themeStore';
 import { useProgressStore } from '../stores/progressStore';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
+import { migrateDataToFirestore } from '../firebase/migrate';
 
 export default function Settings() {
   const { mode, setMode, fontFamily, setFontFamily, fontSize, setFontSize, readingMode, toggleReadingMode } = useThemeStore();
@@ -200,6 +201,22 @@ export default function Settings() {
 
       {/* System Actions */}
       <section className="mb-12">
+          <button 
+            onClick={async () => {
+                const res = await migrateDataToFirestore();
+                if (res.success) {
+                    toast.success('تم رفع البيانات إلى السحابة بنجاح');
+                } else {
+                    toast.error('فشل رفع البيانات');
+                }
+            }}
+            className="w-full py-4 rounded-2xl bg-[var(--color-primary)] text-white arabic-text font-bold text-sm shadow-md active:scale-[0.98] transition-all mb-4"
+          >
+              <div className="flex items-center justify-center gap-2">
+                <Cloud size={18} />
+                <span>مزامنة البيانات الأساسية مع السحابة (Admin)</span>
+              </div>
+          </button>
           <button 
             onClick={handleClearCache}
             className="w-full py-4 rounded-2xl bg-red-50 text-red-600 arabic-text font-bold text-sm shadow-sm active:scale-[0.98] transition-all mb-4"

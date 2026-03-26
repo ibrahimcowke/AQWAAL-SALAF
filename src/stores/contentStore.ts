@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { scholarsData, aqwaalData, qisasData } from '../data/seed';
 import type { Qawl, Qissa, Scholar } from '../types';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
 interface ContentState {
   aqwaal: Qawl[];
@@ -24,9 +26,9 @@ interface ContentState {
 }
 
 export const useContentStore = create<ContentState>()((set, get) => ({
-  aqwaal: aqwaalData,
-  qisas: qisasData,
-  scholars: scholarsData,
+  aqwaal: [],
+  qisas: [],
+  scholars: [],
   searchQuery: '',
   activeTag: '',
   dailyQawl: null,
@@ -37,12 +39,55 @@ export const useContentStore = create<ContentState>()((set, get) => ({
   setActiveTag: (tag) => set({ activeTag: tag }),
 
   fetchContent: async () => {
-    // In static mode, content is already loaded from seed.ts
-    // We just trigger initDailyQawl to ensure it's ready
-    get().initDailyQawl();
+    set({ isLoading: true, error: null });
+    try {
+      const scholarsCol = collection(db, 'scholars');
+      const aqwaalCol = collection(db, 'aqwaal');
+      const qisasCol = collection(db, 'qisas');
+
+      const [scholarsSnap, aqwaalSnap, qisasSnap] = await Promise.all([
+        getDocs(scholarsCol),
+        getDocs(aqwaalCol),
+        getDocs(qisasCol)
+      ]);
+
+      const scholars = scholarsSnap.docs.map(doc => ({ ...doc.data(), id: doc.id } as Scholar));
+      const aqwaal = aqwaalSnap.docs.map(doc => ({ ...doc.data(), id: doc.id } as Qawl));
+      const qisas = qisasSnap.docs.map(doc => ({ ...doc.data(), id: doc.id } as Qissa));
+
+      // Fallback to seed data if Firestore is empty (mostly for initial setup)
+      if (scholars.length === 0 && aqwaal.length === 0 && qisas.length === 0) {
+        set({
+          scholars: scholarsData,
+          aqwaal: aqwaalData,
+          qisas: qisasData,
+          isLoading: false
+        });
+      } else {
+        set({
+          scholars,
+          aqwaal,
+          qisas,
+          isLoading: false
+        });
+      }
+      
+      get().initDailyQawl();
+    } catch (error: any) {
+      console.error('Error fetching content:', error);
+      set({ 
+        error: error.message,
+        isLoading: false,
+        // Fallback to static data on error so the app remains functional
+        scholars: scholarsData,
+        aqwaal: aqwaalData,
+        qisas: qisasData
+      });
+      get().initDailyQawl();
+    }
   },
 
-  getScholarById: (id) => get().scholars.find((s) => s.id === id),
+  getScholarById: (id) => get().scholars.find((s) => s.id === id || s.id === id), 
   getAqwaalByScholar: (scholarId) => get().aqwaal.filter((a) => a.scholar_id === scholarId),
   getQisasByScholar: (scholarId) => get().qisas.filter((q) => q.scholar_id === scholarId),
   

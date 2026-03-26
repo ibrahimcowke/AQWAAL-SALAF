@@ -58,7 +58,13 @@ const resources = {
       "contact_us": "اتصل بنا",
       "clear_data": "مسح جميع البيانات المحلية وإعادة التشغيل",
       "clear_data_desc": "سيتم تسجيل الخروج ومسح المفضلة والإعدادات المحفوظة",
-      "cache_cleared": "تم مسح البيانات المحلية بنجاح"
+      "cache_cleared": "تم مسح البيانات المحلية بنجاح",
+      "explanation": "الشرح",
+      "explanation_title": "شرح الأثر",
+      "copy": "نسخ",
+      "copied_success": "تم النسخ بنجاح",
+      "copy_with_source": "نسخ مع المصدر",
+      "copy_with_source_success": "تم النسخ مع المصدر بنجاح"
     }
   },
   en: {
@@ -117,7 +123,13 @@ const resources = {
       "contact_us": "Contact Us",
       "clear_data": "Clear Local Data & Restart",
       "clear_data_desc": "Logging out, favorites and settings will be cleared",
-      "cache_cleared": "Local data cleared successfully"
+      "cache_cleared": "Local data cleared successfully",
+      "explanation": "Explanation",
+      "explanation_title": "Wisdom Explanation",
+      "copy": "Copy",
+      "copied_success": "Copied successfully",
+      "copy_with_source": "Copy with Source",
+      "copy_with_source_success": "Copied with source successfully"
     }
   },
   so: {
@@ -178,7 +190,12 @@ const resources = {
       "clear_data_desc": "Waxa la tirtiri doonaa waxyaabaha aad xushay iyo settings-ka",
       "cache_cleared": "Xogta maxaliga ah si guul leh ayaa loo tirtiray",
       "copy_with_source": "Ku koobiyid lala socdo xigashada",
-      "random_quote": "Xigasho Kala-sooc la'aan ah"
+      "random_quote": "Xigasho Kala-sooc la'aan ah",
+      "explanation": "Sharaxaad",
+      "explanation_title": "Sharaxa Xikmadda",
+      "copy": "Koobi",
+      "copied_success": "Waa la koobiyeeyay",
+      "copy_with_source_success": "Lala koobiyeeyay xigashada"
     }
   }
 }

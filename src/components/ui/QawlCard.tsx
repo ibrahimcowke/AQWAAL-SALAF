@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heart, Share2, Volume2, BookOpen, Sparkles } from 'lucide-react';
+import { Heart, Share2, Volume2, BookOpen, Sparkles, Info, X, Copy, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Qawl } from '../../types';
@@ -20,24 +20,18 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
   const { addFavoriteQawl, removeFavoriteQawl, isFavoriteQawl } = useAuthStore();
   const { speak, playbackRate, setPlaybackRate } = useAudioStore();
   const [showDesigner, setShowDesigner] = useState(false);
+  const [showExplanation, setShowExplanation] = useState(false);
+  const [copied, setCopied] = useState(false);
   const isFav = isFavoriteQawl(qawl.id);
 
   const { i18n, t } = useTranslation();
   const currentLang = i18n.language;
+  const isArabic = currentLang === 'ar';
+  const isSomali = currentLang === 'so';
 
-  const getLocalizedText = () => {
-    if (currentLang === 'so' && qawl.text_so) return qawl.text_so;
-    // Fallback to AR as it's the primary content source
-    return qawl.text_ar;
-  };
-
-  const getLocalizedScholarName = () => {
-    if (currentLang === 'so' && qawl.scholar_name_so) return qawl.scholar_name_so;
-    return qawl.scholar_name_ar;
-  };
-
-  const displayText = getLocalizedText();
-  const displayScholarName = getLocalizedScholarName();
+  const displayText = isSomali && qawl.text_so ? qawl.text_so : qawl.text_ar;
+  const displayScholarName = isSomali && qawl.scholar_name_so ? qawl.scholar_name_so : qawl.scholar_name_ar;
+  const explanation = isSomali ? qawl.explanation_so : qawl.explanation_ar;
 
   const togglePlaybackRate = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -47,7 +41,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
     setPlaybackRate(nextRate);
     toast.success(`${t('font_size')}: ${nextRate}x`, { 
       duration: 1000,
-      style: { fontFamily: 'Tajawal, sans-serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr', fontSize: '12px' } 
+      style: { fontFamily: 'Tajawal, sans-serif', direction: isArabic ? 'rtl' : 'ltr', fontSize: '12px' } 
     });
   };
 
@@ -55,10 +49,10 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
     e.preventDefault();
     if (isFav) {
       removeFavoriteQawl(qawl.id);
-      toast.success(t('cache_cleared') === 'cache_cleared' ? 'Removed' : 'Laga saaray', { icon: '💔', style: { fontFamily: 'Amiri, serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
+      toast.success(isArabic ? 'تمت الإزالة من المفضلة' : 'Laga saaray kuwa la jecel yahay', { icon: '💔' });
     } else {
       addFavoriteQawl(qawl.id);
-      toast.success(t('save') === 'save' ? 'Saved' : 'Waa la kaydiyay', { icon: '❤️', style: { fontFamily: 'Amiri, serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
+      toast.success(isArabic ? 'تمت الإضافة إلى المفضلة' : 'Waa la xafiday', { icon: '❤️' });
     }
   };
 
@@ -69,8 +63,23 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
       navigator.share({ text });
     } else {
       navigator.clipboard.writeText(text);
-      toast.success(t('share') === 'share' ? 'Copied' : 'Waa la koobiyeeyay', { style: { fontFamily: 'Amiri, serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
+      toast.success(t('share') === 'share' ? 'Copied' : 'Waa la koobiyeeyay');
     }
+  };
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(qawl.text_ar);
+    setCopied(true);
+    toast.success(t('copied_success') || 'تم النسخ بنجاح');
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopyWithSource = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const textToCopy = `"${qawl.text_ar}"\n\n— ${qawl.scholar_name_ar || t('unknown_scholar')}\n📚 ${qawl.source}`;
+    navigator.clipboard.writeText(textToCopy);
+    toast.success(t('copy_with_source_success') || 'تم النسخ مع المصدر');
   };
 
   const handleAudio = (e: React.MouseEvent) => {
@@ -81,6 +90,11 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
   const handleDesign = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowDesigner(true);
+  };
+
+  const handleOpenExplanation = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowExplanation(true);
   };
 
   return (
@@ -99,9 +113,9 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
         whileHover={{ y: -4, transition: { duration: 0.2 } }}
         className="h-full"
       >
-        <Link to={`/aqwaal/${qawl.id}`} className="block">
+        <Link to={`/aqwaal/${qawl.id}`} className="block h-full">
           <div
-            className="neu-card p-5 cursor-pointer group relative overflow-hidden"
+            className="neu-card p-5 h-full cursor-pointer group relative overflow-hidden flex flex-col"
             style={{ background: 'var(--color-card)' }}
           >
             {/* Decorative corner */}
@@ -117,104 +131,175 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
             <div className="arabic-text text-5xl leading-none mb-2 opacity-15" style={{ color: 'var(--color-gold)' }}>"</div>
 
             {/* Main text */}
-            <p
-              className={`qawl-text leading-loose ${currentLang === 'ar' ? 'text-right' : 'text-left'} ${compact ? 'line-clamp-3' : ''}`}
-              style={{
-                color: 'var(--color-text)',
-                fontSize: compact ? '1.15rem' : '1.3rem',
-              }}
-            >
-              {displayText}
-            </p>
-
-            {/* Footer */}
-            <div className="mt-4 flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center gap-2 flex-wrap">
-                {displayScholarName && (
-                  <span className="badge-scholar flex items-center gap-1">
-                    <BookOpen size={10} />
-                    {displayScholarName}
-                  </span>
-                )}
-                <GradeBadge grade={qawl.grade} />
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={handleDesign}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                  style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-                  title="تصميم بطاقة"
-                >
-                  <Sparkles size={14} />
-                </button>
-                <button
-                  onClick={handleAudio}
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all ${
-                    useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
-                    ? 'animate-pulse scale-110 shadow-lg' : 'hover:scale-110'
-                  }`}
-                  style={{ 
-                    color: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
-                      ? 'var(--color-primary)' : 'var(--color-text)', 
-                    background: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
-                      ? 'var(--color-gold)' : 'var(--color-card-border)' 
-                  }}
-                  title="استمع"
-                >
-                  <Volume2 size={14} />
-                </button>
-                <button
-                  onClick={togglePlaybackRate}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110 arabic-text text-[10px] font-bold"
-                  style={{ color: 'var(--color-text)', background: 'var(--color-card-border)' }}
-                  title="سرعة القراءة"
-                >
-                  {playbackRate}x
-                </button>
-                <button
-                  onClick={handleShare}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                  style={{ color: 'var(--color-text)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-                  title={t('share')}
-                >
-                  <Share2 size={14} />
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const text = `"${displayText}"\n— ${displayScholarName}\n📚 ${currentLang === 'so' && qawl.source_so ? qawl.source_so : qawl.source}\n\n${t('app_name')}`;
-                    navigator.clipboard.writeText(text);
-                    toast.success(t('copy_with_source'), { style: { fontFamily: 'Tajawal, sans-serif', direction: currentLang === 'ar' ? 'rtl' : 'ltr' } });
-                  }}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                  style={{ color: 'var(--color-primary)', background: 'var(--color-bg-alt)', border: '1px solid var(--color-primary-light)' }}
-                  title={t('copy_with_source')}
-                >
-                  <BookOpen size={14} />
-                </button>
-                <button
-                  onClick={toggleFav}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                  style={{
-                    background: isFav ? 'rgba(220, 38, 38, 0.1)' : 'var(--color-bg-alt)',
-                  }}
-                  title={isFav ? 'إزالة من المفضلة' : 'حفظ في المفضلة'}
-                >
-                  <Heart size={14} fill={isFav ? '#dc2626' : 'none'} stroke={isFav ? '#dc2626' : 'var(--color-text-muted)'} />
-                </button>
-              </div>
+            <div className="flex-grow">
+              <p
+                className={`qawl-text leading-loose ${isArabic ? 'text-right' : 'text-left'} ${compact ? 'line-clamp-3' : ''}`}
+                style={{
+                  color: 'var(--color-text)',
+                  fontSize: compact ? '1.15rem' : '1.3rem',
+                  direction: isArabic ? 'rtl' : 'ltr'
+                }}
+              >
+                {displayText}
+              </p>
             </div>
 
-            {/* Source */}
-            {!compact && qawl.source && (
-              <p className="mt-2 text-xs arabic-text" style={{ color: 'var(--color-text-muted)', textAlign: currentLang === 'ar' ? 'right' : 'left' }}>
-                📚 {currentLang === 'so' && qawl.source_so ? qawl.source_so : qawl.source}
-              </p>
-            )}
+            {/* Footer Area */}
+            <div className="mt-6 pt-4 border-t border-[var(--color-card-border)] space-y-4">
+              <div 
+                className="flex items-center justify-between flex-wrap gap-2"
+                style={{ direction: isArabic ? 'rtl' : 'ltr' }}
+              >
+                <div className="flex items-center gap-2 flex-wrap">
+                  {displayScholarName && (
+                    <span className="badge-scholar flex items-center gap-1">
+                      <BookOpen size={10} />
+                      {displayScholarName}
+                    </span>
+                  )}
+                  <GradeBadge grade={qawl.grade} />
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {explanation && (
+                    <button
+                      onClick={handleOpenExplanation}
+                      className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                      style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
+                      title={t('explanation') || 'الشرح'}
+                    >
+                      <Info size={14} />
+                    </button>
+                  )}
+                  <button
+                    onClick={handleDesign}
+                    className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                    style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
+                    title="تصميم بطاقة"
+                  >
+                    <Sparkles size={14} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Action Buttons Hub */}
+              <div className="flex items-center justify-between gap-2">
+                 <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleAudio}
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                        useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
+                        ? 'animate-pulse scale-110 shadow-lg' : 'hover:scale-110'
+                      }`}
+                      style={{ 
+                        color: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
+                          ? 'var(--color-primary)' : 'var(--color-text)', 
+                        background: useAudioStore.getState().currentText === qawl.text_ar && useAudioStore.getState().isPlaying 
+                          ? 'var(--color-gold)' : 'var(--color-card-border)' 
+                      }}
+                      title="استمع"
+                    >
+                      <Volume2 size={16} />
+                    </button>
+                    <button
+                      onClick={handleShare}
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                      style={{ color: 'var(--color-text)', background: 'var(--color-bg-alt)', border: '1px solid var(--color-card-border)' }}
+                      title={t('share')}
+                    >
+                      <Share2 size={16} />
+                    </button>
+                    <button
+                      onClick={handleCopyWithSource}
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                      style={{ color: 'var(--color-primary)', background: 'var(--color-bg-alt)', border: '1px solid var(--color-primary-light)' }}
+                      title={t('copy_with_source')}
+                    >
+                      <BookOpen size={16} />
+                    </button>
+                 </div>
+
+                 <div className="flex items-center gap-2">
+                   <button
+                      onClick={handleCopy}
+                      className="px-3 py-1.5 rounded-xl bg-[var(--color-bg-alt)] border border-[var(--color-card-border)] flex items-center gap-2 text-[10px] font-bold transition-all hover:border-[var(--color-primary)]/30"
+                    >
+                      {copied ? <Check size={12} className="text-green-500" /> : <Copy size={12} />}
+                      <span className="hidden sm:inline">{t('copy')}</span>
+                    </button>
+                    <button
+                      onClick={toggleFav}
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                      style={{
+                        background: isFav ? 'rgba(220, 38, 38, 0.1)' : 'var(--color-bg-alt)',
+                        border: isFav ? '1px solid rgba(220, 38, 38, 0.2)' : '1px solid var(--color-card-border)'
+                      }}
+                    >
+                      <Heart size={16} fill={isFav ? '#dc2626' : 'none'} stroke={isFav ? '#dc2626' : 'var(--color-text-muted)'} />
+                    </button>
+                 </div>
+              </div>
+
+              {!compact && qawl.source && (
+                <p className="text-[10px] opacity-40 arabic-text" style={{ textAlign: isArabic ? 'right' : 'left' }}>
+                  📚 {isSomali && qawl.source_so ? qawl.source_so : qawl.source}
+                </p>
+              )}
+            </div>
           </div>
         </Link>
       </motion.div>
+
+      {/* Explanation Modal */}
+      <AnimatePresence>
+        {showExplanation && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowExplanation(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="bg-[var(--color-card)] w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border border-[var(--color-card-border)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-6 border-b border-[var(--color-card-border)] flex items-center justify-between bg-[var(--color-bg-alt)]/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[var(--color-gold)]/10 flex items-center justify-center text-[var(--color-gold)]">
+                    <Info size={20} />
+                  </div>
+                  <h3 className="arabic-text font-bold text-lg">{isArabic ? 'شرح الأثر' : 'Sharaxa Xikmadda'}</h3>
+                </div>
+                <button 
+                  onClick={() => setShowExplanation(false)}
+                  className="p-2 rounded-xl hover:bg-[var(--color-bg-alt)] transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              
+              <div className="p-8 max-h-[60vh] overflow-y-auto">
+                <p 
+                  className={`text-lg leading-relaxed text-[var(--color-text)] opacity-80 ${isArabic ? 'font-amiri text-right' : 'font-sans text-left'}`}
+                  style={{ direction: isArabic ? 'rtl' : 'ltr' }}
+                >
+                  {explanation}
+                </p>
+              </div>
+
+              <div className="p-6 bg-[var(--color-bg-alt)]/30 border-t border-[var(--color-card-border)]">
+                <p className="text-[10px] opacity-40 text-center uppercase tracking-widest font-bold">
+                  {displayScholarName} — {qawl.source}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {showDesigner && (

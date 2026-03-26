@@ -2,15 +2,18 @@ import { useEffect } from 'react';
 import AppRouter from './router';
 import { Toaster } from 'react-hot-toast';
 import { useContentStore } from './stores/contentStore';
+import { useAuthStore } from './stores/authStore';
 import { Loader2 } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   const { fetchContent, isLoading, error } = useContentStore();
+  const { initializeAuth } = useAuthStore();
 
   useEffect(() => {
+    initializeAuth();
     fetchContent();
-  }, [fetchContent]);
+  }, [fetchContent, initializeAuth]);
 
   if (isLoading && !error) {
     return (

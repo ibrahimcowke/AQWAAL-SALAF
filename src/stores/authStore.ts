@@ -1,6 +1,9 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { UserProfile, Collection } from '../types';
+import { auth as firebaseAuth, db } from '../firebase/config';
+import { signInAnonymously, onAuthStateChanged } from 'firebase/auth';
+import { doc, setDoc, onSnapshot } from 'firebase/firestore';
 
 interface AuthState {
   user: UserProfile | null;
@@ -8,6 +11,8 @@ interface AuthState {
   isLoggedIn: boolean;
   initialized: boolean;
   setUser: (user: UserProfile | null) => void;
+  initializeAuth: () => void;
+  syncToFirestore: (updatedUser: UserProfile) => Promise<void>;
   addFavoriteQawl: (id: string) => void;
   removeFavoriteQawl: (id: string) => void;
   addFavoriteQissa: (id: string) => void;
@@ -34,22 +39,61 @@ export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
       user: guestUser,
-      isAdmin: true, // In local mode, we'll allow admin access for now or just disable it
-      isLoggedIn: true,
-      initialized: true,
+      isAdmin: false,
+      isLoggedIn: false,
+      initialized: false,
       
       setUser: (user) => set({ 
         user, 
-        isAdmin: true, 
-        isLoggedIn: true,
-        initialized: true
+        isLoggedIn: !!user,
       }),
+
+      initializeAuth: () => {
+        onAuthStateChanged(firebaseAuth, async (fbUser) => {
+          if (fbUser) {
+            // User is signed in, sync with Firestore
+            const userDocRef = doc(db, 'users', fbUser.uid);
+            
+            // Listen for real-time changes from Firestore
+            onSnapshot(userDocRef, (docSnap) => {
+              if (docSnap.exists()) {
+                set({ 
+                  user: { ...get().user, ...docSnap.data() } as UserProfile,
+                  isLoggedIn: true,
+                  initialized: true,
+                  isAdmin: docSnap.data().role === 'admin'
+                });
+              } else {
+                // Initialize new user doc in Firestore
+                const newUser: UserProfile = {
+                  ...guestUser,
+                  id: fbUser.uid,
+                };
+                setDoc(userDocRef, newUser);
+                set({ user: newUser, isLoggedIn: true, initialized: true });
+              }
+            });
+          } else {
+            // Sign in anonymously if not logged in
+            signInAnonymously(firebaseAuth).catch(console.error);
+          }
+        });
+      },
+
+      syncToFirestore: async (updatedUser: UserProfile) => {
+        const fbUser = firebaseAuth.currentUser;
+        if (fbUser) {
+          const userDocRef = doc(db, 'users', fbUser.uid);
+          await setDoc(userDocRef, updatedUser, { merge: true });
+        }
+      },
 
       addFavoriteQawl: (id) => {
         const currentUser = get().user;
         if (!currentUser) return;
         const updated = { ...currentUser, favorites_aqwaal: [...new Set([...currentUser.favorites_aqwaal, id])] };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       removeFavoriteQawl: (id) => {
@@ -57,6 +101,7 @@ export const useAuthStore = create<AuthState>()(
         if (!currentUser) return;
         const updated = { ...currentUser, favorites_aqwaal: currentUser.favorites_aqwaal.filter((f) => f !== id) };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       addFavoriteQissa: (id) => {
@@ -64,6 +109,7 @@ export const useAuthStore = create<AuthState>()(
         if (!currentUser) return;
         const updated = { ...currentUser, favorites_qisas: [...new Set([...currentUser.favorites_qisas, id])] };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       removeFavoriteQissa: (id) => {
@@ -71,6 +117,7 @@ export const useAuthStore = create<AuthState>()(
         if (!currentUser) return;
         const updated = { ...currentUser, favorites_qisas: currentUser.favorites_qisas.filter((f) => f !== id) };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       isFavoriteQawl: (id) => get().user?.favorites_aqwaal.includes(id) ?? false,
@@ -81,6 +128,7 @@ export const useAuthStore = create<AuthState>()(
         if (!currentUser) return;
         const updated = { ...currentUser, reading_progress: { ...currentUser.reading_progress, [qissaId]: progress } };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       addCollection: (name) => {
@@ -95,6 +143,7 @@ export const useAuthStore = create<AuthState>()(
         };
         const updated = { ...currentUser, collections: [...currentUser.collections, newCollection] };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       removeCollection: (id) => {
@@ -102,6 +151,7 @@ export const useAuthStore = create<AuthState>()(
         if (!currentUser) return;
         const updated = { ...currentUser, collections: currentUser.collections.filter((c) => c.id !== id) };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
 
       addToCollection: (collectionId, type, itemId) => {
@@ -115,6 +165,7 @@ export const useAuthStore = create<AuthState>()(
         });
         const updated = { ...currentUser, collections: updatedCollections };
         set({ user: updated });
+        get().syncToFirestore(updated);
       },
     }),
     { name: 'noor-auth' }
