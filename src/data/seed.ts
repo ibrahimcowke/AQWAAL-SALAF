@@ -280,6 +280,7 @@ export const aqwaalData: Qawl[] = [
     explanation_so: 'Hadalkan wuxuu nuxurkiisu yahay in qofka bini-aadanka ah uu yahay maalmo is-biirsaday. Maalin kasta oo tagtana waa qayb ka mid ah noloshaada oo tagtay, markaa waa in laga faa\'iidaysto wakhtiga inta ay fursadi jirto.',
     created_at: '2024-01-01',
   },
+
   {
     id: 'aqw-002',
     text_ar: 'واللهِ ما فضلَ أصحابُ محمد ﷺ بكثرةِ صيامٍ ولا صلاة، وإنما فضلوا بشيءٍ في صدورهم.',
@@ -292,6 +293,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['صحابة', 'قلب', 'فضل'],
     created_at: '2024-01-02',
   },
+
   {
     id: 'aqw-003',
     text_ar: 'أنفعُ العلمِ ما أثَّرَ في القلبِ خشيةً وخشوعاً، وزهَّدَ في الدنيا، ورغَّبَ في الآخرة.',
@@ -304,6 +306,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'قلب', 'آخرة'],
     created_at: '2024-01-03',
   },
+
   {
     id: 'aqw-004',
     text_ar: 'كلُّ نعمةٍ لا تُقَرِّبُ من اللهِ فهي بلاء.',
@@ -316,6 +319,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['نعمة', 'بلاء', 'قرب'],
     created_at: '2024-01-04',
   },
+
   {
     id: 'aqw-005',
     text_ar: 'ليس العلمُ ما يُحفَظُ في الصدور، إنما العلمُ ما نفَعَ.',
@@ -328,6 +332,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'نفع', 'حكمة'],
     created_at: '2024-01-05',
   },
+
   {
     id: 'aqw-006',
     text_ar: 'مَن أرادَ الدنيا فعليهِ بالعلم، ومن أرادَ الآخرةَ فعليهِ بالعلم.',
@@ -340,6 +345,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'دنيا', 'آخرة'],
     created_at: '2024-01-06',
   },
+
   {
     id: 'aqw-007',
     text_ar: 'إذا خِفتَ على عملِكَ العُجبَ فاذكُر رِضى منْ تطلب، وفي أيِّ نعيمٍ تَرغب، وأيَّ عقوبةٍ تَخاف؛ فمن فكَّرَ في ذلك حقَّرَ عملَه.',
@@ -352,6 +358,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['إخلاص', 'عجب', 'عمل'],
     created_at: '2024-01-07',
   },
+
   {
     id: 'aqw-008',
     text_ar: 'العلمُ يُراد للعمل، كما أن العملَ يُراد للنجاة.',
@@ -364,6 +371,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'عمل', 'نجاة'],
     created_at: '2024-01-08',
   },
+
   {
     id: 'aqw-009',
     text_ar: 'من كانَ باللهِ أعرَف، كانَ من اللهِ أخوَف.',
@@ -376,6 +384,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['معرفة', 'خوف', 'الله'],
     created_at: '2024-01-09',
   },
+
   {
     id: 'aqw-010',
     text_ar: 'الصبرُ الجميلُ هو الذي لا شكوى فيه إلى المخلوق.',
@@ -388,6 +397,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['صبر', 'توكل', 'شكوى'],
     created_at: '2024-01-10',
   },
+
   {
     id: 'aqw-011',
     text_ar: 'لا تَجلِس فارغاً؛ فإن الموتَ يطلبُك.',
@@ -400,6 +410,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['وقت', 'موت', 'عمل'],
     created_at: '2024-01-11',
   },
+
   {
     id: 'aqw-012',
     text_ar: 'اغتنِم في الإمكانِ عملًا صالحًا، فلا تدري متى تُختَم بك الصحائف.',
@@ -412,6 +423,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['زهد', 'عمل', 'موت'],
     created_at: '2024-01-12',
   },
+
   {
     id: 'aqw-013',
     text_ar: 'ما رأيتُ شيئاً أيسرَ ولا أحسنَ مِن طلبِ الحلال، ولا أشدَّ ولا أصعبَ مِن هواجِس النفس.',
@@ -424,6 +436,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['نفس', 'حلال', 'جهاد'],
     created_at: '2024-01-13',
   },
+
   {
     id: 'aqw-014',
     text_ar: 'أصلُ كلِّ خيرٍ في الدنيا والآخرة هو الخوفُ من الله.',
@@ -436,6 +449,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['خوف', 'خير', 'تقوى'],
     created_at: '2024-01-14',
   },
+
   {
     id: 'aqw-015',
     text_ar: 'تعلَّمتُ الصمتَ عشرين سنة، وأظنُّ أنَّ الكلامَ عشرٌ بعدَها.',
@@ -448,6 +462,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['صمت', 'حكمة', 'لسان'],
     created_at: '2024-01-15',
   },
+
   {
     id: 'aqw-016',
     text_ar: 'القلبُ إذا أحبَّ الله، أحبَّ ما يُحِبُّ الله.',
@@ -460,6 +475,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['قلب', 'محبة', 'الله'],
     created_at: '2024-01-16',
   },
+
   {
     id: 'aqw-017',
     text_ar: 'مِن أَوثَقِ عُرى الإيمانِ أن تُحِبَّ في اللهِ وتَبغَضَ في الله.',
@@ -472,6 +488,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['إيمان', 'محبة', 'ولاء'],
     created_at: '2024-01-17',
   },
+
   {
     id: 'aqw-018',
     text_ar: 'إنَّ أكثرَ الناسِ ذنوباً أقلُّهم فكرةً في ذنوبهم.',
@@ -484,6 +501,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['ذنوب', 'توبة', 'تأمل'],
     created_at: '2024-01-18',
   },
+
   {
     id: 'aqw-019',
     text_ar: 'ارحموا مَنْ في الأرضِ يَرحَمُكم مَنْ في السماء.',
@@ -496,6 +514,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['رحمة', 'أخلاق', 'الله'],
     created_at: '2024-01-19',
   },
+
   {
     id: 'aqw-020',
     text_ar: 'إنَّ اللهَ يُعطي الدنيا مَنْ يُحِبُّ ومَنْ لا يُحِبُّ، ولا يُعطي الدينَ إلا مَنْ يُحِبُّ.',
@@ -508,6 +527,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['دنيا', 'دين', 'محبة'],
     created_at: '2024-01-20',
   },
+
   {
     id: 'aqw-021',
     text_ar: 'الغِنى غِنى النفس، لا غِنى المال.',
@@ -520,6 +540,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['زهد', 'غنى', 'نفس'],
     created_at: '2024-01-21',
   },
+
   {
     id: 'aqw-022',
     text_ar: 'أفضلُ الأعمالِ ما أكرهَتِ النفسُ عليه.',
@@ -532,6 +553,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['نفس', 'جهاد', 'عمل'],
     created_at: '2024-01-22',
   },
+
   {
     id: 'aqw-023',
     text_ar: 'ما قلَّ ورعُ عبدٍ إلا قسا قلبُه.',
@@ -544,6 +566,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['ورع', 'قلب', 'قسوة'],
     created_at: '2024-01-23',
   },
+
   {
     id: 'aqw-024',
     text_ar: 'العلمُ ليس بكثرةِ الرواية، إنما العلمُ نورٌ يقذفُه الله في القلب.',
@@ -556,6 +579,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'نور', 'قلب'],
     created_at: '2024-01-24',
   },
+
   {
     id: 'aqw-025',
     text_ar: 'من طلبَ الحديثَ ولم يطلب الفقهَ، كانَ كمن معَه سلاحٌ ولا يدرِي كيفَ يطعَنُ به.',
@@ -568,6 +592,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'فقه', 'حديث'],
     created_at: '2024-01-25',
   },
+
   {
     id: 'aqw-026',
     text_ar: 'ما وضعتُ في كتابي "الصحيح" حديثاً إلا اغتسلتُ قبل ذلك وصليتُ ركعتين.',
@@ -580,6 +605,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['إخلاص', 'صلاة', 'حديث'],
     created_at: '2024-01-26',
   },
+
   {
     id: 'aqw-027',
     text_ar: 'إذا رأيت الرجل يدافع عن الحق فيسب ويشتم ويغضب، فاعلم أنه معلول النية، لأن الحق لا يحتاج إلى هذا.',
@@ -592,6 +618,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['أخلاق', 'نية', 'حق'],
     created_at: '2024-01-27',
   },
+
   {
     id: 'aqw-028',
     text_ar: 'النيةُ مِلاكُ العمل، فإذا صَلحت النية صَلحَ العملُ كلُّه.',
@@ -604,6 +631,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['إخلاص', 'نية', 'عمل'],
     created_at: '2024-01-28',
   },
+
   {
     id: 'aqw-029',
     text_ar: 'ليسَ الفقيهُ من يَعرفُ الخيرَ والشر، إنما الفقيهُ من يَعرفُ خيرَ الخيرين وشرَّ الشرين.',
@@ -616,6 +644,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['فقه', 'ذكاء', 'حكمة'],
     created_at: '2024-01-29',
   },
+
   {
     id: 'aqw-030',
     text_ar: 'الصبرُ عندَ الصدمةِ الأولى.',
@@ -628,6 +657,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['صبر', 'بلاء', 'إيمان'],
     created_at: '2024-01-30',
   },
+
   {
     id: 'aqw-031',
     text_ar: 'أصلِح نفسَك يَصلُح لك الناس.',
@@ -640,6 +670,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['نفس', 'أخلاق', 'إصلاح'],
     created_at: '2024-01-31',
   },
+
   {
     id: 'aqw-032',
     text_ar: 'احرِص على الموتِ توهَب لك الحياة.',
@@ -652,6 +683,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['شجاعة', 'موت', 'يتم'],
     created_at: '2024-02-01',
   },
+
   {
     id: 'aqw-033',
     text_ar: 'لا خيرَ في قولٍ لا يُراد به وجهُ الله.',
@@ -664,6 +696,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['إخلاص', 'قول', 'نية'],
     created_at: '2024-02-02',
   },
+
   {
     id: 'aqw-034',
     text_ar: 'حاسِبوا أنفسَكم قبل أن تُحاسَبوا، وزِنوا أنفسَكم قبل أن تُوزَنوا.',
@@ -676,6 +709,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['محاسبة', 'آخرة', 'تقوى'],
     created_at: '2024-02-03',
   },
+
   {
     id: 'aqw-035',
     text_ar: 'نحنُ قومٌ أعزَّنا اللهُ بالإسلام، فمهما ابتغَينا العزةَ في غيرِه أذلَّنا الله.',
@@ -688,6 +722,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['عزة', 'إسلام', 'هوية'],
     created_at: '2024-02-04',
   },
+
   {
     id: 'aqw-036',
     text_ar: 'تعلَّموا العِلمَ قبل أن تُسَوَّدوا.',
@@ -700,6 +735,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'وقار', 'شباب'],
     created_at: '2024-02-05',
   },
+
   {
     id: 'aqw-037',
     text_ar: 'إنَّ اللهَ ليردَعُ بالسلطانِ ما لا يَرِدُ بالقرآن.',
@@ -712,6 +748,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['عدل', 'حكم', 'تقوى'],
     created_at: '2024-02-06',
   },
+
   {
     id: 'aqw-038',
     text_ar: 'لو طَهُرت قلوبُكم ما شَبِعتُم من كلامِ ربِّكم.',
@@ -724,6 +761,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['قلب', 'قرآن', 'طهر'],
     created_at: '2024-02-07',
   },
+
   {
     id: 'aqw-039',
     text_ar: 'ما أسرَّ أحدٌ سريرةً إلا وأظهرَها اللهُ على صفحاتِ وجهِه وفلتاتِ لسانِه.',
@@ -736,6 +774,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['سريرة', 'نية', 'صدق'],
     created_at: '2024-02-08',
   },
+
   {
     id: 'aqw-040',
     text_ar: 'العلمُ خيرٌ من المال، العلمُ يَحرُسُك وأنتَ تَحرُسُ المال.',
@@ -748,6 +787,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'مال', 'حكمة'],
     created_at: '2024-02-09',
   },
+
   {
     id: 'aqw-041',
     text_ar: 'كَفى بالعلمِ شرفاً أن يدَّعيَه من لا يُحسنُه، ويَفرحَ به إذا نُسبَ إليه.',
@@ -760,6 +800,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'شرف', 'حكمة'],
     created_at: '2024-02-10',
   },
+
   {
     id: 'aqw-042',
     text_ar: 'التقوى هي: الخوفُ من الجليل، والعملُ بالتنزيل، والقناعةُ بالقليل، والاستعدادُ ليومِ الرحيل.',
@@ -772,6 +813,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['تقوى', 'خوف', 'آخرة'],
     created_at: '2024-02-11',
   },
+
   {
     id: 'aqw-043',
     text_ar: 'عليكُم بالقرآنِ فتعلَّموه وعليكم به فاصحبوه.',
@@ -784,6 +826,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['قرآن', 'سنة', 'علم'],
     created_at: '2024-02-12',
   },
+
   {
     id: 'aqw-044',
     text_ar: 'ما رأيتُ شجاعاً قط إلا ومن ورائِه عقلٌ رصين.',
@@ -796,6 +839,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['شجاعة', 'عقل', 'حكمة'],
     created_at: '2024-02-13',
   },
+
   {
     id: 'aqw-045',
     text_ar: 'العلمُ بحرٌ لا يُدركُ قعرُه.',
@@ -808,6 +852,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'حكمة', 'تواضع'],
     created_at: '2024-02-14',
   },
+
   {
     id: 'aqw-046',
     text_ar: 'خُذِ الحكمةَ ممن سمعت؛ فإن الرجلَ ينطقُ بالحكمةِ وليس بحكيم، فتكون كالسهمِ خرَج من غيرِ رامٍ.',
@@ -820,6 +865,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['حكمة', 'علم', 'بحث'],
     created_at: '2024-02-15',
   },
+
   {
     id: 'aqw-047',
     text_ar: 'القلبُ يَمرضُ كما يَمرضُ البدن، وشفاؤُه في التوبةِ والحِمية، ويصدأُ كما تصدأُ المرآة، وجلاؤه بالذكر.',
@@ -832,6 +878,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['قلب', 'ذكر', 'توبة'],
     created_at: '2024-02-16',
   },
+
   {
     id: 'aqw-048',
     text_ar: 'إضاعةُ الوقتِ أشدُّ من الموت؛ لأن إضاعةَ الوقتِ تقطعُك عن اللهِ والدارِ الآخرة، والموتُ يقطعُك عن الدنيا وأهلِها.',
@@ -844,6 +891,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['وقت', 'موت', 'آخرة'],
     created_at: '2024-02-17',
   },
+
   {
     id: 'aqw-049',
     text_ar: 'يا ابنَ آدم، إنما أنتَ أجزاء، كلما ذهَبَ جزءٌ ذهَبَ بعضُك، ويوشكُ إذا ذهَبَ البعضُ أن يذهب الكلُّ وأنتَ لا تعلم.',
@@ -856,6 +904,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['زهد', 'موت', 'وقت'],
     created_at: '2024-02-18',
   },
+
   {
     id: 'aqw-050',
     text_ar: 'عجبتُ لأقوامٍ أُمِروا بالزاد، ونوديَ فيهم بالرحيل، وهم قعودٌ يَلعبون.',
@@ -868,6 +917,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['غفلة', 'آخرة', 'زهد'],
     created_at: '2024-02-19',
   },
+
   {
     id: 'aqw-051',
     text_ar: 'ما رأيتُ يقيناً لا شكَّ فيه أشبهَ بشكٍّ لا يقينَ فيه من الموت.',
@@ -880,6 +930,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['موت', 'يقين', 'غفلة'],
     created_at: '2024-02-20',
   },
+
   {
     id: 'aqw-052',
     text_ar: 'إذا نطقَ السفيهُ فلا تُجبهُ، فخيرٌ من إجابتِه السكوتُ.',
@@ -892,6 +943,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['أخلاق', 'سفاهة', 'صمت'],
     created_at: '2024-02-21',
   },
+
   {
     id: 'aqw-053',
     text_ar: 'شكوتُ إلى وكيعٍ سوءَ حفظي، فأرشدَني إلى تركِ المعاصي، وأخبرَني بأنَّ العلمَ نورٌ، ونورُ اللهِ لا يُهدى لعاصي.',
@@ -904,6 +956,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['علم', 'معصية', 'شعر'],
     created_at: '2024-02-22',
   },
+
   {
     id: 'aqw-054',
     text_ar: 'تغرب عن الأوطان في طلب العلى وسافر ففي الأسفار خمس فوائد: تفرج هم واكتساب معيشة وعلم وآداب وصحبة ماجد.',
@@ -916,6 +969,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['سفر', 'علم', 'أخلاق'],
     created_at: '2024-02-23',
   },
+
   {
     id: 'aqw-055',
     text_ar: 'الناسُ في الصلاةِ على خمسةِ منازل، أحدهم: مُعاقب، والثاني: مُحاسب، والثالث: مُكفَّر عنه، والرابع: مُثاب، والخامس: مُقرَّب.',
@@ -928,6 +982,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['صلاة', 'إخلاص', 'عبادة'],
     created_at: '2024-02-24',
   },
+
   {
     id: 'aqw-056',
     text_ar: 'لا يَنبلُ الرجلُ حتى يَتركَ ما لا يَعنيه.',
@@ -937,10 +992,10 @@ export const aqwaalData: Qawl[] = [
     scholar_name_so: 'Imaam Al-Shaafici',
     source: 'سير أعلام النبلاء',
     grade: 'authentic',
-    grade: 'authentic',
     tags: ['لسان', 'غيبة', 'عبادة'],
     created_at: '2024-03-10',
   },
+
   {
     id: 'aqw-071',
     text_ar: 'عاشِروا الناسَ معاشرةً إن متُّم بكَوا عليكم، وإن عشتُم حنُّوا إليكم.',
@@ -953,6 +1008,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['أخلاق', 'صحبة', 'موت'],
     created_at: '2024-03-11',
   },
+
   {
     id: 'aqw-072',
     text_ar: 'ليسَ المؤمنُ بالذي لا يشتهي، إنما المؤمنُ الذي يَشتهي ويصبر.',
@@ -965,6 +1021,7 @@ export const aqwaalData: Qawl[] = [
     tags: ['صبر', 'نفس', 'إيمان'],
     created_at: '2024-03-12',
   },
+
   {
     id: 'aqw-073',
     text_ar: 'إياكم والمراء؛ فإنه يُحبطُ العملَ ويُورثُ الضغينة.',
@@ -977,49 +1034,8 @@ export const aqwaalData: Qawl[] = [
     tags: ['أخلاق', 'مراء', 'عمل'],
     created_at: '2024-03-13',
   },
-  {
-    id: 'aqw-074',
-    title_so: 'Al-Xasan Al-Basri iyo Malagul Mowt',
-    content_ar: `يُحكى أن الحسن البصري رحمه الله كان ذات يوم جالساً مع أصحابه، فبينما هم كذلك، دخل رجل عليهم شديد الهيبة، فجلس وسألهم عن سبيل النجاة.
 
-فأجابه الحسن: اعرف أنك ميت لا محالة، وأن الساعة لا تقوم حتى يُبعث من في القبور.
 
-الرجل: فكيف يستعد العبد لهذا؟
-
-قال الحسن: يُكثر ذكر الموت ولا يشغله عنه شاغل، فإن من أكثر ذكر الموت أكرم في حياته وكرُم عند موته.
-
-ثم قام الرجل وخرج. فقال أصحاب الحسن: من هذا يا أبا سعيد؟ فقال الحسن بصوت خافت: ذلك ملك الموت، يسأل عن العباد الصالحين أحوالهم.
-
-فخشع القوم ودعوا وابتهلوا إلى الله.
-
-ويُروى أن الحسن رحمه الله كان يقول: "ابن آدم، لو نظرت إلى أجلك ومسيره، لزهدت في أملك وغروره."
-
-وكانت مجالس الحسن البصري تجمع العلماء والزهاد والأمراء، حتى قيل إنه لم يُرَ في حلقة مثل حلقته.`,
-    content_so: `Waxaa la sheegaa in Al-Xasan Al-Basri (Alle ha u naxariistee) uu maalin fadhiyay asxaabtiisa dhexdeeda, isaga oo markaas ay u soo galay nin haybad aad u weyn leh, markaas ayuu fadhiistay oo weydiiyay jidka badbaadada.
-
-Al-Xasan wuxuu ku jawaabay: 'Ogow in aad dhimanayso shaki la'aan, iyo in saacaddu aysan kici doonin ilaa la soo saaro inta qabriyada ku jirta.'
-
-Ninkii wuxuu yidhi: 'Sidee addoonku ugu diyaar garoobaa arrinkaas?'
-
-Al-Xasan wuxuu yidhi: 'Wuxuu badiyaa xusuusta geerida (Mowtka), mana jiro wax ka mashquuliya, waayo qofkii badiya xusuusta geerida waa la sharfay noloshiisa, waana la sharfi doonaa dhimashadiisa.'
-
-Markaas ayuu ninkii kacay oo baxay. Asxaabtii Al-Xasan waxay yidhaahdeen: 'Waa kuma ninkan, Abuu Saciidow?' Al-Xasan ayaa isaga oo cod yar ku hadlay yidhi: 'Kuwani waa malagul mowt, wuxuu weydiinayaa addoomada suuban xaaladahooda.'
-
-Dadkii halkaas fadhiyay ayaa khushuucay oo Alle u baryay.
-
-Waxaa kale oo la sheegaa in Al-Xasan (Alle ha u naxariistee) uu odhan jiray: 'Ina Aadamow, haddii aad eegi lahayd ajashaada iyo socodkeeda, waxaad ka rajo dhigi lahayd adduunka iyo khiyaanadiisa.'
-
-Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah iyo madaxda, ilaa la yidhi weligii lama arag goob u eg halka uu isagu wax ku bari jiray.`,
-    summary_ar: 'قصة رمزية مأثورة عن الحسن البصري وسؤال ملك الموت، تحمل موعظة بالإكثار من ذكر الموت.',
-    summary_so: 'Sheeko tusaale ah oo laga wariyay Al-Xasan Al-Basri iyo su\'aalihii malagul mowtka, oo xambaarsan wacdi ku saabsan badinta xusuusta geerida.',
-    source: 'حلية الأولياء - أبو نعيم الأصبهاني',
-    authenticity_notes: 'القصة مأثورة في كتب الزهد والرقائق وإن كانت تحتاج إلى تمحيص في إسنادها.',
-    reading_time: 3,
-    tags: ['موت', 'زهد', 'موعظة'],
-    created_at: '2024-01-03',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الحسن البصري',
-  },
   
   
   {
@@ -1033,189 +1049,6 @@ Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah i
     grade: 'authentic',
     tags: ['علم', 'عمل', 'حكمة'],
     created_at: '2024-03-20',
-  },
-
-  {
-    id: 'aqw-037',
-    text_ar: 'إنما العلم ليس بكثرة الرواية، وإنما العلم نور يضعه الله في القلب.',
-    text_so: 'Cilmigu maaha badnaanta warbixinta, laakiin cilmigu waa iftiin uu Alle qalbika ku dhex shubo.',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الإمام مالك بن أنس',
-    scholar_name_so: 'Imaam Maalik bin Anas',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['علم', 'نور', 'إيمان'],
-    created_at: '2024-03-21',
-  },
-  {
-    id: 'aqw-038',
-    text_ar: 'من عبَدَ الله بغير علم، كان ما يفسد أكثر مما يصلح.',
-    text_so: 'Qofka isagoo aan cilmi lahayn Alle caabuda, wuxuu kharribo ayaa ka badan waxa uu xaliyo.',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'عمر بن عبد العزيز',
-    scholar_name_so: 'Cumar bin Cabdil-casiis',
-    source: 'جامع بيان العلم وفضله',
-    grade: 'authentic',
-    tags: ['علم', 'عمل', 'إصلاح'],
-    created_at: '2024-03-22',
-  },
-  {
-    id: 'aqw-039',
-    text_ar: 'الفقهُ هو مَن يَخشَى الرحمنَ بالغَيب.',
-    text_so: 'Faqiihka dhabta ahi waa qofka ka baqa Naxariis-badaha (Alle) isagoo qarsoon (oo aysan cidna arkayn).',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الحسن البصري',
-    scholar_name_so: 'Al-Xasan Al-Basri',
-    source: 'تفسير ابن كثير',
-    grade: 'authentic',
-    tags: ['فقه', 'خشية', 'إخلاص'],
-    created_at: '2024-03-23',
-  },
-  {
-    id: 'aqw-040',
-    text_ar: 'اطلبوا العلم في كل وقت.',
-    text_so: 'Cilmiga raadiya waqti kasta.',
-    scholar_id: 'sch-009',
-    scholar_name_ar: 'سفيان الثوري',
-    scholar_name_so: 'Sufyaan Al-Thawri',
-    source: 'التدوين في أخبار قزوين',
-    grade: 'authentic',
-    tags: ['علم', 'صبر', 'همة'],
-    created_at: '2024-03-24',
-  },
-  {
-    id: 'aqw-041',
-    text_ar: 'يمرض القلب كما يمرض البدن.',
-    text_so: 'Qalbigu wuxuu u bukoodaa sida jidhkuba u bukoodo.',
-    scholar_id: 'sch-002',
-    scholar_name_ar: 'ابن القيم الجوزية',
-    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
-    source: 'إغاثة اللهفان',
-    grade: 'authentic',
-    tags: ['قلب', 'دواء', 'توبة'],
-    created_at: '2024-03-25',
-  },
-
-  {
-    id: 'aqw-037',
-    text_ar: 'إنما العلم ليس بكثرة الرواية، وإنما العلم نور يضعه الله في القلب.',
-    text_so: 'Cilmigu maaha badnaanta warbixinta, laakiin cilmigu waa iftiin uu Alle qalbika ku dhex shubo.',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الإمام مالك بن أنس',
-    scholar_name_so: 'Imaam Maalik bin Anas',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['علم', 'نور', 'إيمان'],
-    created_at: '2024-03-21',
-  },
-  {
-    id: 'aqw-038',
-    text_ar: 'من عبَدَ الله بغير علم، كان ما يفسد أكثر مما يصلح.',
-    text_so: 'Qofka isagoo aan cilmi lahayn Alle caabuda, wuxuu kharribo ayaa ka badan waxa uu xaliyo.',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'عمر بن عبد العزيز',
-    scholar_name_so: 'Cumar bin Cabdil-casiis',
-    source: 'جامع بيان العلم وفضله',
-    grade: 'authentic',
-    tags: ['علم', 'عمل', 'إصلاح'],
-    created_at: '2024-03-22',
-  },
-  {
-    id: 'aqw-039',
-    text_ar: 'الفقهُ هو مَن يَخشَى الرحمنَ بالغَيب.',
-    text_so: 'Faqiihka dhabta ahi waa qofka ka baqa Naxariis-badaha (Alle) isagoo qarsoon (oo aysan cidna arkayn).',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الحسن البصري',
-    scholar_name_so: 'Al-Xasan Al-Basri',
-    source: 'تفسير ابن كثير',
-    grade: 'authentic',
-    tags: ['فقه', 'خشية', 'إخلاص'],
-    created_at: '2024-03-23',
-  },
-  {
-    id: 'aqw-040',
-    text_ar: 'اطلبوا العلم في كل وقت.',
-    text_so: 'Cilmiga raadiya waqti kasta.',
-    scholar_id: 'sch-009',
-    scholar_name_ar: 'سفيان الثوري',
-    scholar_name_so: 'Sufyaan Al-Thawri',
-    source: 'التدوين في أخبار قزوين',
-    grade: 'authentic',
-    tags: ['علم', 'صبر', 'همة'],
-    created_at: '2024-03-24',
-  },
-  {
-    id: 'aqw-041',
-    text_ar: 'يمرض القلب كما يمرض البدن.',
-    text_so: 'Qalbigu wuxuu u bukoodaa sida jidhkuba u bukoodo.',
-    scholar_id: 'sch-002',
-    scholar_name_ar: 'ابن القيم الجوزية',
-    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
-    source: 'إغاثة اللهفان',
-    grade: 'authentic',
-    tags: ['قلب', 'دواء', 'توبة'],
-    created_at: '2024-03-25',
-  },
-
-  {
-    id: 'aqw-037',
-    text_ar: 'إنما العلم ليس بكثرة الرواية، وإنما العلم نور يضعه الله في القلب.',
-    text_so: 'Cilmigu maaha badnaanta warbixinta, laakiin cilmigu waa iftiin uu Alle qalbika ku dhex shubo.',
-    scholar_id: 'sch-001',
-    scholar_name_ar: 'الإمام مالك بن أنس',
-    scholar_name_so: 'Imaam Maalik bin Anas',
-    source: 'حلية الأولياء',
-    grade: 'authentic',
-    tags: ['علم', 'نور', 'إيمان'],
-    created_at: '2024-03-21',
-  },
-  {
-    id: 'aqw-038',
-    text_ar: 'من عبَدَ الله بغير علم، كان ما يفسد أكثر مما يصلح.',
-    text_so: 'Qofka isagoo aan cilmi lahayn Alle caabuda, wuxuu kharribo ayaa ka badan waxa uu xaliyo.',
-    scholar_id: 'sch-005',
-    scholar_name_ar: 'عمر بن عبد العزيز',
-    scholar_name_so: 'Cumar bin Cabdil-casiis',
-    source: 'جامع بيان العلم وفضله',
-    grade: 'authentic',
-    tags: ['علم', 'عمل', 'إصلاح'],
-    created_at: '2024-03-22',
-  },
-  {
-    id: 'aqw-039',
-    text_ar: 'الفقهُ هو مَن يَخشَى الرحمنَ بالغَيب.',
-    text_so: 'Faqiihka dhabta ahi waa qofka ka baqa Naxariis-badaha (Alle) isagoo qarsoon (oo aysan cidna arkayn).',
-    scholar_id: 'sch-008',
-    scholar_name_ar: 'الحسن البصري',
-    scholar_name_so: 'Al-Xasan Al-Basri',
-    source: 'تفسير ابن كثير',
-    grade: 'authentic',
-    tags: ['فقه', 'خشية', 'إخلاص'],
-    created_at: '2024-03-23',
-  },
-  {
-    id: 'aqw-040',
-    text_ar: 'اطلبوا العلم في كل وقت.',
-    text_so: 'Cilmiga raadiya waqti kasta.',
-    scholar_id: 'sch-009',
-    scholar_name_ar: 'سفيان الثوري',
-    scholar_name_so: 'Sufyaan Al-Thawri',
-    source: 'التدوين في أخبار قزوين',
-    grade: 'authentic',
-    tags: ['علم', 'صبر', 'همة'],
-    created_at: '2024-03-24',
-  },
-  {
-    id: 'aqw-041',
-    text_ar: 'يمرض القلب كما يمرض البدن.',
-    text_so: 'Qalbigu wuxuu u bukoodaa sida jidhkuba u bukoodo.',
-    scholar_id: 'sch-002',
-    scholar_name_ar: 'ابن القيم الجوزية',
-    scholar_name_so: 'Ibnu Qayyim Al-Jawziyya',
-    source: 'إغاثة اللهفان',
-    grade: 'authentic',
-    tags: ['قلب', 'دواء', 'توبة'],
-    created_at: '2024-03-25',
   },
 ];
 
@@ -1293,6 +1126,7 @@ Imaam Axmed wuxuu geeriyooday sannadkii 241-kii Hijriyada, waxaana lagu aasay da
   {
     id: 'qis-003',
     title_ar: 'الحسن البصري وملك الموت',
+    title_so: 'Al-Xasan Al-Basri iyo Malagul Mowt',
     content_ar: `يُحكى أن الحسن البصري رحمه الله كان ذات يوم جالساً مع أصحابه، فبينما هم كذلك، دخل رجل عليهم شديد الهيبة، فجلس وسألهم عن سبيل النجاة.
 
 فأجابه الحسن: اعرف أنك ميت لا محالة، وأن الساعة لا تقوم حتى يُبعث من في القبور.
@@ -1308,7 +1142,23 @@ Imaam Axmed wuxuu geeriyooday sannadkii 241-kii Hijriyada, waxaana lagu aasay da
 ويُروى أن الحسن رحمه الله كان يقول: "ابن آدم، لو نظرت إلى أجلك ومسيره، لزهدت في أملك وغروره."
 
 وكانت مجالس الحسن البصري تجمع العلماء والزهاد والأمراء، حتى قيل إنه لم يُرَ في حلقة مثل حلقته.`,
+    content_so: `Waxaa la sheegaa in Al-Xasan Al-Basri (Alle ha u naxariistee) uu maalin fadhiyay asxaabtiisa dhexdeeda, isaga oo markaas ay u soo galay nin haybad aad u weyn leh, markaas ayuu fadhiistay oo weydiiyay jidka badbaadada.
+
+Al-Xasan wuxuu ku jawaabay: 'Ogow in aad dhimanayso shaki la'aan, iyo in saacaddu aysan kici doonin ilaa la soo saaro inta qabriyada ku jirta.'
+
+Ninkii wuxuu yidhi: 'Sidee addoonku ugu diyaar garoobaa arrinkaas?'
+
+Al-Xasan wuxuu yidhi: 'Wuxuu badiyaa xusuusta geerida (Mowtka), mana jiro wax ka mashquuliya, waayo qofkii badiya xusuusta geerida waa la sharfay noloshiisa, waana la sharfi doonaa dhimashadiisa.'
+
+Markaas ayuu ninkii kacay oo baxay. Asxaabtii Al-Xasan waxay yidhaahdeen: 'Waa kuma ninkan, Abuu Saciidow?' Al-Xasan ayaa isaga oo cod yar ku hadlay yidhi: 'Kuwani waa malagul mowt, wuxuu weydiinayaa addoomada suuban xaaladahooda.'
+
+Dadkii halkaas fadhiyay ayaa khushuucay oo Alle u baryay.
+
+Waxaa kale oo la sheegaa in Al-Xasan (Alle ha u naxariistee) uu odhan jiray: 'Ina Aadamow, haddii aad eegi lahayd ajashaada iyo socodkeeda, waxaad ka rajo dhigi lahayd adduunka iyo khiyaanadiisa.'
+
+Fadhiyadii Al-Xasan Al-Basri waxay kulmin jireen culimada, kuwa zaahidiinta ah iyo madaxda, ilaa la yidhi weligii lama arag goob u eg halka uu isagu wax ku bari jiray.`,
     summary_ar: 'قصة رمزية مأثورة عن الحسن البصري وسؤال ملك الموت، تحمل موعظة بالإكثار من ذكر الموت.',
+    summary_so: `Sheeko tusaale ah oo laga wariyay Al-Xasan Al-Basri iyo su'aalihii malagul mowtka, oo xambaarsan wacdi ku saabsan badinta xusuusta geerida.`,
     source: 'حلية الأولياء - أبو نعيم الأصبهاني',
     authenticity_notes: 'القصة مأثورة في كتب الزهد والرقائق وإن كانت تحتاج إلى تمحيص في إسنادها.',
     reading_time: 3,

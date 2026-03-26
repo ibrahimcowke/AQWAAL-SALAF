@@ -18,7 +18,7 @@ interface QawlCardProps {
 
 export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardProps) {
   const { addFavoriteQawl, removeFavoriteQawl, isFavoriteQawl } = useAuthStore();
-  const { speak, playbackRate, setPlaybackRate } = useAudioStore();
+  const { speak } = useAudioStore();
   const [showDesigner, setShowDesigner] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -33,17 +33,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
   const displayScholarName = isSomali && qawl.scholar_name_so ? qawl.scholar_name_so : qawl.scholar_name_ar;
   const explanation = isSomali ? qawl.explanation_so : qawl.explanation_ar;
 
-  const togglePlaybackRate = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const rates = [0.8, 1, 1.2];
-    const currentIndex = rates.indexOf(playbackRate);
-    const nextRate = rates[(currentIndex + 1) % rates.length];
-    setPlaybackRate(nextRate);
-    toast.success(`${t('font_size')}: ${nextRate}x`, { 
-      duration: 1000,
-      style: { fontFamily: 'Tajawal, sans-serif', direction: isArabic ? 'rtl' : 'ltr', fontSize: '12px' } 
-    });
-  };
+
 
   const toggleFav = (e: React.MouseEvent) => {
     e.preventDefault();
