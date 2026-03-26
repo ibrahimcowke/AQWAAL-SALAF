@@ -73,7 +73,8 @@ const resources = {
       "view_full_bio": "عرض السيرة كاملة",
       "not_found": "غير موجود",
       "back": "رجوع",
-      "back_to_quotes": "العودة للأقوال"
+      "back_to_quotes": "العودة للأقوال",
+      "back_to_scholars": "العودة للعلماء"
     }
   },
   en: {
@@ -147,7 +148,8 @@ const resources = {
       "view_full_bio": "View full biography",
       "not_found": "Not found",
       "back": "Back",
-      "back_to_quotes": "Back to Sayings"
+      "back_to_quotes": "Back to Sayings / العودة للأقوال",
+      "back_to_scholars": "Back to Scholars / العودة للعلماء"
     }
   },
   so: {
@@ -222,7 +224,8 @@ const resources = {
       "view_full_bio": "Eeg taariikhda oo dhan",
       "not_found": "Lama helin",
       "back": "Dib",
-      "back_to_quotes": "Ku noqo Oraahyada"
+      "back_to_quotes": "Ku noqo Oraahyada",
+      "back_to_scholars": "Ku noqo Culimada"
     }
   }
 }

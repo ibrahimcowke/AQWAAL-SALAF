@@ -5,7 +5,11 @@ import { useContentStore } from '../stores/contentStore';
 import QawlCard from '../components/ui/QawlCard';
 import { Helmet } from 'react-helmet-async';
 
+import { useTranslation } from 'react-i18next';
+
 export default function ScholarProfile() {
+  const { i18n, t } = useTranslation();
+  const isArabic = i18n.language === 'ar';
   const { id } = useParams();
   const navigate = useNavigate();
   const { getScholarById, getAqwaalByScholar, getQisasByScholar } = useContentStore();
@@ -17,9 +21,9 @@ export default function ScholarProfile() {
   if (!scholar) {
     return (
       <div className="page-container text-center py-20">
-        <p className="arabic-text text-lg">العالم غير موجود</p>
+        <p className="arabic-text text-lg">{t('not_found') || 'العالم غير موجود'}</p>
         <button onClick={() => navigate(-1)} className="neu-btn px-6 py-2 mt-4 arabic-text">
-          رجوع
+          {t('back') || 'رجوع'}
         </button>
       </div>
     );
@@ -38,8 +42,8 @@ export default function ScholarProfile() {
         className="flex items-center gap-1 text-sm arabic-text mb-6 group"
         style={{ color: 'var(--color-text-muted)' }}
       >
-        <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
-        العودة للعلماء
+        {isArabic ? <ChevronRight size={18} /> : <ChevronRight size={18} className="rotate-180" />}
+        {t('back_to_scholars') || 'العودة للعلماء'}
       </motion.button>
 
       {/* Profile Header */}

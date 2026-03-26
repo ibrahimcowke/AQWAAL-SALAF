@@ -46,7 +46,7 @@ export const useContentStore = create<ContentState>()((set, get) => ({
       const qisasCol = collection(db, 'qisas');
 
       const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Firestore operation timed out after 5 seconds')), 5000)
+        setTimeout(() => reject(new Error('Firestore operation timed out after 10 seconds')), 10000)
       );
 
       const [scholarsSnap, aqwaalSnap, qisasSnap] = await Promise.race([
@@ -81,7 +81,7 @@ export const useContentStore = create<ContentState>()((set, get) => ({
       
       get().initDailyQawl();
     } catch (error: any) {
-      console.error('Error fetching content:', error);
+      console.warn('Firestore unreachable, using local data:', error?.message);
       set({ 
         error: error.message,
         isLoading: false,

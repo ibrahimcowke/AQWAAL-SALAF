@@ -97,7 +97,7 @@ export default function AqwalDetail() {
         className="flex items-center gap-1 text-sm arabic-text mb-6 group"
         style={{ color: 'var(--color-text-muted)' }}
       >
-        <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
+        {isArabic ? <ChevronRight size={18} /> : <ChevronRight size={18} className="rotate-180" />}
         {t('back_to_quotes') || 'العودة للأقوال'}
       </motion.button>
 
