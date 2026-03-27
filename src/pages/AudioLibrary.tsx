@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Play, Pause, Square, Music, Headphones, BookOpen, Quote } from 'lucide-react';
 import { useAudioStore } from '../stores/audioStore';
 import { useContentStore } from '../stores/contentStore';
@@ -7,18 +8,32 @@ import { useContentStore } from '../stores/contentStore';
 export default function AudioLibrary() {
   const { aqwaal, qisas } = useContentStore();
   const { isPlaying, isPaused, currentText, speak, stop, togglePause } = useAudioStore();
+  const { t, i18n } = useTranslation();
+
+  const isArabic = i18n.language === 'ar';
+  const isSomali = i18n.language === 'so';
 
   const allItems = [
-    ...aqwaal.map(a => ({ id: a.id, title: `قول: ${a.scholar_name_ar}`, text: a.text_ar, type: 'qawl' as const })),
-    ...qisas.map(q => ({ id: q.id, title: q.title_ar, text: q.content_ar, type: 'qissa' as const }))
+    ...aqwaal.map(a => ({ 
+      id: a.id, 
+      title: `${t('aqwaal')}: ${isSomali && a.scholar_name_so ? a.scholar_name_so : a.scholar_name_ar}`, 
+      text: isSomali && a.text_so ? a.text_so : a.text_ar, 
+      type: 'qawl' as const 
+    })),
+    ...qisas.map(q => ({ 
+      id: q.id, 
+      title: isSomali && q.title_so ? q.title_so : q.title_ar, 
+      text: isSomali && q.content_so ? q.content_so : q.content_ar, 
+      type: 'qissa' as const 
+    }))
   ];
 
   return (
     <div className="page-container">
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="section-title text-2xl mb-1">المكتبة الصوتية</h1>
-        <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)' }}>
-          استمع إلى درر السلف الصالح بصوت آلي واضح
+        <h1 className={`section-title text-2xl mb-1 ${isArabic ? 'arabic-text' : ''}`}>{t('audio_library')}</h1>
+        <p className={`text-sm opacity-60 ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-text-muted)' }}>
+          {t('audio_library_subtitle')}
         </p>
       </motion.div>
 
@@ -35,7 +50,7 @@ export default function AudioLibrary() {
                 <div className="w-16 h-16 rounded-3xl flex items-center justify-center bg-white/10 mb-4 shadow-inner">
                     <Headphones size={32} />
                 </div>
-                <h2 className="arabic-text font-bold mb-1">جارٍ الاستماع الآن</h2>
+                <h2 className={`font-bold mb-1 ${isArabic ? 'arabic-text' : ''}`}>{t('now_playing')}</h2>
                 <div className="gold-divider w-full max-w-[100px] mb-4 opacity-50" />
                 
                 <div className="flex items-center gap-6 mb-4">
@@ -46,7 +61,7 @@ export default function AudioLibrary() {
                         onClick={togglePause} 
                         className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[var(--color-primary)] shadow-lg hover:scale-105 transition-transform"
                     >
-                        {isPaused ? <Play size={32} fill="currentColor" stroke="none" className="mr-1" /> : <Pause size={32} fill="currentColor" stroke="none" />}
+                        {isPaused ? <Play size={32} fill="currentColor" stroke="none" className={isArabic ? 'mr-1' : 'ml-1'} /> : <Pause size={32} fill="currentColor" stroke="none" />}
                     </button>
                     <div className="w-10 h-10" /> {/* Spacer */}
                 </div>
@@ -55,9 +70,9 @@ export default function AudioLibrary() {
       )}
 
       {/* List items */}
-      <h2 className="section-title mb-4 flex items-center gap-2">
+      <h2 className={`section-title mb-4 flex items-center gap-2 ${isArabic ? 'arabic-text' : ''}`}>
           <Music size={20} />
-          العناصر المتاحة
+          {t('available_elements')}
       </h2>
 
       <div className="grid gap-3">
@@ -69,17 +84,17 @@ export default function AudioLibrary() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.03 }}
-                    className={`neu-card p-4 flex items-center justify-between group transition-all ${active ? 'border-[var(--color-gold)] scale-[1.02]' : ''}`}
+                    className={`neu-card p-4 flex items-center justify-between group transition-all ${active ? 'border-[var(--color-gold)] scale-[1.02]' : ''} ${isArabic ? '' : 'flex-row-reverse'}`}
                 >
-                    <div className="flex items-center gap-3 overflow-hidden">
+                    <div className={`flex items-center gap-3 overflow-hidden ${isArabic ? '' : 'flex-row-reverse text-left'}`}>
                         <div 
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${active ? 'bg-[var(--color-gold)] text-[var(--color-primary)]' : 'bg-[var(--color-bg-alt)] text-[var(--color-text-muted)]'}`}
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0 ${active ? 'bg-[var(--color-gold)] text-[var(--color-primary)]' : 'bg-[var(--color-bg-alt)] text-[var(--color-text-muted)]'}`}
                         >
                             {item.type === 'qawl' ? <Quote size={18} /> : <BookOpen size={18} />}
                         </div>
                         <div className="overflow-hidden">
-                            <h3 className={`arabic-text font-bold text-sm truncate ${active ? 'text-[var(--color-primary)]' : ''}`}>{item.title}</h3>
-                            <p className="arabic-text text-[10px] opacity-40 truncate">{item.text.substring(0, 50)}...</p>
+                            <h3 className={`font-bold text-sm truncate ${active ? 'text-[var(--color-primary)]' : ''} ${isArabic ? 'arabic-text' : ''}`}>{item.title}</h3>
+                            <p className={`text-[10px] opacity-40 truncate ${isArabic ? 'arabic-text' : ''}`}>{item.text.substring(0, 50)}...</p>
                         </div>
                     </div>
 
@@ -87,7 +102,7 @@ export default function AudioLibrary() {
                         onClick={() => speak(item.text, item.title)}
                         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${active ? 'bg-[var(--color-primary)] text-white' : 'bg-[var(--color-bg-alt)] opacity-0 group-hover:opacity-100'}`}
                     >
-                        {active && !isPaused ? <Pause size={18} fill="currentColor" stroke="none" /> : <Play size={18} fill="currentColor" stroke="none" className="mr-0.5" />}
+                        {active && !isPaused ? <Pause size={18} fill="currentColor" stroke="none" /> : <Play size={18} fill="currentColor" stroke="none" className={isArabic ? 'mr-0.5' : 'ml-0.5'} />}
                     </button>
                 </motion.div>
               );

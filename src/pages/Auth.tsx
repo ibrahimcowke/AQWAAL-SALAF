@@ -3,15 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Lock, User, LogIn, UserPlus, ArrowRight, ShieldCheck, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
 export default function Auth() {
+  const { t, i18n } = useTranslation();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const navigate = useNavigate();
   const { setUser } = useAuthStore();
+
+  const isArabic = i18n.language === 'ar';
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +24,7 @@ export default function Auth() {
     const mockUser = {
       id: 'user-' + Date.now(),
       email,
-      displayName: name || 'مستخدم نور السلف',
+      displayName: name || t('default_user_name'),
       favorites_aqwaal: [],
       favorites_qisas: [],
       reading_progress: {},
@@ -30,8 +34,8 @@ export default function Auth() {
     };
     
     setUser(mockUser);
-    toast.success(isLogin ? 'تم تسجيل الدخول بنجاح' : 'تم إنشاء الحساب بنجاح', {
-      style: { fontFamily: 'Amiri, serif', direction: 'rtl' }
+    toast.success(isLogin ? t('login_success') : t('signup_success'), {
+      style: { fontFamily: isArabic ? 'Amiri, serif' : 'Inter, sans-serif', direction: isArabic ? 'rtl' : 'ltr' }
     });
     navigate('/');
   };
@@ -52,13 +56,13 @@ export default function Auth() {
                 className="w-20 h-20 rounded-3xl mx-auto flex items-center justify-center text-white mb-6 shadow-xl islamic-pattern"
                 style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-light))' }}
             >
-                <div className="text-3xl font-bold">ن</div>
+                <div className="text-3xl font-bold">{isArabic ? 'ن' : 'N'}</div>
             </div>
-            <h1 className="arabic-text font-bold text-2xl mb-2" style={{ color: 'var(--color-primary)' }}>
-                {isLogin ? 'مرحباً بك مجدداً' : 'انضم إلينا'}
+            <h1 className={`font-bold text-2xl mb-2 ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-primary)' }}>
+                {isLogin ? t('welcome_back') : t('join_us')}
             </h1>
-            <p className="arabic-text text-sm opacity-60">
-                {isLogin ? 'سجل دخولك لمتابعة قراءاتك' : 'أنشئ حساباً لحفظ مفضلتك عبر الأجهزة'}
+            <p className={`text-sm opacity-60 ${isArabic ? 'arabic-text' : ''}`}>
+                {isLogin ? t('login_subtitle') : t('signup_subtitle')}
             </p>
         </div>
 
@@ -71,13 +75,13 @@ export default function Auth() {
                 exit={{ opacity: 0, height: 0 }}
                 className="relative"
               >
-                <User className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--color-gold)]" size={18} />
+                <User className={`absolute top-1/2 -translate-y-1/2 text-[var(--color-gold)] ${isArabic ? 'right-4' : 'left-4'}`} size={18} />
                 <input
                   type="text"
-                  placeholder="الاسم الكامل"
+                  placeholder={t('full_name')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full h-12 pr-12 pl-4 rounded-xl bg-[var(--color-bg-alt)] arabic-text outline-none border-2 border-transparent focus:border-[var(--color-gold)] transition-all"
+                  className={`w-full h-12 rounded-xl bg-[var(--color-bg-alt)] outline-none border-2 border-transparent focus:border-[var(--color-gold)] transition-all ${isArabic ? 'pr-12 pl-4 arabic-text text-right' : 'pl-12 pr-4 text-left'}`}
                   required
                 />
               </motion.div>
@@ -85,63 +89,63 @@ export default function Auth() {
           </AnimatePresence>
 
           <div className="relative">
-            <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--color-gold)]" size={18} />
+            <Mail className={`absolute top-1/2 -translate-y-1/2 text-[var(--color-gold)] ${isArabic ? 'right-4' : 'left-4'}`} size={18} />
             <input
               type="email"
-              placeholder="البريد الإلكتروني"
+              placeholder={t('email')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full h-12 pr-12 pl-4 rounded-xl bg-[var(--color-bg-alt)] arabic-text outline-none border-2 border-transparent focus:border-[var(--color-gold)] transition-all"
+              className={`w-full h-12 rounded-xl bg-[var(--color-bg-alt)] outline-none border-2 border-transparent focus:border-[var(--color-gold)] transition-all ${isArabic ? 'pr-12 pl-4 arabic-text text-right' : 'pl-12 pr-4 text-left'}`}
               required
             />
           </div>
 
           <div className="relative">
-            <Lock className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--color-gold)]" size={18} />
+            <Lock className={`absolute top-1/2 -translate-y-1/2 text-[var(--color-gold)] ${isArabic ? 'right-4' : 'left-4'}`} size={18} />
             <input
               type="password"
-              placeholder="كلمة المرور"
+              placeholder={t('password')}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full h-12 pr-12 pl-4 rounded-xl bg-[var(--color-bg-alt)] arabic-text outline-none border-2 border-transparent focus:border-[var(--color-gold)] transition-all"
+              className={`w-full h-12 rounded-xl bg-[var(--color-bg-alt)] outline-none border-2 border-transparent focus:border-[var(--color-gold)] transition-all ${isArabic ? 'pr-12 pl-4 arabic-text text-right' : 'pl-12 pr-4 text-left'}`}
               required
             />
           </div>
 
-          <button type="submit" className="w-full h-14 rounded-2xl neu-btn-primary flex items-center justify-center gap-2 font-bold arabic-text transition-all active:scale-[0.98] shadow-lg">
+          <button type="submit" className={`w-full h-14 rounded-2xl neu-btn-primary flex items-center justify-center gap-2 font-bold transition-all active:scale-[0.98] shadow-lg ${isArabic ? 'arabic-text' : ''}`}>
             {isLogin ? <LogIn size={20} /> : <UserPlus size={20} />}
-            {isLogin ? 'دخول' : 'إنشاء حساب'}
+            {isLogin ? t('login_btn') : t('signup_btn')}
           </button>
         </form>
 
         <div className="mt-8 flex flex-col items-center gap-4">
             <button 
                 onClick={() => setIsLogin(!isLogin)} 
-                className="arabic-text text-sm font-bold flex items-center gap-2"
+                className={`text-sm font-bold flex items-center gap-2 ${isArabic ? 'arabic-text' : 'flex-row-reverse'}`}
                 style={{ color: 'var(--color-gold)' }}
             >
-                {isLogin ? 'ليس لديك حساب؟ سجل الآن' : 'لديك حساب بالفعل؟ سجل دخولك'}
-                <ArrowRight size={16} className="rotate-180" />
+                {isLogin ? t('no_account_cta') : t('has_account_cta')}
+                <ArrowRight size={16} className={isArabic ? 'rotate-180' : ''} />
             </button>
             
             <div className="gold-divider w-full opacity-30 my-2" />
             
             <button 
                 onClick={handleGuest}
-                className="arabic-text text-xs opacity-60 flex items-center gap-2 hover:opacity-100 transition-opacity"
+                className={`text-xs opacity-60 flex items-center gap-2 hover:opacity-100 transition-opacity ${isArabic ? 'arabic-text' : 'flex-row-reverse'}`}
             >
-                التصفح كضيف <Globe size={14} />
+                {t('browse_as_guest')} <Globe size={14} />
             </button>
         </div>
       </motion.div>
 
-      <div className="mt-12 flex items-center gap-4 opacity-40">
-          <div className="flex items-center gap-1.5 arabic-text text-[10px]">
+      <div className={`mt-12 flex items-center gap-4 opacity-40 ${isArabic ? '' : 'flex-row-reverse'}`}>
+          <div className={`flex items-center gap-1.5 text-[10px] ${isArabic ? 'arabic-text' : ''}`}>
               <ShieldCheck size={14} />
-              بياناتك مشفرة وآمنة
+              {t('data_secure_notice')}
           </div>
           <span className="w-1 h-1 rounded-full bg-gray-400" />
-          <div className="arabic-text text-[10px]">نور السلف © ٢٠٢٤</div>
+          <div className={`text-[10px] ${isArabic ? 'arabic-text' : ''}`}>{t('app_name')} © ٢٠٢٤</div>
       </div>
     </div>
   );

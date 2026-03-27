@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function BottomNav() {
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const navItems = [
     { path: '/', icon: Home, label: t('home') },
@@ -39,7 +39,7 @@ export default function BottomNav() {
             >
               <item.icon size={isActive ? 20 : 18} />
             </div>
-            <span className={`arabic-text text-[9px] font-bold ${isActive ? 'opacity-100' : 'opacity-90'}`}>
+            <span className={`${i18n.language === 'ar' ? 'arabic-text' : ''} text-[9px] font-bold ${isActive ? 'opacity-100' : 'opacity-90'}`}>
               {item.label}
             </span>
           </Link>

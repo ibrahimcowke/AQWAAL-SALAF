@@ -53,7 +53,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
       navigator.share({ text });
     } else {
       navigator.clipboard.writeText(text);
-      toast.success(t('share') === 'share' ? 'Copied' : 'Waa la koobiyeeyay');
+      toast.success(isSomali ? 'Waa la koobiyeyay' : 'تم النسخ بنجاح');
     }
   };
 
@@ -61,7 +61,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
     e.preventDefault();
     navigator.clipboard.writeText(qawl.text_ar);
     setCopied(true);
-    toast.success(t('copied_success') || 'تم النسخ بنجاح');
+    toast.success(t('copied_success'));
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -69,7 +69,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
     e.preventDefault();
     const textToCopy = `"${qawl.text_ar}"\n\n— ${qawl.scholar_name_ar || t('unknown_scholar')}\n📚 ${qawl.source}`;
     navigator.clipboard.writeText(textToCopy);
-    toast.success(t('copy_with_source_success') || 'تم النسخ مع المصدر');
+    toast.success(t('copy_with_source_success'));
   };
 
   const handleAudio = (e: React.MouseEvent) => {
@@ -142,7 +142,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
               >
                 <div className="flex items-center gap-2 flex-wrap">
                   {displayScholarName && (
-                    <span className="badge-scholar flex items-center gap-1">
+                    <span className={`badge-scholar flex items-center gap-1 ${isSomali ? '' : 'arabic-text'}`}>
                       <BookOpen size={10} />
                       {displayScholarName}
                     </span>
@@ -156,7 +156,7 @@ export default function QawlCard({ qawl, index = 0, compact = false }: QawlCardP
                       onClick={handleOpenExplanation}
                       className="w-8 h-8 rounded-xl flex items-center justify-center transition-all hover:scale-110"
                       style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-                      title={t('explanation') || 'الشرح'}
+                      title={t('explanation')}
                     >
                       <Info size={14} />
                     </button>

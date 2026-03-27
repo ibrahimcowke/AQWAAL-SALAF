@@ -33,9 +33,9 @@ export default function AqwalDetail() {
   if (!qawl) {
     return (
       <div className="page-container text-center py-20">
-        <p className="arabic-text text-lg mb-4">{t('not_found') || 'القول غير موجود'}</p>
-        <button onClick={() => navigate(-1)} className="neu-btn px-6 py-2 arabic-text">
-          {t('back') || 'رجوع'}
+        <p className={`text-lg mb-4 ${isArabic ? 'arabic-text' : ''}`}>{t('not_found')}</p>
+        <button onClick={() => navigate(-1)} className={`neu-btn px-6 py-2 ${isArabic ? 'arabic-text' : ''}`}>
+          {t('back')}
         </button>
       </div>
     );
@@ -57,26 +57,26 @@ export default function AqwalDetail() {
   };
 
   const handleShare = () => {
-    const text = `"${displayText}"\n— ${displayScholarName}\n\n${t('app_name') || 'نور السلف'}`;
+    const text = `"${displayText}"\n— ${displayScholarName}\n\n${t('app_name')}`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
       navigator.clipboard.writeText(text);
-      toast.success(t('share') === 'share' ? 'Copied' : 'Waa la koobiyeeyay');
+      toast.success(isSomali ? 'Waa la koobiyeyay' : 'تم النسخ بنجاح');
     }
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(qawl.text_ar);
     setCopied(true);
-    toast.success(t('copied_success') || 'تم النسخ بنجاح');
+    toast.success(t('copied_success'));
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleCopyWithSource = () => {
     const textToCopy = `"${qawl.text_ar}"\n\n— ${qawl.scholar_name_ar || t('unknown_scholar')}\n📚 ${qawl.source}`;
     navigator.clipboard.writeText(textToCopy);
-    toast.success(t('copy_with_source_success') || 'تم النسخ مع المصدر');
+    toast.success(t('copy_with_source_success'));
   };
 
   const handleAudio = () => {
@@ -86,19 +86,19 @@ export default function AqwalDetail() {
   return (
     <div className="page-container">
       <Helmet>
-        <title>قول {displayScholarName} | نور السلف</title>
+        <title>{t('app_name')} | {displayScholarName}</title>
         <meta name="description" content={qawl.text_ar.substring(0, 160)} />
       </Helmet>
 
       <motion.button
-        initial={{ opacity: 0, x: 20 }}
+        initial={{ opacity: 0, x: isArabic ? 20 : -20 }}
         animate={{ opacity: 1, x: 0 }}
         onClick={() => navigate(-1)}
-        className="flex items-center gap-1 text-sm arabic-text mb-6 group"
+        className={`flex items-center gap-1 text-sm mb-6 group ${isArabic ? 'arabic-text' : ''}`}
         style={{ color: 'var(--color-text-muted)' }}
       >
         {isArabic ? <ChevronRight size={18} /> : <ChevronRight size={18} className="rotate-180" />}
-        {t('back_to_quotes') || 'العودة للأقوال'}
+        {t('back_to_quotes')}
       </motion.button>
 
       <motion.div
@@ -110,7 +110,7 @@ export default function AqwalDetail() {
         {/* Large decorative quotes */}
         <Quote
           size={80}
-          className="absolute top-4 right-4 opacity-5"
+          className={`absolute top-4 opacity-5 ${isArabic ? 'right-4' : 'left-4'}`}
           style={{ color: 'var(--color-gold)', transform: 'rotate(180deg)' }}
         />
 
@@ -130,9 +130,9 @@ export default function AqwalDetail() {
           </h2>
 
           {qawl.text_so && (
-            <div className="mt-6 mb-8 p-4 rounded-2xl bg-[var(--color-bg-alt)]/30 border-l-4 border-[var(--color-gold)]">
-              <p className="text-sm font-bold uppercase tracking-widest opacity-40 mb-2">{t('somali_translation') || 'Tirjumaadda Soomaaliga'}</p>
-              <p className="text-lg md:text-xl leading-relaxed font-sans text-left" style={{ color: 'var(--color-text)' }}>
+            <div className={`mt-6 mb-8 p-4 rounded-2xl bg-[var(--color-bg-alt)]/30 border-l-4 border-[var(--color-gold)] ${isArabic ? 'text-right' : 'text-left'}`}>
+              <p className="text-sm font-bold uppercase tracking-widest opacity-40 mb-2">{t('somali_translation')}</p>
+              <p className="text-lg md:text-xl leading-relaxed font-sans" style={{ color: 'var(--color-text)' }}>
                 {qawl.text_so}
               </p>
             </div>
@@ -142,13 +142,13 @@ export default function AqwalDetail() {
 
           <div className="flex flex-col items-center gap-4">
             <Link to={`/scholars/${qawl.scholar_id}`} className="group">
-              <span className="badge-scholar text-base px-6 py-2 transition-transform group-hover:scale-105">
+              <span className={`badge-scholar text-base px-6 py-2 transition-transform group-hover:scale-105 ${isArabic ? 'arabic-text' : ''}`}>
                 {displayScholarName}
               </span>
             </Link>
             {qawl.source && (
-              <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)', direction: isArabic ? 'rtl' : 'ltr' }}>
-                📚 {qawl.source} {qawl.source_so ? `• ${qawl.source_so}` : ''}
+              <p className={`text-sm ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-text-muted)', direction: isArabic ? 'rtl' : 'ltr' }}>
+                📚 {isSomali && qawl.source_so ? qawl.source_so : qawl.source}
               </p>
             )}
           </div>
@@ -156,7 +156,7 @@ export default function AqwalDetail() {
       </motion.div>
 
       {/* Expanded Action Bar (Mirror of QawlCard) */}
-      <div className="flex items-center justify-between flex-wrap gap-4 mb-12 p-4 md:p-6 rounded-3xl bg-[var(--color-card)] border border-[var(--color-card-border)] shadow-lg" style={{ direction: isArabic ? 'rtl' : 'ltr' }}>
+      <div className={`flex items-center justify-between flex-wrap gap-4 mb-12 p-4 md:p-6 rounded-3xl bg-[var(--color-card)] border border-[var(--color-card-border)] shadow-lg ${isArabic ? '' : 'flex-row-reverse'}`} style={{ direction: isArabic ? 'rtl' : 'ltr' }}>
         <div className="flex items-center gap-3 flex-wrap">
           <button
             onClick={handleAudio}
@@ -198,7 +198,7 @@ export default function AqwalDetail() {
               onClick={() => setShowExplanation(true)}
               className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-all hover:scale-110"
               style={{ color: 'var(--color-gold)', background: 'var(--color-bg-alt)', border: '1px solid rgba(184, 134, 11, 0.2)' }}
-              title={t('explanation') || 'الشرح'}
+              title={t('explanation')}
             >
               <Info size={20} className="md:w-6 md:h-6" />
             </button>
@@ -219,7 +219,7 @@ export default function AqwalDetail() {
             className="px-4 py-2.5 md:py-3 rounded-2xl bg-[var(--color-bg-alt)] border border-[var(--color-card-border)] flex items-center gap-2 text-xs md:text-sm font-bold transition-all hover:border-[var(--color-primary)]/30"
           >
             {copied ? <Check size={16} className="text-green-500 md:w-5 md:h-5" /> : <Copy size={16} className="md:w-5 md:h-5" />}
-            <span className="hidden sm:inline">{t('copy')}</span>
+            <span className={`hidden sm:inline ${isArabic ? 'arabic-text' : ''}`}>{t('copy')}</span>
           </button>
           
           <button
@@ -243,31 +243,31 @@ export default function AqwalDetail() {
           transition={{ delay: 0.3 }}
           className="neu-card p-6"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className={`flex items-center gap-3 mb-4 ${isArabic ? '' : 'flex-row-reverse'}`}>
             <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-white"
+              className="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0"
               style={{ background: 'var(--color-primary)' }}
             >
               <Users size={20} />
             </div>
-            <div>
-              <h3 className="arabic-text font-bold" style={{ color: 'var(--color-primary)' }}>
+            <div className={isArabic ? 'text-right' : 'text-left'}>
+              <h3 className={`font-bold ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-primary)' }}>
                 {t('about_scholar', { name: displayScholarName })}
               </h3>
-              <p className="text-xs arabic-text" style={{ color: 'var(--color-text-muted)' }}>
-                {scholar.era} • {t('died_year', { year: scholar.death_year })}
+              <p className={`text-xs ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-text-muted)' }}>
+                {t(scholar.era)} • {t('died_year')}: {scholar.death_year || (isArabic ? 'غير معروف' : 'Unknown')}
               </p>
             </div>
           </div>
-          <p className="arabic-text text-sm leading-relaxed mb-4 line-clamp-3" style={{ color: 'var(--color-text)', direction: isArabic ? 'rtl' : 'ltr' }}>
+          <p className={`text-sm leading-relaxed mb-4 line-clamp-3 ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-text)', direction: isArabic ? 'rtl' : 'ltr' }}>
             {isSomali && scholar.bio_so ? scholar.bio_so : scholar.bio_ar}
           </p>
           <Link
             to={`/scholars/${scholar.id}`}
-            className="text-xs arabic-text font-bold flex items-center gap-1"
+            className={`text-xs font-bold flex items-center gap-1 ${isArabic ? 'arabic-text' : 'flex-row-reverse'}`}
             style={{ color: 'var(--color-gold)' }}
           >
-            {t('view_full_bio')} <ChevronRight size={14} />
+            {t('view_full_bio')} <ChevronRight size={14} className={isArabic ? '' : 'rotate-180'} />
           </Link>
         </motion.div>
       )}
@@ -303,12 +303,12 @@ export default function AqwalDetail() {
               className="bg-[var(--color-card)] w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border border-[var(--color-card-border)]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-6 border-b border-[var(--color-card-border)] flex items-center justify-between bg-[var(--color-bg-alt)]/50">
-                <div className="flex items-center gap-3">
+              <div className={`p-6 border-b border-[var(--color-card-border)] flex items-center justify-between bg-[var(--color-bg-alt)]/50 ${isArabic ? '' : 'flex-row-reverse'}`}>
+                <div className={`flex items-center gap-3 ${isArabic ? '' : 'flex-row-reverse'}`}>
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-gold)]/10 flex items-center justify-center text-[var(--color-gold)]">
                     <Info size={20} />
                   </div>
-                  <h3 className="arabic-text font-bold text-lg">{t('explanation_title')}</h3>
+                  <h3 className={`font-bold text-lg ${isArabic ? 'arabic-text' : ''}`}>{t('explanation_title')}</h3>
                 </div>
                 <button 
                   onClick={() => setShowExplanation(false)}
@@ -319,17 +319,17 @@ export default function AqwalDetail() {
               </div>
               
               <div className="p-8 max-h-[60vh] overflow-y-auto space-y-8">
-                <div>
+                <div className={isArabic ? 'text-right' : 'text-left'}>
                   <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-3" style={{ color: 'var(--color-primary)' }}>Arabic / العربية</p>
-                  <p className="qawl-text text-xl leading-loose text-[var(--color-text)] text-right" style={{ direction: 'rtl' }}>
+                  <p className="qawl-text text-xl leading-loose text-[var(--color-text)]" style={{ direction: 'rtl' }}>
                     {qawl.explanation_ar}
                   </p>
                 </div>
 
                 {qawl.explanation_so && (
-                  <div className="pt-6 border-t border-[var(--color-card-border)]/50">
+                  <div className={`pt-6 border-t border-[var(--color-card-border)]/50 ${isArabic ? 'text-right' : 'text-left'}`}>
                     <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-3" style={{ color: 'var(--color-gold)' }}>Somali / Soomaali</p>
-                    <p className="text-lg leading-relaxed text-[var(--color-text)] font-sans text-left">
+                    <p className="text-lg leading-relaxed text-[var(--color-text)] font-sans">
                       {qawl.explanation_so}
                     </p>
                   </div>

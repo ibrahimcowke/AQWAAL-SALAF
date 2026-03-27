@@ -10,7 +10,7 @@ export default function Navbar() {
   const { i18n, t } = useTranslation();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'ar' ? 'en' : 'ar';
+    const newLang = i18n.language === 'ar' ? 'so' : 'ar';
     i18n.changeLanguage(newLang);
     document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = newLang;
@@ -23,9 +23,9 @@ export default function Navbar() {
       <div className="flex items-center gap-3">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-[var(--color-primary)] flex items-center justify-center text-white font-bold shadow-lg">
-            ن
+            {i18n.language === 'ar' ? 'ن' : 'N'}
           </div>
-          <span className="arabic-text font-bold text-lg hidden md:block" style={{ color: 'var(--color-primary)' }}>
+          <span className={`${i18n.language === 'ar' ? 'arabic-text' : ''} font-bold text-lg hidden md:block`} style={{ color: 'var(--color-primary)' }}>
             {t('app_name')}
           </span>
         </Link>
@@ -36,10 +36,12 @@ export default function Navbar() {
           onClick={toggleLanguage}
           className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:bg-white/20 active:scale-90 relative"
           style={{ background: 'var(--color-card-border)' }}
-          title="Change Language"
+          title={t('change_language')}
         >
           <Globe size={20} style={{ color: 'var(--color-text)' }} />
-          <span className="text-[8px] absolute -bottom-1 font-bold uppercase" style={{ color: 'var(--color-text)' }}>{i18n.language === 'ar' ? 'عربي' : 'EN'}</span>
+          <span className="text-[7px] absolute -bottom-1 font-bold uppercase truncate px-1" style={{ color: 'var(--color-text)' }}>
+            {i18n.language === 'ar' ? 'عربي' : 'SO'}
+          </span>
         </button>
 
         <button

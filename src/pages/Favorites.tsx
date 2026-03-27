@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Heart, BookOpen, MessageSquareQuote, Plus, Trash2, ChevronLeft, FolderHeart } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
 import { useContentStore } from '../stores/contentStore';
@@ -8,6 +9,7 @@ import QawlCard from '../components/ui/QawlCard';
 import toast from 'react-hot-toast';
 
 export default function Favorites() {
+  const { t, i18n } = useTranslation();
   const { user, addCollection, removeCollection } = useAuthStore();
   const { aqwaal, qisas } = useContentStore();
   const [activeTab, setActiveTab] = useState<'aqwaal' | 'qisas' | 'collections'>('aqwaal');
@@ -17,30 +19,33 @@ export default function Favorites() {
   const favAqwaal = aqwaal.filter((a) => user?.favorites_aqwaal.includes(a.id));
   const favQisas = qisas.filter((q) => user?.favorites_qisas.includes(q.id));
 
+  const isArabic = i18n.language === 'ar';
+  const isSomali = i18n.language === 'so';
+
   const handleAddColl = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newCollName.trim()) return;
     addCollection(newCollName.trim());
     setNewCollName('');
     setShowAddColl(false);
-    toast.success('تم إنشاء المجموعة بنجاح', { style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+    toast.success(t('added_to_favorites'), { style: { fontFamily: 'Amiri, serif', direction: isArabic ? 'rtl' : 'ltr' } });
   };
 
   return (
     <div className="page-container">
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="section-title text-2xl mb-1">المفضلة والمجموعات</h1>
-        <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)' }}>
-          كنوزك العلمية المختارة بعناية
+        <h1 className="section-title text-2xl mb-1">{t('favorites')}</h1>
+        <p className={`text-sm ${isArabic ? 'arabic-text' : ''}`} style={{ color: 'var(--color-text-muted)' }}>
+          {t('favorites_subtitle')}
         </p>
       </motion.div>
 
       {/* Tabs */}
       <div className="flex gap-2 mb-8 bg-[var(--color-bg-alt)] p-1 rounded-2xl">
         {[
-          { id: 'aqwaal', label: 'أقوال', icon: MessageSquareQuote, count: favAqwaal.length },
-          { id: 'qisas', label: 'قصص', icon: BookOpen, count: favQisas.length },
-          { id: 'collections', label: 'مجموعاتي', icon: FolderHeart, count: user?.collections.length || 0 },
+          { id: 'aqwaal', label: t('aqwaal'), icon: MessageSquareQuote, count: favAqwaal.length },
+          { id: 'qisas', label: t('qisas'), icon: BookOpen, count: favQisas.length },
+          { id: 'collections', label: t('my_collections'), icon: FolderHeart, count: user?.collections.length || 0 },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -52,7 +57,7 @@ export default function Favorites() {
             }`}
           >
             <tab.icon size={18} />
-            <span className="arabic-text text-[10px] font-bold">
+            <span className={`text-[10px] font-bold ${isArabic ? 'arabic-text' : ''}`}>
               {tab.label} ({tab.count})
             </span>
           </button>
@@ -72,7 +77,7 @@ export default function Favorites() {
               {favAqwaal.length > 0 ? (
                 favAqwaal.map((qawl, i) => <QawlCard key={qawl.id} qawl={qawl} index={i} compact />)
               ) : (
-                <EmptyState icon={<MessageSquareQuote size={48} />} title="لا توجد أقوال مفضلة بعد" sub="اضغط على القلب لحفظ الأقوال التي تعجبك" />
+                <EmptyState icon={<MessageSquareQuote size={48} />} title={t('no_aqwaal')} sub={t('start_searching')} />
               )}
             </div>
           )}
@@ -88,16 +93,20 @@ export default function Favorites() {
                           <Heart size={18} fill="currentColor" />
                         </div>
                         <div>
-                          <h3 className="arabic-text font-bold text-sm mb-1">{qissa.title_ar}</h3>
-                          <p className="arabic-text text-[10px] opacity-60 line-clamp-1">{qissa.summary_ar}</p>
+                          <h3 className={`font-bold text-sm mb-1 ${isSomali ? '' : 'arabic-text'}`}>
+                            {isSomali && qissa.title_so ? qissa.title_so : qissa.title_ar}
+                          </h3>
+                          <p className={`text-[10px] opacity-60 line-clamp-1 ${isSomali ? '' : 'arabic-text'}`}>
+                            {isSomali && qissa.summary_so ? qissa.summary_so : qissa.summary_ar}
+                          </p>
                         </div>
                       </div>
-                      <ChevronLeft size={16} className="text-[var(--color-text-muted)] rotate-180" />
+                      <ChevronLeft size={16} className={`text-[var(--color-text-muted)] ${isSomali ? '' : 'rotate-180'}`} />
                     </div>
                   </Link>
                 ))
               ) : (
-                <EmptyState icon={<BookOpen size={48} />} title="لا توجد قصص مفضلة بعد" sub="احفظ القصص والسير لتتمكن من قراءتها لاحقاً" />
+                <EmptyState icon={<BookOpen size={48} />} title={t('no_qisas')} sub={t('start_searching')} />
               )}
             </div>
           )}
@@ -109,7 +118,7 @@ export default function Favorites() {
                 className="w-full h-14 border-2 border-dashed border-[var(--color-card-border)] rounded-2xl flex items-center justify-center gap-2 text-[var(--color-primary)] hover:border-[var(--color-gold)] transition-colors"
               >
                 <Plus size={20} />
-                <span className="arabic-text font-bold">إنشاء مجموعة جديدة</span>
+                <span className={`font-bold ${isArabic ? 'arabic-text' : ''}`}>{t('create_collection')}</span>
               </button>
 
               <AnimatePresence>
@@ -125,13 +134,14 @@ export default function Favorites() {
                       type="text"
                       value={newCollName}
                       onChange={(e) => setNewCollName(e.target.value)}
-                      placeholder="اسم المجموعة (مثلاً: الصبر، التزكية...)"
-                      className="w-full px-4 py-2.5 rounded-xl arabic-text outline-none bg-[var(--color-bg-alt)] mb-3"
+                      placeholder={isArabic ? 'اسم المجموعة...' : 'Magaca kooxda...'}
+                      className={`w-full px-4 py-2.5 rounded-xl outline-none bg-[var(--color-bg-alt)] mb-3 ${isArabic ? 'arabic-text' : ''}`}
+                      dir={isArabic ? 'rtl' : 'ltr'}
                       autoFocus
                     />
                     <div className="flex gap-2">
-                        <button type="submit" className="neu-btn-primary flex-1 py-2 arabic-text text-sm">حفظ</button>
-                        <button type="button" onClick={() => setShowAddColl(false)} className="neu-btn flex-1 py-2 arabic-text text-sm">إلغاء</button>
+                        <button type="submit" className={`neu-btn-primary flex-1 py-2 text-sm ${isArabic ? 'arabic-text' : ''}`}>{t('confirm')}</button>
+                        <button type="button" onClick={() => setShowAddColl(false)} className={`neu-btn flex-1 py-2 text-sm ${isArabic ? 'arabic-text' : ''}`}>{isArabic ? 'إلغاء' : 'Ka noqo'}</button>
                     </div>
                   </motion.form>
                 )}
@@ -145,9 +155,9 @@ export default function Favorites() {
                         <FolderHeart size={18} />
                       </div>
                       <div>
-                        <h3 className="arabic-text font-bold text-sm">{coll.name_ar}</h3>
-                        <p className="arabic-text text-[10px] opacity-60">
-                          {coll.aqwaal_ids.length + coll.qisas_ids.length} عناصـر
+                        <h3 className={`font-bold text-sm ${isArabic ? 'arabic-text' : ''}`}>{coll.name_ar}</h3>
+                        <p className={`text-[10px] opacity-60 ${isArabic ? 'arabic-text' : ''}`}>
+                          {coll.aqwaal_ids.length + coll.qisas_ids.length} {t('items')}
                         </p>
                       </div>
                     </div>
@@ -161,7 +171,7 @@ export default function Favorites() {
                 ))}
 
                 {(!user?.collections || user.collections.length === 0) && !showAddColl && (
-                   <p className="arabic-text text-xs text-center py-4 opacity-40 italic">ليست لديك مجموعات مخصصة بعد</p>
+                   <p className={`text-xs text-center py-4 opacity-40 italic ${isArabic ? 'arabic-text' : ''}`}>{isArabic ? 'ليست لديك مجموعات مخصصة بعد' : 'Wali maadan abuurin kooxo kuu gaar ah'}</p>
                 )}
               </div>
             </div>
@@ -173,11 +183,13 @@ export default function Favorites() {
 }
 
 function EmptyState({ icon, title, sub }: { icon: React.ReactNode; title: string; sub: string }) {
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
   return (
     <div className="flex flex-col items-center justify-center py-20 text-center opacity-30">
       <div className="mb-4">{icon}</div>
-      <h3 className="arabic-text font-bold mb-1">{title}</h3>
-      <p className="arabic-text text-xs">{sub}</p>
+      <h3 className={`font-bold mb-1 ${isArabic ? 'arabic-text' : ''}`}>{title}</h3>
+      <p className={`text-xs ${isArabic ? 'arabic-text' : ''}`}>{sub}</p>
     </div>
   );
 }

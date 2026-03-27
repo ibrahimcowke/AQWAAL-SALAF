@@ -29,31 +29,31 @@ export default function Home() {
     { 
       id: 'aqwaal', 
       title: t('aqwaal'), 
-      sub: t('aqwaal') === 'الأقوال' ? 'حكم واقتباسات موثقة' : (t('aqwaal') === 'Sayings' ? 'Documented wisdom & quotes' : 'Xikmado iyo xigashooyin suuban'), 
+      sub: t('aqwaal_sub'), 
       icon: MessageSquareQuote, 
       color: 'var(--color-primary)', 
-      count: 22 
+      count: 80 
     },
     { 
       id: 'qisas', 
       title: t('qisas'), 
-      sub: t('qisas') === 'القصص' ? 'روايات مؤصلة ومفيدة' : (t('aqwaal') === 'Sayings' ? 'Authentic & useful narrations' : 'Sheekooyin dhab ah oo waxtar leh'), 
+      sub: t('qisas_sub'), 
       icon: BookOpen, 
       color: 'var(--color-gold)', 
-      count: 6 
+      count: 12 
     },
     { 
       id: 'scholars', 
       title: t('scholars'), 
-      sub: t('scholars') === 'العلماء' ? 'تراجم ومواقف' : (t('aqwaal') === 'Sayings' ? 'Biographies & stances' : 'Taariikhda culimada iyo mawaaqiftooda'), 
+      sub: t('scholars_sub'), 
       icon: Users, 
       color: '#10b981', 
-      count: 10 
+      count: 19 
     },
     { 
       id: 'search', 
       title: t('search'), 
-      sub: t('search') === 'البحث' ? 'ابحث بالكلمة أو العالم' : (t('aqwaal') === 'Sayings' ? 'Search by word or scholar' : 'Ku baadi-goob erey ama caalim'), 
+      sub: t('search_sub'), 
       icon: Search, 
       color: '#6366f1', 
       count: null 
@@ -94,12 +94,12 @@ export default function Home() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2 text-[var(--color-gold)]">
               <Sparkles size={18} />
-              <span className="arabic-text font-bold text-sm tracking-wide">{t('daily_qawl')}</span>
+              <span className={`font-bold text-sm tracking-wide ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('daily_qawl')}</span>
             </div>
             <button 
               onClick={() => refreshDailyQawl()}
               className="p-2 rounded-full hover:bg-[var(--color-gold)]/10 transition-colors text-[var(--color-gold)]/60 hover:text-[var(--color-gold)]"
-              title={t('settings') === 'Settings' ? 'Refresh' : 'Cusboonaysii'}
+              title={t('refresh')}
             >
               <RefreshCw size={16} />
             </button>
@@ -109,20 +109,20 @@ export default function Home() {
             <div className="text-center">
               <h2 
                 className={`qawl-text text-xl md:text-2xl leading-relaxed mb-6 ${i18n.language === 'ar' ? 'text-right' : 'text-center'}`} 
-                style={{ color: 'var(--color-text)' }}
+                style={{ color: 'var(--color-text)', direction: i18n.language === 'ar' ? 'rtl' : 'ltr' }}
               >
                 {i18n.language === 'so' && dailyQawl.text_so ? dailyQawl.text_so : dailyQawl.text_ar}
               </h2>
               <Link to={`/scholars/${dailyQawl.scholar_id}`} className="inline-block">
-                <span className="badge-scholar">
+                <span className={`badge-scholar ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>
                   {i18n.language === 'so' && dailyQawl.scholar_name_so ? dailyQawl.scholar_name_so : dailyQawl.scholar_name_ar}
                 </span>
               </Link>
             </div>
           ) : (
             <div className="h-40 flex items-center justify-center animate-pulse">
-              <div className="text-[var(--color-text-muted)] arabic-text">
-                {i18n.language === 'ar' ? 'جاري استحضار الحكمة...' : (i18n.language === 'so' ? 'Waa la soo kaxaynayaa...' : 'Fetching wisdom...')}
+              <div className={`text-[var(--color-text-muted)] ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>
+                {t('daily_fetching')}
               </div>
             </div>
           )}
@@ -132,9 +132,9 @@ export default function Home() {
       {/* Categories Grid */}
       <section className="mb-12">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="section-title text-xl m-0">{t('categories')}</h2>
-          <Link to="/aqwaal" className="text-xs arabic-text font-bold opacity-40 hover:opacity-100 flex items-center gap-1 transition-all">
-            {t('all')} <ChevronLeft size={14} />
+          <h2 className={`section-title text-xl m-0 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('categories')}</h2>
+          <Link to="/aqwaal" className={`text-xs font-bold opacity-40 hover:opacity-100 flex items-center gap-1 transition-all ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>
+            {t('all')} <ChevronLeft size={14} className={i18n.language === 'ar' ? '' : 'rotate-180'} />
           </Link>
         </div>
         
@@ -156,10 +156,10 @@ export default function Home() {
                       <cat.icon size={24} />
                     </div>
                     <div>
-                      <h3 className="arabic-text font-bold text-lg mb-0.5 group-hover:text-[var(--color-primary)] transition-colors">
+                      <h3 className={`font-bold text-lg mb-0.5 group-hover:text-[var(--color-primary)] transition-colors ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>
                         {cat.title}
                       </h3>
-                      <p className="arabic-text text-xs opacity-50">{cat.sub}</p>
+                      <p className={`text-xs opacity-50 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{cat.sub}</p>
                     </div>
                   </div>
                   {cat.count && (
@@ -179,16 +179,16 @@ export default function Home() {
         <div className="neu-card p-6 bg-gradient-to-br from-[var(--color-gold)]/5 to-transparent border-none">
           <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)]">
             <Quote size={20} />
-            <h2 className="arabic-text font-bold text-lg m-0">{t('random_quote')}</h2>
+            <h2 className={`font-bold text-lg m-0 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('random_quote')}</h2>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex-1">
                 {randomQawl ? (
                   <>
-                    <p className="qawl-text text-lg italic opacity-80 mb-2">
+                    <p className={`qawl-text text-lg italic opacity-80 mb-2 ${i18n.language === 'ar' ? 'text-right' : 'text-left'}`} style={{ direction: i18n.language === 'ar' ? 'rtl' : 'ltr' }}>
                         “{i18n.language === 'so' && randomQawl.text_so ? randomQawl.text_so : randomQawl.text_ar}”
                     </p>
-                    <span className="text-xs opacity-50">— {i18n.language === 'so' && randomQawl.scholar_name_so ? randomQawl.scholar_name_so : randomQawl.scholar_name_ar}</span>
+                    <span className={`text-xs opacity-50 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>— {i18n.language === 'so' && randomQawl.scholar_name_so ? randomQawl.scholar_name_so : randomQawl.scholar_name_ar}</span>
                   </>
                 ) : (
                   <div className="h-12 animate-pulse bg-[var(--color-bg-alt)] rounded-lg w-full" />
@@ -196,7 +196,7 @@ export default function Home() {
             </div>
             <Link 
                 to={randomQawl ? `/aqwaal/${randomQawl.id}` : "/aqwaal"} 
-                className="neu-btn px-6 py-2 rounded-xl text-sm arabic-text whitespace-nowrap"
+                className={`neu-btn px-6 py-2 rounded-xl text-sm whitespace-nowrap ${i18n.language === 'ar' ? 'arabic-text' : ''}`}
                 style={{ color: 'var(--color-primary)' }}
             >
                 {t('read_more')}
@@ -207,22 +207,31 @@ export default function Home() {
 
       {/* Quick Links / Tags */}
       <section>
-        <h2 className="section-title text-xl mb-6">{t('quick_links')}</h2>
+        <h2 className={`section-title text-xl mb-6 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('quick_links')}</h2>
         <div className="flex flex-wrap gap-2 md:gap-4 justify-center max-w-4xl mx-auto">
-          {['زهد', 'صبر', 'تقوى', 'علم', 'محبة', 'توبة', 'آخرة', 'إخلاص'].map((tag, i) => (
+          {[
+            { key: 'tag_zuhd', search: 'زهد' },
+            { key: 'tag_sabr', search: 'صبر' },
+            { key: 'tag_taqwa', search: 'تقوى' },
+            { key: 'tag_ilm', search: 'علم' },
+            { key: 'tag_mahabbah', search: 'محبة' },
+            { key: 'tag_tawbah', search: 'توبة' },
+            { key: 'tag_akhirah', search: 'آخرة' },
+            { key: 'tag_ikhlas', search: 'إخلاص' }
+          ].map((tag, i) => (
             <motion.div
-              key={tag}
+              key={tag.key}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 + i * 0.05 }}
             >
               <Link
-                to={`/aqwaal?tag=${tag}`}
-                className="neu-btn px-6 py-3 rounded-2xl arabic-text font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2"
+                to={`/aqwaal?tag=${tag.search}`}
+                className={`neu-btn px-6 py-3 rounded-2xl font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 ${i18n.language === 'ar' ? 'arabic-text' : 'flex-row-reverse'}`}
                 style={{ color: 'var(--color-text-muted)' }}
               >
                 <Sparkles size={12} className="opacity-40" />
-                #{tag}
+                #{t(tag.key)}
               </Link>
             </motion.div>
           ))}
@@ -235,7 +244,7 @@ export default function Home() {
                 to="/admin" 
                 className="text-[10px] arabic-text opacity-10 hover:opacity-100 transition-opacity"
             >
-                لوحة الإدارة ←
+                {t('admin_panel')} ←
             </Link>
       </div>
     </div>

@@ -1,11 +1,6 @@
 import type { ContentGrade } from '../../types';
 
-const gradeMap: Record<ContentGrade, { label: string; cls: string }> = {
-  authentic: { label: 'صحيح', cls: 'badge-authentic' },
-  hasan: { label: 'حسن', cls: 'badge-hasan' },
-  weak: { label: 'ضعيف', cls: 'badge-weak' },
-  unknown: { label: 'غير محدد', cls: 'badge-scholar' },
-};
+import { useTranslation } from 'react-i18next';
 
 interface BadgeProps {
   grade?: ContentGrade;
@@ -14,8 +9,16 @@ interface BadgeProps {
 }
 
 export function GradeBadge({ grade = 'unknown' }: { grade: ContentGrade }) {
-  const { label, cls } = gradeMap[grade];
-  return <span className={cls}>{label}</span>;
+  const { t } = useTranslation();
+  
+  const gradeStyles: Record<ContentGrade, string> = {
+    authentic: 'badge-authentic',
+    hasan: 'badge-hasan',
+    weak: 'badge-weak',
+    unknown: 'badge-scholar',
+  };
+
+  return <span className={gradeStyles[grade]}>{t(grade)}</span>;
 }
 
 export function EtaBadge({ label }: { label: string }) {

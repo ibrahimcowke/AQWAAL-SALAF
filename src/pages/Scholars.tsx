@@ -1,29 +1,32 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Users, ChevronLeft, Calendar, Scroll, History } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useContentStore } from '../stores/contentStore';
 import { useState } from 'react';
 import type { ScholarEra } from '../types';
 import { scholarEras } from '../constants/content';
 
 export default function Scholars() {
+  const { t, i18n } = useTranslation();
   const { scholars } = useContentStore();
   const [activeEra, setActiveEra] = useState<ScholarEra | 'all'>('all');
 
   const filtered = activeEra === 'all' ? scholars : scholars.filter((s) => s.era === activeEra);
+  const isSomali = i18n.language === 'so';
 
   return (
     <div className="page-container">
       <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h1 className="section-title text-2xl mb-1">العلماء والأعلام</h1>
+          <h1 className="section-title text-2xl mb-1">{t('scholars')}</h1>
           <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)' }}>
-            سِيَر مختصرة لأئمة الهدى ومصابيح الدجى
+            {t('scholars_subtitle')}
           </p>
         </div>
         <Link to="/timeline" className="neu-btn px-6 py-2.5 flex items-center gap-2 text-xs arabic-text font-bold bg-amber-50 text-amber-700 hover:scale-105 transition-all">
             <History size={16} />
-            عرض شريط القرون (Timeline)
+            {t('timeline_view')}
         </Link>
       </motion.div>
 
@@ -38,7 +41,7 @@ export default function Scholars() {
                 : 'bg-[var(--color-bg-alt)] text-[var(--color-text-muted)]'
             }`}
           >
-            جميع العصور
+            {t('all_eras')}
           </button>
           {scholarEras.map((era) => (
             <button
@@ -77,8 +80,8 @@ export default function Scholars() {
                     <Users size={28} />
                   </div>
                   <div>
-                    <h2 className="arabic-text font-bold text-lg leading-tight group-hover:text-[var(--color-primary)] transition-colors">
-                      {scholar.name_ar}
+                    <h2 className={`font-bold text-lg leading-tight group-hover:text-[var(--color-primary)] transition-colors ${isSomali ? '' : 'arabic-text'}`}>
+                      {isSomali && scholar.name_so ? scholar.name_so : scholar.name_ar}
                     </h2>
                     <p className="text-[10px] uppercase font-medium tracking-wider" style={{ color: 'var(--color-text-muted)', fontFamily: 'Inter, sans-serif' }}>
                       {scholar.name_en}
@@ -87,18 +90,18 @@ export default function Scholars() {
                 </div>
 
                 <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-[11px] arabic-text" style={{ color: 'var(--color-text-muted)' }}>
+                  <div className={`flex items-center gap-2 text-[11px] ${isSomali ? '' : 'arabic-text'}`} style={{ color: 'var(--color-text-muted)' }}>
                     <Scroll size={12} className="opacity-50" />
-                    <span className="font-bold opacity-80">العصر:</span> {scholar.era}
+                    <span className="font-bold opacity-80">{t('era_label')}:</span> {scholar.era}
                   </div>
-                  <div className="flex items-center gap-2 text-[11px] arabic-text" style={{ color: 'var(--color-text-muted)' }}>
+                  <div className={`flex items-center gap-2 text-[11px] ${isSomali ? '' : 'arabic-text'}`} style={{ color: 'var(--color-text-muted)' }}>
                     <Calendar size={12} className="opacity-50" />
-                    <span className="font-bold opacity-80">الوفاة:</span> {scholar.death_year || 'غير معروف'}
+                    <span className="font-bold opacity-80">{t('death_label')}:</span> {scholar.death_year || t('unknown')}
                   </div>
                 </div>
 
-                <p className="arabic-text text-xs leading-relaxed line-clamp-2 mb-4 mt-auto" style={{ color: 'var(--color-text-muted)' }}>
-                  {scholar.bio_ar}
+                <p className={`text-xs leading-relaxed line-clamp-2 mb-4 mt-auto ${isSomali ? '' : 'arabic-text'}`} style={{ color: 'var(--color-text-muted)' }}>
+                  {isSomali && scholar.bio_so ? scholar.bio_so : scholar.bio_ar}
                 </p>
 
                 <div className="flex items-center justify-between pt-3 border-t border-[var(--color-card-border)] border-dashed">
@@ -109,8 +112,8 @@ export default function Scholars() {
                         </span>
                       ))}
                    </div>
-                   <span className="flex items-center gap-1 text-[10px] arabic-text font-bold" style={{ color: 'var(--color-gold)' }}>
-                      السيرة <ChevronLeft size={12} />
+                   <span className={`flex items-center gap-1 text-[10px] font-bold ${isSomali ? '' : 'arabic-text'}`} style={{ color: 'var(--color-gold)' }}>
+                      {t('view_bio')} <ChevronLeft size={12} className={isSomali ? 'rotate-180' : ''} />
                    </span>
                 </div>
               </div>

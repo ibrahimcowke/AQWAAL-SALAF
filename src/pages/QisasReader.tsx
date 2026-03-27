@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 
 
 export default function QisasReader() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { qisas, getScholarById } = useContentStore();
@@ -44,33 +44,35 @@ export default function QisasReader() {
   if (!qissa) {
     return (
       <div className="page-container text-center py-20">
-        <p className="arabic-text text-lg">القصة غير موجودة</p>
+        <p className="arabic-text text-lg">{t('not_found_qissa')}</p>
         <button onClick={() => navigate(-1)} className="neu-btn px-6 py-2 mt-4 arabic-text">
-          رجوع
+          {t('back')}
         </button>
       </div>
     );
   }
 
   const isFav = isFavoriteQissa(qissa.id);
+  const isSomali = i18n.language === 'so';
 
   const toggleFav = () => {
     if (isFav) {
       removeFavoriteQissa(qissa.id);
-      toast.success('تم الإزالة من المفضلة', { icon: '💔', style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+      toast.success(t('removed_from_favorites'), { icon: '💔', style: { fontFamily: 'Amiri, serif', direction: isSomali ? 'ltr' : 'rtl' } });
     } else {
       addFavoriteQissa(qissa.id);
-      toast.success('تم الحفظ في المفضلة', { icon: '❤️', style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+      toast.success(t('added_to_favorites'), { icon: '❤️', style: { fontFamily: 'Amiri, serif', direction: isSomali ? 'ltr' : 'rtl' } });
     }
   };
 
   const handleShare = () => {
-    const text = `اقرأ قصة "${qissa.title_ar}"\n\nنور السلف`;
+    const title = isSomali && qissa.title_so ? qissa.title_so : qissa.title_ar;
+    const text = `${t('read_more')} "${title}"\n\n${t('app_name')}`;
     if (navigator.share) {
       navigator.share({ text });
     } else {
       navigator.clipboard.writeText(text);
-      toast.success('تم نسخ الرابط', { style: { fontFamily: 'Amiri, serif', direction: 'rtl' } });
+      toast.success(t('copied_success'), { style: { fontFamily: 'Amiri, serif', direction: isSomali ? 'ltr' : 'rtl' } });
     }
   };
 
@@ -91,8 +93,8 @@ export default function QisasReader() {
             className="flex items-center gap-1 text-sm arabic-text group"
             style={{ color: 'var(--color-text-muted)' }}
           >
-            <ChevronRight size={20} className="transition-transform group-hover:translate-x-1" />
-            رجوع
+            <ChevronRight size={20} className={`transition-transform ${isSomali ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+            {t('back')}
           </button>
           
           <div className="flex gap-2">
@@ -132,10 +134,15 @@ export default function QisasReader() {
       )}
 
       <header className="mb-12 text-center">
-        <h1 className="arabic-text font-bold text-3xl md:text-4xl leading-tight mb-4" style={{ color: 'var(--color-primary)' }}>
-          {qissa.title_ar}
+        <h1 className={`font-bold text-3xl md:text-4xl leading-tight mb-4 ${isSomali ? '' : 'arabic-text'}`} style={{ color: 'var(--color-primary)' }}>
+          {isSomali && qissa.title_so ? qissa.title_so : qissa.title_ar}
         </h1>
-        {qissa.title_so && (
+        {isSomali && qissa.title_ar && (
+          <h2 className="text-xl md:text-2xl arabic-text mb-4 opacity-60">
+            {qissa.title_ar}
+          </h2>
+        )}
+        {!isSomali && qissa.title_so && (
           <h2 className="text-xl md:text-2xl font-sans mb-4 opacity-60">
             {qissa.title_so}
           </h2>
@@ -144,11 +151,11 @@ export default function QisasReader() {
           {scholar && (
             <Link to={`/scholars/${scholar.id}`} className="flex items-center gap-1 hover:text-[var(--color-gold)]">
               <BookOpen size={14} />
-              {scholar.name_ar} {scholar.name_so ? `(${scholar.name_so})` : ''}
+              {i18n.language === 'so' && scholar.name_so ? scholar.name_so : scholar.name_ar}
             </Link>
           )}
           <span>•</span>
-          <span>{qissa.reading_time} دقائق</span>
+          <span>{t('minutes_read', { count: qissa.reading_time })}</span>
         </div>
         <div className="gold-divider mt-6 opacity-30" />
       </header>
@@ -160,13 +167,22 @@ export default function QisasReader() {
         transition={{ duration: 0.8 }}
         className="mb-20 space-y-12"
       >
-        <div className="kitab-text whitespace-pre-wrap" style={{ fontSize: `${fontSize}rem` }}>
-          {qissa.content_ar}
+        <div className={`kitab-text whitespace-pre-wrap ${isSomali ? 'text-left font-sans' : 'text-right'}`} style={{ fontSize: `${fontSize}rem`, direction: isSomali ? 'ltr' : 'rtl' }}>
+          {isSomali && qissa.content_so ? qissa.content_so : qissa.content_ar}
         </div>
 
-        {qissa.content_so && (
+        {isSomali && qissa.content_ar && (
+          <div className="p-8 md:p-12 rounded-3xl bg-[var(--color-bg-alt)]/30 border-r-4 border-[var(--color-gold)] space-y-6">
+            <p className="text-sm font-bold uppercase tracking-widest opacity-40 arabic-text text-right">النص الأصلي (باللغة العربية)</p>
+            <div className="text-lg md:text-xl leading-relaxed arab-text text-right whitespace-pre-wrap" style={{ color: 'var(--color-text)', direction: 'rtl' }}>
+              {qissa.content_ar}
+            </div>
+          </div>
+        )}
+
+        {!isSomali && qissa.content_so && (
           <div className="p-8 md:p-12 rounded-3xl bg-[var(--color-bg-alt)]/30 border-l-4 border-[var(--color-gold)] space-y-6">
-            <p className="text-sm font-bold uppercase tracking-widest opacity-40">{t('somali_translation') || 'Tirjumaadda Soomaaliga'}</p>
+            <p className="text-sm font-bold uppercase tracking-widest opacity-40">{t('somali_translation')}</p>
             <div className="text-lg md:text-xl leading-relaxed font-sans text-left whitespace-pre-wrap" style={{ color: 'var(--color-text)' }}>
               {qissa.content_so}
             </div>
@@ -176,15 +192,15 @@ export default function QisasReader() {
 
       {/* Source & Authenticity Info */}
       <section className="neu-card p-6 mb-12">
-        <h3 className="arabic-text font-bold mb-4" style={{ color: 'var(--color-primary)' }}>تفاصيل إضافية</h3>
+        <h3 className="arabic-text font-bold mb-4" style={{ color: 'var(--color-primary)' }}>{t('biography_stances')}</h3>
         <div className="space-y-3">
-          <p className="arabic-text text-sm flex items-center gap-2">
-            <span className="font-bold opacity-60">📚 المصدر:</span>
-            {qissa.source}
+          <p className={`text-sm flex items-center gap-2 ${isSomali ? '' : 'arabic-text'}`}>
+            <span className="font-bold opacity-60">📚 {t('source')}:</span>
+            {isSomali && qissa.source_so ? qissa.source_so : qissa.source}
           </p>
           {qissa.authenticity_notes && (
-            <p className="arabic-text text-sm border-r-2 pr-3 mt-2" style={{ borderColor: 'var(--color-gold)', color: 'var(--color-text-muted)' }}>
-              <span className="font-bold mb-1 block">ملاحظات حول صحة القصة:</span>
+            <p className={`text-sm border-r-2 pr-3 mt-2 ${isSomali ? '' : 'arabic-text'}`} style={{ borderColor: 'var(--color-gold)', color: 'var(--color-text-muted)' }}>
+              <span className="font-bold mb-1 block">{t('authenticity')}:</span>
               {qissa.authenticity_notes}
             </p>
           )}

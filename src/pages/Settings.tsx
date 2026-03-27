@@ -131,8 +131,8 @@ export default function Settings() {
               <div className="flex items-center gap-3">
                   <Bell size={20} className="text-[var(--color-gold)]" />
                   <div>
-                      <h3 className="arabic-text font-bold text-sm">تنبيهات الحكمة اليومية</h3>
-                      <p className="arabic-text text-[10px] opacity-60">تلقى قولاً مختاراً من السلف كل صباح</p>
+                      <h3 className="arabic-text font-bold text-sm">{t('notifications')}</h3>
+                      <p className="arabic-text text-[10px] opacity-60">{t('notifications_desc')}</p>
                   </div>
               </div>
               <input type="time" defaultValue="08:00" className="bg-[var(--color-bg-alt)] border-none rounded-lg p-2 text-xs arabic-text" />
@@ -143,20 +143,20 @@ export default function Settings() {
                   <div className="flex items-center gap-3">
                       <Volume2 size={20} className="text-[var(--color-gold)]" />
                       <div>
-                          <h3 className="arabic-text font-bold text-sm">اختبار جودة الصوت</h3>
-                          <p className="arabic-text text-[10px] opacity-60">تأكد من عمل ميزة القراءة الصوتية</p>
+                          <h3 className="arabic-text font-bold text-sm">{t('audio_test')}</h3>
+                          <p className="arabic-text text-[10px] opacity-60">{t('audio_test_desc')}</p>
                       </div>
                   </div>
                   <button 
                     onClick={() => useAudioStore.getState().testVoice()}
                     className="px-4 py-2 rounded-xl bg-[var(--color-primary)] text-white arabic-text font-bold text-xs shadow-md active:scale-95 transition-all"
                   >
-                    بدء الاختبار
+                    {t('start_test')}
                   </button>
               </div>
               <div className="p-3 rounded-lg bg-[var(--color-bg-alt)] border border-dashed border-[var(--color-gold)]/20">
                   <p className="arabic-text text-[9px] opacity-70 leading-relaxed">
-                      💡 ملاحظة: إذا لم يعمل الصوت، يرجى التأكد من تثبيت حزمة اللغة العربية في إعدادات هاتفك (Settings {'->'} Accessibility {'->'} Text-to-Speech).
+                      💡 {t('audio_note')}
                   </p>
               </div>
           </div>
@@ -180,21 +180,21 @@ export default function Settings() {
                     <Globe size={18} className="text-[var(--color-gold)]" />
                     <span className="arabic-text text-sm">{t('website')}</span>
                 </div>
-                <ChevronLeft size={16} className="rotate-180 opacity-30" />
+                <ChevronLeft size={16} className={`${i18n.language === 'ar' ? 'rotate-180' : ''} opacity-30`} />
             </button>
             <button className="w-full p-4 flex items-center justify-between hover:bg-[var(--color-bg-alt)] transition-colors text-right">
                 <div className="flex items-center gap-3">
                     <Shield size={18} className="text-[var(--color-gold)]" />
                     <span className="arabic-text text-sm">{t('privacy_policy')}</span>
                 </div>
-                <ChevronLeft size={16} className="rotate-180 opacity-30" />
+                <ChevronLeft size={16} className={`${i18n.language === 'ar' ? 'rotate-180' : ''} opacity-30`} />
             </button>
             <button className="w-full p-4 flex items-center justify-between hover:bg-[var(--color-bg-alt)] transition-colors text-right">
                 <div className="flex items-center gap-3">
                     <Mail size={18} className="text-[var(--color-gold)]" />
                     <span className="arabic-text text-sm">{t('contact_us')}</span>
                 </div>
-                <ChevronLeft size={16} className="rotate-180 opacity-30" />
+                <ChevronLeft size={16} className={`${i18n.language === 'ar' ? 'rotate-180' : ''} opacity-30`} />
             </button>
         </div>
       </section>
@@ -205,16 +205,16 @@ export default function Settings() {
             onClick={async () => {
                 const res = await migrateDataToFirestore();
                 if (res.success) {
-                    toast.success('تم رفع البيانات إلى السحابة بنجاح');
+                    toast.success(t('sync_success'));
                 } else {
-                    toast.error('فشل رفع البيانات');
+                    toast.error(t('sync_failed'));
                 }
             }}
             className="w-full py-4 rounded-2xl bg-[var(--color-primary)] text-white arabic-text font-bold text-sm shadow-md active:scale-[0.98] transition-all mb-4"
           >
               <div className="flex items-center justify-center gap-2">
                 <Cloud size={18} />
-                <span>مزامنة البيانات الأساسية مع السحابة (Admin)</span>
+                <span>{t('sync_data')} (Admin)</span>
               </div>
           </button>
           <button 
@@ -224,10 +224,10 @@ export default function Settings() {
               {t('clear_data')}
           </button>
           <button 
-            onClick={() => { clearSearchHistory(); toast.success('تم مسح سجل البحث'); }}
+            onClick={() => { clearSearchHistory(); toast.success(t('cache_cleared')); }}
             className="w-full py-4 rounded-2xl border-2 border-dashed border-gray-200 text-gray-400 arabic-text font-bold text-sm hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] transition-all"
           >
-              مسح سجل البحث فقط
+              {t('clear_search_history')}
           </button>
           <p className="text-center mt-3 text-[10px] arabic-text opacity-40">
               {t('clear_data_desc')}

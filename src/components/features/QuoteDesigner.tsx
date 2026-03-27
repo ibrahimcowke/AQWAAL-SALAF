@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, X, Type, Palette, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
 interface QuoteDesignerProps {
@@ -9,22 +10,26 @@ interface QuoteDesignerProps {
   onClose: () => void;
 }
 
-const BACKGROUNDS = [
-  { id: 'glass', name: 'زجاجي', style: 'linear-gradient(135deg, #1e3a34, #12211e)' },
-  { id: 'gold', name: 'ملكي', style: 'linear-gradient(135deg, #b8860b, #daa520)' },
-  { id: 'dark', name: 'ليل', style: 'linear-gradient(135deg, #0f172a, #1e293b)' },
-  { id: 'mint', name: 'ريحان', style: 'linear-gradient(135deg, #4ade80, #166534)' },
-  { id: 'sepia', name: 'قديم', style: 'linear-gradient(135deg, #78350f, #451a03)' },
-];
-
-const FONTS = [
-  { id: 'amiri', name: 'أميري', family: 'Amiri, serif' },
-  { id: 'scheherazade', name: 'شهرزاد', family: "'Scheherazade New', serif" },
-  { id: 'aref', name: 'رقعة', family: "'Aref Ruqaa', serif" },
-];
-
 export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerProps) {
+  const { t, i18n } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const isArabic = i18n.language === 'ar';
+
+  const BACKGROUNDS = [
+    { id: 'glass', name: t('bg_glass'), style: 'linear-gradient(135deg, #1e3a34, #12211e)' },
+    { id: 'gold', name: t('bg_royal'), style: 'linear-gradient(135deg, #b8860b, #daa520)' },
+    { id: 'dark', name: t('bg_night'), style: 'linear-gradient(135deg, #0f172a, #1e293b)' },
+    { id: 'mint', name: t('bg_mint'), style: 'linear-gradient(135deg, #4ade80, #166534)' },
+    { id: 'sepia', name: t('bg_old'), style: 'linear-gradient(135deg, #78350f, #451a03)' },
+  ];
+
+  const FONTS = [
+    { id: 'amiri', name: t('font_amiri_name'), family: 'Amiri, serif' },
+    { id: 'scheherazade', name: t('font_scheherazade_name'), family: "'Scheherazade New', serif" },
+    { id: 'aref', name: t('font_ruqaa_name'), family: "'Aref Ruqaa', serif" },
+  ];
+
   const [bg, setBg] = useState(BACKGROUNDS[0]);
   const [font, setFont] = useState(FONTS[0]);
   const [padding, setPadding] = useState(60);
@@ -107,7 +112,7 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
     // 5. Branding
     ctx.font = 'bold 24px Inter, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.3)';
-    ctx.fillText('نور السلف | NOOR AL-SALAF', canvas.width / 2, canvas.height - 80);
+    ctx.fillText(t('brand_watermark'), canvas.width / 2, canvas.height - 80);
   };
 
   useEffect(() => {
@@ -122,7 +127,7 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
     link.download = `noor-salaf-quote-${Date.now()}.png`;
     link.href = canvas.toDataURL('image/png');
     link.click();
-    toast.success('تم تحميل الصورة بنجاح');
+    toast.success(t('download_success'));
   };
 
   return (
@@ -132,7 +137,7 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
     >
-        <div className="bg-[var(--color-bg)] w-full max-w-5xl rounded-3xl overflow-hidden flex flex-col md:flex-row h-[90vh] shadow-2xl">
+        <div className={`bg-[var(--color-bg)] w-full max-w-5xl rounded-3xl overflow-hidden flex flex-col md:flex-row h-[90vh] shadow-2xl ${isArabic ? '' : 'md:flex-row-reverse'}`}>
             {/* Canvas Preview Area */}
             <div className="flex-1 bg-[#111] flex items-center justify-center p-6 relative overflow-hidden group">
                 <canvas 
@@ -143,7 +148,7 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
                 
                 <button 
                     onClick={onClose}
-                    className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all z-10"
+                    className={`absolute top-4 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all z-10 ${isArabic ? 'left-4' : 'right-4'}`}
                 >
                     <X size={24} />
                 </button>
@@ -151,24 +156,24 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
                 <div className="absolute bottom-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
                     <button onClick={handleDownload} className="neu-btn-primary px-6 py-2 flex items-center gap-2">
                         <Download size={20} />
-                        <span className="arabic-text font-bold">تحميل الصورة</span>
+                        <span className={`font-bold ${isArabic ? 'arabic-text' : ''}`}>{t('download_image')}</span>
                     </button>
                 </div>
             </div>
 
             {/* Controls Panel */}
             <div className="w-full md:w-80 bg-[var(--color-card)] border-r border-[var(--color-card-border)] p-6 overflow-y-auto">
-                <div className="flex items-center gap-2 mb-8 text-[var(--color-primary)]">
+                <div className={`flex items-center gap-2 mb-8 text-[var(--color-primary)] ${isArabic ? '' : 'flex-row-reverse'}`}>
                     <Sparkles size={20} />
-                    <h2 className="arabic-text font-bold text-lg m-0">مصمم البطاقات</h2>
+                    <h2 className={`font-bold text-lg m-0 ${isArabic ? 'arabic-text' : ''}`}>{t('designer_title')}</h2>
                 </div>
 
                 <div className="space-y-8">
                     {/* Backgrounds */}
                     <div className="space-y-3">
-                        <label className="arabic-text text-xs font-bold opacity-60 flex items-center gap-2">
+                        <label className={`text-xs font-bold opacity-60 flex items-center gap-2 ${isArabic ? 'arabic-text' : 'flex-row-reverse'}`}>
                             <Palette size={14} />
-                            اختر الخلفية:
+                            {t('choose_bg')}
                         </label>
                         <div className="grid grid-cols-5 gap-2">
                             {BACKGROUNDS.map(item => (
@@ -184,20 +189,20 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
 
                     {/* Fonts */}
                     <div className="space-y-3">
-                        <label className="arabic-text text-xs font-bold opacity-60 flex items-center gap-2">
+                        <label className={`text-xs font-bold opacity-60 flex items-center gap-2 ${isArabic ? 'arabic-text' : 'flex-row-reverse'}`}>
                             <Type size={14} />
-                            نوع الخط:
+                            {t('font_type')}
                         </label>
                         <div className="flex flex-col gap-2">
                             {FONTS.map(item => (
                                 <button
                                     key={item.id}
                                     onClick={() => setFont(item)}
-                                    className={`w-full py-2 px-4 rounded-xl arabic-text text-sm border-2 transition-all text-right ${
+                                    className={`w-full py-2 px-4 rounded-xl text-sm border-2 transition-all ${
                                         font.id === item.id 
                                         ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/5 text-[var(--color-primary)]' 
                                         : 'border-transparent bg-[var(--color-bg-alt)] opacity-60'
-                                    }`}
+                                    } ${isArabic ? 'arabic-text text-right' : 'text-left'}`}
                                     style={{ fontFamily: item.family }}
                                 >
                                     {item.name}
@@ -209,8 +214,8 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
                     {/* Sizing Controls */}
                     <div className="space-y-4 pt-4 border-t border-dashed border-[var(--color-card-border)]">
                         <div className="space-y-2">
-                            <div className="flex justify-between items-center">
-                                <label className="arabic-text text-[10px] font-bold opacity-60">حجم الخط</label>
+                            <div className={`flex justify-between items-center ${isArabic ? 'flex-row-reverse' : ''}`}>
+                                <label className={`text-[10px] font-bold opacity-60 ${isArabic ? 'arabic-text' : ''}`}>{t('font_size')}</label>
                                 <span className="text-[10px] font-mono">{fontSize}px</span>
                             </div>
                             <input 
@@ -220,8 +225,8 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
                             />
                         </div>
                         <div className="space-y-2">
-                            <div className="flex justify-between items-center">
-                                <label className="arabic-text text-[10px] font-bold opacity-60">الهوامش</label>
+                            <div className={`flex justify-between items-center ${isArabic ? 'flex-row-reverse' : ''}`}>
+                                <label className={`text-[10px] font-bold opacity-60 ${isArabic ? 'arabic-text' : ''}`}>{t('margins')}</label>
                                 <span className="text-[10px] font-mono">{padding}px</span>
                             </div>
                             <input 
@@ -234,12 +239,12 @@ export default function QuoteDesigner({ text, author, onClose }: QuoteDesignerPr
                 </div>
 
                 <div className="mt-12 space-y-2">
-                    <button onClick={handleDownload} className="w-full py-4 rounded-2xl neu-btn-primary flex items-center justify-center gap-3 font-bold arabic-text transition-all active:scale-95 shadow-lg">
+                    <button onClick={handleDownload} className={`w-full py-4 rounded-2xl neu-btn-primary flex items-center justify-center gap-3 font-bold transition-all active:scale-95 shadow-lg ${isArabic ? 'arabic-text' : ''}`}>
                         <Download size={20} />
-                        حفظ ومشاركة
+                        {t('save_and_share')}
                     </button>
-                    <p className="arabic-text text-[10px] text-center opacity-40">
-                        الأبعاد محسنة لـ Instagram و Facebook
+                    <p className={`text-[10px] text-center opacity-40 ${isArabic ? 'arabic-text' : ''}`}>
+                        {t('optimized_social')}
                     </p>
                 </div>
             </div>

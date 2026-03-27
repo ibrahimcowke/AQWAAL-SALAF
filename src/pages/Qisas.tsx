@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Clock, BookOpen, ChevronLeft, Sparkles, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useContentStore } from '../stores/contentStore';
 import { useProgressStore } from '../stores/progressStore';
 import { TagBadge } from '../components/ui/Badge';
 
 export default function Qisas() {
+  const { t, i18n } = useTranslation();
   const { qisas, activeTag, setActiveTag } = useContentStore();
   const { isRead } = useProgressStore();
+
+  const isSomali = i18n.language === 'so';
 
   const filtered = activeTag ? qisas.filter((q) => q.tags.includes(activeTag)) : qisas;
 
@@ -16,16 +20,16 @@ export default function Qisas() {
   return (
     <div className="page-container">
       <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="section-title text-2xl mb-1">القصص والسير</h1>
+        <h1 className="section-title text-2xl mb-1">{t('qisas')}</h1>
         <p className="arabic-text text-sm" style={{ color: 'var(--color-text-muted)' }}>
-          عِبَر ومواقف من حياة سلفنا الصالح
+          {t('qisas_subtitle')}
         </p>
       </motion.div>
 
       {/* Filter Tags */}
       <div className="mb-8 overflow-x-auto pb-2 scrollbar-hide">
         <div className="flex gap-2 min-w-max">
-          <TagBadge label="الكل" active={!activeTag} onClick={() => setActiveTag('')} />
+          <TagBadge label={t('all')} active={!activeTag} onClick={() => setActiveTag('')} />
           {tags.map((tag) => (
             <TagBadge key={tag} label={tag} active={activeTag === tag} onClick={() => setActiveTag(tag)} />
           ))}
@@ -58,23 +62,23 @@ export default function Qisas() {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2 text-[10px] arabic-text" style={{ color: 'var(--color-text-muted)' }}>
                       <Clock size={12} />
-                      {qissa.reading_time} دقائق قراءة
+                      {t('minutes_read', { count: qissa.reading_time })}
                     </div>
                     {isRead(qissa.id) && (
                       <div className="flex items-center gap-1 text-[10px] arabic-text text-emerald-600 font-bold">
                         <CheckCircle2 size={12} />
-                        تمت القراءة
+                        {t('read_status')}
                       </div>
                     )}
                   </div>
                 </div>
 
-                <h2 className="arabic-text font-bold text-lg mb-2 transition-colors group-hover:text-[var(--color-primary)]">
-                  {qissa.title_ar}
+                <h2 className={`font-bold text-lg mb-2 transition-colors group-hover:text-[var(--color-primary)] ${isSomali ? '' : 'arabic-text'}`}>
+                  {isSomali && qissa.title_so ? qissa.title_so : qissa.title_ar}
                 </h2>
 
-                <p className="arabic-text text-sm leading-relaxed mb-4 line-clamp-3" style={{ color: 'var(--color-text-muted)' }}>
-                  {qissa.summary_ar}
+                <p className={`text-sm leading-relaxed mb-4 line-clamp-3 ${isSomali ? '' : 'arabic-text'}`} style={{ color: 'var(--color-text-muted)' }}>
+                  {isSomali && qissa.summary_so ? qissa.summary_so : qissa.summary_ar}
                 </p>
 
                 <div className="flex items-center justify-between mt-auto">
@@ -91,7 +95,7 @@ export default function Qisas() {
                   </div>
 
                   <span className="flex items-center gap-1 text-xs arabic-text font-bold" style={{ color: 'var(--color-primary)' }}>
-                    اقرأ المزيد <ChevronLeft size={14} />
+                    {t('read_more')} <ChevronLeft size={14} className={isSomali ? 'rotate-180' : ''} />
                   </span>
                 </div>
               </div>
@@ -103,7 +107,7 @@ export default function Qisas() {
       {filtered.length === 0 && (
         <div className="text-center py-20">
           <p className="arabic-text text-lg" style={{ color: 'var(--color-text-muted)' }}>
-            لا توجد قصص بهذا التصنيف حالياً
+            {t('not_found_qissa')}
           </p>
         </div>
       )}
