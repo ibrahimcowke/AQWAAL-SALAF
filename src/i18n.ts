@@ -155,7 +155,9 @@ const resources = {
       "tag_akhirah": "آخرة",
       "tag_ikhlas": "إخلاص",
       "refresh": "تحديث",
-      "loading_treasures": "جاري تحميل كنوز السلف..."
+      "loading_treasures": "جاري تحميل كنوز السلف...",
+      "next_qawl": "المقولة التالية",
+      "previous_qawl": "المقولة السابقة"
     }
   },
   en: {
@@ -311,7 +313,9 @@ const resources = {
       "tag_akhirah": "Hereafter",
       "tag_ikhlas": "Sincerity",
       "refresh": "Refresh",
-      "loading_treasures": "Loading treasures of the Salaf..."
+      "loading_treasures": "Loading treasures of the Salaf...",
+      "next_qawl": "Next Saying",
+      "previous_qawl": "Previous Saying"
     }
   },
   so: {
@@ -467,7 +471,9 @@ const resources = {
       "tag_akhirah": "Aakhiro",
       "tag_ikhlas": "Ikhlaas",
       "refresh": "Cusboonaysii",
-      "loading_treasures": "Waa la soo kaxaynayaa khasnadihii Salafka..."
+      "loading_treasures": "Waa la soo kaxaynayaa khasnadihii Salafka...",
+      "next_qawl": "Oraahda xigta",
+      "previous_qawl": "Oraahda hore"
     }
   }
 }

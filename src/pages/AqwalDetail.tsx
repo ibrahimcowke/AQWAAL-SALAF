@@ -30,6 +30,16 @@ export default function AqwalDetail() {
   const qawl = aqwaal.find((a) => a.id === id);
   const scholar = qawl ? getScholarById(qawl.scholar_id) : null;
 
+  // Navigation Logic
+  const currentIndex = aqwaal.findIndex(a => a.id === id);
+  const prevQawl = currentIndex > 0 ? aqwaal[currentIndex - 1] : null;
+  const nextQawl = currentIndex < aqwaal.length - 1 ? aqwaal[currentIndex + 1] : null;
+
+  const prevId = prevQawl?.id;
+  const nextId = nextQawl?.id;
+  const prevText = prevQawl ? (isSomali && prevQawl.text_so ? prevQawl.text_so : prevQawl.text_ar) : '';
+  const nextText = nextQawl ? (isSomali && nextQawl.text_so ? nextQawl.text_so : nextQawl.text_ar) : '';
+
   if (!qawl) {
     return (
       <div className="page-container text-center py-20">
@@ -273,7 +283,7 @@ export default function AqwalDetail() {
       )}
 
       {/* Tags */}
-      <div className="mt-8 flex flex-wrap gap-2 justify-center">
+      <div className="mt-8 flex flex-wrap gap-2 justify-center mb-12">
         {qawl.tags.map((tag) => (
           <Link
             key={tag}
@@ -284,6 +294,39 @@ export default function AqwalDetail() {
             #{tag}
           </Link>
         ))}
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className={`flex items-center gap-4 mt-8 ${isArabic ? '' : 'flex-row-reverse'}`} style={{ direction: isArabic ? 'rtl' : 'ltr' }}>
+        {prevId && (
+          <button
+            onClick={() => navigate(`/aqwaal/${prevId}`)}
+            className="flex-1 group neu-card p-4 flex items-center gap-3 transition-all hover:border-[var(--color-primary)]/30"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-alt)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors">
+              <ChevronRight size={20} className={isArabic ? '' : 'rotate-180'} />
+            </div>
+            <div className="text-right flex-1">
+              <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold mb-0.5">{t('previous_qawl')}</p>
+              <p className={`text-xs font-bold line-clamp-1 ${isArabic ? 'arabic-text' : ''}`}>{prevText}</p>
+            </div>
+          </button>
+        )}
+
+        {nextId && (
+          <button
+            onClick={() => navigate(`/aqwaal/${nextId}`)}
+            className="flex-1 group neu-card p-4 flex items-center gap-3 transition-all hover:border-[var(--color-primary)]/30 text-right"
+          >
+            <div className="text-right flex-1">
+              <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold mb-0.5">{t('next_qawl')}</p>
+              <p className={`text-xs font-bold line-clamp-1 ${isArabic ? 'arabic-text' : ''}`}>{nextText}</p>
+            </div>
+            <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-alt)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors">
+              <ChevronRight size={20} className={isArabic ? 'rotate-180' : ''} />
+            </div>
+          </button>
+        )}
       </div>
 
       {/* Explanation Modal */}
