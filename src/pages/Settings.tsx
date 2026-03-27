@@ -10,7 +10,7 @@ import { migrateDataToFirestore } from '../firebase/migrate';
 export default function Settings() {
   const { mode, setMode, fontFamily, setFontFamily, fontSize, setFontSize, readingMode, toggleReadingMode } = useThemeStore();
   const { clearSearchHistory } = useProgressStore();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleClearCache = () => {
     localStorage.clear();
