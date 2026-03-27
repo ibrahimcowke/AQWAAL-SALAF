@@ -177,9 +177,23 @@ export default function Home() {
       {/* Random Quote Widget */}
       <section className="mb-12">
         <div className="neu-card p-6 bg-gradient-to-br from-[var(--color-gold)]/5 to-transparent border-none">
-          <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)]">
-            <Quote size={20} />
-            <h2 className={`font-bold text-lg m-0 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('random_quote')}</h2>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2 text-[var(--color-primary)]">
+              <Quote size={20} />
+              <h2 className={`font-bold text-lg m-0 ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('random_quote')}</h2>
+            </div>
+            <button 
+              onClick={() => {
+                const available = aqwaal.filter(a => a.id !== randomQawl?.id);
+                const pool = available.length > 0 ? available : aqwaal;
+                setRandomQawl(pool[Math.floor(Math.random() * pool.length)]);
+              }}
+              className="p-2 rounded-full hover:bg-[var(--color-primary)]/10 transition-colors text-[var(--color-primary)]/60 hover:text-[var(--color-primary)] flex items-center gap-2"
+              title={t('refresh')}
+            >
+              <span className={`text-[10px] font-bold uppercase tracking-widest hidden sm:inline ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('refresh')}</span>
+              <RefreshCw size={14} />
+            </button>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex-1">

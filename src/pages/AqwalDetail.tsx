@@ -296,7 +296,7 @@ export default function AqwalDetail() {
         ))}
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons (Bottom) */}
       <div className={`flex items-center gap-4 mt-8 ${isArabic ? '' : 'flex-row-reverse'}`} style={{ direction: isArabic ? 'rtl' : 'ltr' }}>
         {prevId && (
           <button
@@ -325,6 +325,29 @@ export default function AqwalDetail() {
             <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-alt)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors">
               <ChevronRight size={20} className={isArabic ? 'rotate-180' : ''} />
             </div>
+          </button>
+        )}
+      </div>
+
+      {/* Floating Navigation Arrows (Desktop/Tablet) */}
+      <div className="fixed inset-y-0 left-4 right-4 pointer-events-none hidden md:flex items-center justify-between z-40">
+        {prevId && (
+          <button
+            onClick={() => navigate(`/aqwaal/${prevId}`)}
+            className="pointer-events-auto w-14 h-14 rounded-full bg-[var(--color-card)]/80 backdrop-blur-md border border-[var(--color-card-border)] shadow-2xl flex items-center justify-center text-[var(--color-primary)] hover:scale-110 active:scale-95 transition-all group"
+            title={t('previous_qawl')}
+          >
+            <ChevronRight size={28} className={isArabic ? '' : 'rotate-180'} />
+          </button>
+        )}
+        <div /> {/* Spacer */}
+        {nextId && (
+          <button
+            onClick={() => navigate(`/aqwaal/${nextId}`)}
+            className="pointer-events-auto w-14 h-14 rounded-full bg-[var(--color-card)]/80 backdrop-blur-md border border-[var(--color-card-border)] shadow-2xl flex items-center justify-center text-[var(--color-primary)] hover:scale-110 active:scale-95 transition-all group"
+            title={t('next_qawl')}
+          >
+            <ChevronRight size={28} className={isArabic ? 'rotate-180' : ''} />
           </button>
         )}
       </div>
