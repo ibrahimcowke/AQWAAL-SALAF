@@ -37,8 +37,6 @@ export default function AqwalDetail() {
 
   const prevId = prevQawl?.id;
   const nextId = nextQawl?.id;
-  const prevText = prevQawl ? (isSomali && prevQawl.text_so ? prevQawl.text_so : prevQawl.text_ar) : '';
-  const nextText = nextQawl ? (isSomali && nextQawl.text_so ? nextQawl.text_so : nextQawl.text_ar) : '';
 
   if (!qawl) {
     return (
@@ -317,62 +315,6 @@ export default function AqwalDetail() {
             #{tag}
           </Link>
         ))}
-      </div>
-
-      {/* Navigation Buttons (Bottom) */}
-      <div className={`flex items-center gap-4 mt-8 ${isArabic ? '' : 'flex-row-reverse'}`} style={{ direction: isArabic ? 'rtl' : 'ltr' }}>
-        {prevId && (
-          <button
-            onClick={() => navigate(`/aqwaal/${prevId}`)}
-            className="flex-1 group neu-card p-4 flex items-center gap-3 transition-all hover:border-[var(--color-primary)]/30"
-          >
-            <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-alt)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors">
-              <ChevronRight size={20} className={isArabic ? '' : 'rotate-180'} />
-            </div>
-            <div className="text-right flex-1">
-              <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold mb-0.5">{t('previous_qawl')}</p>
-              <p className={`text-xs font-bold line-clamp-1 ${isArabic ? 'arabic-text' : ''}`}>{prevText}</p>
-            </div>
-          </button>
-        )}
-
-        {nextId && (
-          <button
-            onClick={() => navigate(`/aqwaal/${nextId}`)}
-            className="flex-1 group neu-card p-4 flex items-center gap-3 transition-all hover:border-[var(--color-primary)]/30 text-right"
-          >
-            <div className="text-right flex-1">
-              <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold mb-0.5">{t('next_qawl')}</p>
-              <p className={`text-xs font-bold line-clamp-1 ${isArabic ? 'arabic-text' : ''}`}>{nextText}</p>
-            </div>
-            <div className="w-10 h-10 rounded-xl bg-[var(--color-bg-alt)] flex items-center justify-center text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors">
-              <ChevronRight size={20} className={isArabic ? 'rotate-180' : ''} />
-            </div>
-          </button>
-        )}
-      </div>
-
-      {/* Floating Navigation Arrows (Desktop/Tablet) */}
-      <div className="fixed inset-y-0 left-4 right-4 pointer-events-none hidden md:flex items-center justify-between z-40">
-        {prevId && (
-          <button
-            onClick={() => navigate(`/aqwaal/${prevId}`)}
-            className="pointer-events-auto w-14 h-14 rounded-full bg-[var(--color-card)]/80 backdrop-blur-md border border-[var(--color-card-border)] shadow-2xl flex items-center justify-center text-[var(--color-primary)] hover:scale-110 active:scale-95 transition-all group"
-            title={t('previous_qawl')}
-          >
-            <ChevronRight size={28} className={isArabic ? '' : 'rotate-180'} />
-          </button>
-        )}
-        <div /> {/* Spacer */}
-        {nextId && (
-          <button
-            onClick={() => navigate(`/aqwaal/${nextId}`)}
-            className="pointer-events-auto w-14 h-14 rounded-full bg-[var(--color-card)]/80 backdrop-blur-md border border-[var(--color-card-border)] shadow-2xl flex items-center justify-center text-[var(--color-primary)] hover:scale-110 active:scale-95 transition-all group"
-            title={t('next_qawl')}
-          >
-            <ChevronRight size={28} className={isArabic ? 'rotate-180' : ''} />
-          </button>
-        )}
       </div>
 
       {/* Explanation Modal */}

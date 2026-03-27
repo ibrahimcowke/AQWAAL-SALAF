@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Filter } from 'lucide-react';
+import { Filter, BookOpen, Tag } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useContentStore } from '../stores/contentStore';
 import QawlCard from '../components/ui/QawlCard';
-import { TagBadge } from '../components/ui/Badge';
+import { FilterChips } from '../components/ui/FilterChips';
 import { availableTags } from '../constants/content';
 
 export default function Aqwaal() {
   const { t, i18n } = useTranslation();
-  const { getFilteredAqwaal, searchQuery, setSearchQuery, activeTag, setActiveTag } = useContentStore();
+  const { getFilteredAqwaal, searchQuery, setSearchQuery, activeTag, setActiveTag, activeScholarId, setActiveScholarId, scholars } = useContentStore();
   const [searchParams] = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
 
@@ -59,12 +59,29 @@ export default function Aqwaal() {
 
       {/* Tag filters */}
       {showFilters && (
-        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mb-4">
-          <div className="flex flex-wrap gap-2">
-            <TagBadge label={t('all')} active={!activeTag} onClick={() => setActiveTag('')} />
-            {availableTags.map((tag) => (
-              <TagBadge key={tag} label={tag} active={activeTag === tag} onClick={() => setActiveTag(activeTag === tag ? '' : tag)} />
-            ))}
+        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mb-4 space-y-4">
+          <div className="space-y-2">
+            <h3 className={`text-xs font-bold opacity-60 flex items-center gap-1 ${isArabic ? 'arabic-text' : ''}`}>
+              <Tag size={12} /> {t('topics')}
+            </h3>
+            <FilterChips 
+              items={availableTags.map(tag => ({ id: tag, name_ar: tag, name_so: tag }))}
+              activeId={activeTag}
+              onSelect={setActiveTag}
+              allLabel={t('all')}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <h3 className={`text-xs font-bold opacity-60 flex items-center gap-1 ${isArabic ? 'arabic-text' : ''}`}>
+              <BookOpen size={12} /> {t('scholars')}
+            </h3>
+            <FilterChips 
+              items={scholars}
+              activeId={activeScholarId}
+              onSelect={setActiveScholarId}
+              allLabel={t('all')}
+            />
           </div>
         </motion.div>
       )}

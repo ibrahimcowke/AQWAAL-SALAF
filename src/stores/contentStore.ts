@@ -10,11 +10,13 @@ interface ContentState {
   scholars: Scholar[];
   searchQuery: string;
   activeTag: string;
+  activeScholarId: string;
   dailyQawl: Qawl | null;
   isLoading: boolean;
   error: string | null;
   setSearchQuery: (q: string) => void;
   setActiveTag: (tag: string) => void;
+  setActiveScholarId: (id: string) => void;
   fetchContent: () => Promise<void>;
   getScholarById: (id: string) => Scholar | undefined;
   getAqwaalByScholar: (scholarId: string) => Qawl[];
@@ -31,12 +33,14 @@ export const useContentStore = create<ContentState>()((set, get) => ({
   scholars: scholarsData,
   searchQuery: '',
   activeTag: '',
+  activeScholarId: '',
   dailyQawl: null,
   isLoading: false,
   error: null,
 
   setSearchQuery: (q) => set({ searchQuery: q }),
   setActiveTag: (tag) => set({ activeTag: tag }),
+  setActiveScholarId: (id) => set({ activeScholarId: id }),
 
   fetchContent: async () => {
     set({ isLoading: true, error: null });
@@ -99,7 +103,7 @@ export const useContentStore = create<ContentState>()((set, get) => ({
   getQisasByScholar: (scholarId) => get().qisas.filter((q) => q.scholar_id === scholarId),
   
   getFilteredAqwaal: () => {
-    const { aqwaal, searchQuery, activeTag } = get();
+    const { aqwaal, searchQuery, activeTag, activeScholarId } = get();
     return aqwaal.filter((a) => {
       const matchesSearch =
         !searchQuery ||
@@ -107,12 +111,13 @@ export const useContentStore = create<ContentState>()((set, get) => ({
         (a.scholar_name_ar && a.scholar_name_ar.includes(searchQuery)) ||
         a.tags.some((t) => t.includes(searchQuery));
       const matchesTag = !activeTag || a.tags.includes(activeTag);
-      return matchesSearch && matchesTag;
+      const matchesScholar = !activeScholarId || a.scholar_id === activeScholarId;
+      return matchesSearch && matchesTag && matchesScholar;
     });
   },
 
   getFilteredQisas: () => {
-    const { qisas, searchQuery, activeTag } = get();
+    const { qisas, searchQuery, activeTag, activeScholarId } = get();
     return qisas.filter((q) => {
       const matchesSearch =
         !searchQuery ||
@@ -121,7 +126,8 @@ export const useContentStore = create<ContentState>()((set, get) => ({
         q.summary_ar?.includes(searchQuery) ||
         q.tags.some((t) => t.includes(searchQuery));
       const matchesTag = !activeTag || q.tags.includes(activeTag);
-      return matchesSearch && matchesTag;
+      const matchesScholar = !activeScholarId || q.scholar_id === activeScholarId;
+      return matchesSearch && matchesTag && matchesScholar;
     });
   },
 

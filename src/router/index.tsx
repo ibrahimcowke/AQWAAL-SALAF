@@ -16,9 +16,12 @@ const AudioLibrary = lazy(() => import('../pages/AudioLibrary'));
 const Settings = lazy(() => import('../pages/Settings'));
 const Timeline = lazy(() => import('../pages/Timeline'));
 
+import ScrollToTop from '../components/ui/ScrollToTop';
+
 export default function AppRouter() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Suspense fallback={<Loader fullPage />}>
         <Routes>
           <Route element={<Layout />}>
