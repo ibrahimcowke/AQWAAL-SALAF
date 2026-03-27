@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { scholarsData, aqwaalData, qisasData } from '../data/seed';
 import type { Qawl, Qissa, Scholar } from '../types';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
 interface ContentState {
@@ -43,59 +43,43 @@ export const useContentStore = create<ContentState>()((set, get) => ({
   setActiveScholarId: (id) => set({ activeScholarId: id }),
 
   fetchContent: async () => {
-    set({ isLoading: true, error: null });
-    try {
-      const scholarsCol = collection(db, 'scholars');
-      const aqwaalCol = collection(db, 'aqwaal');
-      const qisasCol = collection(db, 'qisas');
-
-      const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Firestore operation timed out after 3 seconds')), 3000)
-      );
-
-      const [scholarsSnap, aqwaalSnap, qisasSnap] = await Promise.race([
-        Promise.all([
-          getDocs(scholarsCol),
-          getDocs(aqwaalCol),
-          getDocs(qisasCol)
-        ]),
-        timeoutPromise
-      ]) as any;
-
-      const scholars = scholarsSnap.docs.map((doc: any) => ({ ...doc.data(), id: doc.id } as Scholar));
-      const aqwaal = aqwaalSnap.docs.map((doc: any) => ({ ...doc.data(), id: doc.id } as Qawl));
-      const qisas = qisasSnap.docs.map((doc: any) => ({ ...doc.data(), id: doc.id } as Qissa));
-
-      // Fallback to seed data if Firestore is empty (mostly for initial setup)
-      if (scholars.length === 0 && aqwaal.length === 0 && qisas.length === 0) {
-        set({
-          scholars: scholarsData,
-          aqwaal: aqwaalData,
-          qisas: qisasData,
-          isLoading: false
-        });
-      } else {
-        set({
-          scholars,
-          aqwaal,
-          qisas,
-          isLoading: false
-        });
-      }
-      
-      get().initDailyQawl();
-    } catch (error: any) {
-      console.warn('Firestore unreachable, using local data:', error?.message);
-      set({ 
-        error: error.message,
-        isLoading: false,
-        // Fallback to static data on error so the app remains functional
-        scholars: scholarsData,
-        aqwaal: aqwaalData,
-        qisas: qisasData
-      });
-      get().initDailyQawl();
+    // Only set loading if we don't have any data yet
+    if (get().aqwaal.length === 0) {
+      set({ isLoading: true, error: null });
     }
+
+    const scholarsCol = collection(db, 'scholars');
+    const aqwaalCol = collection(db, 'aqwaal');
+    const qisasCol = collection(db, 'qisas');
+
+    // Real-time listeners
+    onSnapshot(scholarsCol, (snapshot) => {
+      const scholars = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as Scholar));
+      set({ scholars: scholars.length > 0 ? scholars : scholarsData, isLoading: false });
+    }, (error) => {
+      console.error("Scholars listener error:", error);
+      set({ error: error.message, isLoading: false });
+    });
+
+    onSnapshot(aqwaalCol, (snapshot) => {
+      const aqwaal = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as Qawl));
+      set({ aqwaal: aqwaal.length > 0 ? aqwaal : aqwaalData, isLoading: false });
+      get().initDailyQawl();
+    }, (error) => {
+      console.error("Aqwaal listener error:", error);
+      set({ error: error.message, isLoading: false });
+    });
+
+    onSnapshot(qisasCol, (snapshot) => {
+      const qisas = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as Qissa));
+      set({ qisas: qisas.length > 0 ? qisas : qisasData, isLoading: false });
+    }, (error) => {
+      console.error("Qisas listener error:", error);
+      set({ error: error.message, isLoading: false });
+    });
+
+    // We don't necessarily need to return unsubs if the store lives for the app lifetime,
+    // but it's good practice if we ever need to cleanup.
   },
 
   getScholarById: (id) => get().scholars.find((s) => s.id === id || s.id === id), 
