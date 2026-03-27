@@ -1,4 +1,4 @@
-import type { Scholar, Qawl, Qissa } from '../types';
+﻿import type { Scholar, Qawl, Qissa } from '../types';
 
 // ─── SCHOLARS SEED DATA ─────────────────────────────────────────────────────
 export const scholarsData: Scholar[] = [
@@ -1168,6 +1168,76 @@ export const aqwaalData: Qawl[] = [
     explanation_so: 'Cilmigu waa nafta (ruuxa) camalkuna waa jidhka, haddii aan cilmi jirin gabi ahaanba jidhku wuu dhimanayaa, labadaba wada soco uun baa suura-gal ah.',
     created_at: '2024-03-20',
   },
+  {
+    id: 'aqw-081',
+    text_ar: 'إِنَّمَا الْعِلْمُ عِنْدَ التَّعَلُّمِ، وَإِنَّمَا الْحِلْمُ عِنْدَ التَّحَلُّمِ.',
+    text_so: 'Cilmigu wuxuu ku yimaadaa barasho, dulqaadkuna wuxuu ku yimaadaa in qofku is-barbaariyo.',
+    scholar_id: 'sch-006',
+    scholar_name_ar: 'عبد الله بن مسعود',
+    scholar_name_so: 'Cabdullaahi bin Mascuud',
+    source: 'الآداب الشرعية - ابن مفلح',
+    grade: 'authentic',
+    tags: ['علم', 'أخلاق', 'حكمة'],
+    explanation_ar: 'هذا الأثر يبين أن الفضائل تُكتسب بالمجاهدة والتدرج، فالعلم لا ينال بالتمني، والحلم لا يثبت إلا بالتمرين على كظم الغيظ وحسن المعاملة.',
+    explanation_so: 'Hikmaddani waxay tusaysaa in wanaaggu ku yimaado dadaal. Cilmigu rabitaan kaliya kuma yimaado, dulqaadkuna ma samaysmo ilaa qofku naftiisa ku tababaro.',
+    created_at: '2024-03-21',
+  },
+  {
+    id: 'aqw-082',
+    text_ar: 'مَنْ أَصْلَحَ سَرِيرَتَهُ أَصْلَحَ اللَّهُ عَلَانِيَتَهُ.',
+    text_so: 'Qofkii toosiya waxa qarsoon ee qalbigiisa ku jira, Alle wuxuu u toosiyaa muuqaalka iyo arrimihiisa bannaanka ah.',
+    scholar_id: 'sch-009',
+    scholar_name_ar: 'ابن رجب الحنبلي',
+    scholar_name_so: 'Ibnu Rajab Al-Xanbali',
+    source: 'جامع العلوم والحكم - ابن رجب',
+    grade: 'authentic',
+    tags: ['إخلاص', 'قلب', 'تقوى'],
+    explanation_ar: 'صلاح الباطن أصل لصلاح الظاهر، فمن راقب قلبه وأخلص لله نيته أصلح الله أحواله وبارك له في سلوكه وأعماله.',
+    explanation_so: 'Waxa gudaha ka hagaaga ayaa bannaankana hagaajiya. Qofka qalbigiisa iyo niyaddiisa daahiriya, Alle ayaa u hagaajiya dhaqankiisa iyo xaaladdiisa muuqata.',
+    created_at: '2024-03-22',
+  },
+  {
+    id: 'aqw-083',
+    text_ar: 'مَا عَالَجْتُ شَيْئًا أَشَدَّ عَلَيَّ مِنْ نِيَّتِي؛ لِأَنَّهَا تَتَقَلَّبُ عَلَيَّ.',
+    text_so: 'Wax aan naftayda uga daweeyay uguna dhib badnaa ma arag niyaddayda; maxaa yeelay way igu rogrogmataa.',
+    scholar_id: 'sch-007',
+    scholar_name_ar: 'سفيان الثوري',
+    scholar_name_so: 'Sufyaan Al-Thawri',
+    source: 'حلية الأولياء - أبو نعيم',
+    grade: 'authentic',
+    tags: ['نية', 'إخلاص', 'نفس'],
+    explanation_ar: 'من أعظم ميادين المجاهدة تصحيح النية؛ لأن القلب يتقلب سريعًا، والعبد يحتاج إلى دوام المحاسبة حتى يبقى عمله خالصًا لله.',
+    explanation_so: 'Meesha ugu adag ee la isku mujaahado waa niyadda oo la saxo, sababtoo ah qalbigu si degdeg ah ayuu isu beddelaa. Sidaas darteed qofku wuxuu u baahan yahay is-xisaabin joogto ah.',
+    created_at: '2024-03-23',
+  },
+  {
+    id: 'aqw-084',
+    text_ar: 'إِذَا أَرَدْتَ أَنْ يَدُومَ لَكَ مَا تُحِبُّ، فَدَعْ مَا يَكْرَهُ اللَّهُ.',
+    text_so: 'Haddii aad rabto in waxa aad jeceshahay kuu sii jiraan, iska daa waxa Alle neceb yahay.',
+    scholar_id: 'sch-008',
+    scholar_name_ar: 'الفضيل بن عياض',
+    scholar_name_so: 'Al-Fudayl bin Cayaad',
+    source: 'حلية الأولياء - أبو نعيم',
+    grade: 'authentic',
+    tags: ['تقوى', 'عبادة', 'حكمة'],
+    explanation_ar: 'دوام النعم مرتبط بالطاعة والبعد عن المعاصي؛ فالمعصية سبب لزوال البركات، والطاعة سبب لحفظها وزيادتها.',
+    explanation_so: 'Joogitaanka nicmadu wuxuu ku xiran yahay daacadnimo iyo ka fogaanshaha dunuubta. Dembigu waa sabab nicmo looga qaado, daacadnimaduna waa sabab nicmada lagu ilaaliyo.',
+    created_at: '2024-03-24',
+  },
+  {
+    id: 'aqw-085',
+    text_ar: 'لَيْسَ يَتِيمُ الَّذِي قَدْ مَاتَ وَالِدُهُ، إِنَّ الْيَتِيمَ يَتِيمُ الْعِلْمِ وَالْأَدَبِ.',
+    text_so: 'Agoon dhab ahi ma aha oo keliya kan aabbihii dhintay; agoonta runta ahi waa midka ka madhan cilmi iyo asluub.',
+    scholar_id: 'sch-003',
+    scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
+    source: 'ديوان الشافعي',
+    grade: 'authentic',
+    tags: ['علم', 'أخلاق', 'حكمة'],
+    explanation_ar: 'ينبه هذا المعنى إلى أن فقد التربية والعلم أشد أثرًا على الإنسان من الفقد المادي؛ لأن العلم والأدب قوام الشخصية وصلاح المسير.',
+    explanation_so: 'Hadalkani wuxuu tilmaamayaa in waayidda tarbiyada, cilmiga iyo asluubtu qofka uga daran tahay khasaaro badan oo maaddi ah, maadaama ay yihiin tiirarka shakhsiyadda.',
+    created_at: '2024-03-25',
+  },
 ];
 
 // ─── QISAS SEED DATA ─────────────────────────────────────────────────────────
@@ -1532,6 +1602,90 @@ Abuu Bakar wuxuu ahaa kii safarka mar hor marayay Nabiga (SCW), marna gadaal ka 
     scholar_name_ar: 'عمر بن الخطاب',
     scholar_name_so: 'Cumar bin Al-Khattaab',
   },
+  {
+    id: 'qis-013',
+    title_ar: 'تواضع الإمام الشافعي مع مخالفيه',
+    title_so: 'Is-hoosaysiintii Imaam Al-Shaafici marka la khilaafayo',
+    content_ar: `كان الإمام الشافعي رحمه الله مع سعة علمه وقوة حجته من أحسن الناس أدبًا عند المناظرة. وكان يقول: "ما ناظرت أحدًا إلا أحببت أن يظهر الله الحق على لسانه أو لساني".
+
+فلم يكن قصده الغلبة للنفس، ولا طلب الشهرة، وإنما كان يطلب ظهور الحق. ولهذا كان إذا ناظره رجل فأصاب، قبِل منه وشكره، ولم يحمله كبر العلم على رد الصواب.
+
+ورُوي عنه أنه قال: "ما كلمت أحدًا قط إلا أحببت أن يوفَّق ويُسدَّد ويُعان، ويكون عليه رعاية من الله وحفظ". وهذا يدل على صفاء قلبه، وأنه كان يرى أخاه المسلم شريكًا في طلب الهدى، لا خصمًا يراد كسره.
+
+بهذا الأدب انتفع الناس بعلمه، وانتشرت محبته بين الموافق والمخالف، وصار مثالًا للعالم الذي جمع بين الفقه والرحمة وحسن الخلق.`,
+    content_so: `Imaam Al-Shaafici (Alle ha u naxariistee), inkastoo uu lahaa cilmi ballaadhan iyo xujo adag, haddana wuxuu ahaa dadka ugu asluubta wanaagsan marka dood ama munaaqasho timaaddo. Wuxuu odhan jiray: "Cidna lama doodin anigoo aan jeclayn in Alle xaqqa ku muujiyo carrabkiisa ama kayga."
+
+Ujeeddadiisu ma ahayn inuu naftiisa guul u raadiyo ama magac doon noqdo; wuxuu doonayay oo keliya in xaqu soo baxo. Sidaas awgeed haddii qof la doodaya xaqa helo, wuu ka aqbali jiray wuuna uga mahadcelin jiray.
+
+Waxaa kale oo laga wariyay inuu yidhi: "Qofna lama hadlin anigoo aan jeclayn in la waafajiyo, la toosiyo, la kaalmeeyo, oo Ilaahay ilaalin iyo dhowris saaro." Tani waxay tusaysaa daahirnimada qalbigiisa iyo inuu u arkayay walaalkiis muslimka ah mid la raadinaya hanuun, ee aanu u arkin cadow la jebinayo.
+
+Asluubtan darteed dadku waxay ka faa'iidaysteen cilmigiisa, jacaylkiisuna wuxuu ku faafay kuwii la qabay iyo kuwii khilaafayayba, wuxuuna noqday tusaale caalim isku daray fiqhi, naxariis iyo akhlaaq wanaagsan.`,
+    summary_ar: 'قصة مشهورة عن أدب الإمام الشافعي في المناظرة، وأنه كان يطلب ظهور الحق لا غلبة النفس.',
+    summary_so: 'Sheeko muujinaysa asluubta Imaam Al-Shaafici ee doodda iyo sida uu xaqqa u raadin jiray, ee aanu naftiisa u raadin guul.',
+    source: 'مناقب الشافعي - البيهقي',
+    reading_time: 4,
+    tags: ['أخلاق', 'علم', 'إخلاص'],
+    created_at: '2024-03-27',
+    scholar_id: 'sch-003',
+    scholar_name_ar: 'الإمام الشافعي',
+    scholar_name_so: 'Imaam Al-Shaafici',
+  },
+  {
+    id: 'qis-014',
+    title_ar: 'ورع الإمام أبي حنيفة في المال',
+    title_so: 'Dhowrsanaantii Imaam Abuu Xaniifa ee maalka',
+    content_ar: `كان الإمام أبو حنيفة رحمه الله تاجرًا، ومع ذلك كان من أشد الناس ورعًا في ماله ومعاملاته. ومن أشهر ما رُوي عنه أنه بعث شريكًا له بمتاع، وأعلمه أن في بعض الثياب عيبًا، وأمره أن يبينه لمن يشتري.
+
+فباع الرجل المتاع ونسي أن يذكر العيب، فلما علم أبو حنيفة بذلك لم يرض أن ينتفع بثمن لا يدري أين ذهب، فتصدق بثمن المتاع كله، خوفًا من أن يكون قد دخل عليه مال فيه شبهة.
+
+لم ينظر إلى كثرة المال، ولا إلى الخسارة العاجلة، وإنما نظر إلى سلامة دينه وبراءة ذمته. وكان يعلم أن درهمًا من شبهة قد يفسد على العبد قلبه وبركة رزقه.
+
+ولهذا صار مضرب المثل في الأمانة وحسن التجارة، وجمع الله له بين الفقه في الدين، والورع في المكسب، والسمعة الطيبة بين الناس.`,
+    content_so: `Imaam Abuu Xaniifa (Alle ha u naxariistee) wuxuu ahaa ganacsade, haddana wuxuu ka mid ahaa dadka ugu dhowrsan xagga maalkiisa iyo macaamilkiisa. Mid ka mid ah qisadiisa ugu caansan ayaa ah inuu alaab u diray nin la shaqaynayay, una sheegay in maryaha qaarkood cillad ku jirto, kuna amray inuu cilladda u sheego qofka iibsanaya.
+
+Ninkii alaabtii iibiyay wuu illoobay inuu sheego cilladdii. Markii Abuu Xaniifa arrintaas ogaaday, kuma qancin inuu ka faa'iidaysto lacag aanu garanayn cidda laga qaaday iyada oo aan la caddeyn cilladda, markaas ayuu qiimihii alaabta oo dhan sadaqaystay, isagoo ka baqaya inuu galay maal shaki ku jiro.
+
+Ma uusan eegayn badnaanta lacagta ama khasaaraha degdegga ah; wuxuu eegayay badbaadada diintiisa iyo in masuuliyaddiisu ka fayowdo. Wuxuu ogaa in dirham shaki ku jiro uu kharribi karo qalbiga iyo barakada rizqiga.
+
+Sidaas darteed wuxuu tusaale u noqday aaminnimada iyo ganacsi wanaagga, Alle-na wuxuu isu waafajiyay fiqhi diineed, dhowrsanaan xagga kasbiga ah iyo sumcad wanaagsan oo dadka dhexdeeda ah.`,
+    summary_ar: 'قصة تبين ورع الإمام أبي حنيفة وأمانته في التجارة، وكيف ترك الربح خوفًا من الشبهة.',
+    summary_so: 'Sheeko muujinaysa dhowrsanaanta Imaam Abuu Xaniifa iyo siduu faa’iidada uga tagay isagoo ka baqaya shaki ku jira maalka.',
+    source: 'مناقب أبي حنيفة - الموفق المكي',
+    reading_time: 4,
+    tags: ['تقوى', 'أخلاق', 'علم'],
+    created_at: '2024-03-28',
+    scholar_id: 'sch-012',
+    scholar_name_ar: 'الإمام أبو حنيفة',
+    scholar_name_so: 'Imaam Abuu Xaniifa',
+  },
+  {
+    id: 'qis-015',
+    title_ar: 'رحمة عثمان بن عفان بالناس في عام الرمادة',
+    title_so: 'Naxariistii Cusmaan bin Caffaan uu dadka u muujiyay xilligii abaarta',
+    content_ar: `في عام الرمادة أصاب الناس جهد شديد وقحط عظيم، واشتدت الحاجة بالطعام في المدينة. وفي تلك الأيام قدمت لعثمان بن عفان رضي الله عنه قافلة عظيمة من الشام تحمل الطعام والزيت.
+
+فجاءه التجار يطلبون شراءها، وقالوا: نربحك في الدرهم درهمين وثلاثة. فقال لهم عثمان: قد زادني غيركم. فزادوا له في الثمن، وهو يقول: قد زادني غيركم. حتى عجبوا وقالوا: ليس في المدينة من يزيد على هذا! فقال رضي الله عنه: إن الله قد زادني بكل درهم عشر حسنات، وأنا أشهدكم أني جعلت هذه القافلة كلها صدقة على فقراء المسلمين.
+
+فخرج الطعام إلى المحتاجين، وعمت الفرحة بيوت المدينة، وعرف الناس أن عثمان لم يكن كريمًا بماله فقط، بل كان يرى المال وسيلة لرضا الله ونفع عباده.
+
+وبقيت هذه القصة مثالًا عظيمًا على البذل والإحسان، وعلى يقين الصحابة بأن ما عند الله خير وأبقى من أرباح التجارة كلها.`,
+    content_so: `Sanadkii abaarta adagi dhacday ee loo yaqaanay Caamur-Ramaadah, dadkii waxaa ku habsaday dhibaato weyn iyo cunto yari aad u daran oo ka jirtay Madiina. Maalmahaas waxaa Cusmaan bin Caffaan (Alle ha ka raalli noqdee) u timid safar ganacsi oo weyn oo Shaam ka yimi, oo siday raashin iyo saliid.
+
+Ganacsatadii ayaa u timid si ay uga iibsadaan, waxayna ku yidhaahdeen: dirham kasta laba ama saddex ayaan kaaga faa'iidaysiinaynaa. Cusmaan wuxuu ugu jawaabay: kuwo kale ayaa intaas iga sii badan ii kordhiyay. Markaasay qiimihii sii kordhiyeen, isaguna weli wuxuu odhanayay: kuwo kale ayaa iga sii badan ii kordhiyay. Ugu dambayn way yaabeen oo waxay yidhaahdeen: magaalada gudaheeda cid intaas ka badan ma jirto. Markaas ayuu yidhi: Alle ayaa dirham kasta toban xasanaad iigu kordhiyay, ee waxaan idiin markhaati furayaa in safarkan oo dhan aan sadaqo uga dhigay masaakiinta muslimiinta.
+
+Markaas ayaa cuntadii loo qaybiyay dadka baahan, farxadna waxay gashay guryihii Madiina. Dadku waxay garteen in Cusmaan aanu ku deeqin maalkiisa oo keliya, balse uu maalka u arkayay dariiq lagu helo raallinimada Alle iyo anfaca addoomadiisa.
+
+Sheekadani waxay weli tahay tusaale weyn oo ku saabsan deeqsinimada, samafalka iyo yaqiinka Saxaabada ee ah in waxa Alle agtiisa yaal ay ka khayr badan yihiin dhammaan faa’iidooyinka ganacsiga.`,
+    summary_ar: 'قصة إنفاق عثمان بن عفان قافلته التجارية كلها على فقراء المسلمين زمن المجاعة.',
+    summary_so: 'Sheekada Cusmaan bin Caffaan oo safarkiisii ganacsi oo dhan u hibeyay masaakiinta muslimiinta xilligii macaluusha.',
+    source: 'سير أعلام النبلاء - الذهبي',
+    reading_time: 5,
+    tags: ['رحمة', 'تقوى', 'أخلاق'],
+    created_at: '2024-03-29',
+    scholar_id: 'sch-017',
+    scholar_name_ar: 'عثمان بن عفان',
+    scholar_name_so: 'Cusmaan bin Caffaan',
+  },
 ];
 
 // ─── TAGS FOR FILTERING ──────────────────────────────────────────────────────
@@ -1541,3 +1695,4 @@ export const availableTags = [
   'نفس', 'إيمان', 'ثبات', 'وقت', 'صمت', 'حديث', 'فقه', 
   'تعظيم', 'ذكاء', 'حفظ', 'نية', 'أخلاق',
 ];
+
