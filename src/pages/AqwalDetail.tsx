@@ -203,6 +203,29 @@ export default function AqwalDetail() {
         </div>
 
         <div className="flex items-center gap-3">
+          {prevId && (
+            <button
+              onClick={() => navigate(`/aqwaal/${prevId}`)}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-all hover:scale-110"
+              style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)', border: '1px solid var(--color-card-border)' }}
+              title={t('previous_qawl')}
+            >
+              <ChevronRight size={20} className={`md:w-6 md:h-6 ${isArabic ? '' : 'rotate-180'}`} />
+            </button>
+          )}
+          {nextId && (
+            <button
+              onClick={() => navigate(`/aqwaal/${nextId}`)}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-all hover:scale-110"
+              style={{ color: 'var(--color-text-muted)', background: 'var(--color-bg-alt)', border: '1px solid var(--color-card-border)' }}
+              title={t('next_qawl')}
+            >
+              <ChevronRight size={20} className={`md:w-6 md:h-6 ${isArabic ? 'rotate-180' : ''}`} />
+            </button>
+          )}
+
+          <div className="w-px h-10 bg-[var(--color-card-border)] mx-1" />
+
           {explanation && (
             <button
               onClick={() => setShowExplanation(true)}
