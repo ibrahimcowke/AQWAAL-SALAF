@@ -24,7 +24,7 @@ export const useThemeStore = create<ThemeState>()(
         set({ mode });
         const root = document.documentElement;
         // Remove all possible theme classes
-        root.classList.remove('dark', 'paper', 'midnight', 'emerald', 'sand', 'royal');
+        root.classList.remove('dark', 'paper', 'midnight', 'emerald', 'sand', 'royal', 'sepia', 'ocean', 'rose', 'mint');
         if (mode !== 'light') {
           root.classList.add(mode);
         }

@@ -116,6 +116,70 @@
   --neu-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(252, 211, 77, 0.1);
 }
 
+.sepia {
+  --color-primary: #5C4033;
+  --color-primary-light: #8B4513;
+  --color-gold: #A67C00;
+  --color-gold-light: #BF9B30;
+  --color-bg: #E3D5B8;
+  --color-bg-alt: #D2C19E;
+  --color-card: #ECE2CC;
+  --color-card-border: rgba(92, 64, 51, 0.15);
+  --color-text: #2D1E17;
+  --color-text-muted: #5C4033;
+  --color-shadow-light: #f0ead6;
+  --color-shadow-dark: #c5b38a;
+  --neu-shadow: 8px 8px 16px var(--color-shadow-dark), -8px -8px 16px var(--color-shadow-light);
+}
+
+.ocean {
+  --color-primary: #0EA5E9;
+  --color-primary-light: #38BDF8;
+  --color-gold: #38BDF8;
+  --color-gold-light: #7DD3FC;
+  --color-bg: #0C4A6E;
+  --color-bg-alt: #083344;
+  --color-card: #0C4A6E;
+  --color-card-border: rgba(14, 165, 233, 0.2);
+  --color-text: #F0F9FF;
+  --color-text-muted: #BAE6FD;
+  --color-shadow-light: rgba(14, 165, 233, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.6);
+  --neu-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.rose {
+  --color-primary: #BE123C;
+  --color-primary-light: #E11D48;
+  --color-gold: #F43F5E;
+  --color-gold-light: #FB7185;
+  --color-bg: #FFF1F2;
+  --color-bg-alt: #FFE4E6;
+  --color-card: #FFF1F2;
+  --color-card-border: rgba(190, 18, 60, 0.1);
+  --color-text: #4C0519;
+  --color-text-muted: #881337;
+  --color-shadow-light: #ffffff;
+  --color-shadow-dark: #fecdd3;
+  --neu-shadow: 8px 8px 20px #fecdd3, -8px -8px 20px #ffffff;
+}
+
+.mint {
+  --color-primary: #047857;
+  --color-primary-light: #059669;
+  --color-gold: #10B981;
+  --color-gold-light: #34D399;
+  --color-bg: #ECFDF5;
+  --color-bg-alt: #D1FAE5;
+  --color-card: #F0FDF4;
+  --color-card-border: rgba(4, 120, 87, 0.1);
+  --color-text: #064E3B;
+  --color-text-muted: #065F46;
+  --color-shadow-light: #ffffff;
+  --color-shadow-dark: #a7f3d022;
+  --neu-shadow: 6px 6px 15px rgba(167, 243, 208, 0.4), -6px -6px 15px #ffffff;
+}
+
 /* ═══════════════════════════════════════════
    BASE STYLES — RTL FIRST
 ═══════════════════════════════════════════ */

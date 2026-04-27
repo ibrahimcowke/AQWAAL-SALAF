@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sun, Moon, BookOpen, Scaling, Globe, Shield, Github, Mail, Bell, ChevronLeft, Scroll, Cloud, Leaf, Sunrise, Crown, Volume2 } from 'lucide-react';
+import { Sun, Moon, BookOpen, Scaling, Globe, Shield, Github, Mail, Bell, ChevronLeft, Scroll, Cloud, Leaf, Sunrise, Crown, Volume2, Waves, Heart } from 'lucide-react';
 import { useAudioStore } from '../stores/audioStore';
 import { useThemeStore } from '../stores/themeStore';
 import { useProgressStore } from '../stores/progressStore';
@@ -27,6 +27,42 @@ export default function Settings() {
         </p>
       </motion.div>
 
+      {/* Language Settings */}
+      <section className="mb-8">
+        <h2 className="arabic-text font-bold text-sm mb-4 opacity-40">{t('language')}</h2>
+        <div className="neu-card p-5">
+            <div className="flex items-center gap-3 mb-6">
+                <Globe size={20} className="text-[var(--color-gold)]" />
+                <div>
+                    <h3 className="arabic-text font-bold text-sm">{t('select_language')}</h3>
+                </div>
+            </div>
+            
+            <div className="flex gap-3">
+                {[
+                  { id: 'ar', label: t('ar') },
+                  { id: 'en', label: t('en') },
+                  { id: 'so', label: t('so') },
+                ].map((lang) => (
+                  <button
+                    key={lang.id}
+                    onClick={() => {
+                        i18n.changeLanguage(lang.id);
+                        toast.success(lang.id === 'ar' ? 'تم تغيير اللغة' : lang.id === 'so' ? 'Luuqadda waa la beddelay' : 'Language changed');
+                    }}
+                    className={`flex-1 py-3 rounded-2xl border-2 transition-all font-bold text-xs ${
+                      i18n.language === lang.id
+                        ? 'border-[var(--color-gold)] bg-[var(--color-gold)] text-[var(--color-primary)]'
+                        : 'border-transparent bg-[var(--color-bg-alt)] opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+            </div>
+        </div>
+      </section>
+
       {/* Visual Settings */}
       <section className="mb-8">
         <h2 className="arabic-text font-bold text-sm mb-4 opacity-40">{t('appearance')}</h2>
@@ -49,7 +85,11 @@ export default function Settings() {
                   { id: 'emerald', label: t('theme_emerald'), color: '#064E3B', icon: Leaf },
                   { id: 'sand', label: t('theme_sand'), color: '#FEF3C7', icon: Sunrise },
                   { id: 'royal', label: t('theme_royal'), color: '#2E1065', icon: Crown },
-                ].map((item) => (
+                  { id: 'sepia', label: t('theme_sepia'), color: '#E3D5B8', icon: BookOpen },
+                  { id: 'ocean', label: t('theme_ocean'), color: '#0C4A6E', icon: Waves },
+                  { id: 'rose', label: t('theme_rose'), color: '#FFF1F2', icon: Heart },
+                  { id: 'mint', label: t('theme_mint'), color: '#ECFDF5', icon: Leaf },
+                ].map((item: any) => (
                   <button
                     key={item.id}
                     onClick={() => setMode(item.id as any)}
@@ -139,12 +179,12 @@ export default function Settings() {
           </div>
 
           <div className="neu-card p-5">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                       <Volume2 size={20} className="text-[var(--color-gold)]" />
                       <div>
-                          <h3 className="arabic-text font-bold text-sm">{t('audio_test')}</h3>
-                          <p className="arabic-text text-[10px] opacity-60">{t('audio_test_desc')}</p>
+                          <h3 className="arabic-text font-bold text-sm">{t('audio_settings')}</h3>
+                          <p className="arabic-text text-[10px] opacity-60">{t('audio_settings_desc')}</p>
                       </div>
                   </div>
                   <button 
@@ -154,10 +194,26 @@ export default function Settings() {
                     {t('start_test')}
                   </button>
               </div>
-              <div className="p-3 rounded-lg bg-[var(--color-bg-alt)] border border-dashed border-[var(--color-gold)]/20">
-                  <p className="arabic-text text-[9px] opacity-70 leading-relaxed">
-                      💡 {t('audio_note')}
-                  </p>
+
+              <div className="space-y-4">
+                <div className="flex flex-col gap-2">
+                    <div className="flex justify-between items-center px-1">
+                        <span className="text-[10px] font-bold opacity-60 uppercase tracking-widest">{t('playback_speed')}</span>
+                        <span className="text-xs font-mono font-bold text-[var(--color-primary)]">{useAudioStore.getState().playbackRate}x</span>
+                    </div>
+                    <input 
+                        type="range" min="0.5" max="1.5" step="0.1" 
+                        value={useAudioStore.getState().playbackRate} 
+                        onChange={(e) => useAudioStore.getState().setPlaybackRate(parseFloat(e.target.value))}
+                        className="w-full accent-[var(--color-primary)]"
+                    />
+                </div>
+
+                <div className="p-3 rounded-lg bg-[var(--color-bg-alt)] border border-dashed border-[var(--color-gold)]/20">
+                    <p className="arabic-text text-[9px] opacity-70 leading-relaxed">
+                        💡 {t('audio_note')}
+                    </p>
+                </div>
               </div>
           </div>
         </div>

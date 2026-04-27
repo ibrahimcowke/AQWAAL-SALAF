@@ -1,7 +1,7 @@
 // ─── TYPE DEFINITIONS FOR NOOR AL-SALAF ───────────────────────────────────
 
 export type ContentGrade = 'authentic' | 'hasan' | 'weak' | 'unknown';
-export type ThemeMode = 'light' | 'dark' | 'paper' | 'midnight' | 'emerald' | 'sand' | 'royal';
+export type ThemeMode = 'light' | 'dark' | 'paper' | 'midnight' | 'emerald' | 'sand' | 'royal' | 'sepia' | 'ocean' | 'rose' | 'mint';
 export type FontMode = 'amiri' | 'scheherazade' | 'tajawal' | 'cairo' | 'noto';
 export type ScholarEra = 'صحابة' | 'تابعون' | 'أتباع التابعين' | 'علماء متأخرون';
 

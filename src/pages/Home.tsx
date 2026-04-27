@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft } from 'lucide-react';
+import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft, Share2 } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { useTranslation } from 'react-i18next';
 import { RefreshCw } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function Home() {
   const { dailyQawl, refreshDailyQawl, aqwaal } = useContentStore();
@@ -96,13 +97,33 @@ export default function Home() {
               <Sparkles size={18} />
               <span className={`font-bold text-sm tracking-wide ${i18n.language === 'ar' ? 'arabic-text' : ''}`}>{t('daily_qawl')}</span>
             </div>
-            <button 
-              onClick={() => refreshDailyQawl()}
-              className="p-2 rounded-full hover:bg-[var(--color-gold)]/10 transition-colors text-[var(--color-gold)]/60 hover:text-[var(--color-gold)]"
-              title={t('refresh')}
-            >
-              <RefreshCw size={16} />
-            </button>
+            <div className="flex items-center gap-1">
+              <button 
+                onClick={() => {
+                  const shareData = {
+                    title: t('app_name'),
+                    text: t('slogan'),
+                    url: window.location.origin,
+                  };
+                  if (navigator.share) navigator.share(shareData);
+                  else {
+                    navigator.clipboard.writeText(`${shareData.title} - ${shareData.text}\n${shareData.url}`);
+                    toast.success(t('copied_success'));
+                  }
+                }}
+                className="p-2 rounded-full hover:bg-[var(--color-primary)]/10 transition-colors text-[var(--color-primary)]/60 hover:text-[var(--color-primary)]"
+                title={t('share')}
+              >
+                <Share2 size={16} />
+              </button>
+              <button 
+                onClick={() => refreshDailyQawl()}
+                className="p-2 rounded-full hover:bg-[var(--color-gold)]/10 transition-colors text-[var(--color-gold)]/60 hover:text-[var(--color-gold)]"
+                title={t('refresh')}
+              >
+                <RefreshCw size={16} />
+              </button>
+            </div>
           </div>
 
           {dailyQawl ? (
