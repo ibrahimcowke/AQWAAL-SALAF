@@ -3,18 +3,32 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import Loader from '../components/ui/Loader';
 
-const Home = lazy(() => import('../pages/Home'));
-const Aqwaal = lazy(() => import('../pages/Aqwaal'));
-const AqwalDetail = lazy(() => import('../pages/AqwalDetail'));
-const Qisas = lazy(() => import('../pages/Qisas'));
-const QisasReader = lazy(() => import('../pages/QisasReader'));
-const Scholars = lazy(() => import('../pages/Scholars'));
-const ScholarProfile = lazy(() => import('../pages/ScholarProfile'));
-const Search = lazy(() => import('../pages/Search'));
-const Favorites = lazy(() => import('../pages/Favorites'));
-const AudioLibrary = lazy(() => import('../pages/AudioLibrary'));
-const Settings = lazy(() => import('../pages/Settings'));
-const Timeline = lazy(() => import('../pages/Timeline'));
+// Helper to handle dynamic import failures (common after new deployments)
+const lazyRetry = (componentImport: () => Promise<any>) => {
+  return lazy(async () => {
+    try {
+      return await componentImport();
+    } catch (error) {
+      // Check if the error is a "Failed to fetch" or similar network error for modules
+      console.error('Lazy loading error, reloading page:', error);
+      window.location.reload();
+      return { default: () => null };
+    }
+  });
+};
+
+const Home = lazyRetry(() => import('../pages/Home'));
+const Aqwaal = lazyRetry(() => import('../pages/Aqwaal'));
+const AqwalDetail = lazyRetry(() => import('../pages/AqwalDetail'));
+const Qisas = lazyRetry(() => import('../pages/Qisas'));
+const QisasReader = lazyRetry(() => import('../pages/QisasReader'));
+const Scholars = lazyRetry(() => import('../pages/Scholars'));
+const ScholarProfile = lazyRetry(() => import('../pages/ScholarProfile'));
+const Search = lazyRetry(() => import('../pages/Search'));
+const Favorites = lazyRetry(() => import('../pages/Favorites'));
+const AudioLibrary = lazyRetry(() => import('../pages/AudioLibrary'));
+const Settings = lazyRetry(() => import('../pages/Settings'));
+const Timeline = lazyRetry(() => import('../pages/Timeline'));
 
 import ScrollToTop from '../components/ui/ScrollToTop';
 
