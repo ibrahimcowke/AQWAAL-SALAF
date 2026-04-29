@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import BottomNav from './BottomNav';
 import AudioBar from '../ui/AudioBar';
+import FloatingActionButtons from './FloatingActionButtons';
 import { useThemeStore } from '../../stores/themeStore';
 import { useEffect } from 'react';
 
@@ -23,6 +24,7 @@ export default function Layout() {
       </main>
       <BottomNav />
       <AudioBar />
+      <FloatingActionButtons />
     </div>
   );
 }

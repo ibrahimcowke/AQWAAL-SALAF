@@ -7,8 +7,6 @@ import { Loader2 } from 'lucide-react';
 import { HelmetProvider } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
-import FloatingActionButtons from './components/layout/FloatingActionButtons';
-
 function App() {
   const { fetchContent, isLoading, aqwaal } = useContentStore();
   const { initializeAuth } = useAuthStore();
@@ -35,8 +33,8 @@ function App() {
   return (
     <HelmetProvider>
       <AppRouter />
-      <FloatingActionButtons />
       <Toaster 
+
         position="top-center" 
         reverseOrder={false}
         toastOptions={{
