@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Filter, BookOpen, Tag } from 'lucide-react';
@@ -20,6 +20,16 @@ export default function Aqwaal() {
   }, []);
 
   const filtered = getFilteredAqwaal();
+  const weightsRef = useRef<Record<string, number>>({});
+
+  const randomized = useMemo(() => {
+    return [...filtered].sort((a, b) => {
+      if (!weightsRef.current[a.id]) weightsRef.current[a.id] = Math.random();
+      if (!weightsRef.current[b.id]) weightsRef.current[b.id] = Math.random();
+      return weightsRef.current[a.id] - weightsRef.current[b.id];
+    });
+  }, [filtered]);
+
   const isArabic = i18n.language === 'ar';
 
   return (
@@ -93,7 +103,7 @@ export default function Aqwaal() {
             {t('not_found_qawl')}
           </div>
         ) : (
-          filtered.map((qawl, i) => <QawlCard key={qawl.id} qawl={qawl} index={i} />)
+          randomized.map((qawl, i) => <QawlCard key={qawl.id} qawl={qawl} index={i} />)
         )}
       </div>
     </div>
