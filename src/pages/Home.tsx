@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft, Share2 } from 'lucide-react';
+import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft, Share2, HelpCircle } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { useTranslation } from 'react-i18next';
 import { RefreshCw } from 'lucide-react';
@@ -50,6 +50,14 @@ export default function Home() {
       icon: Users, 
       color: '#10b981', 
       count: 19 
+    },
+    { 
+      id: 'quiz', 
+      title: i18n.language === 'so' ? 'Kediska' : i18n.language === 'ar' ? 'الاختبارات' : 'Quiz', 
+      sub: i18n.language === 'so' ? 'Tijaabi aqoontaada' : i18n.language === 'ar' ? 'اختبر معرفتك' : 'Test your knowledge', 
+      icon: HelpCircle, 
+      color: '#ec4899', 
+      count: 5 
     },
     { 
       id: 'search', 

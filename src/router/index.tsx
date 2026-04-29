@@ -29,6 +29,7 @@ const Favorites = lazyRetry(() => import('../pages/Favorites'));
 const AudioLibrary = lazyRetry(() => import('../pages/AudioLibrary'));
 const Settings = lazyRetry(() => import('../pages/Settings'));
 const Timeline = lazyRetry(() => import('../pages/Timeline'));
+const Quiz = lazyRetry(() => import('../pages/Quiz'));
 
 import ScrollToTop from '../components/ui/ScrollToTop';
 
@@ -47,6 +48,7 @@ export default function AppRouter() {
             <Route path="scholars" element={<Scholars />} />
             <Route path="scholars/:id" element={<ScholarProfile />} />
             <Route path="timeline" element={<Timeline />} />
+            <Route path="quiz" element={<Quiz />} />
             <Route path="search" element={<Search />} />
             <Route path="favorites" element={<Favorites />} />
             <Route path="audio" element={<AudioLibrary />} />
