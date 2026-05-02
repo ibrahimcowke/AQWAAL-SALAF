@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Share2, Heart, Volume2, Quote, Users, Sparkles, Info, X, Copy, Check, BookOpen } from 'lucide-react';
+import { ChevronRight, Share2, Heart, Volume2, Quote, Users, Sparkles, Info, X, Copy, Check, BookOpen, Layers } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
 import { useAuthStore } from '../stores/authStore';
 import { useAudioStore } from '../stores/audioStore';
 import { GradeBadge } from '../components/ui/Badge';
 import QuoteDesigner from '../components/features/QuoteDesigner';
+import QawlCard from '../components/ui/QawlCard';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
@@ -15,7 +16,7 @@ export default function AqwalDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { aqwaal, getScholarById } = useContentStore();
-  const { isFavoriteQawl, addFavoriteQawl, removeFavoriteQawl } = useAuthStore();
+  const { isFavoriteQawl, addFavoriteQawl, removeFavoriteQawl, addRecentlyViewedQawl } = useAuthStore();
   const { speak } = useAudioStore();
 
   const [showDesigner, setShowDesigner] = useState(false);
@@ -30,6 +31,12 @@ export default function AqwalDetail() {
   const qawl = aqwaal.find((a) => a.id === id);
   const scholar = qawl ? getScholarById(qawl.scholar_id) : null;
 
+  useEffect(() => {
+    if (qawl) {
+      addRecentlyViewedQawl(qawl.id);
+    }
+  }, [qawl, addRecentlyViewedQawl]);
+
   // Navigation Logic
   const currentIndex = aqwaal.findIndex(a => a.id === id);
   const prevQawl = currentIndex > 0 ? aqwaal[currentIndex - 1] : null;
@@ -37,6 +44,14 @@ export default function AqwalDetail() {
 
   const prevId = prevQawl?.id;
   const nextId = nextQawl?.id;
+
+  // Related Quotes
+  const relatedAqwaal = qawl 
+    ? aqwaal
+        .filter(a => a.id !== qawl.id && (a.scholar_id === qawl.scholar_id || a.tags.some(t => qawl.tags.includes(t))))
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3)
+    : [];
 
   if (!qawl) {
     return (
@@ -316,6 +331,23 @@ export default function AqwalDetail() {
           </Link>
         ))}
       </div>
+
+      {/* Related Quotes */}
+      {relatedAqwaal.length > 0 && (
+        <div className="mb-12">
+          <div className={`flex items-center gap-2 mb-6 ${isArabic ? 'flex-row-reverse' : ''}`}>
+            <Layers size={20} style={{ color: 'var(--color-primary)' }} />
+            <h3 className={`font-bold text-lg ${isArabic ? 'arabic-text' : ''}`}>
+              {t('related_quotes', { defaultValue: isArabic ? 'أقوال مشابهة' : isSomali ? 'Odhaahyo La Xiriira' : 'Related Quotes' })}
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+            {relatedAqwaal.map((relatedQawl, index) => (
+              <QawlCard key={relatedQawl.id} qawl={relatedQawl} index={index} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Explanation Modal */}
       <AnimatePresence>

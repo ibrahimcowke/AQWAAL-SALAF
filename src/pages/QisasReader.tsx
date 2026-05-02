@@ -16,7 +16,7 @@ export default function QisasReader() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { qisas, getScholarById } = useContentStore();
-  const { isFavoriteQissa, addFavoriteQissa, removeFavoriteQissa, saveReadingProgress } = useAuthStore();
+  const { isFavoriteQissa, addFavoriteQissa, removeFavoriteQissa, saveReadingProgress, addRecentlyViewedQissa } = useAuthStore();
   const { speak } = useAudioStore();
   const { fontSize, setFontSize, readingMode, toggleReadingMode } = useThemeStore();
   const { isRead, markAsRead, unmarkAsRead } = useProgressStore();
@@ -40,6 +40,12 @@ export default function QisasReader() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [qissa]);
+
+  useEffect(() => {
+    if (qissa) {
+      addRecentlyViewedQissa(qissa.id);
+    }
+  }, [qissa, addRecentlyViewedQissa]);
 
   if (!qissa) {
     return (

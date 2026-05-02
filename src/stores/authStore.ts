@@ -23,6 +23,8 @@ interface AuthState {
   addCollection: (name: string) => void;
   removeCollection: (id: string) => void;
   addToCollection: (collectionId: string, type: 'qawl' | 'qissa', itemId: string) => void;
+  addRecentlyViewedQawl: (id: string) => void;
+  addRecentlyViewedQissa: (id: string) => void;
 }
 
 const guestUser: UserProfile = {
@@ -33,6 +35,8 @@ const guestUser: UserProfile = {
   theme: 'light',
   font_size: 1.35,
   collections: [],
+  recently_viewed_aqwaal: [],
+  recently_viewed_qisas: [],
 };
 
 export const useAuthStore = create<AuthState>()(
@@ -127,6 +131,31 @@ export const useAuthStore = create<AuthState>()(
         const currentUser = get().user;
         if (!currentUser) return;
         const updated = { ...currentUser, reading_progress: { ...currentUser.reading_progress, [qissaId]: progress } };
+        set({ user: updated });
+        get().syncToFirestore(updated);
+      },
+
+      addRecentlyViewedQawl: (id) => {
+        const currentUser = get().user;
+        if (!currentUser) return;
+        
+        // Remove id if it already exists, then add to front. Keep max 20 items.
+        const currentList = currentUser.recently_viewed_aqwaal || [];
+        const updatedList = [id, ...currentList.filter(item => item !== id)].slice(0, 20);
+        
+        const updated = { ...currentUser, recently_viewed_aqwaal: updatedList };
+        set({ user: updated });
+        get().syncToFirestore(updated);
+      },
+
+      addRecentlyViewedQissa: (id) => {
+        const currentUser = get().user;
+        if (!currentUser) return;
+        
+        const currentList = currentUser.recently_viewed_qisas || [];
+        const updatedList = [id, ...currentList.filter(item => item !== id)].slice(0, 20);
+        
+        const updated = { ...currentUser, recently_viewed_qisas: updatedList };
         set({ user: updated });
         get().syncToFirestore(updated);
       },

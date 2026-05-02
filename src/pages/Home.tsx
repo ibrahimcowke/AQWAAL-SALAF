@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft, Share2, HelpCircle } from 'lucide-react';
+import { BookOpen, MessageSquareQuote, Users, Search, Quote, Sparkles, ChevronLeft, Share2, HelpCircle, Clock, RefreshCw } from 'lucide-react';
 import { useContentStore } from '../stores/contentStore';
+import { useAuthStore } from '../stores/authStore';
+import QawlCard from '../components/ui/QawlCard';
+import QissaCard from '../components/ui/QissaCard';
 import { useTranslation } from 'react-i18next';
-import { RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function Home() {
-  const { dailyQawl, refreshDailyQawl, aqwaal } = useContentStore();
+  const { dailyQawl, refreshDailyQawl, aqwaal, qisas } = useContentStore();
+  const { user } = useAuthStore();
   
   const { t, i18n } = useTranslation();
 
@@ -24,7 +27,17 @@ export default function Home() {
     }
   }, [aqwaal, dailyQawl]);
 
-  
+  const recentlyViewedIds = user?.recently_viewed_aqwaal || [];
+  const recentlyViewedAqwaal = recentlyViewedIds
+    .map(id => aqwaal.find(a => a.id === id))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a))
+    .slice(0, 3);
+
+  const recentlyViewedQisasIds = user?.recently_viewed_qisas || [];
+  const recentlyViewedQisas = recentlyViewedQisasIds
+    .map(id => qisas.find(q => q.id === id))
+    .filter((q): q is NonNullable<typeof q> => Boolean(q))
+    .slice(0, 2);
 
   const categories = [
     { 
@@ -247,6 +260,40 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Recently Viewed Widget */}
+      {recentlyViewedAqwaal.length > 0 && (
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className={`section-title text-xl m-0 flex items-center gap-2 ${i18n.language === 'ar' ? 'arabic-text flex-row-reverse' : ''}`}>
+              <Clock size={20} style={{ color: 'var(--color-primary)' }} />
+              {t('recently_viewed', { defaultValue: i18n.language === 'ar' ? 'شوهد مؤخراً' : i18n.language === 'so' ? 'Dhawaan La Daawaday' : 'Recently Viewed' })}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+            {recentlyViewedAqwaal.map((qawl, index) => (
+              <QawlCard key={qawl.id} qawl={qawl} index={index} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Recently Viewed Qisas Widget */}
+      {recentlyViewedQisas.length > 0 && (
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className={`section-title text-xl m-0 flex items-center gap-2 ${i18n.language === 'ar' ? 'arabic-text flex-row-reverse' : ''}`}>
+              <BookOpen size={20} style={{ color: 'var(--color-gold)' }} />
+              {t('recently_read_qisas', { defaultValue: i18n.language === 'ar' ? 'قصص قرأتها مؤخراً' : i18n.language === 'so' ? 'Qisooyin Dhawaan La Akhriyay' : 'Recently Read Stories' })}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+            {recentlyViewedQisas.map((qissa, index) => (
+              <QissaCard key={qissa.id} qissa={qissa} index={index} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Quick Links / Tags */}
       <section>

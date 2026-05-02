@@ -65,6 +65,8 @@ export interface UserProfile {
   displayName?: string;
   favorites_aqwaal: string[];
   favorites_qisas: string[];
+  recently_viewed_aqwaal?: string[];
+  recently_viewed_qisas?: string[];
   reading_progress: Record<string, number>; // qissa_id -> scroll%
   theme: ThemeMode;
   font_size: number;
